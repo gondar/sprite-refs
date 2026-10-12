@@ -63,3 +63,25 @@ All calls through APIYI (one key, group `default`). Every job is in `jobs/jobs.j
 - video_frames.py: 24 fps extraction, seam search on premultiplied 96 px thumbnails normalised by median
   frame-to-frame motion (score < 1 ≈ seamless), 24 frames per loop for a 4 s idle.
 - onion.py numbers: idle IoU > 0.9, walk 0.75–0.9; area within a few %; flag shifts > 3 px.
+
+## Round 2 (E4, E5, E6, owl B1/B2)
+- E4 walk "in place, as on a treadmill": H3 DREW A TREADMILL and faded magenta → cream. Never compare the motion
+  to an object; H3 renders the comparison. Say "walks on the spot, does not travel".
+- E5 = the E2b recipe at 8 s ($0.24): he barely moves (height ±1.4 %), seam 0.71 — H3 stretched the 4.45 s motion
+  clip over 8 s instead of repeating it. Longer clips do not give more cycles; 4 s is the sweet spot for idles.
+- E6 = four timed actions (idle / wave / hop / settle) in one 4 s clip, reference image only: the actions land
+  roughly on time, but the background fades magenta → white by 1.75 s, the hop leaves the frame (no headroom),
+  the mouth talks. Busier clips loosen H3's grip on the background.
+- E6b = same four actions driven by a MANNEQUIN clip with the same timing + a reference padded with headroom:
+  background magenta all 4 s, actions on the mannequin's schedule, whole clip loops (seam 0.58). Two flaws: the
+  "wave" became blowing kisses with sparkles (speck filter `pack.py --largest` removes them), and H3 copied the
+  edge of my padding (I padded with pure #FF00FF; the image's own background was a slightly different magenta).
+  → pad with the image's OWN border colour. Cost: $0.12 mannequin (reusable) + $0.12 per character.
+  So one 4 s clip = three usable actions → ~$0.04 per action once the mannequin exists.
+- The motion curve (segments.py) finds the real boundaries: wave 0.83–2.6 s, hop 2.83–3.83 s.
+- A hop must NOT be feet-aligned (that erases the jump): `pack.py --anchor fixed` for locked-camera video.
+- Owl B1: Nano Banana Pro design on GREEN (lavender plumage), padded myself; the drawn 8-frame dozing idle
+  ($0.025) is excellent and the green key is clean. B2 video (ref image only, "beak closed"): green background
+  held, beak still opened once, no loop (seam 1.5). Without a motion clip nothing pulls the clip back to its start.
+- Generation times: text-only mannequin ~1.5 min; reference image only ~1.5–3 min; with a reference video ~3–7 min;
+  E4 (ref image only, walk) took ~25 min — queue time varies.
