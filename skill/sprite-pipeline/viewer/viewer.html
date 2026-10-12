@@ -1,0 +1,264 @@
+<title>Sprite Take Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a light table — take list on the left, the stage (game-size playback over a chosen ground) in the
+   middle, frame strip with per-frame numbers underneath. Stacks to one column on a phone. */
+:root {
+  --bg: #eeeae3; --panel: #f8f6f2; --ink: #23201c; --muted: #6f675d; --line: #d6cfc4;
+  --accent: #c2541f; --accent-ink: #ffffff; --off: #b8afa3; --warn: #b4361c; --good: #2f7a4a;
+  --display: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #17151a; --panel: #211e24; --ink: #ece6dc; --muted: #9d9488; --line: #3a353f;
+  --accent: #ef8a4c; --accent-ink: #1a1208; --off: #5b5462; --warn: #ff7a5c; --good: #7fd19a; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #17151a; --panel: #211e24; --ink: #ece6dc; --muted: #9d9488; --line: #3a353f;
+  --accent: #ef8a4c; --accent-ink: #1a1208; --off: #5b5462; --warn: #ff7a5c; --good: #7fd19a; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font: 14px/1.45 var(--display); margin: 0 }
+.wrap { padding-inline: 16px; padding-block: 16px 28px; max-width: 1280px; margin: 0 auto; display: grid; gap: 14px;
+  grid-template-columns: 250px minmax(0, 1fr); grid-template-areas: "head head" "takes stage" "takes strip" }
+@media (max-width: 820px) { .wrap { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "stage" "strip" "takes" } }
+header { grid-area: head; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px }
+h1 { font-size: 22px; margin: 0; letter-spacing: -.01em; text-wrap: balance }
+header p { margin: 0; color: var(--muted); max-width: 70ch }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px }
+.takes { grid-area: takes; padding: 10px; display: flex; flex-direction: column; gap: 6px; align-self: start; min-width: 0 }
+.lbl { font: 600 11px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted) }
+.take { all: unset; cursor: pointer; display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 8px; align-items: center;
+  padding: 6px; border-radius: 8px; border: 1px solid transparent }
+.take:hover { border-color: var(--line) } .take[aria-current="true"] { border-color: var(--accent); background: var(--bg) }
+.take:focus-visible { outline: 2px solid var(--accent) }
+.take canvas { width: 46px; height: 46px; background: var(--bg); border-radius: 6px }
+.take b { display: block; font-size: 13px; overflow-wrap: anywhere } .take span { font: 11px var(--mono); color: var(--muted) }
+.drop { margin-top: 6px; border: 1px dashed var(--line); border-radius: 8px; padding: 10px; color: var(--muted); font-size: 12px; text-align: center }
+.drop.over { border-color: var(--accent); color: var(--ink) }
+.stage { grid-area: stage; padding: 12px; display: grid; gap: 10px; min-width: 0 }
+.view { position: relative; border-radius: 8px; overflow: auto; min-height: 280px; display: grid; place-items: center; border: 1px solid var(--line) }
+#cv { image-rendering: auto; cursor: crosshair; touch-action: none; max-width: 100% }
+.ctrls { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center }
+.grp { display: flex; gap: 4px; align-items: center; flex-wrap: wrap }
+button.t, select, input[type=number] { font: 600 12px var(--mono); color: var(--ink); background: var(--bg); border: 1px solid var(--line);
+  border-radius: 7px; padding: 6px 9px; cursor: pointer }
+input[type=number] { width: 64px; cursor: text }
+button.t[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent) }
+button.t:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px }
+.sw { width: 26px; height: 26px; border-radius: 6px; border: 1px solid var(--line); cursor: pointer; padding: 0 }
+.sw[aria-pressed="true"] { outline: 2px solid var(--accent); outline-offset: 1px }
+.readout { font: 12px var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; display: flex; flex-wrap: wrap; gap: 4px 16px }
+.readout b { color: var(--ink); font-weight: 600 }
+.strip { grid-area: strip; padding: 10px; min-width: 0 }
+.frames { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 6px }
+.fr { all: unset; cursor: pointer; flex: 0 0 auto; display: grid; gap: 3px; justify-items: center; padding: 4px; border-radius: 7px; border: 1px solid var(--line); background: var(--bg) }
+.fr canvas { width: 54px; height: 66px }
+.fr.cur { border-color: var(--accent) } .fr.off { opacity: .35 } .fr:focus-visible { outline: 2px solid var(--accent) }
+.fr span { font: 10px var(--mono); color: var(--muted); font-variant-numeric: tabular-nums }
+.fr span.bad { color: var(--warn); font-weight: 600 }
+.note { font-size: 12px; color: var(--muted); margin: 8px 0 0 }
+pre#out { font: 11px var(--mono); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 8px; overflow-x: auto; margin: 8px 0 0; max-height: 160px }
+@media (prefers-reduced-motion: reduce) { .take, .fr { transition: none } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Sprite Take Review</h1>
+    <p>Judge each take at the size and speed the game plays it. Drag on the stage to move the pivot; click a frame below to leave it out.</p>
+  </header>
+
+  <aside class="takes panel" aria-label="Takes">
+    <div class="lbl">Takes</div>
+    <div id="takeList"></div>
+    <div class="drop" id="drop">Drop a strip <code>.png</code> and its <code>.json</code> here, or <label style="text-decoration:underline;cursor:pointer">choose files<input id="pick" type="file" multiple accept=".png,.webp,.json" hidden></label></div>
+  </aside>
+
+  <section class="stage panel" aria-label="Stage">
+    <div class="view" id="view"><canvas id="cv" width="320" height="320" aria-label="Animation stage"></canvas></div>
+    <div class="ctrls">
+      <div class="grp"><button class="t" id="play" aria-pressed="true">❚❚ Pause</button>
+        <button class="t" id="prev" aria-label="Previous frame">◀</button><button class="t" id="next" aria-label="Next frame">▶</button></div>
+      <div class="grp"><span class="lbl">fps</span><input id="fps" type="number" min="1" max="60" step="0.5" value="8"></div>
+      <div class="grp" role="group" aria-label="Zoom"><span class="lbl">size</span>
+        <button class="t" data-z="1" aria-pressed="true">1× game</button><button class="t" data-z="2" aria-pressed="false">2×</button><button class="t" data-z="3" aria-pressed="false">3×</button></div>
+      <div class="grp" role="group" aria-label="Onion skin"><span class="lbl">onion</span>
+        <button class="t" data-o="0" aria-pressed="true">off</button><button class="t" data-o="1" aria-pressed="false">±1</button><button class="t" data-o="2" aria-pressed="false">±2</button><button class="t" data-o="9" aria-pressed="false">all</button></div>
+      <div class="grp" role="group" aria-label="Ground" id="grounds"><span class="lbl">ground</span></div>
+      <div class="grp"><button class="t" id="pivotTgl" aria-pressed="true">pivot</button><button class="t" id="resetPv">reset pivot</button></div>
+    </div>
+    <div class="readout" id="readout"></div>
+  </section>
+
+  <section class="strip panel" aria-label="Frames">
+    <div class="lbl">Frames · overlap with next · centroid shift</div>
+    <div class="frames" id="frames"></div>
+    <p class="note">Overlap below 0.85 or a shift above 3 px between neighbours is marked: that is where the drawing jumps. The last frame is compared with the first, so the seam of the loop is the last number.</p>
+    <div class="ctrls"><button class="t" id="copy">Copy JSON with pivot and kept frames</button><span class="readout" id="copied"></span></div>
+    <pre id="out"></pre>
+  </section>
+</div>
+
+<script>
+/* TAKES is filled in by build_viewer.py: [{name, note, src (data URI), meta:{frames, cell:[w,h], pivot:[x,y], fps}}] */
+const TAKES = /*TAKES*/[];
+const GROUNDS = [
+  { id: "dusk", label: "Campfire dusk", paint: (g, w, h) => { const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, "#3a2350"); gr.addColorStop(.7, "#c8603a"); gr.addColorStop(1, "#2a1e2c"); g.fillStyle = gr; g.fillRect(0, 0, w, h) } },
+  { id: "check", label: "Checkerboard", paint: (g, w, h) => { for (let y = 0; y < h; y += 12) for (let x = 0; x < w; x += 12) { g.fillStyle = ((x + y) / 12) % 2 ? "#cfcfcf" : "#ffffff"; g.fillRect(x, y, 12, 12) } } },
+  { id: "black", label: "Black", paint: (g, w, h) => { g.fillStyle = "#000"; g.fillRect(0, 0, w, h) } },
+  { id: "white", label: "White", paint: (g, w, h) => { g.fillStyle = "#fff"; g.fillRect(0, 0, w, h) } },
+  { id: "magenta", label: "Key colour", paint: (g, w, h) => { g.fillStyle = "#ff00ff"; g.fillRect(0, 0, w, h) } },
+];
+const $ = s => document.querySelector(s), cv = $("#cv"), g = cv.getContext("2d");
+const st = { take: null, i: 0, playing: true, zoom: 1, onion: 0, ground: "dusk", pivot: true, last: 0, acc: 0 };
+function store(k, v) { try { localStorage.setItem("spritereview." + k, JSON.stringify(v)) } catch (e) {} }
+function load(k, d) { try { const v = localStorage.getItem("spritereview." + k); return v ? JSON.parse(v) : d } catch (e) { return d } }
+
+function prepare(t) {
+  return new Promise(res => {
+    const img = new Image();
+    img.onload = () => {
+      const m = t.meta, [cw, ch] = m.cell, n = m.frames;
+      t.frames = []; t.alpha = [];
+      for (let k = 0; k < n; k++) {
+        const c = document.createElement("canvas"); c.width = cw; c.height = ch;
+        const x = c.getContext("2d"); x.drawImage(img, k * cw, 0, cw, ch, 0, 0, cw, ch);
+        t.frames.push(c); t.alpha.push(x.getImageData(0, 0, cw, ch).data);
+      }
+      t.pv = t.pv || [...(m.pivot || [cw / 2, ch])]; t.pv0 = [...(m.pivot || [cw / 2, ch])];
+      t.keep = t.keep || t.frames.map(() => true);
+      t.stats = t.frames.map((_, k) => stats(t, k, (k + 1) % n));
+      res(t);
+    };
+    img.src = t.src;
+  });
+}
+function stats(t, a, b) {
+  const A = t.alpha[a], B = t.alpha[b], [w, h] = t.meta.cell; let inter = 0, uni = 0, ax = 0, ay = 0, an = 0, bx = 0, by = 0, bn = 0;
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    const p = (y * w + x) * 4 + 3, ia = A[p] > 128, ib = B[p] > 128;
+    if (ia && ib) inter++; if (ia || ib) uni++;
+    if (ia) { ax += x; ay += y; an++ } if (ib) { bx += x; by += y; bn++ }
+  }
+  return { iou: uni ? inter / uni : 1, dx: bn && an ? bx / bn - ax / an : 0, dy: bn && an ? by / bn - ay / an : 0 };
+}
+function kept(t) { return t.frames.map((_, k) => k).filter(k => t.keep[k]) }
+
+function draw() {
+  const t = st.take; if (!t) return;
+  const [cw, ch] = t.meta.cell, z = st.zoom, pad = 40;
+  const W = cw * z + pad * 2, H = ch * z + pad * 2;
+  if (cv.width !== W || cv.height !== H) { cv.width = W; cv.height = H; cv.style.width = W + "px" }
+  GROUNDS.find(x => x.id === st.ground).paint(g, W, H);
+  g.imageSmoothingEnabled = z === 1; g.imageSmoothingQuality = "high";
+  const K = kept(t); if (!K.length) return;
+  const pos = Math.max(0, K.indexOf(st.i));
+  if (st.onion) {
+    const span = st.onion === 9 ? K.length : st.onion;
+    for (let d = -span; d <= span; d++) {
+      if (!d) continue; const k = K[(pos + d + K.length * 9) % K.length]; if (k === st.i) continue;
+      g.globalAlpha = 0.22; drawTinted(t.frames[k], d < 0 ? "#3fa7ff" : "#ff5a3c", pad, pad, cw * z, ch * z);
+    }
+    g.globalAlpha = 1;
+  }
+  g.drawImage(t.frames[st.i], pad, pad, cw * z, ch * z);
+  if (st.pivot) {
+    const px = pad + t.pv[0] * z, py = pad + t.pv[1] * z;
+    g.strokeStyle = "rgba(255,255,255,.55)"; g.setLineDash([4, 4]); g.beginPath(); g.moveTo(0, py); g.lineTo(W, py); g.stroke(); g.setLineDash([]);
+    g.strokeStyle = "#ffd23f"; g.lineWidth = 2; g.beginPath(); g.moveTo(px - 9, py); g.lineTo(px + 9, py); g.moveTo(px, py - 9); g.lineTo(px, py + 9); g.stroke(); g.lineWidth = 1;
+  }
+  const s = t.stats[st.i];
+  $("#readout").innerHTML = `<span>frame <b>${st.i + 1}</b>/${t.frames.length}</span><span>kept <b>${K.length}</b></span>` +
+    `<span>cell <b>${cw}×${ch}</b> px</span><span>pivot <b>${t.pv[0].toFixed(1)}, ${t.pv[1].toFixed(1)}</b></span>` +
+    `<span>loop <b>${(K.length / (+$("#fps").value || 1)).toFixed(2)} s</b></span>` + (t.meta.seam != null ? `<span>seam score <b>${t.meta.seam}</b></span>` : "");
+  document.querySelectorAll(".fr").forEach((el, k) => el.classList.toggle("cur", k === st.i));
+}
+const tint = document.createElement("canvas"), tg = tint.getContext("2d");
+function drawTinted(fr, col, x, y, w, h) {
+  tint.width = fr.width; tint.height = fr.height; tg.clearRect(0, 0, fr.width, fr.height);
+  tg.drawImage(fr, 0, 0); tg.globalCompositeOperation = "source-in"; tg.fillStyle = col; tg.fillRect(0, 0, fr.width, fr.height); tg.globalCompositeOperation = "source-over";
+  g.drawImage(tint, x, y, w, h);
+}
+function step(d) { const t = st.take, K = kept(t); if (!K.length) return; const p = K.indexOf(st.i); st.i = K[((p < 0 ? 0 : p) + d + K.length) % K.length]; draw() }
+function tick(now) {
+  if (st.playing && st.take) {
+    const fps = Math.max(1, +$("#fps").value || 8); st.acc += now - (st.last || now);
+    if (st.acc >= 1000 / fps) { st.acc %= 1000 / fps; step(1) }
+  }
+  st.last = now; requestAnimationFrame(tick);
+}
+
+function renderStrip() {
+  const t = st.take, box = $("#frames"); box.innerHTML = "";
+  t.frames.forEach((fr, k) => {
+    const b = document.createElement("button"); b.className = "fr" + (t.keep[k] ? "" : " off"); b.setAttribute("aria-pressed", String(!t.keep[k]));
+    b.title = "Click to " + (t.keep[k] ? "leave out" : "keep") + " frame " + (k + 1);
+    const c = document.createElement("canvas"); c.width = 54; c.height = 66; const x = c.getContext("2d");
+    const sc = Math.min(54 / fr.width, 66 / fr.height); x.drawImage(fr, (54 - fr.width * sc) / 2, 66 - fr.height * sc, fr.width * sc, fr.height * sc);
+    const s = t.stats[k], bad = s.iou < 0.85 || Math.hypot(s.dx, s.dy) > 3;
+    b.append(c); b.insertAdjacentHTML("beforeend", `<span>${k + 1}</span><span class="${bad ? "bad" : ""}">${s.iou.toFixed(2)} · ${Math.hypot(s.dx, s.dy).toFixed(1)}</span>`);
+    b.onclick = () => { t.keep[k] = !t.keep[k]; if (!kept(t).length) t.keep[k] = true; st.i = k; renderStrip(); draw(); out() };
+    box.append(b);
+  });
+}
+function out() {
+  const t = st.take; const m = { ...t.meta, pivot: t.pv.map(v => +v.toFixed(1)), keep: kept(t), fps: +$("#fps").value };
+  delete m.sources; $("#out").textContent = JSON.stringify(m).replace(/,"/g, ', "');
+}
+function renderTakes() {
+  const L = $("#takeList"); L.innerHTML = "";
+  TAKES.forEach((t, k) => {
+    const b = document.createElement("button"); b.className = "take"; b.setAttribute("aria-current", String(t === st.take));
+    const c = document.createElement("canvas"); c.width = 46; c.height = 46;
+    if (t.frames) { const fr = t.frames[0], sc = Math.min(46 / fr.width, 46 / fr.height); c.getContext("2d").drawImage(fr, (46 - fr.width * sc) / 2, 46 - fr.height * sc, fr.width * sc, fr.height * sc) }
+    b.append(c); b.insertAdjacentHTML("beforeend", `<div><b>${t.name}</b><span>${t.meta.frames} fr · ${t.note || ""}</span></div>`);
+    b.onclick = () => select(t); L.append(b);
+  });
+}
+function select(t) {
+  st.take = t; st.i = 0; $("#fps").value = t.meta.fps || 8; renderTakes(); renderStrip(); draw(); out(); store("take", t.name);
+}
+
+// pivot drag
+let dragging = false;
+function pv(e) { const r = cv.getBoundingClientRect(), sx = cv.width / r.width, z = st.zoom, t = st.take;
+  t.pv = [((e.clientX - r.left) * sx - 40) / z, ((e.clientY - r.top) * sx - 40) / z]; draw(); out() }
+cv.addEventListener("pointerdown", e => { if (!st.take) return; dragging = true; cv.setPointerCapture(e.pointerId); pv(e) });
+cv.addEventListener("pointermove", e => { if (dragging) pv(e) });
+cv.addEventListener("pointerup", () => dragging = false);
+
+$("#play").onclick = () => { st.playing = !st.playing; $("#play").setAttribute("aria-pressed", String(st.playing)); $("#play").textContent = st.playing ? "❚❚ Pause" : "▶ Play" };
+$("#prev").onclick = () => { st.playing && $("#play").click(); step(-1) };
+$("#next").onclick = () => { st.playing && $("#play").click(); step(1) };
+$("#fps").oninput = () => { draw(); out() };
+document.querySelectorAll("[data-z]").forEach(b => b.onclick = () => { st.zoom = +b.dataset.z; document.querySelectorAll("[data-z]").forEach(x => x.setAttribute("aria-pressed", String(x === b))); draw() });
+document.querySelectorAll("[data-o]").forEach(b => b.onclick = () => { st.onion = +b.dataset.o; document.querySelectorAll("[data-o]").forEach(x => x.setAttribute("aria-pressed", String(x === b))); draw() });
+$("#pivotTgl").onclick = () => { st.pivot = !st.pivot; $("#pivotTgl").setAttribute("aria-pressed", String(st.pivot)); draw() };
+$("#resetPv").onclick = () => { st.take.pv = [...st.take.pv0]; draw(); out() };
+GROUNDS.forEach(gr => { const b = document.createElement("button"); b.className = "sw"; b.title = gr.label; b.setAttribute("aria-label", gr.label);
+  const c = document.createElement("canvas"); c.width = 26; c.height = 26; gr.paint(c.getContext("2d"), 26, 26); b.style.background = `url(${c.toDataURL()})`;
+  b.setAttribute("aria-pressed", String(gr.id === st.ground));
+  b.onclick = () => { st.ground = gr.id; document.querySelectorAll(".sw").forEach(x => x.setAttribute("aria-pressed", String(x === b))); store("ground", gr.id); draw() };
+  $("#grounds").append(b) });
+$("#copy").onclick = () => { const txt = $("#out").textContent;
+  (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(() => $("#copied").textContent = "Copied",
+    () => { const r = document.createRange(); r.selectNodeContents($("#out")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); $("#copied").textContent = "Selected — press Ctrl/⌘+C" }) };
+addEventListener("keydown", e => { if (e.target.matches("input")) return;
+  if (e.key === " ") { e.preventDefault(); $("#play").click() } else if (e.key === "ArrowLeft") $("#prev").click(); else if (e.key === "ArrowRight") $("#next").click() });
+
+// drop / choose your own strip + json
+async function ingest(files) {
+  const png = [...files].find(f => /\.(png|webp)$/i.test(f.name)), js = [...files].find(f => /\.json$/i.test(f.name));
+  if (!png) return; const src = await new Promise(r => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(png) });
+  let meta = js ? JSON.parse(await js.text()) : null;
+  if (!meta) { const img = new Image(); await new Promise(r => { img.onload = r; img.src = src }); const n = Math.max(1, Math.round(img.width / img.height)); meta = { frames: n, cell: [Math.floor(img.width / n), img.height], fps: 8 } }
+  const t = { name: png.name.replace(/\.\w+$/, ""), note: "your file", src, meta }; TAKES.unshift(t); await prepare(t); select(t);
+}
+const drop = $("#drop");
+["dragenter", "dragover"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add("over") }));
+["dragleave", "drop"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove("over") }));
+drop.addEventListener("drop", e => ingest(e.dataTransfer.files));
+$("#pick").onchange = e => ingest(e.target.files);
+
+st.ground = load("ground", "dusk"); document.querySelectorAll(".sw").forEach((b, k) => b.setAttribute("aria-pressed", String(GROUNDS[k].id === st.ground)));
+Promise.all(TAKES.map(prepare)).then(() => { const want = load("take", null); select(TAKES.find(t => t.name === want) || TAKES[0]); requestAnimationFrame(tick) });
+</script>

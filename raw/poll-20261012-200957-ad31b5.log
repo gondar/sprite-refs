@@ -1,0 +1,3 @@
+1 s queued
+121 s failed
+failed: {'code': 'input_download_failed', 'message': 'download media: Get "https://raw.githubusercontent.com/gondar/sprite-refs/0dc92a2da65d57fbe5c46b723729001fae6e4d0f/refs/fox/leos-ref.png": dial tcp [2606:50c0:8003::154]:443: connect: network is unreachable'}

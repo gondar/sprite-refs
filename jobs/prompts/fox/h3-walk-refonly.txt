@@ -1,0 +1,4 @@
+<Picture 1> is a cartoon scout fox cub, a 2D game character. Animate <Picture 1> walking in place, as on a treadmill: a cheerful, bouncy walk cycle on two legs, about two steps per second, repeating evenly for the whole clip. Arms swing opposite to the legs, the body bobs down and up with each step, the big tail swings behind. He is anthropomorphic and bipedal: upright on his two hind legs the whole time, front legs are arms that never touch the ground, never on all fours.
+Strict side view facing right, full body. He stays in the same place in the frame: no forward travel, no turning.
+Camera: locked static camera, no zoom, no pan, no tracking, orthographic side view, the character centered and the same size throughout.
+Style: keep the exact painted cartoon look, colours and outfit of <Picture 1>. Background: one flat solid magenta #FF00FF that never changes colour or brightness, no shadows, no ground, no props, no text.
