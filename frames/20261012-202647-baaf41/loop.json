@@ -1,0 +1,50 @@
+{
+ "raw": "raw/20261012-202647-baaf41.mp4",
+ "key": "green",
+ "frames": 107,
+ "fps": 24.0,
+ "duration_s": 4.46,
+ "loop": {
+  "start_frame": 4,
+  "end_frame": 105,
+  "start_s": 0.167,
+  "len_s": 4.208,
+  "seam_score": 1.495,
+  "picked": [
+   4,
+   8,
+   12,
+   17,
+   21,
+   25,
+   29,
+   33,
+   38,
+   42,
+   46,
+   50,
+   54,
+   59,
+   63,
+   67,
+   71,
+   76,
+   80,
+   84,
+   88,
+   92,
+   97,
+   101
+  ]
+ },
+ "drift": {
+  "centroid_x_range_px": 20.8,
+  "centroid_y_range_px": 17.6,
+  "height_range_pct": 7.5,
+  "height_first_last": [
+   530,
+   530
+  ]
+ },
+ "first_last_diff": 1.756
+}

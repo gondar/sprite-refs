@@ -1,0 +1,9 @@
+<Picture 1> is a cartoon scout fox cub, a 2D game character. Animate <Picture 1> performing FOUR short actions one after another, each clearly separated, in exactly this timing:
+0.0–1.0 s: calm idle — a slow breath, tail sways.
+1.0–2.0 s: he raises his right arm and waves twice, then lowers it.
+2.0–3.0 s: a small cheerful hop straight up on the spot (crouch, jump, land), landing exactly where he started.
+3.0–4.0 s: he settles back into exactly the starting pose and holds still.
+He is anthropomorphic and bipedal: upright on his two hind legs the whole time, front legs are arms, never on all fours. Mouth closed: he is silent, he does not speak or sing.
+Strict side view facing right, full body. He never travels sideways and never turns.
+Camera: locked static camera, no zoom, no pan, orthographic side view, the character centered and the same size throughout.
+Style: keep the exact painted cartoon look, colours and outfit of <Picture 1>. Background: one flat solid magenta #FF00FF that never changes colour or brightness, no shadows, no ground, no props, no text.

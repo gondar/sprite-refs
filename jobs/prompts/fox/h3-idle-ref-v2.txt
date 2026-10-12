@@ -1,0 +1,4 @@
+<Picture 1> is a cartoon scout fox cub, a 2D game character. Animate <Picture 1> performing the same calm idle motion as the grey figure in <Video 1>: a slow breath, a slight head bob, a small weight shift and back. He is anthropomorphic and bipedal: upright on his two hind legs the whole time, front legs are arms that never touch the ground, never on all fours. Add a gentle sway of his big tail and one blink. Keep his mouth closed: he is silent, he does not speak or sing.
+Strict side view facing right, full body, feet planted, he does not walk or turn. The clip ends in the pose it starts in.
+Camera: locked static camera, no zoom, no pan, orthographic side view, the character centered and the same size throughout.
+Style: keep the exact painted cartoon look, colours and outfit of <Picture 1>. Background: flat solid magenta #FF00FF for the whole clip, no shadows, no ground, no props, no text.
