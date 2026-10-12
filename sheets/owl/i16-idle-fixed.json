@@ -1,0 +1,33 @@
+{
+ "frames": 16,
+ "cell": [
+  138,
+  140
+ ],
+ "pivot": [
+  74.5,
+  138.9
+ ],
+ "fps": 6.0,
+ "loop": true,
+ "pingpong": false,
+ "anchor": "feet",
+ "sources": [
+  "frames/owl-i16/figs/fig_00.png",
+  "frames/owl-i16/figs/fig_01.png",
+  "frames/owl-i16/figs/fig_02.png",
+  "frames/owl-i16/figs/fig_03.png",
+  "frames/owl-i16/figs/fig_04.png",
+  "frames/owl-i16/figs/fig_05.png",
+  "frames/owl-i16/figs/fig_06.png",
+  "frames/owl-i16/figs/fig_07.png",
+  "frames/owl-i16/figs/fig_08.png",
+  "frames/owl-i16/figs/fig_09.png",
+  "frames/owl-i16/figs/fig_10.png",
+  "frames/owl-i16/figs/fig_11.png",
+  "frames/owl-i16/figs/fig_12.png",
+  "frames/owl-i16/figs/fig_13.png",
+  "frames/owl-i16/figs/fig_14.png",
+  "frames/owl-i16/figs/fig_15.png"
+ ]
+}

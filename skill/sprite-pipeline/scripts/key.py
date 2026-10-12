@@ -45,7 +45,9 @@ def key_image(rgb, key="auto", lo=40, hi=120):
     ex = excess(rgb, key)
     al = np.clip((hi - ex) / (hi - lo), 0, 1)
     out = rgb.copy()
-    sp = np.clip(ex, 0, None)
+    # despill only where the pixel is partly background (the edge): fully opaque pale fur (white tail tip, cream)
+    # has a small positive excess too, and pulling it down tinted it green
+    sp = np.clip(ex, 0, None) * (al < 0.98)
     if key == "magenta":
         out[..., 0] -= sp; out[..., 2] -= sp
     else:

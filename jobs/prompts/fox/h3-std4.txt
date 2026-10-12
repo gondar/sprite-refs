@@ -1,0 +1,5 @@
+<Picture 1> is a cartoon scout fox cub, a 2D game character. Animate <Picture 1> performing exactly the same four actions with the same timing as the grey figure in <Video 1>: idle, walking on the spot, running on the spot, jumping straight up and landing.
+He is anthropomorphic and bipedal: upright on his two hind legs, front legs are arms, never on all fours (except where he sits on the floor). Mouth closed: he is silent, he does not speak or sing.
+Every action happens ON THE SPOT: he never travels across the frame, he stays centered and fully inside the frame.
+Camera: locked static camera, no zoom, no pan, orthographic side view, the character the same size throughout.
+Style: keep the exact painted cartoon look, colours and outfit of <Picture 1>. Background: one flat solid magenta #FF00FF that never changes colour or brightness, no shadows, no ground, no props, no text.

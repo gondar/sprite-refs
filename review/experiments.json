@@ -1,0 +1,309 @@
+[
+ {
+  "id": "E7",
+  "title": "Video, standard set: eight actions in one 4 s clip",
+  "route": "video",
+  "model": "MiniMax-H3 4 s",
+  "cost": 0.12,
+  "yields": 6,
+  "verdict": "best of three densities",
+  "verdict_kind": "win",
+  "setup": "Library mannequin doing idle, walk, run, jump, sit, stand up, turn to face left, turn back (0.5 s each, $0.12 once) + Leoś with headroom as reference_image. Same recipe also run at 4 and 6 actions per 4 s. All packed at ONE shared scale (--src-scale 0.25) so sitting stays smaller than standing.",
+  "result": "8/4 s: background held magenta, every action present; sit, stand and the turn (front + back views) are good, run reads as a walk, jump is a bounce, the first 0.5 s zooms. 4/4 s: speed rings in the background. 6/4 s: pastel background with rings and a zoom. Background stability is luck (1 of 3 clean), not density.",
+  "takes": [
+   {
+    "name": "Walk",
+    "strip": "sheets/fox/e7-walk.png",
+    "note": "0.5–1.0 s"
+   },
+   {
+    "name": "Run",
+    "strip": "sheets/fox/e7-run.png",
+    "note": "1.0–1.75 s"
+   },
+   {
+    "name": "Jump",
+    "strip": "sheets/fox/e7-jump.png",
+    "note": "1.75–2.85 s"
+   },
+   {
+    "name": "Sit",
+    "strip": "sheets/fox/e7-sit.png",
+    "note": "2.85–3.35 s"
+   },
+   {
+    "name": "Stand",
+    "strip": "sheets/fox/e7-stand.png",
+    "note": "3.35–3.7 s"
+   },
+   {
+    "name": "Turn",
+    "strip": "sheets/fox/e7-turn.png",
+    "note": "3.7–4.1 s, front + back view"
+   },
+   {
+    "name": "Back",
+    "strip": "sheets/fox/e7-back.png",
+    "note": "4.1–4.45 s"
+   }
+  ]
+ },
+ {
+  "id": "E2b",
+  "title": "Video idle · reference image + mannequin motion clip",
+  "route": "video",
+  "model": "MiniMax-H3 4 s",
+  "cost": 0.12,
+  "yields": 1,
+  "verdict": "winner",
+  "verdict_kind": "win",
+  "setup": "Leoś design as reference_image, a grey mannequin breathing on green (generated once by H3, $0.12, reusable from the library) as reference_video. Prompt: same calm idle as the figure, bipedal, locked camera, flat magenta.",
+  "result": "Background held magenta, figure steady (height ±1.6 %), blink and breath, loop seam 0.57. Shipped in the game as the campfire conductor (117 KB).",
+  "takes": [
+   {
+    "name": "Idle",
+    "strip": "sheets/fox/e2b-idle24.png",
+    "note": "24 fr cut from the loop"
+   }
+  ]
+ },
+ {
+  "id": "E6b",
+  "title": "Video, four actions in one 4 s clip, driven by a mannequin",
+  "route": "video",
+  "model": "MiniMax-H3 4 s",
+  "cost": 0.12,
+  "yields": 3,
+  "verdict": "works",
+  "verdict_kind": "win",
+  "setup": "Mannequin clip doing idle → wave → hop → settle with per-second timing (library), Leoś padded with headroom as reference_image. Cuts found from the motion curve.",
+  "result": "Background held, actions on the mannequin's schedule, whole clip loops (seam 0.58). The wave became blowing kisses with sparkles (filtered out).",
+  "takes": [
+   {
+    "name": "Idle",
+    "strip": "sheets/fox/e6b-idle.png",
+    "note": "0.0–1.0 s"
+   },
+   {
+    "name": "Wave",
+    "strip": "sheets/fox/e6b-wave.png",
+    "note": "1.0–2.75 s"
+   },
+   {
+    "name": "Hop",
+    "strip": "sheets/fox/e6b-hop.png",
+    "note": "2.9–4.0 s, fixed camera anchor"
+   }
+  ]
+ },
+ {
+  "id": "E5",
+  "title": "Video idle, same recipe at 8 s",
+  "route": "video",
+  "model": "MiniMax-H3 8 s",
+  "cost": 0.24,
+  "yields": 1,
+  "verdict": "not worth it",
+  "verdict_kind": "fail",
+  "setup": "E2b recipe with duration 8.",
+  "result": "H3 stretched the 4.5 s motion clip over 8 s: he barely moves (height ±1.4 %), seam 0.71. Double price, less animation.",
+  "takes": [
+   {
+    "name": "Idle",
+    "strip": "sheets/fox/e5-idle8s.png",
+    "note": "24 fr"
+   }
+  ]
+ },
+ {
+  "id": "E2a",
+  "title": "Video idle · same image as first and last frame",
+  "route": "video",
+  "model": "MiniMax-H3 4 s",
+  "cost": 0.12,
+  "yields": 0,
+  "verdict": "unkeyable",
+  "verdict_kind": "fail",
+  "setup": "first_frame = last_frame = Leoś, prompt only. (E2d repeated it with a shouted 'background never changes'.)",
+  "result": "Identity perfect, but H3 cycled the background through the rainbow (E2d: magenta → cyan + shadow). Where it went orange, the orange fox keyed out to a ghost.",
+  "takes": [
+   {
+    "name": "Idle (border key)",
+    "strip": "sheets/fox/e2a-idle24.png",
+    "note": "frames 4–8 ghosted"
+   }
+  ]
+ },
+ {
+  "id": "I16",
+  "title": "Drawn idle · 16 frames in one image",
+  "route": "image",
+  "model": "Nano Banana",
+  "cost": 0.0245,
+  "yields": 1,
+  "verdict": "fair fight",
+  "verdict_kind": "win",
+  "setup": "One 4×4 sheet, frames numbered with what each does (breath, tail sway, ear twitch, blink, breath back). Leoś design as identity reference. Packed with size correction.",
+  "result": "Subtle, smooth idle with a 3-frame blink; size drift corrected to a few %.",
+  "takes": [
+   {
+    "name": "Fox idle 16 fr",
+    "strip": "sheets/fox/i16-idle-fixed.png",
+    "note": "size-corrected"
+   }
+  ]
+ },
+ {
+  "id": "ISTD",
+  "title": "Drawn standard set · four actions in one image",
+  "route": "image",
+  "model": "Nano Banana",
+  "cost": 0.0245,
+  "yields": 4,
+  "verdict": "run is weak",
+  "verdict_kind": "",
+  "setup": "One 4×4 sheet, one action per row: walk, run, jump, sit down + stand up. Jump and sit cut as whole grid cells so height survives.",
+  "result": "Walk and sit/stand read well. The 'run' is a brisk walk (no flight phase); the jump is small. Pose actions must not be size-corrected (crouch would be 'fixed' by +15 %).",
+  "takes": [
+   {
+    "name": "Walk",
+    "strip": "sheets/fox/istd-flash-walk.png",
+    "note": "4 fr"
+   },
+   {
+    "name": "Run",
+    "strip": "sheets/fox/istd-flash-run.png",
+    "note": "4 fr"
+   },
+   {
+    "name": "Jump",
+    "strip": "sheets/fox/istd-flash-jump.png",
+    "note": "4 fr, grid cells"
+   },
+   {
+    "name": "Sit + stand",
+    "strip": "sheets/fox/istd-flash-sitstand.png",
+    "note": "4 fr, grid cells"
+   }
+  ]
+ },
+ {
+  "id": "ISTDp",
+  "title": "Drawn standard set · same sheet on Nano Banana Pro",
+  "route": "image",
+  "model": "Nano Banana Pro",
+  "cost": 0.09,
+  "yields": 4,
+  "setup": "Same prompt as ISTD.",
+  "result": "More pose variety in the jump; run still not a run.",
+  "takes": [
+   {
+    "name": "Walk",
+    "strip": "sheets/fox/istd-pro-walk.png",
+    "note": "4 fr"
+   },
+   {
+    "name": "Run",
+    "strip": "sheets/fox/istd-pro-run.png",
+    "note": "4 fr"
+   },
+   {
+    "name": "Jump",
+    "strip": "sheets/fox/istd-pro-jump.png",
+    "note": "4 fr, grid cells"
+   },
+   {
+    "name": "Sit + stand",
+    "strip": "sheets/fox/istd-pro-sitstand.png",
+    "note": "4 fr, grid cells"
+   }
+  ]
+ },
+ {
+  "id": "E3",
+  "title": "Drawn cycles · 8 frames in one image",
+  "route": "image",
+  "model": "Nano Banana / Pro",
+  "cost": 0.139,
+  "yields": 3,
+  "setup": "One 4×2 sheet per cycle (idle and walk on Nano Banana $0.0245 each, walk again on Pro $0.09), identity reference. Packed with size correction (walks fitted on head + torso).",
+  "result": "Idle grew 4 % uncorrected (fixed now). Walks bob up and down; the Pro walk jumps at the seam.",
+  "takes": [
+   {
+    "name": "Idle 8 fr",
+    "strip": "sheets/fox/e3-flash-idle-fixed.png",
+    "note": "size-corrected"
+   },
+   {
+    "name": "Walk 8 fr",
+    "strip": "sheets/fox/e3-flash-walk-fixed.png",
+    "note": "Nano Banana"
+   },
+   {
+    "name": "Walk 8 fr (Pro)",
+    "strip": "sheets/fox/e3-pro-walk-fixed.png",
+    "note": "Nano Banana Pro"
+   }
+  ]
+ },
+ {
+  "id": "OWL-D",
+  "title": "Owl · drawn dozing idle",
+  "route": "image",
+  "model": "Nano Banana",
+  "cost": 0.049,
+  "yields": 2,
+  "verdict": "best value",
+  "verdict_kind": "win",
+  "setup": "Sówka on GREEN (lavender plumage), a 4-beat story prompt: nod off, eyes shut, start awake with wings out, settle. 8 frames (4×2) and 16 frames (4×4), $0.0245 each. Size-corrected.",
+  "result": "Followed the story almost literally; the green key is clean. The wing flap keeps its +3 % after correction.",
+  "takes": [
+   {
+    "name": "Doze 8 fr",
+    "strip": "sheets/owl/b1-idle-fixed.png",
+    "note": "size-corrected"
+   },
+   {
+    "name": "Doze 16 fr",
+    "strip": "sheets/owl/i16-idle-fixed.png",
+    "note": "size-corrected"
+   }
+  ]
+ },
+ {
+  "id": "OWL-V",
+  "title": "Owl · video idle, reference image only",
+  "route": "video",
+  "model": "MiniMax-H3 4 s",
+  "cost": 0.12,
+  "yields": 1,
+  "verdict": "no loop",
+  "verdict_kind": "fail",
+  "setup": "Sówka as reference_image, no motion clip, 'beak stays closed'.",
+  "result": "Green held, nods off and wakes, but the beak opened once and nothing pulls the clip back to its start (seam 1.5).",
+  "takes": [
+   {
+    "name": "Doze",
+    "strip": "sheets/owl/b2-idle24.png",
+    "note": "24 fr"
+   }
+  ]
+ },
+ {
+  "id": "E1b",
+  "title": "Design sheet cut into a turnaround",
+  "route": "image",
+  "model": "Nano Banana",
+  "cost": 0.0245,
+  "yields": 1,
+  "setup": "8-pose model sheet with the 'BIPEDAL, never on all fours' fix and the design as identity reference.",
+  "result": "24/24 figures upright across three sheets. A flipbook, not an animation.",
+  "takes": [
+   {
+    "name": "Turnaround",
+    "strip": "sheets/fox/turnaround.png",
+    "note": "4 views"
+   }
+  ]
+ }
+]

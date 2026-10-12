@@ -1,0 +1,8 @@
+Animation sprite sheet for a 2D game with FOUR actions, painted in the SAME style as the attached images: soft cartoon painting, gentle cel shading, no hard black outlines.
+Subject: "Leoś", the scout fox cub in the attached reference image — keep his exact look: chubby, big round head, bright orange fur, cream muzzle, chest and tail tip, dark-brown socks on hands and feet, big fluffy tail, olive-green neckerchief with a wooden toggle, small tan scout campaign hat. He is ANTHROPOMORPHIC and BIPEDAL: upright on his TWO hind legs in every frame (except when sitting on the floor), front legs are ARMS that never touch the ground, never on all fours.
+All frames strict side view facing right, every frame EXACTLY the same scale (the character is the same size in every cell), centred in its cell, never overlapping, gaps between cells. A clean 4 x 4 grid, one action per row, 4 frames per row, left to right in time order:
+Row 1 — WALK cycle on two legs: contact (right foot forward), passing, contact (left foot forward), passing.
+Row 2 — RUN cycle on two legs: push-off, flight with both feet off the ground, landing, flight again; arms pumping, leaning forward.
+Row 3 — JUMP straight up: crouch, take-off, top of the jump (feet tucked), landing crouch.
+Row 4 — SIT DOWN and STAND UP: standing, sitting down on the floor (legs forward), seated, getting back up to standing.
+Background: perfectly flat solid magenta #FF00FF everywhere, no gradient, no ground, no shadows, no text, no numbers, no grid lines.

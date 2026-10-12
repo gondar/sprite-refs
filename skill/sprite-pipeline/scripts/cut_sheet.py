@@ -7,14 +7,32 @@ Each figure is a connected blob of alpha (dilated a little so a tail tip or a de
 body); blobs smaller than --min-area are dropped (stray specks, flying hearts). Figures are ordered by row
 (clustered on their vertical centre) then left to right, and written as OUTDIR/fig_00.png … tight-cropped,
 plus OUTDIR/figs.json with each figure's box in the sheet."""
-import argparse, json, os, numpy as np
+import argparse, json, os, sys, numpy as np
 from PIL import Image
 from scipy import ndimage as ndi
 
 ap = argparse.ArgumentParser()
 ap.add_argument("inp"); ap.add_argument("outdir")
 ap.add_argument("--min-area", type=int, default=4000); ap.add_argument("--rows", type=int, default=0)
+ap.add_argument("--grid", help="RxC: cut equal cells instead of tight blobs, so a figure keeps its height in the cell "
+                "(drawn jumps: pack these with --anchor fixed); only the biggest blob in each cell is kept")
 a = ap.parse_args()
+if a.grid:
+    R, C = map(int, a.grid.lower().split("x"))
+    im = np.array(Image.open(a.inp).convert("RGBA")); H, W = im.shape[:2]
+    os.makedirs(a.outdir, exist_ok=True); out = []
+    for r in range(R):
+        for c in range(C):
+            y0, y1, x0, x1 = r * H // R, (r + 1) * H // R, c * W // C, (c + 1) * W // C
+            cell = im[y0:y1, x0:x1].copy()
+            lab, n = ndi.label(ndi.binary_dilation(cell[..., 3] > 40, iterations=4))
+            if n:
+                big = 1 + int(np.argmax(ndi.sum(np.ones_like(lab), lab, range(1, n + 1))))
+                cell[..., 3] = np.where(lab == big, cell[..., 3], 0)
+            k = len(out); Image.fromarray(cell).save(os.path.join(a.outdir, f"fig_{k:02d}.png"))
+            out.append({"file": f"fig_{k:02d}.png", "row": r, "box": [x0, y0, x1, y1]})
+    json.dump(out, open(os.path.join(a.outdir, "figs.json"), "w"), indent=1)
+    print(f"{len(out)} grid cells -> {a.outdir}"); sys.exit()
 im = np.array(Image.open(a.inp).convert("RGBA"))
 mask = im[..., 3] > 40
 lab, n = ndi.label(ndi.binary_dilation(mask, iterations=4))

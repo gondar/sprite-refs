@@ -1,0 +1,26 @@
+{
+ "frames": 9,
+ "cell": [
+  156,
+  126
+ ],
+ "pivot": [
+  83.0,
+  125.5
+ ],
+ "fps": 24.0,
+ "loop": true,
+ "pingpong": false,
+ "anchor": "fixed",
+ "sources": [
+  "frames/20261012-205817-760088/seg/stand/f_00.png",
+  "frames/20261012-205817-760088/seg/stand/f_01.png",
+  "frames/20261012-205817-760088/seg/stand/f_02.png",
+  "frames/20261012-205817-760088/seg/stand/f_03.png",
+  "frames/20261012-205817-760088/seg/stand/f_04.png",
+  "frames/20261012-205817-760088/seg/stand/f_05.png",
+  "frames/20261012-205817-760088/seg/stand/f_06.png",
+  "frames/20261012-205817-760088/seg/stand/f_07.png",
+  "frames/20261012-205817-760088/seg/stand/f_08.png"
+ ]
+}

@@ -24,6 +24,9 @@ ap.add_argument("--fix-scale", action="store_true",
                 help="undo size drift: rescale each frame by the factor that best overlays it on frame 1 (feet-anchored)")
 ap.add_argument("--fit-top", type=float, default=1.0,
                 help="with --fix-scale: fit on the top fraction of the figure only (0.6 = head+torso, for walks)")
+ap.add_argument("--src-scale", type=float, default=0,
+                help="output px per source px for EVERY frame (instead of fitting the tallest frame to --height): use one "
+                     "value for all animations of a character so a sit stays smaller than a stand across strips")
 ap.add_argument("--largest", action="store_true", help="keep only the biggest blob per frame (drops sparkles, specks)")
 a = ap.parse_args()
 
@@ -94,8 +97,8 @@ else:
 L = max(px for px, _ in pv); R = max(f.shape[1] - px for f, (px, _) in zip(fr, pv))
 T = max(by + 1 for _, by in pv)  # tallest frame above its baseline
 W, H = int(np.ceil(L + R)) + 4, int(T) + 4
-sc = a.height / H
-cw, ch = max(1, round(W * sc)), a.height
+sc = a.src_scale if a.src_scale else a.height / H
+cw, ch = max(1, round(W * sc)), max(1, round(H * sc))
 cells = []
 for f, (px, by) in zip(fr, pv):
     c = Image.new("RGBA", (W, H), (0, 0, 0, 0))

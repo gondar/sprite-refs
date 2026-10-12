@@ -1,0 +1,21 @@
+{
+ "frames": 4,
+ "cell": [
+  208,
+  200
+ ],
+ "pivot": [
+  108.1,
+  198.3
+ ],
+ "fps": 8.0,
+ "loop": true,
+ "pingpong": false,
+ "anchor": "fixed",
+ "sources": [
+  "frames/fox-istd-pro/grid/fig_08.png",
+  "frames/fox-istd-pro/grid/fig_09.png",
+  "frames/fox-istd-pro/grid/fig_10.png",
+  "frames/fox-istd-pro/grid/fig_11.png"
+ ]
+}

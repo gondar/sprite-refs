@@ -85,3 +85,21 @@ All calls through APIYI (one key, group `default`). Every job is in `jobs/jobs.j
   held, beak still opened once, no loop (seam 1.5). Without a motion clip nothing pulls the clip back to its start.
 - Generation times: text-only mannequin ~1.5 min; reference image only ~1.5–3 min; with a reference video ~3–7 min;
   E4 (ref image only, walk) took ~25 min — queue time varies.
+
+## Round 3 (E7 standard set, 16-frame drawn sheets, size fix, mannequin library)
+- Mannequins (text-to-video, $0.12 each) performed 4, 6 AND 8 actions in 4 s, all recognisable; at 8 each is
+  sketchier (jump = bounce, stand-up = crouch). The mannequin is not the limit at 8.
+- Fox driven by them: 8/4 s was the cleanest (background held, sit/stand/turn good, run reads as a walk, first
+  0.5 s zooms in from the reference framing); 4/4 s got "speed rings" in the background; 6/4 s went pastel with
+  rings and zoomed. Background stability is luck (1 of 3), so budget a retry per clip.
+- One character set needs ONE scale across strips: `pack.py --src-scale 0.25` (output px per source px), never
+  fit-to-height per strip (a sitting strip would be blown up to standing size).
+- Despill must touch only edge pixels (alpha < 0.98): pale opaque fur has a small positive key excess and turned
+  green-tinted.
+- Mannequin library: `refs/mannequins/*.mp4` (audio stripped, 230–530 KB), referenced through jsDelivr — H3
+  accepts video from jsDelivr (unversioned) too.
+- Drawn 16-frame sheets (4×4, 1:1, $0.0245): smooth subtle idle for the fox, excellent 16-beat doze for the owl.
+- Drawn standard set (4×4, one action per row): walk and sit/stand read well, run is a brisk walk on both models,
+  jumps small. Cut action rows with `cut_sheet.py --grid 4x4` (keeps height in the cell) + `--anchor fixed`.
+- `--fix-scale` (best-fit overlay on frame 1): idles only. On pose actions it "corrects" real change (crouch +15 %,
+  sit −11 %).
