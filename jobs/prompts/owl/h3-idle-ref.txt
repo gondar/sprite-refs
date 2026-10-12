@@ -1,0 +1,4 @@
+<Picture 1> is a sleepy cartoon owlet, a 2D game character. Animate <Picture 1> in a calm dozing idle loop: she slowly nods off (eyelids droop, head sinks a little, the nightcap's pompom swings), then gently wakes with a small start and settles back to the starting pose. Her BEAK STAYS CLOSED the whole time: she is silent, she does not speak, sing or yawn. She has wings, no arms; her feet stay planted; she does not fly, hop, walk or turn, and she keeps the same size.
+Same three-quarter view as <Picture 1>, full body visible. The clip ends in the pose it starts in.
+Camera: locked static camera, no zoom, no pan, the character centered and the same size throughout.
+Style: keep the exact soft painted look, colours and nightcap of <Picture 1>. Background: one flat solid pure green #00FF00 that never changes colour or brightness, no shadows, no ground, no props, no particles, no text.
