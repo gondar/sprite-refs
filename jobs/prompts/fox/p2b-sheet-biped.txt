@@ -1,0 +1,7 @@
+Character model sheet for a 2D game sprite, painted in the SAME style as the attached images: soft cartoon painting, warm brown palette, gentle cel shading, no hard black outlines.
+Subject: "Leoś", a young scout fox cub. He is an ANTHROPOMORPHIC, BIPEDAL character: he always stands and walks upright on his TWO hind legs like a small person, with his body vertical. His front legs are ARMS with paws, hanging at his sides or gesturing; they NEVER touch the ground. He is never on all fours, never in an animal four-legged stance, in every single figure.
+Look: chubby proportions, big round head (about one third of his height), big friendly dark eyes, short muzzle with a small black nose. Bright orange fur, cream-white muzzle, chest and tail tip, dark-brown socks on hands and feet, a big fluffy tail. Olive-green scout neckerchief knotted at the throat with a small wooden toggle, small tan scout campaign hat with a flat brim. No other clothes, no props.
+Layout: the SAME character drawn 8 times on a clean 4 x 2 grid, every figure the same size, upright on two legs, standing on the same baseline in its row, never overlapping, wide gaps between figures.
+Top row (turnaround): side view facing right; three-quarter view facing right; front view; back view.
+Bottom row (poses, all side view facing right, all upright on two legs): relaxed idle; mid-stride walking on two legs; crouched on two legs about to jump; waving one arm.
+Background: perfectly flat solid magenta #FF00FF everywhere, no gradient, no ground, no shadows, no text, no labels, no grid lines.
