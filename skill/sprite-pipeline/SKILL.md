@@ -27,6 +27,27 @@ The evidence behind every rule is in `references/findings.md`; read it when a ru
 4. **Post-process:** key → (cut sheet | extract + find loop) → align → pack → onion-skin numbers → review page.
 5. **Integrate** by the target game's own conventions (a strip + `steps(N)` in CSS, or a canvas player), fail-open.
 
+## Mannequin library — look here before generating motion
+
+`refs/mannequins/` in the sprites repo (served as `https://cdn.jsdelivr.net/gh/gondar/sprite-refs/refs/mannequins/<file>`,
+which H3 accepts as `reference_video`). Grey child-proportioned mannequin, side view facing right, green, audio
+stripped, 4 s each:
+
+| File | Actions (measured) |
+|---|---|
+| `idle-breath-4s.mp4` | calm breathing idle (drove the shipped fox idle) |
+| `idle-wave-hop-settle-4s.mp4` | idle 0–0.8 · wave 0.8–2.6 · hop 2.8–3.8 · settle |
+| `std4-idle-walk-run-jump-4s.mp4` | idle · walk · run · jump, 1 s each |
+| `std6-idle-walk-run-jump-sit-stand-4s.mp4` | the same + sit down · stand up, 0.67 s each |
+| `std8-idle-walk-run-jump-sit-stand-turn-turnback-4s.mp4` | the same + turn to face left · turn back, 0.5 s each |
+
+Reuse one when its actions fit (the character clip then costs $0.12 alone); generate a new one only for new
+motion, store it here with audio stripped, and add a row. A new file name for every new clip — never overwrite.
+
+**How many actions per 4 s:** 8 worked (each recognisable, simpler: run ≈ brisk walk, jump ≈ bounce, sit/stand
+and the turn good). Density did not break the background — luck did (clean in 1 of 3 clips), so budget one
+retry per clip and judge every clip on the contact sheet before cutting it.
+
 ## Before any paid call
 
 - Run `python3 scripts/gen_image.py …` / `scripts/h3.py submit …` only; both append to `jobs/jobs.jsonl`
@@ -109,12 +130,12 @@ All stages are re-runnable and deterministic; outputs never overwrite `raw/`.
 
 | Step | Script | Settings that worked |
 |---|---|---|
-| Key a still/sheet | `key.py IN OUT --check CHECK.png` | auto magenta/green, `--lo 40 --hi 120`; despill = subtract the key excess; pale pink survives a magenta key |
+| Key a still/sheet | `key.py IN OUT --check CHECK.png` | auto magenta/green, `--lo 40 --hi 120`; despill = subtract the key excess on edge pixels only (pale opaque fur turned green otherwise); pale pink survives a magenta key |
 | Odd background | `key.py --key border` | key colour = this frame's border median; cannot save a background that matches the character's colours |
 | Cut a sheet | `cut_sheet.py KEYED OUTDIR` | dilate 4 px, `--min-area 4000` (drops motion marks/specks), reading order by rows |
 | Video → loop | `video_frames.py RAW.mp4 OUT --pick 24` | 24 fps extract, seam score on premultiplied 96 px thumbnails (< 1 ≈ seamless), `--min-len` ≈ clip length to force a full loop; also prints drift |
 | Multi-action clip | `segments.py SRC OUT name=t0-t1:step …` | prints a motion curve — read real boundaries off it, do not trust the prompt's timing |
-| Align + pack | `pack.py OUT frames… --anchor feet\|head\|fixed --height 160 [--fix-scale]` | `--fix-scale` on drawn cycles: each frame rescaled by the factor that best overlays it on frame 1 (feet-anchored, 0.85–1.15) — fox idle drift +4.5 % → ±1.6 %, owl −4…+9 % → 0…+3 % with the wing flap kept; walks: add `--fit-top 0.6` (fit head+torso, the legs swing) and expect little to fix; otherwise one scale for the whole set; `head` for turnarounds, `feet` for idles/walks, **`fixed` for anything that leaves the ground** (feet-aligning erases a hop); `--largest` drops sparkles |
+| Align + pack | `pack.py OUT frames… --anchor feet\|head\|fixed --height 160 [--fix-scale] [--src-scale 0.25]` | all strips of one character at ONE `--src-scale` (else a sit is blown up to standing size); `--fix-scale` for idles only — on pose actions it 'corrects' a crouch by +15 %; drawn action rows: `cut_sheet.py --grid 4x4` + `--anchor fixed`; `--fix-scale` on drawn cycles: each frame rescaled by the factor that best overlays it on frame 1 (feet-anchored, 0.85–1.15) — fox idle drift +4.5 % → ±1.6 %, owl −4…+9 % → 0…+3 % with the wing flap kept; walks: add `--fit-top 0.6` (fit head+torso, the legs swing) and expect little to fix; otherwise one scale for the whole set; `head` for turnarounds, `feet` for idles/walks, **`fixed` for anything that leaves the ground** (feet-aligning erases a hop); `--largest` drops sparkles |
 | Check | `onion.py STRIP JSON OUT` | idle IoU > 0.9, walk 0.75–0.9, area within a few %, shifts > 3 px flagged |
 | Compare | `compare_gif.py OUT.gif NAME=STRIP…` | side by side on one clock |
 | Review page | `build_viewer.py OUT.html NAME=STRIP\|note …` | single-file viewer (`viewer/viewer.html`): game size, fps, onion skin, frame toggles, draggable pivot, copy JSON |
