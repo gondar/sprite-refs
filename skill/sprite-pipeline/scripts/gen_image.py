@@ -16,7 +16,7 @@ A `submitting` line is written BEFORE the call and a result line after, so a cra
 call. Cost: per-call price for Gemini image models; token usage x list price for gpt-image."""
 import argparse, base64, json, mimetypes, os, sys, time, uuid, urllib.request, urllib.error
 
-PER_CALL = {"gemini-3.1-flash-image": 0.055, "gemini-3-pro-image": 0.09, "gemini-2.5-flash-image": 0.02,
+PER_CALL = {"gemini-3.1-flash-image": 0.0245, "gemini-3-pro-image": 0.09, "gemini-2.5-flash-image": 0.02,
             "gpt-image-2-vip": 0.03, "gpt-image-2-all": 0.025}
 PER_M = {"gpt-image-2": (5, 30), "gpt-image-1.5": (5, 32), "gpt-image-1": (5, 40), "gpt-image-1-mini": (2, 8)}
 OPENAI_SIZE = {"1:1": "1024x1024", "16:9": "1536x1024", "3:2": "1536x1024", "4:3": "1536x1024",

@@ -1,0 +1,11 @@
+Usage time,Request ID,Token name,Model name,Input tokens,Output tokens,Cache (input/read) tokens,Cache (write/create) tokens,Quota cost,Duration
+2026-10-12 21:35:34,2026101219351144284746396e93ae3rXw9YtE2,Development,gemini-3-pro-image,888,1661,0,0,$0.090000,0 second
+2026-10-12 21:35:26,2026101219351123628475296e93ae3TaWopPFc,Development,gemini-3.1-flash-image,1491,1120,0,0,$0.024462,0 second
+2026-10-12 21:35:24,2026101219351152129425396e93ae3vLg3yiw3,Development,gemini-3.1-flash-image,2611,1120,0,0,$0.024662,0 second
+2026-10-12 21:32:54,202610121932179459494096e93ae3npt0Vh7I,Development,gpt-image-2-vip,559,1056,0,0,$0.030000,0 second
+2026-10-12 21:32:19,2026101219314118598704396e93ae3jR9GpmxB,Development,gpt-image-2,231,1756,0,0,$0.053836,0 second
+2026-10-12 21:31:24,2026101219311326861961596e93ae353gSh6UQ,Development,gpt-image-2,9,196,0,0,$0.005926,0 second
+2026-10-12 21:31:12,2026101219304891542229996e93ae3bUz5eqC9,Development,gpt-image-1.5,231,1405,0,0,$0.046116,0 second
+2026-10-12 21:30:30,2026101219301159432419396e93ae3Hpjf6WP5,Development,gemini-3-pro-image,572,1738,0,0,$0.090000,0 second
+2026-10-12 21:30:29,2026101219301150358582096e93ae3JuMcmH6i,Development,gemini-3-pro-image,847,1500,0,0,$0.090000,0 second
+2026-10-12 21:30:28,2026101219301162802473796e93ae3hTUdd049,Development,gemini-3-pro-image,794,1457,0,0,$0.090000,0 second
