@@ -1,0 +1,4 @@
+2D game sprite animation of the cartoon scout fox cub in the image. He is anthropomorphic and bipedal: he stays upright on his two hind legs the whole time, his front legs are arms that never touch the ground, he never drops to all fours.
+Action: a calm idle loop, standing in place: a slow breath (chest rises and falls), the head bobs very slightly, the big tail sways gently side to side, one ear twitches, one blink. Small movements only; the feet stay planted, he does not walk, turn or change size. The last moment returns exactly to the starting pose.
+Camera: locked static camera, no zoom, no pan, no camera shake, orthographic side view, the character stays centered in the same place and size for the whole clip.
+Style: keep the exact painted cartoon look, colours and outfit of the image. Background stays flat solid magenta #FF00FF for the whole clip, no shadows, no ground, no props, no particles, no text.

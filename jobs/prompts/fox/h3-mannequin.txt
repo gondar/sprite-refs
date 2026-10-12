@@ -1,0 +1,4 @@
+Motion reference clip: a plain smooth grey artist's mannequin figure, short and chubby with a large round head (child proportions), standing upright on two legs, strict side view facing right, full body visible.
+Action: a calm idle loop standing in place: a slow breath (chest rises and falls), the head bobs very slightly, a small weight shift from one foot to the other and back, arms hang relaxed and sway a little. The feet stay planted; the figure does not walk or turn. The clip ends in the same pose it starts in.
+Camera: locked static camera, no zoom, no pan, orthographic side view, figure centered and the same size throughout.
+Background: flat solid bright green #00FF00, evenly lit, no shadows, no floor, no props, no text.
