@@ -1,0 +1,25 @@
+{
+ "frames": 8,
+ "cell": [
+  130,
+  160
+ ],
+ "pivot": [
+  81.7,
+  159.1
+ ],
+ "fps": 8.0,
+ "loop": true,
+ "pingpong": false,
+ "anchor": "head",
+ "sources": [
+  "frames/fox-e3-flash-walk/figs/fig_00.png",
+  "frames/fox-e3-flash-walk/figs/fig_01.png",
+  "frames/fox-e3-flash-walk/figs/fig_02.png",
+  "frames/fox-e3-flash-walk/figs/fig_03.png",
+  "frames/fox-e3-flash-walk/figs/fig_04.png",
+  "frames/fox-e3-flash-walk/figs/fig_05.png",
+  "frames/fox-e3-flash-walk/figs/fig_06.png",
+  "frames/fox-e3-flash-walk/figs/fig_07.png"
+ ]
+}

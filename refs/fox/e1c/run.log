@@ -1,0 +1,3 @@
+{"job_id": "20261012-194746-426944", "ok": true, "s": 15.0, "cost_usd": 0.0195, "tag": "E1c-flare"}
+{"job_id": "20261012-194746-db6ade", "ok": true, "s": 17.4, "cost_usd": 0.0195, "tag": "E1c-sunburst"}
+{"job_id": "20261012-194746-a26676", "ok": true, "s": 33.2, "cost_usd": 0.0696, "tag": "E1c-gpt2-stream"}
