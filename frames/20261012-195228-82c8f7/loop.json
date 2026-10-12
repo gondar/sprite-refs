@@ -1,0 +1,34 @@
+{
+ "raw": "raw/20261012-195228-82c8f7.mp4",
+ "key": "magenta",
+ "frames": 107,
+ "fps": 24.0,
+ "duration_s": 4.46,
+ "loop": {
+  "start_frame": 3,
+  "end_frame": 104,
+  "start_s": 0.125,
+  "len_s": 4.208,
+  "seam_score": 0.573,
+  "picked": [
+   3,
+   16,
+   28,
+   41,
+   53,
+   66,
+   79,
+   91
+  ]
+ },
+ "drift": {
+  "centroid_x_range_px": 11.7,
+  "centroid_y_range_px": 10.4,
+  "height_range_pct": 1.6,
+  "height_first_last": [
+   638,
+   638
+  ]
+ },
+ "first_last_diff": 0.646
+}

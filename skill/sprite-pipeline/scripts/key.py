@@ -25,8 +25,22 @@ def detect(rgb):
     return "green" if g > max(r, b) else "magenta"
 
 
+def key_border(rgb, lo=40, hi=120):
+    """Any flat background, even one that changes from frame to frame (H3 cycled a 'flat magenta' through the
+    rainbow in first+last-frame mode): the key colour is the median of this frame's border, alpha is the RGB
+    distance from it, and edge pixels are un-mixed — out = (pix - (1-a)·bg) / a — so no fringe of any hue."""
+    border = np.concatenate([rgb[:4].reshape(-1, 3), rgb[-4:].reshape(-1, 3), rgb[:, :4].reshape(-1, 3), rgb[:, -4:].reshape(-1, 3)])
+    bg = np.median(border, 0)
+    d = np.sqrt(((rgb - bg) ** 2).sum(2))
+    al = np.clip((d - lo) / (hi - lo), 0, 1)
+    a3 = np.maximum(al, 1e-3)[..., None]
+    out = np.clip((rgb - (1 - al)[..., None] * bg) / a3, 0, 255)
+    return np.dstack([out, al * 255])
+
+
 def key_image(rgb, key="auto", lo=40, hi=120):
     rgb = rgb.astype(np.float64)
+    if key == "border": return key_border(rgb, lo, hi), "border"
     if key == "auto": key = detect(rgb)
     ex = excess(rgb, key)
     al = np.clip((hi - ex) / (hi - lo), 0, 1)
