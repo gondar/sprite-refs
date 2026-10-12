@@ -22,7 +22,7 @@ PER_M = {"gpt-image-2.5-flare": (5, 30), "gpt-image-2.5-sunburst": (5, 30), "gpt
 OPENAI_SIZE = {"1:1": "1024x1024", "16:9": "1536x1024", "3:2": "1536x1024", "4:3": "1536x1024",
                "9:16": "1024x1536", "2:3": "1024x1536", "3:4": "1024x1536"}
 HOST = os.environ.get("APIYI_HOST", "https://api.apiyi.com")
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+ROOT = os.path.abspath(os.environ.get("SPRITE_ROOT", os.getcwd()))  # the sprites project folder (refs/, jobs/, raw/ …)
 LOG = os.path.join(ROOT, "jobs", "jobs.jsonl")
 
 

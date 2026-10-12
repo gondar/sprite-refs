@@ -17,7 +17,7 @@ Rules this script enforces (docs: references/h3-video-generation.md, read 2026-1
 import argparse, json, os, sys, time, uuid, urllib.request, urllib.error
 
 HOST = os.environ.get("APIYI_HOST", "https://api.apiyi.com")
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
+ROOT = os.path.abspath(os.environ.get("SPRITE_ROOT", os.getcwd()))  # the sprites project folder (refs/, jobs/, raw/ …)
 LOG = os.path.join(ROOT, "jobs", "jobs.jsonl")
 PRICE = 0.03
 
