@@ -1,0 +1,6 @@
+Character model sheet for a 2D game sprite, painted in the SAME style as the owl in the attached image: soft cartoon painting, warm brown palette, gentle cel shading, no hard black outlines.
+Subject: "Leoś", a young scout fox cub who walks upright on his hind legs. Chubby proportions, big round head (about one third of his height), big friendly dark eyes, short muzzle with a small black nose. Bright orange fur, cream-white muzzle, chest and tail tip, dark-brown socks on all four paws, a big fluffy tail. He wears an olive-green scout neckerchief knotted at the throat with a small wooden toggle, and a small tan scout campaign hat with a flat brim. No other clothes, no props.
+Layout: the SAME character drawn 8 times on a clean 4 x 2 grid, every figure the same size and standing on the same baseline in its row, never overlapping, wide gaps between figures.
+Top row (turnaround): side view facing right; three-quarter view facing right; front view; back view.
+Bottom row (poses, all side view facing right): relaxed idle; mid-stride walking; crouched about to jump; waving one paw.
+Background: perfectly flat solid magenta #FF00FF everywhere, no gradient, no ground, no shadows, no text, no labels, no grid lines.
