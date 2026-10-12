@@ -1,0 +1,38 @@
+{
+ "raw": "raw/20261012-201305-96fafc.mp4",
+ "key": "magenta",
+ "frames": 107,
+ "fps": 24.0,
+ "duration_s": 4.46,
+ "loop": {
+  "start_frame": 78,
+  "end_frame": 90,
+  "start_s": 3.25,
+  "len_s": 0.5,
+  "seam_score": 0.681,
+  "picked": [
+   78,
+   79,
+   80,
+   81,
+   82,
+   83,
+   84,
+   85,
+   86,
+   87,
+   88,
+   89
+  ]
+ },
+ "drift": {
+  "centroid_x_range_px": 31.7,
+  "centroid_y_range_px": 132.2,
+  "height_range_pct": 16.7,
+  "height_first_last": [
+   640,
+   768
+  ]
+ },
+ "first_last_diff": 22.771
+}

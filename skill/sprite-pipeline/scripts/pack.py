@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Align keyed frames on one pivot, pack them into a strip + JSON, and preview them as a GIF.
 
-usage: pack.py OUT_BASENAME FRAME.png [FRAME.png ...] [--height 160] [--fps 8] [--anchor head|feet|bbox]
+usage: pack.py OUT_BASENAME FRAME.png [FRAME.png ...] [--height 160] [--fps 8] [--anchor head|feet|bbox|fixed]
                [--bg 2a1e3a] [--scale-gif 2] [--pingpong]
 
 Alignment (one rule for every frame, never a per-frame fudge):
@@ -20,9 +20,17 @@ ap.add_argument("out"); ap.add_argument("frames", nargs="+")
 ap.add_argument("--height", type=int, default=160); ap.add_argument("--fps", type=float, default=8)
 ap.add_argument("--anchor", default="head"); ap.add_argument("--bg", default="2a1e3a")
 ap.add_argument("--scale-gif", type=int, default=2); ap.add_argument("--pingpong", action="store_true")
+ap.add_argument("--largest", action="store_true", help="keep only the biggest blob per frame (drops sparkles, specks)")
 a = ap.parse_args()
 
 fr = [np.array(Image.open(p).convert("RGBA")) for p in a.frames]
+if a.largest:
+    from scipy import ndimage as ndi
+    for f in fr:
+        lab, n = ndi.label(ndi.binary_dilation(f[..., 3] > 40, iterations=3))
+        if n > 1:
+            big = 1 + int(np.argmax(ndi.sum(np.ones_like(lab), lab, range(1, n + 1))))
+            f[..., 3] = np.where(lab == big, f[..., 3], 0)
 
 
 def pivot(f):
@@ -36,7 +44,18 @@ def pivot(f):
     return xs[sel].mean(), bot
 
 
-pv = [pivot(f) for f in fr]
+if a.anchor == "fixed":
+    # uncropped video frames from a locked camera: one offset for every frame, so a hop stays a hop
+    bots = [np.nonzero(f[..., 3] > 128)[0].max() for f in fr]
+    xs0 = [np.nonzero(f[..., 3] > 128)[1] for f in fr]
+    common = (float(np.median([x.mean() for x in xs0])), float(max(bots)))
+    # crop every frame to the union box first so cells stay small
+    al = np.any([f[..., 3] > 40 for f in fr], axis=0); ys, xs = np.nonzero(al)
+    y0, y1, x0, x1 = ys.min(), ys.max() + 1, xs.min(), xs.max() + 1
+    fr = [f[y0:y1, x0:x1] for f in fr]
+    pv = [(common[0] - x0, common[1] - y0)] * len(fr)
+else:
+    pv = [pivot(f) for f in fr]
 L = max(px for px, _ in pv); R = max(f.shape[1] - px for f, (px, _) in zip(fr, pv))
 T = max(by + 1 for _, by in pv)  # tallest frame above its baseline
 W, H = int(np.ceil(L + R)) + 4, int(T) + 4
