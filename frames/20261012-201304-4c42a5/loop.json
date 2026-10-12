@@ -1,0 +1,50 @@
+{
+ "raw": "raw/20261012-201304-4c42a5.mp4",
+ "key": "magenta",
+ "frames": 107,
+ "fps": 24.0,
+ "duration_s": 4.46,
+ "loop": {
+  "start_frame": 3,
+  "end_frame": 106,
+  "start_s": 0.125,
+  "len_s": 4.292,
+  "seam_score": 0.388,
+  "picked": [
+   3,
+   7,
+   12,
+   16,
+   20,
+   24,
+   29,
+   33,
+   37,
+   42,
+   46,
+   50,
+   55,
+   59,
+   63,
+   67,
+   72,
+   76,
+   80,
+   85,
+   89,
+   93,
+   97,
+   102
+  ]
+ },
+ "drift": {
+  "centroid_x_range_px": 6.3,
+  "centroid_y_range_px": 11.5,
+  "height_range_pct": 16.7,
+  "height_first_last": [
+   644,
+   642
+  ]
+ },
+ "first_last_diff": 0.401
+}
