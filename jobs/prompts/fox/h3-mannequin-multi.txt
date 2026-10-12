@@ -1,0 +1,8 @@
+Motion reference clip: a plain smooth grey artist's mannequin figure, short and chubby with a large round head (child proportions), standing upright on two legs, strict side view facing right, full body visible with plenty of empty space above the head.
+It performs FOUR short actions one after another, each clearly separated, in exactly this timing:
+0.0–1.0 s: calm idle — a slow breath.
+1.0–2.0 s: raises the near arm and waves twice, then lowers it.
+2.0–3.0 s: a small hop straight up on the spot (crouch, jump, land), landing exactly where it started.
+3.0–4.0 s: settles back into exactly the starting pose and holds still.
+Camera: locked static camera, no zoom, no pan, orthographic side view, figure centered and the same size throughout, never leaves the frame.
+Background: flat solid bright green #00FF00, evenly lit, no shadows, no floor, no props, no text.
