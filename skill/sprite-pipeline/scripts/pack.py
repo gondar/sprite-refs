@@ -20,6 +20,10 @@ ap.add_argument("out"); ap.add_argument("frames", nargs="+")
 ap.add_argument("--height", type=int, default=160); ap.add_argument("--fps", type=float, default=8)
 ap.add_argument("--anchor", default="head"); ap.add_argument("--bg", default="2a1e3a")
 ap.add_argument("--scale-gif", type=int, default=2); ap.add_argument("--pingpong", action="store_true")
+ap.add_argument("--fix-scale", action="store_true",
+                help="undo size drift: rescale each frame by the factor that best overlays it on frame 1 (feet-anchored)")
+ap.add_argument("--fit-top", type=float, default=1.0,
+                help="with --fix-scale: fit on the top fraction of the figure only (0.6 = head+torso, for walks)")
 ap.add_argument("--largest", action="store_true", help="keep only the biggest blob per frame (drops sparkles, specks)")
 a = ap.parse_args()
 
@@ -43,6 +47,37 @@ def pivot(f):
     else: return (xs.min() + xs.max()) / 2, bot
     return xs[sel].mean(), bot
 
+
+def fit_scale(ref, f, lo=0.85, hi=1.15):
+    """the scale of f (about its feet) that maximises silhouette overlap with ref, at 96 px resolution.
+    A frame that merely grew is pulled back; a frame whose pose changed (wings out, crouch) keeps a factor near
+    1, because the unchanged bulk of the body still decides the best fit."""
+    def sil(img, s):
+        al = img[..., 3] > 128; ys, xs = np.nonzero(al)
+        bx, by = xs.mean(), ys.max()                       # feet: horizontal centroid, lowest row
+        if a.fit_top < 1:                                  # keep only the head+torso rows: legs swing in a walk
+            keep = ys <= ys.min() + a.fit_top * (by - ys.min()); ys, xs = ys[keep], xs[keep]
+        H = 96 / max(r.shape[0] for r in (ref, f))
+        out = np.zeros((128, 128), bool)
+        sy, sx = (ys - by) * s * H + 120, (xs - bx) * s * H + 64
+        ok = (sy >= 0) & (sy < 128) & (sx >= 0) & (sx < 128)
+        out[sy[ok].astype(int), sx[ok].astype(int)] = True
+        return out
+    R = sil(ref, 1.0); best = (0, 1.0)
+    for s in np.arange(lo, hi + 1e-9, 0.005):
+        S = sil(f, s); iou = (R & S).sum() / max(1, (R | S).sum())
+        if iou > best[0]: best = (iou, s)
+    return best[1]
+
+
+if a.fix_scale:
+    scales = [1.0] + [fit_scale(fr[0], f) for f in fr[1:]]
+    out = []
+    for f, s in zip(fr, scales):
+        if abs(s - 1) < 0.004: out.append(f); continue
+        im = Image.fromarray(f); out.append(np.array(im.resize((max(1, round(f.shape[1] * s)), max(1, round(f.shape[0] * s))), Image.LANCZOS)))
+    fr = out
+    print("scale fix:", " ".join(f"{s:.3f}" for s in scales))
 
 if a.anchor == "fixed":
     # uncropped video frames from a locked camera: one offset for every frame, so a hop stays a hop
@@ -90,4 +125,5 @@ def gif(path, s):
 
 gif(a.out + ".gif", a.scale_gif)
 gif(a.out + "@game.gif", 1)
-print(json.dumps(meta))
+try: print(json.dumps(meta))
+except BrokenPipeError: pass
