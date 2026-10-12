@@ -1,0 +1,13 @@
+Motion reference clip: a plain smooth grey artist's mannequin figure, short and chubby with a large round head (child proportions), standing upright on two legs, strict side view facing right, full body visible with plenty of empty space above the head and around it.
+It performs EIGHT actions one after another, in exactly this timing:
+0.0–0.5 s: idle — stands still.
+0.5–1.0 s: walks on the spot — two steps, no forward travel.
+1.0–1.5 s: runs on the spot — quick running steps, no forward travel.
+1.5–2.0 s: jumps straight up and lands in the same place.
+2.0–2.5 s: sits down on the floor.
+2.5–3.0 s: stands back up.
+3.0–3.5 s: turns around in place to face left.
+3.5–4.0 s: turns back in place to face right, ending in the starting pose.
+Every action happens ON THE SPOT: the figure never travels across the frame, it stays centered. Each action is clearly separated and finished before the next one starts.
+Camera: locked static camera, no zoom, no pan, orthographic side view, the figure the same size throughout and always fully inside the frame.
+Background: flat solid bright green #00FF00, evenly lit, no shadows, no floor, no props, no text.
