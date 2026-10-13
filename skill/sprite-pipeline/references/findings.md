@@ -103,3 +103,8 @@ All calls through APIYI (one key, group `default`). Every job is in `jobs/jobs.j
   jumps small. Cut action rows with `cut_sheet.py --grid 4x4` (keeps height in the cell) + `--anchor fixed`.
 - `--fix-scale` (best-fit overlay on frame 1): idles only. On pose actions it "corrects" real change (crouch +15 %,
   sit −11 %).
+- Loops cut on the clock snap at the seam (owner: "end state jumps to start" on the run). `segments.py
+  NAME=t0-t1::loop` searches the window for the best-matching pair of frames ≥ --min-cycle apart and keeps one
+  whole stride: run 1.0–1.75 s seam 3.03 → 0.958–1.667 s seam 0.65 (seam IoU 0.82 vs median step 0.86).
+  A 0.5 s walk slot holds one step only (best seam 2.31): give locomotion ≥ 1 s per action in the mannequin
+  (two strides), or a dedicated walk/run mannequin.

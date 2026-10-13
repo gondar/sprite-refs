@@ -9,17 +9,17 @@
   "verdict": "best of three densities",
   "verdict_kind": "win",
   "setup": "Library mannequin doing idle, walk, run, jump, sit, stand up, turn to face left, turn back (0.5 s each, $0.12 once) + Leoś with headroom as reference_image. Same recipe also run at 4 and 6 actions per 4 s. All packed at ONE shared scale (--src-scale 0.25) so sitting stays smaller than standing.",
-  "result": "8/4 s: background held magenta, every action present; sit, stand and the turn (front + back views) are good, run reads as a walk, jump is a bounce, the first 0.5 s zooms. 4/4 s: speed rings in the background. 6/4 s: pastel background with rings and a zoom. Background stability is luck (1 of 3 clean), not density.",
+  "result": "8/4 s: background held magenta, every action present; sit, stand and the turn (front + back views) are good, run reads as a walk, jump is a bounce, the first 0.5 s zooms. 4/4 s: speed rings in the background. 6/4 s: pastel background with rings and a zoom. Background stability is luck (1 of 3 clean), not density. Loops: cut walk/run on a whole stride found in the clip, not on the clock (run seam 3.03 → 0.65). The walk's 0.5 s slot holds one step, so it cannot loop — locomotion needs ≥ 1 s per action.",
   "takes": [
    {
     "name": "Walk",
     "strip": "sheets/fox/e7-walk.png",
-    "note": "0.5–1.0 s"
+    "note": "0.5–1.0 s — only one step in its slot, cannot loop (seam 2.31)"
    },
    {
     "name": "Run",
-    "strip": "sheets/fox/e7-run.png",
-    "note": "1.0–1.75 s"
+    "strip": "sheets/fox/e7-run-loop.png",
+    "note": "0.96–1.67 s, one stride found in the clip (seam 0.65)"
    },
    {
     "name": "Jump",

@@ -44,6 +44,8 @@ stripped, 4 s each:
 Reuse one when its actions fit (the character clip then costs $0.12 alone); generate a new one only for new
 motion, store it here with audio stripped, and add a row. A new file name for every new clip — never overwrite.
 
+**Locomotion needs time:** a looping walk or run needs two steps in its slot — ≥ 1 s per locomotion action; a 0.5 s walk slot held one step and could not loop.
+
 **How many actions per 4 s:** 8 worked (each recognisable, simpler: run ≈ brisk walk, jump ≈ bounce, sit/stand
 and the turn good). Density did not break the background — luck did (clean in 1 of 3 clips), so budget one
 retry per clip and judge every clip on the contact sheet before cutting it.
@@ -134,7 +136,7 @@ All stages are re-runnable and deterministic; outputs never overwrite `raw/`.
 | Odd background | `key.py --key border` | key colour = this frame's border median; cannot save a background that matches the character's colours |
 | Cut a sheet | `cut_sheet.py KEYED OUTDIR` | dilate 4 px, `--min-area 4000` (drops motion marks/specks), reading order by rows |
 | Video → loop | `video_frames.py RAW.mp4 OUT --pick 24` | 24 fps extract, seam score on premultiplied 96 px thumbnails (< 1 ≈ seamless), `--min-len` ≈ clip length to force a full loop; also prints drift |
-| Multi-action clip | `segments.py SRC OUT name=t0-t1:step …` | prints a motion curve — read real boundaries off it, do not trust the prompt's timing |
+| Multi-action clip | `segments.py SRC OUT name=t0-t1:step[:loop] …` | prints a motion curve — read real boundaries off it, do not trust the prompt's timing; mark cycles (walk, run) `:loop` so the cut lands on one whole stride found in the clip — a clock cut snaps at the seam (run 3.03 → 0.65) |
 | Align + pack | `pack.py OUT frames… --anchor feet\|head\|fixed --height 160 [--fix-scale] [--src-scale 0.25]` | all strips of one character at ONE `--src-scale` (else a sit is blown up to standing size); `--fix-scale` for idles only — on pose actions it 'corrects' a crouch by +15 %; drawn action rows: `cut_sheet.py --grid 4x4` + `--anchor fixed`; `--fix-scale` on drawn cycles: each frame rescaled by the factor that best overlays it on frame 1 (feet-anchored, 0.85–1.15) — fox idle drift +4.5 % → ±1.6 %, owl −4…+9 % → 0…+3 % with the wing flap kept; walks: add `--fit-top 0.6` (fit head+torso, the legs swing) and expect little to fix; otherwise one scale for the whole set; `head` for turnarounds, `feet` for idles/walks, **`fixed` for anything that leaves the ground** (feet-aligning erases a hop); `--largest` drops sparkles |
 | Check | `onion.py STRIP JSON OUT` | idle IoU > 0.9, walk 0.75–0.9, area within a few %, shifts > 3 px flagged |
 | Compare | `compare_gif.py OUT.gif NAME=STRIP…` | side by side on one clock |
