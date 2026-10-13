@@ -1,0 +1,169 @@
+{
+ "name": "fox-grid",
+ "label": "Leo\u015b \u2014 Nano Banana grid sheet",
+ "sheet": "refs/cutout/c1/fox-grid-flash.png",
+ "pieces": "frames/cutout/fox-grid-flash",
+ "kind": "fox",
+ "bones": [
+  {
+   "name": "torso",
+   "piece": "p03",
+   "pivot": [
+    650,
+    400
+   ],
+   "z": 4
+  },
+  {
+   "name": "tail",
+   "piece": "p02",
+   "parent": "torso",
+   "pivot": [
+    795,
+    385
+   ],
+   "at": [
+    575,
+    390
+   ],
+   "z": 1,
+   "flip": true,
+   "rot": 10
+  },
+  {
+   "name": "farleg",
+   "piece": "p09",
+   "parent": "torso",
+   "pivot": [
+    400,
+    750
+   ],
+   "at": [
+    690,
+    400
+   ],
+   "z": 2,
+   "erase": [
+    [
+     330,
+     787,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "fararm",
+   "piece": "p04",
+   "parent": "torso",
+   "pivot": [
+    398,
+    440
+   ],
+   "at": [
+    690,
+    225
+   ],
+   "z": 3
+  },
+  {
+   "name": "nearleg",
+   "piece": "p07",
+   "parent": "torso",
+   "pivot": [
+    868,
+    528
+   ],
+   "at": [
+    620,
+    405
+   ],
+   "z": 5,
+   "erase": [
+    [
+     800,
+     577,
+     26
+    ]
+   ]
+  },
+  {
+   "name": "head",
+   "piece": "p00",
+   "parent": "torso",
+   "pivot": [
+    200,
+    320
+   ],
+   "at": [
+    665,
+    185
+   ],
+   "z": 6
+  },
+  {
+   "name": "hat",
+   "piece": "p01",
+   "parent": "head",
+   "pivot": [
+    455,
+    170
+   ],
+   "at": [
+    170,
+    105
+   ],
+   "z": 7,
+   "rot": -8
+  },
+  {
+   "name": "neararm",
+   "piece": "p05",
+   "parent": "torso",
+   "pivot": [
+    160,
+    440
+   ],
+   "at": [
+    625,
+    235
+   ],
+   "z": 8
+  },
+  {
+   "name": "eyeclosed",
+   "piece": "p10",
+   "parent": "head",
+   "pivot": [
+    640,
+    905
+   ],
+   "at": [
+    232,
+    222
+   ],
+   "z": 6.5,
+   "scale": 0.45,
+   "hidden": true,
+   "mask": "ellipse"
+  },
+  {
+   "name": "mouthopen",
+   "piece": "p11",
+   "parent": "head",
+   "pivot": [
+    880,
+    880
+   ],
+   "at": [
+    280,
+    268
+   ],
+   "z": 6.6,
+   "scale": 0.5,
+   "hidden": true,
+   "mask": "ellipse"
+  }
+ ],
+ "cost": "Nano Banana \u00b7 $0.0245 sheet",
+ "verdict": "Grid layout kept the scale. Legs came as stubby blobs (thigh + shin with foot); I used the shin pieces as whole legs. Spare eye/mouth came as square patches \u2014 feathered to ovals they pass at game size, not up close. Tail drawn mirrored (flipped in the rig)."
+}

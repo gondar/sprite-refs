@@ -1,0 +1,165 @@
+{
+ "name": "owl-flash",
+ "label": "S\u00f3wka \u2014 Nano Banana exploded sheet",
+ "sheet": "refs/cutout/c1/owl-exploded-flash.png",
+ "pieces": "frames/cutout/owl-exploded-flash",
+ "kind": "owl",
+ "bones": [
+  {
+   "name": "body",
+   "piece": "p03",
+   "pivot": [
+    480,
+    600
+   ],
+   "z": 2
+  },
+  {
+   "name": "farfoot",
+   "piece": "p06",
+   "parent": "body",
+   "pivot": [
+    600,
+    742
+   ],
+   "at": [
+    588,
+    690
+   ],
+   "z": 1
+  },
+  {
+   "name": "nearfoot",
+   "piece": "p07",
+   "parent": "body",
+   "pivot": [
+    410,
+    752
+   ],
+   "at": [
+    425,
+    705
+   ],
+   "z": 1
+  },
+  {
+   "name": "farwing",
+   "piece": "p04",
+   "parent": "body",
+   "pivot": [
+    715,
+    450
+   ],
+   "at": [
+    650,
+    465
+   ],
+   "z": 1
+  },
+  {
+   "name": "head",
+   "piece": "p00",
+   "parent": "body",
+   "pivot": [
+    512,
+    365
+   ],
+   "at": [
+    515,
+    445
+   ],
+   "z": 5,
+   "erase": [
+    [
+     512,
+     368,
+     24
+    ]
+   ]
+  },
+  {
+   "name": "nearwing",
+   "piece": "p05",
+   "parent": "body",
+   "pivot": [
+    268,
+    442
+   ],
+   "at": [
+    395,
+    462
+   ],
+   "z": 6,
+   "erase": [
+    [
+     268,
+     442,
+     22
+    ]
+   ]
+  },
+  {
+   "name": "hat",
+   "piece": "p02",
+   "parent": "head",
+   "pivot": [
+    770,
+    290
+   ],
+   "at": [
+    480,
+    130
+   ],
+   "z": 7,
+   "rot": -18
+  },
+  {
+   "name": "pompom",
+   "piece": "p01",
+   "parent": "hat",
+   "pivot": [
+    812,
+    112
+   ],
+   "at": [
+    982,
+    518
+   ],
+   "z": 8
+  },
+  {
+   "name": "facesleep",
+   "piece": "p08",
+   "parent": "head",
+   "pivot": [
+    420,
+    915
+   ],
+   "at": [
+    540,
+    248
+   ],
+   "z": 6,
+   "scale": 1.0,
+   "hidden": true
+  },
+  {
+   "name": "beakopen",
+   "piece": "p09",
+   "parent": "head",
+   "pivot": [
+    628,
+    888
+   ],
+   "at": [
+    578,
+    250
+   ],
+   "z": 7,
+   "scale": 0.8,
+   "hidden": true
+  }
+ ],
+ "cost": "Nano Banana \u00b7 $0.0245 sheet",
+ "verdict": "Same quality for a quarter of the price. Drew neck/wing stubs (good overlap), a stray dark spot on the body (hidden under the wing), a whole sleeping face and an open beak as spares."
+}

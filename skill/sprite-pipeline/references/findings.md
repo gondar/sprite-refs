@@ -117,3 +117,15 @@ All calls through APIYI (one key, group `default`). Every job is in `jobs/jobs.j
 - One 1K Nano Banana sheet held 16, 36, 64 and 100 distinct props in the listed order; 144 duplicated items and
   dropped others (names shift while every cell is still full); a 2K 144-sheet hit the 30 s 502.
 - Numbered lists leak faint digits into the picture; bullets do not. Glows/steam mix with the key colour.
+
+## Round 5 — cutout puppets (C1, 2026-10-13, $0.23)
+
+Nano Banana draws a character taken apart into puppet pieces on the first try (exploded view or grid), in its
+own style, and draws the hidden overlap at joints when asked ("extend each piece with a plain rounded tab past
+the joint"). Pro drew joint tabs by itself on the owl (usable as pivots; erase them where they would show).
+`skill/cutout/scripts/pieces.py` keys and splits a sheet by connected component; rigs in `rigs/*.json` (pivot +
+attach point per piece, sheet pixels); `skill/cutout/player/cutout.js` plays procedural actions on a canvas.
+Owl (round body): excellent. Fox (biped, 3/4): walk reads at game size, rigid up close; draw order is fixed per
+piece, so the near arm cannot wave without covering the face. All actions for one character: 43–48 KB of art,
+against 117 KB for one 24-frame video idle. Review page: `review/cutout/index.html`
+(https://claude.ai/artifact/GtS15Z5WAL6E1eJmsCyuni). Not yet a skill: rigging was done by eye.

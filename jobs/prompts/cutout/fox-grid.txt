@@ -1,0 +1,17 @@
+Game asset sheet: cut-out puppet pieces for 2D game animation of the fox in the reference image: the same character, same colours, same soft painted storybook style, three-quarter view facing right. He is ANTHROPOMORPHIC and BIPEDAL: two arms, two legs, stands upright.
+Draw EXACTLY 12 separate pieces, one per cell of an invisible 3 x 4 grid (3 rows of 4), in the order of this list in reading order (row 1 left to right, then row 2 …). Every piece is drawn at the SAME scale as it would be on the whole fox — do not enlarge small pieces to fill their cell:
+- head with ears, eyes open, closed smiling mouth, without the hat
+- ranger hat
+- torso with the green neckerchief, without head, arms, legs or tail
+- tail
+- near arm, straight, hanging down, with its dark paw
+- far arm, straight, hanging down, with its dark paw
+- near thigh
+- near shin with its dark foot
+- far thigh
+- far shin with its dark foot
+- closed eye (one closed eye on fur colour)
+- open singing mouth (on the white muzzle colour)
+Where a piece joins another, also draw the part that would be hidden underneath: extend it with a plain rounded tab of the same fur past the joint (round ends at shoulders, hips and knees), so pieces can rotate without showing a hole. Limbs are drawn vertical, joint at the top.
+Each piece stands alone: no ground, no shadow, no glow. Draw NO text anywhere: no numbers, no letters, no labels, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. No piece may contain magenta or pink.

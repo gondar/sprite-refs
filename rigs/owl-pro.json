@@ -1,0 +1,211 @@
+{
+ "name": "owl-pro",
+ "label": "S\u00f3wka \u2014 Nano Banana Pro exploded sheet (drew joint tabs)",
+ "sheet": "refs/cutout/c1/owl-exploded-pro.png",
+ "pieces": "frames/cutout/owl-exploded-pro",
+ "kind": "owl",
+ "bones": [
+  {
+   "name": "body",
+   "piece": "p02",
+   "pivot": [
+    500,
+    600
+   ],
+   "z": 2,
+   "erase": [
+    [
+     705,
+     463,
+     16
+    ],
+    [
+     519,
+     395,
+     18
+    ],
+    [
+     457,
+     690,
+     16
+    ],
+    [
+     592,
+     676,
+     16
+    ]
+   ]
+  },
+  {
+   "name": "farfoot",
+   "piece": "p06",
+   "parent": "body",
+   "pivot": [
+    612,
+    715
+   ],
+   "at": [
+    585,
+    668
+   ],
+   "z": 1
+  },
+  {
+   "name": "nearfoot",
+   "piece": "p07",
+   "parent": "body",
+   "pivot": [
+    437,
+    730
+   ],
+   "at": [
+    450,
+    680
+   ],
+   "z": 1
+  },
+  {
+   "name": "farwing",
+   "piece": "p05",
+   "parent": "body",
+   "pivot": [
+    752,
+    465
+   ],
+   "at": [
+    672,
+    470
+   ],
+   "z": 1,
+   "erase": [
+    [
+     752,
+     465,
+     18
+    ]
+   ]
+  },
+  {
+   "name": "head",
+   "piece": "p01",
+   "parent": "body",
+   "pivot": [
+    519,
+    330
+   ],
+   "at": [
+    519,
+    430
+   ],
+   "z": 5,
+   "erase": [
+    [
+     519,
+     349,
+     24
+    ],
+    [
+     478,
+     64,
+     24
+    ]
+   ]
+  },
+  {
+   "name": "nearwing",
+   "piece": "p04",
+   "parent": "body",
+   "pivot": [
+    250,
+    485
+   ],
+   "at": [
+    380,
+    480
+   ],
+   "z": 6,
+   "erase": [
+    [
+     262,
+     485,
+     16
+    ]
+   ]
+  },
+  {
+   "name": "hat",
+   "piece": "p00",
+   "parent": "head",
+   "pivot": [
+    700,
+    120
+   ],
+   "at": [
+    470,
+    85
+   ],
+   "z": 7,
+   "rot": -10,
+   "erase": [
+    [
+     715,
+     128,
+     24
+    ],
+    [
+     872,
+     275,
+     24
+    ]
+   ]
+  },
+  {
+   "name": "pompom",
+   "piece": "p03",
+   "parent": "hat",
+   "pivot": [
+    945,
+    378
+   ],
+   "at": [
+    935,
+    350
+   ],
+   "z": 8
+  },
+  {
+   "name": "eyesclosed",
+   "piece": "p08",
+   "parent": "head",
+   "pivot": [
+    378,
+    900
+   ],
+   "at": [
+    536,
+    215
+   ],
+   "z": 6,
+   "scale": 0.8,
+   "hidden": true
+  },
+  {
+   "name": "happyface",
+   "piece": "p09",
+   "parent": "head",
+   "pivot": [
+    666,
+    900
+   ],
+   "at": [
+    512,
+    240
+   ],
+   "z": 6,
+   "scale": 1.12,
+   "hidden": true
+  }
+ ],
+ "cost": "Nano Banana Pro \u00b7 $0.09 sheet",
+ "verdict": "<span class=\"tag\">best</span> Cleanest pieces; it drew paper-puppet joint tabs by itself, which gave the pivots \u2014 but they show unless erased (5 erase circles). Spare face pieces: closed eyes + happy face with open beak."
+}

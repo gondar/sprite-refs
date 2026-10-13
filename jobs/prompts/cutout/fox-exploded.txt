@@ -1,0 +1,14 @@
+Cut-out puppet pieces for 2D game animation of the fox in the reference image: the same character, same colours, same soft painted storybook style, same three-quarter view facing right. He is ANTHROPOMORPHIC and BIPEDAL: two arms, two legs, stands upright, never on all fours.
+Draw the fox TAKEN APART into separate paper-puppet pieces, laid out like an exploded diagram: every piece sits in its natural place relative to the others, but pulled apart so a clear gap of background (about one twentieth of the image width) separates every piece from every other piece. All pieces at the same scale relative to each other as on the whole fox; the whole layout fills about 80% of the image.
+Pieces:
+- torso with the green neckerchief, without head, arms, legs or tail
+- head with ears, eyes open and a closed smiling mouth, without the hat
+- ranger hat
+- tail
+- near arm, straight, hanging down, with its dark paw
+- far arm, straight, hanging down, with its dark paw
+- near thigh, near shin with its dark foot
+- far thigh, far shin with its dark foot
+Where a piece joins another, also draw the part that would be hidden underneath: extend the piece with a plain rounded tab of the same fur past the joint (round ends at shoulders, hips and knees), so the pieces can rotate against each other without showing a hole. No piece touches another piece.
+Below the fox, in one separate row, draw spare face pieces at the same scale: the eye closed (one closed eye on fur colour), and the mouth open as if singing.
+Background: perfectly flat solid magenta #FF00FF everywhere. No piece may contain magenta or pink. No shadows, no ground, no glow, no text, no labels, no arrows, no lines.
