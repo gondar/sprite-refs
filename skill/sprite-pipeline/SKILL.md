@@ -27,6 +27,26 @@ The evidence behind every rule is in `references/findings.md`; read it when a ru
 4. **Post-process:** key → (cut sheet | extract + find loop) → align → pack → onion-skin numbers → review page.
 5. **Integrate** by the target game's own conventions (a strip + `steps(N)` in CSS, or a canvas player), fail-open.
 
+## Planning a character's animation set — the rule
+
+**One second per pose, four poses per 4 s clip.** Fewer seconds per pose left too little motion to cut a clean
+loop (a 0.5 s walk slot held one step and snapped at the seam); one second holds a full stride for walk and run
+and a finished sit, stand or turn. For N poses, submit ⌈N/4⌉ clips of 4 s, not one long clip.
+
+Why 4 s clips and not one long clip, at the same price:
+- H3 bills $0.03 × requested seconds, nothing extra for reference media — 8 poses cost $0.24 either way, and so do
+  the mannequins (one 8 s or two 4 s). Same list price.
+- A clip that comes back with a broken background (1 in 3 did) is re-run whole: $0.12 for a 4 s clip, $0.24 for
+  8 s, and the 8 s retry throws away four good poses with the bad ones. Expected cost favours short clips, more so
+  if long clips fail more often.
+- 8 s is unproven: the one 8 s clip (E5) barely moved — H3 stretched its 4.45 s motion clip instead of filling the
+  time. (That clip had a 4 s mannequin; an 8 s mannequin was not tried.)
+- The cost of splitting: each clip spends its first ~0.5 s settling from the reference image's framing (a small
+  zoom). Put idle first in every clip — it is the pose that tolerates a soft start.
+- 4 s clips line up with the mannequin library, so most new characters need no new mannequin at all.
+
+Budget per character: 2 clips × $0.12 for 8 poses, plus ~$0.12 for the likely retry; mannequins from the library.
+
 ## Mannequin library — look here before generating motion
 
 `refs/mannequins/` in the sprites repo (served as `https://cdn.jsdelivr.net/gh/gondar/sprite-refs/refs/mannequins/<file>`,
@@ -44,11 +64,10 @@ stripped, 4 s each:
 Reuse one when its actions fit (the character clip then costs $0.12 alone); generate a new one only for new
 motion, store it here with audio stripped, and add a row. A new file name for every new clip — never overwrite.
 
-**Locomotion needs time:** a looping walk or run needs two steps in its slot — ≥ 1 s per locomotion action; a 0.5 s walk slot held one step and could not loop.
-
-**How many actions per 4 s:** 8 worked (each recognisable, simpler: run ≈ brisk walk, jump ≈ bounce, sit/stand
-and the turn good). Density did not break the background — luck did (clean in 1 of 3 clips), so budget one
-retry per clip and judge every clip on the contact sheet before cutting it.
+**Density tested:** 4, 6 and 8 actions per 4 s all ran, but at 0.5 s a pose is a sketch (run ≈ brisk walk, jump ≈
+bounce) and a cycle cannot loop. Density did not break the background — luck did (clean in 1 of 3 clips), so
+judge every clip on its contact sheet before cutting it. Hence the 1 s rule above. Still missing from the
+library for an 8-pose set at 1 s each: `std4b` = sit down · stand up · turn to face left · turn back.
 
 ## Before any paid call
 

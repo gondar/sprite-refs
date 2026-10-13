@@ -108,3 +108,7 @@ All calls through APIYI (one key, group `default`). Every job is in `jobs/jobs.j
   whole stride: run 1.0–1.75 s seam 3.03 → 0.958–1.667 s seam 0.65 (seam IoU 0.82 vs median step 0.86).
   A 0.5 s walk slot holds one step only (best seam 2.31): give locomotion ≥ 1 s per action in the mannequin
   (two strides), or a dedicated walk/run mannequin.
+- Owner's rule after E7: one second per pose. Price check for 8 poses: one 8 s clip = two 4 s clips = $0.24
+  (H3 bills requested seconds only; reference media free). Two 4 s clips win on expected cost (a failed clip is
+  re-run whole: $0.12 vs $0.24, and 1 of 3 clips had a broken background), on evidence (the only 8 s clip barely
+  moved), and on library reuse. Their one cost is a second ~0.5 s start-up settle — lead each clip with idle.
