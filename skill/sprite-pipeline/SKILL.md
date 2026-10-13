@@ -9,6 +9,13 @@ From a one-line character idea to a packed, keyed, pivot-aligned animation strip
 cost. Learned on two characters (a scout fox and a sleepy owlet, 2026-10-12, ~$2.40 for ~30 paid calls).
 The evidence behind every rule is in `references/findings.md`; read it when a rule here surprises you.
 
+**Where the work lives.** Generated media, the job log and the mannequin library live in the public
+`gondar/sprite-refs` repo (it doubles as the hosting H3 needs). Clone it and run the scripts from its root;
+only the finished strip goes into the game's own repo. This skill is copied into each game repo under
+`.claude/skills/sprite-pipeline/`; the copy in sprite-refs (`skill/sprite-pipeline/`) is the source of truth.
+If the game repo has its own art-direction skill (MathGames: `oprawa-gry`), use that for direction, mock-ups
+and layout, and this one for turning a character into animation strips.
+
 ## The recipe that won
 
 1. **Design once with Nano Banana Pro** (`gemini-3-pro-image`, $0.09): one character, full body, on a flat key
