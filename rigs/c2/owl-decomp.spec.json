@@ -1,0 +1,145 @@
+{
+ "ref": "refs/owl/sowka-ref.png",
+ "seg": "refs/cutout/c2/owl-seg.png",
+ "key": "green",
+ "colors": {
+  "head": [
+   255,
+   0,
+   0
+  ],
+  "body": [
+   0,
+   0,
+   255
+  ],
+  "wing": [
+   255,
+   255,
+   0
+  ],
+  "tail": [
+   0,
+   255,
+   255
+  ],
+  "hat": [
+   255,
+   128,
+   0
+  ],
+  "pom": [
+   255,
+   255,
+   255
+  ],
+  "feet": [
+   255,
+   0,
+   255
+  ],
+  "bg": [
+   0,
+   0,
+   0
+  ]
+ },
+ "fills": {
+  "nohat": "refs/cutout/c2/owl-base.png",
+  "body": "refs/cutout/c2/owl-body-nowing.png"
+ },
+ "register": {
+  "body": [
+   "body",
+   "wing",
+   "tail",
+   "feet"
+  ]
+ },
+ "layers": [
+  {
+   "name": "body",
+   "parts": [
+    "body",
+    "tail",
+    "feet"
+   ],
+   "under": [
+    "wing",
+    "head"
+   ],
+   "from": "body",
+   "fill_extra": true,
+   "pivot": "bottom",
+   "z": 1
+  },
+  {
+   "name": "nearwing",
+   "parts": [
+    "wing"
+   ],
+   "parent": "body",
+   "top": 0.3,
+   "z": 2
+  },
+  {
+   "name": "farwing",
+   "parts": [],
+   "mirror_of": "nearwing",
+   "mirror_dx": 60,
+   "scale_mirror": 0.85,
+   "parent": "body",
+   "top": 0.3,
+   "z": 0
+  },
+  {
+   "name": "head",
+   "parts": [
+    "head",
+    "hat"
+   ],
+   "src": "nohat",
+   "parent": "body",
+   "soft_into": [
+    "body"
+   ],
+   "soft_px": 12,
+   "z": 3,
+   "exclude": [
+    "wing"
+   ]
+  },
+  {
+   "name": "hat",
+   "parts": [
+    "hat"
+   ],
+   "parent": "head",
+   "z": 5
+  },
+  {
+   "name": "pompom",
+   "parts": [
+    "pom"
+   ],
+   "parent": "hat",
+   "z": 6
+  }
+ ],
+ "swaps": {
+  "blink": {
+   "src": "refs/cutout/c2/owl-blink.png",
+   "parent": "head",
+   "within": [
+    "head"
+   ]
+  },
+  "sing": {
+   "src": "refs/cutout/c2/owl-sing.png",
+   "parent": "head",
+   "within": [
+    "head"
+   ]
+  }
+ }
+}

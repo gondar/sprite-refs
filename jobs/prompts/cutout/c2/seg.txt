@@ -1,0 +1,9 @@
+Recolour this exact image as a flat-colour segmentation map. Keep every shape exactly where it is, the same size and position, the same canvas — only replace the painting with flat colours, no shading, no outlines, no texture:
+- the head (face disc, eyes, beak, ear tufts, head feathers) = pure red #FF0000
+- the round body and chest = pure blue #0000FF
+- the wing on the left side of the picture = pure yellow #FFFF00
+- any wing or tail feathers on the right side or at the bottom of the body = pure cyan #00FFFF
+- the striped nightcap = pure orange #FF8000
+- the white pompom = pure white #FFFFFF
+- both feet = pure magenta #FF00FF
+- the background = pure black #000000

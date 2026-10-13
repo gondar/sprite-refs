@@ -5,14 +5,21 @@ window.__build = (app, K) => {
   const byName = n => RIGS.find(r => r.name === n);
 
   app.append(
-    H("h1", { textContent: "Cutout animation — experiment C1" }),
-    P('<span class="mute">2026-10-13 · Sówka (owl) and Leoś (fox) · Nano Banana / Nano Banana Pro through APIYI · spent $0.23 (4 sheets) · total so far ≈ $3.67 of $10</span>'),
-    P("<b>Verdict: it works, and it is the cheapest route to many actions.</b> One parts sheet ($0.0245) gives a puppet that plays every animation below, plus any you write later, for free, at any size, with no keying or loop seams per action. All the motion here is code: the art is 43–48 KB per character for <i>all</i> actions, against 117 KB for the fox's single 24-frame video idle in the game. The cost is a different kind of work: someone (an agent) has to set ~2 numbers per piece (pivot + where it attaches) and write the motion. Motion is stiffer than video: limbs are rigid, the body never turns, no cloth or fur moves unless you animate it. Best fit: round, simple characters (the owl is excellent); weaker fit: long-limbed walkers seen from 3/4."),
+    H("h1", { textContent: "Cutout animation — experiments C1 and C2" }),
+    P('<span class="mute">2026-10-13 · Sówka (owl) and Leoś (fox) · Nano Banana / Nano Banana Pro through APIYI · C1 $0.23, C2 $0.15 · total so far ≈ $3.82 of $10</span>'),
+    P("<b>C2 fixes the quality problem of C1.</b> In C1 the model drew every piece separately, so the pieces never matched: every piece had its own outline, the hat floated, a stray spot showed, and edges had a light fringe. In C2 the finished reference picture is taken apart instead: a colour-coded parts map (an edit of the same picture, lines up to 1 px), edits that remove a part and paint what was hidden under it, and edits for blink and singing. The rest pose is the original picture; motion reveals painted fur, not holes; edges are choked so there is no fringe on dark backgrounds. Cutting, layering and pivots are automatic (<code>decompose.py</code>)."),
   );
+  const g0 = H("div", { className: "grid" });
+  g0.append(K.rigCard(byName("owl-decomp"), byName("owl-decomp")._imgs));
+  g0.append(H("div", { className: "card" }, H("h3", { textContent: "How C2 was made — 6 edits, $0.147" }),
+    H("div", { className: "sheets mini" }, ...[["c2seg", "parts map"], ["c2base", "hat removed, head painted"], ["c2body", "body alone, wing removed (2 edits)"], ["c2blink", "blink"], ["c2sing", "sing"]]
+      .map(([k, c]) => H("figure", {}, H("img", { className: "sheet", src: EXTRA[k], alt: c }), H("figcaption", { textContent: c })))),
+    P("Misses on the way: the first \"remove the wing\" instructions were ignored twice (the body edit also came back zoomed — registered back automatically, overlap 0.95); a third edit on the body alone did it. Still rigid: the wing is one piece, so when it flaps its root stays on the body.")));
+  app.append(sec("C2 — the reference picture taken apart into layers", g0));
 
   const g1 = H("div", { className: "grid" });
   ["owl-pro", "owl-flash", "fox-grid"].forEach(n => g1.append(K.rigCard(byName(n), byName(n)._imgs)));
-  app.append(sec("Option A — rigid cutout puppets (pieces from one generated sheet)",
+  app.append(sec("C1 (before) — pieces drawn separately on one sheet",
     P("Click the actions. <b>pivots</b> shows the joints; <b>game size</b> draws it as small as in the game. Blinks, the happy face, the open beak and the fox's open mouth are spare pieces swapped in on top of the face."), g1));
 
   const g2 = H("div", { className: "grid" });

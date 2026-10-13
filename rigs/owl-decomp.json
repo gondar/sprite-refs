@@ -1,0 +1,122 @@
+{
+ "bones": [
+  {
+   "name": "body",
+   "piece": "p00",
+   "pivot": [
+    490.2,
+    913.0
+   ],
+   "z": 1
+  },
+  {
+   "name": "nearwing",
+   "piece": "p01",
+   "pivot": [
+    374.1,
+    592.6
+   ],
+   "z": 2,
+   "parent": "body",
+   "at": [
+    374.1,
+    592.6
+   ]
+  },
+  {
+   "name": "farwing",
+   "piece": "p02",
+   "pivot": [
+    689.0,
+    585.9
+   ],
+   "z": 0,
+   "parent": "body",
+   "at": [
+    689.0,
+    585.9
+   ],
+   "scale": 0.85
+  },
+  {
+   "name": "head",
+   "piece": "p03",
+   "pivot": [
+    486.8,
+    484.3
+   ],
+   "z": 3,
+   "parent": "body",
+   "at": [
+    486.8,
+    484.3
+   ]
+  },
+  {
+   "name": "hat",
+   "piece": "p04",
+   "pivot": [
+    618.1,
+    333.2
+   ],
+   "z": 5,
+   "parent": "head",
+   "at": [
+    618.1,
+    333.2
+   ]
+  },
+  {
+   "name": "pompom",
+   "piece": "p05",
+   "pivot": [
+    781.3,
+    620.2
+   ],
+   "z": 6,
+   "parent": "hat",
+   "at": [
+    781.3,
+    620.2
+   ]
+  },
+  {
+   "name": "blink",
+   "piece": "p06",
+   "pivot": [
+    486.8,
+    484.3
+   ],
+   "parent": "head",
+   "at": [
+    486.8,
+    484.3
+   ],
+   "z": 3.5,
+   "hidden": true
+  },
+  {
+   "name": "sing",
+   "piece": "p07",
+   "pivot": [
+    486.8,
+    484.3
+   ],
+   "parent": "head",
+   "at": [
+    486.8,
+    484.3
+   ],
+   "z": 3.5,
+   "hidden": true
+  }
+ ],
+ "name": "owl-decomp",
+ "label": "S\u00f3wka \u2014 the reference picture taken apart (C2)",
+ "pieces": "frames/cutout/owl-decomp",
+ "kind": "owl",
+ "y0": 600,
+ "sheet": "refs/owl/sowka-ref.png",
+ "cost": "6 edits \u00b7 $0.147",
+ "verdict": "<span class=\"tag\">C2 \u00b7 best</span> The rest pose <i>is</i> the reference picture, so nothing looks pasted together. Hidden areas (under the wing, under the hat, under the head) were painted by Nano Banana edits; blink and sing are edits of the same picture that line up to the pixel (overlap 0.998), cut where they differ. Pivots were found automatically from where parts touch."
+}

@@ -129,3 +129,15 @@ Owl (round body): excellent. Fox (biped, 3/4): walk reads at game size, rigid up
 piece, so the near arm cannot wave without covering the face. All actions for one character: 43–48 KB of art,
 against 117 KB for one 24-frame video idle. Review page: `review/cutout/index.html`
 (https://claude.ai/artifact/GtS15Z5WAL6E1eJmsCyuni). Not yet a skill: rigging was done by eye.
+
+## Round 6 — cutout from the reference picture itself (C2, $0.147)
+
+C1's quality gap came from drawing pieces separately (each piece outlined, hat floating, mismatched edges).
+C2 takes the finished reference apart instead, all with Nano Banana edits of that same picture:
+a flat-colour parts map (lines up to the original: silhouette overlap 0.992), "remove X and paint what was under
+it" fills, and face edits (blink, sing: overlap 0.998, so they are cut where they differ and laid on top).
+`skill/cutout/scripts/decompose.py SPEC OUT` builds the layers, registers fills that came back scaled
+(body edit: scale 0.78, overlap 0.95), feathers inner seams (head into body), chokes the outer key edge
+(no fringe on dark grounds), and puts each pivot at the centre of the contact edge with the parent.
+Misses: "remove the wing" was ignored in 2 of 3 edits that asked for it together with other changes —
+ask for one removal per edit. A rigid wing keeps its root on the body when it flaps.
