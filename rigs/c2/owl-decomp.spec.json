@@ -80,17 +80,19 @@
    ],
    "parent": "body",
    "top": 0.3,
-   "z": 2
+   "z": 4,
+   "pivot": "shoulder_right"
   },
   {
    "name": "farwing",
    "parts": [],
    "mirror_of": "nearwing",
-   "mirror_dx": 60,
+   "mirror_dx": -40,
    "scale_mirror": 0.85,
    "parent": "body",
    "top": 0.3,
-   "z": 0
+   "z": 0,
+   "pivot": "shoulder_left"
   },
   {
    "name": "head",
@@ -107,7 +109,11 @@
    "z": 3,
    "exclude": [
     "wing"
-   ]
+   ],
+   "visible": [
+    "head"
+   ],
+   "covered_band": 45
   },
   {
    "name": "hat",

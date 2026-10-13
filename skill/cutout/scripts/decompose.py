@@ -130,6 +130,11 @@ for L in S["layers"]:
     own = np.zeros((H, W), bool)
     for q in L["parts"]: own |= part[q]
     for q in L.get("exclude", []): own &= ~ndi.binary_dilation(part[q], iterations=3)  # never carry a neighbour's pixels
+    if L.get("covered_band"):  # parts listed in `parts` but hidden by a layer above: keep only a band next to the
+        # visible part (a skull edge under the hat), not whatever the fill painted there (a whole extra ear)
+        vis = np.zeros((H, W), bool)
+        for q in L["visible"]: vis |= part[q]
+        own &= vis | (ndi.distance_transform_edt(~vis) < L["covered_band"])
     under = np.zeros((H, W), bool)
     for q in L.get("under", []): under |= part[q]
     img = ref.copy()
@@ -159,6 +164,11 @@ for L in S["layers"]:
     parent = L.get("parent")
     if L.get("pivot") == "bottom":
         ys, xs = np.nonzero(layers[L["name"]][..., 3] > 128); piv = [float(xs.mean()), float(ys.max())]
+    elif L.get("pivot") in ("shoulder_right", "shoulder_left"):
+        # a wing or arm lifts from its upper INNER corner (the side against the body), not from the middle of its top
+        ys, xs = np.nonzero(layers[L["name"]][..., 3] > 128); top = ys < ys.min() + 0.25 * (ys.max() - ys.min())
+        xs_t, ys_t = xs[top], ys[top]; i = xs_t.argmax() if L["pivot"] == "shoulder_right" else xs_t.argmin()
+        inset = L.get("inset", 25); piv = [float(xs_t[i]) + (-inset if L["pivot"] == "shoulder_right" else inset), float(ys_t[i]) + inset]
     elif isinstance(L.get("pivot"), list): piv = L["pivot"]
     else:
         piv = contact(layers[L["name"]][..., 3] > 128, layers[parent][..., 3] > 128, L.get("top"))

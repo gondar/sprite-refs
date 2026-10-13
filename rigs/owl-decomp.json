@@ -13,28 +13,28 @@
    "name": "nearwing",
    "piece": "p01",
    "pivot": [
-    374.1,
-    592.6
+    427.0,
+    635.0
    ],
-   "z": 2,
+   "z": 4,
    "parent": "body",
    "at": [
-    374.1,
-    592.6
+    427.0,
+    635.0
    ]
   },
   {
    "name": "farwing",
    "piece": "p02",
    "pivot": [
-    689.0,
-    585.9
+    556.0,
+    635.0
    ],
    "z": 0,
    "parent": "body",
    "at": [
-    689.0,
-    585.9
+    556.0,
+    635.0
    ],
    "scale": 0.85
   },
@@ -56,14 +56,14 @@
    "name": "hat",
    "piece": "p04",
    "pivot": [
-    618.1,
-    333.2
+    602.7,
+    338.4
    ],
    "z": 5,
    "parent": "head",
    "at": [
-    618.1,
-    333.2
+    602.7,
+    338.4
    ]
   },
   {
@@ -118,5 +118,5 @@
  "y0": 600,
  "sheet": "refs/owl/sowka-ref.png",
  "cost": "6 edits \u00b7 $0.147",
- "verdict": "<span class=\"tag\">C2 \u00b7 best</span> The rest pose <i>is</i> the reference picture, so nothing looks pasted together. Hidden areas (under the wing, under the hat, under the head) were painted by Nano Banana edits; blink and sing are edits of the same picture that line up to the pixel (overlap 0.998), cut where they differ. Pivots were found automatically from where parts touch."
+ "verdict": "<span class=\"tag\">C2 \u00b7 best</span> The rest pose <i>is</i> the reference picture, so nothing looks pasted together. Hidden areas (under the wing, under the hat, under the head) were painted by Nano Banana edits; blink and sing are edits of the same picture that line up to the pixel (overlap 0.998), cut where they differ. Pivots were found automatically from where parts touch. <b>v3</b> (your notes): the head under the hat keeps only a 45 px band of skull \u2014 the fill had painted a whole second ear there; wings lift from the shoulder and draw above the head's side fur; the far wing hides behind the body until it flaps."
 }

@@ -141,3 +141,9 @@ it" fills, and face edits (blink, sing: overlap 0.998, so they are cut where the
 (no fringe on dark grounds), and puts each pivot at the centre of the contact edge with the parent.
 Misses: "remove the wing" was ignored in 2 of 3 edits that asked for it together with other changes —
 ask for one removal per edit. A rigid wing keeps its root on the body when it flaps.
+Layer order and hidden areas (user review of C2): (1) a fill that removes a part paints whatever it likes under it
+(the "no hat" edit drew a second ear tuft) — keep only a band of the hidden area next to the visible part
+(`covered_band`), or the part above sits "on the ear". (2) Draw order is not seg order: parts are disjoint at
+rest, but a moving wing must draw above the head's side fur, or it slides under it and reads as "behind the back".
+(3) Limbs and wings pivot at the upper INNER corner (`shoulder_right/left`), not the middle of the top edge.
+(4) A mirrored far wing must sit fully behind the body at rest.
