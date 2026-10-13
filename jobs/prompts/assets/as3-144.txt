@@ -1,0 +1,148 @@
+Game asset sheet: separate small objects for a cosy campfire forest game, painted in a soft cartoon storybook style (gentle shading, clean silhouettes, no hard black outlines), all lit from the top-left, all in the same style and scale family.
+Draw EXACTLY 144 separate objects, one per cell of an invisible 12 x 12 grid (12 rows of 12), placed in the order of this list in reading order (row 1 left to right, then row 2 …), each object centred in its own cell, filling about 70% of the cell, never touching or overlapping a neighbour, empty space between them:
+- pinecone
+- red-capped mushroom
+- brass camping lantern
+- marshmallow on a stick
+- small orange tent
+- split firewood log
+- gold five-point star
+- tin mug with steam
+- acorn
+- maple leaf (orange)
+- fern frond
+- wooden scout badge
+- coiled rope
+- compass
+- rolled map with ribbon
+- ukulele
+- harmonica
+- sleeping bag (green, rolled)
+- backpack (tan)
+- hiking boot
+- wooden signpost
+- flat river stone
+- dragonfly
+- firefly glowing
+- owl feather
+- crescent moon
+- small cloud
+- wild strawberry
+- blueberry cluster
+- apple
+- walnut
+- honey jar
+- toasted marshmallow
+- sausage on a stick
+- cast-iron pot
+- wooden spoon
+- matchbox
+- flashlight
+- pocket knife (closed)
+- binoculars
+- whistle on a cord
+- scout neckerchief (olive)
+- campaign hat (tan)
+- water canteen
+- birch log
+- small pine tree
+- rock with moss
+- snail
+- hedgehog curled up
+- ladybug
+- butterfly (blue)
+- bird nest with eggs
+- wooden bucket
+- fishing rod
+- paddle
+- small canoe
+- lily pad
+- frog (green)
+- carrot
+- bread loaf
+- cheese wedge
+- pear
+- heart (red)
+- music note
+- oak leaf
+- birch leaf (yellow)
+- clover
+- dandelion
+- sunflower
+- red tulip
+- daisy
+- lavender sprig
+- mushroom cluster (brown)
+- tree stump
+- beaver
+- squirrel
+- rabbit
+- deer antler
+- fox paw print
+- bear paw print
+- wolf howling (small)
+- duck
+- swan
+- fish (trout)
+- crab
+- shell (spiral)
+- pebble pile
+- crystal (blue)
+- gold coin
+- treasure chest
+- key (brass)
+- padlock
+- scroll (sealed)
+- quill pen
+- candle
+- oil lamp
+- campfire (small, with flames)
+- marshmallow bag
+- chocolate bar
+- cookie
+- cupcake
+- pie slice
+- teapot
+- kettle
+- frying pan
+- tent peg
+- hammer
+- saw
+- axe
+- shovel
+- bucket of water
+- watering can
+- wheelbarrow
+- ladder
+- drum
+- tambourine
+- flute
+- violin
+- trumpet
+- maracas
+- xylophone
+- music stand
+- headphones
+- microphone
+- sun
+- rainbow
+- snowflake
+- raindrop
+- lightning bolt
+- umbrella
+- kite
+- balloon (blue)
+- paper boat
+- paper plane
+- pumpkin
+- corn cob
+- hot-air balloon
+- bicycle
+- scooter
+- skateboard
+- football
+- tennis ball
+- trophy (gold)
+- medal
+Each object stands alone: no ground, no shadow, no scenery, no glow, no smoke. Draw NO text anywhere: no numbers, no letters, no labels, no captions, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. No object may contain magenta or pink; use red, orange, purple-blue instead.

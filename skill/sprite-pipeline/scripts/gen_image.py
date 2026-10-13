@@ -60,7 +60,7 @@ def gemini(a, prompt):
         mime = mimetypes.guess_type(r)[0] or "image/png"
         parts.append({"inline_data": {"mime_type": mime, "data": base64.b64encode(open(r, "rb").read()).decode()}})
     body = {"contents": [{"role": "user", "parts": parts}],
-            "generationConfig": {"responseModalities": ["IMAGE"], "imageConfig": {"aspectRatio": a.aspect}}}
+            "generationConfig": {"responseModalities": ["IMAGE"], "imageConfig": dict({"aspectRatio": a.aspect}, **({"imageSize": a.size} if a.size else {}))}}
     res = post(f"{HOST}/v1beta/models/{a.model}:generateContent", json.dumps(body).encode(),
                {"Content-Type": "application/json"})
     img, text = None, []
@@ -125,6 +125,7 @@ def main():
     ap.add_argument("--model", required=True); ap.add_argument("--out", required=True)
     ap.add_argument("--prompt-file", required=True); ap.add_argument("--ref", action="append", default=[])
     ap.add_argument("--aspect", default="1:1"); ap.add_argument("--background")
+    ap.add_argument("--size", help="Gemini only: 1K | 2K | 4K output (more pixels per asset on a dense sheet)")
     ap.add_argument("--quality"); ap.add_argument("--tag", default="")
     ap.add_argument("--stream", type=int, default=0, help="OpenAI only: stream with N partial images (1-3)")
     a = ap.parse_args()
@@ -135,7 +136,7 @@ def main():
     jid = time.strftime("%Y%m%d-%H%M%S-") + uuid.uuid4().hex[:6]
     base = {"job_id": jid, "kind": "image", "route": route, "model": a.model, "tag": a.tag, "prompt": prompt,
             "refs": [os.path.relpath(r, ROOT) for r in a.ref], "aspect": a.aspect,
-            "background": a.background, "quality": a.quality, "stream": a.stream, "out": os.path.relpath(a.out, ROOT)}
+            "background": a.background, "quality": a.quality, "stream": a.stream, "size": a.size, "out": os.path.relpath(a.out, ROOT)}
     log({**base, "status": "submitting", "ts": time.time()})
     t0 = time.time()
     try:

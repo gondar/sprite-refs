@@ -1,0 +1,104 @@
+{
+ "image": "atlas.png",
+ "frames": {
+  "pinecone": {
+   "x": 0,
+   "y": 0,
+   "w": 169,
+   "h": 206
+  },
+  "red-capped-mushroom": {
+   "x": 171,
+   "y": 0,
+   "w": 190,
+   "h": 209
+  },
+  "brass-camping-lantern": {
+   "x": 363,
+   "y": 0,
+   "w": 135,
+   "h": 230
+  },
+  "marshmallow-on-a-stick": {
+   "x": 500,
+   "y": 0,
+   "w": 207,
+   "h": 216
+  },
+  "small-orange-tent": {
+   "x": 0,
+   "y": 232,
+   "w": 248,
+   "h": 187
+  },
+  "split-firewood-log": {
+   "x": 250,
+   "y": 232,
+   "w": 226,
+   "h": 185
+  },
+  "gold-five-point-star": {
+   "x": 478,
+   "y": 232,
+   "w": 201,
+   "h": 194
+  },
+  "tin-mug-with-steam": {
+   "x": 681,
+   "y": 232,
+   "w": 186,
+   "h": 175
+  },
+  "acorn": {
+   "x": 0,
+   "y": 428,
+   "w": 176,
+   "h": 204
+  },
+  "maple-leaf-orange": {
+   "x": 178,
+   "y": 428,
+   "w": 223,
+   "h": 213
+  },
+  "fern-frond": {
+   "x": 403,
+   "y": 428,
+   "w": 150,
+   "h": 229
+  },
+  "wooden-scout-badge": {
+   "x": 555,
+   "y": 428,
+   "w": 203,
+   "h": 207
+  },
+  "coiled-rope": {
+   "x": 0,
+   "y": 659,
+   "w": 216,
+   "h": 215
+  },
+  "compass": {
+   "x": 218,
+   "y": 659,
+   "w": 192,
+   "h": 217
+  },
+  "rolled-map-with-ribbon": {
+   "x": 412,
+   "y": 659,
+   "w": 217,
+   "h": 214
+  },
+  "ukulele": {
+   "x": 631,
+   "y": 659,
+   "w": 221,
+   "h": 238
+  }
+ },
+ "source": "refs/assets/as1/flash-16.png",
+ "grid": "4x4",
+ "key": "magenta"
+}

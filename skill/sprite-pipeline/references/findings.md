@@ -112,3 +112,8 @@ All calls through APIYI (one key, group `default`). Every job is in `jobs/jobs.j
   (H3 bills requested seconds only; reference media free). Two 4 s clips win on expected cost (a failed clip is
   re-run whole: $0.12 vs $0.24, and 1 of 3 clips had a broken background), on evidence (the only 8 s clip barely
   moved), and on library reuse. Their one cost is a second ~0.5 s start-up settle — lead each clip with idle.
+
+## Round 4 — static asset sheets (became the separate `asset-sheet` skill)
+- One 1K Nano Banana sheet held 16, 36, 64 and 100 distinct props in the listed order; 144 duplicated items and
+  dropped others (names shift while every cell is still full); a 2K 144-sheet hit the 30 s 502.
+- Numbered lists leak faint digits into the picture; bullets do not. Glows/steam mix with the key colour.

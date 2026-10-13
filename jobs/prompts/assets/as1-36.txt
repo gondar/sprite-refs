@@ -1,0 +1,40 @@
+Game asset sheet: separate small objects for a cosy campfire forest game, painted in a soft cartoon storybook style (gentle shading, clean silhouettes, no hard black outlines), all lit from the top-left, all in the same style and scale family.
+Draw EXACTLY 36 separate objects, one per cell of an invisible 6 x 6 grid, in reading order (row 1 left to right, then row 2 …), each object centred in its own cell, filling about 70% of the cell, never touching or overlapping a neighbour, generous empty space between them:
+1. pinecone
+2. red-capped mushroom
+3. brass camping lantern
+4. marshmallow on a stick
+5. small orange tent
+6. split firewood log
+7. gold five-point star
+8. tin mug with steam
+9. acorn
+10. maple leaf (orange)
+11. fern frond
+12. wooden scout badge
+13. coiled rope
+14. compass
+15. rolled map with ribbon
+16. ukulele
+17. harmonica
+18. sleeping bag (green, rolled)
+19. backpack (tan)
+20. hiking boot
+21. wooden signpost
+22. flat river stone
+23. dragonfly
+24. firefly glowing
+25. owl feather
+26. crescent moon
+27. small cloud
+28. wild strawberry
+29. blueberry cluster
+30. apple
+31. walnut
+32. honey jar
+33. toasted marshmallow
+34. sausage on a stick
+35. cast-iron pot
+36. wooden spoon
+Each object stands alone: no ground, no shadow, no scenery, no text, no numbers, no labels, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. No object may contain magenta or pink; use red, orange, purple-blue instead.

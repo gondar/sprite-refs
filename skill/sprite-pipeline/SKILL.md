@@ -1,9 +1,12 @@
 ---
 name: sprite-pipeline
-description: Make an animated 2D game character from AI images and video — design sheet, idle/walk/action loops, chroma key, loop detection, pivot alignment, packed sprite strips and a review page — through APIYI (Nano Banana / Nano Banana Pro images, MiniMax-H3 video). Use this whenever someone wants a sprite, sprite sheet, animated mascot, character animation, idle or walk cycle, "make the character move", or wants to turn a generated image or video into game frames, even if they do not say "pipeline" — and before spending money on image or video generation for a game asset.
+description: Animate a 2D game character — idle, walk, run, jump, sit, turn, wave — from AI images and video: design the character once (Nano Banana), drive its motion with a mannequin clip (MiniMax-H3), then chroma-key, find clean loops, align pivots and pack sprite strips with a review page, through APIYI. Use this whenever a character, mascot or unit has to MOVE: "make the character move", an idle or walk cycle, a sprite animation, an animated conductor, turning a generated video into game frames — and before spending money on video generation. For many STATIC assets (props, icons, items) use the `asset-sheet` skill instead.
 ---
 
-# Sprite pipeline
+# Sprite pipeline — animation
+
+**This skill is for things that move.** Static props, icons and items come cheaper from one dense sheet:
+use `asset-sheet` (up to ~100 assets per image, ≈ $0.00025 each). Only the character's design sheet is shared ground.
 
 From a one-line character idea to a packed, keyed, pivot-aligned animation strip a game can play, at a known
 cost. Learned on two characters (a scout fox and a sleepy owlet, 2026-10-12, ~$2.40 for ~30 paid calls).
