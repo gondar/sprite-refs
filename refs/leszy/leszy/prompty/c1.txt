@@ -1,0 +1,10 @@
+<Picture 1> is a shadow creature from a dark fairy tale, a 2D animation character seen from the side, facing right. Animate <Picture 1> performing exactly the same four actions with the same timing as the grey figure in <Video 1>:
+0–1 s: stands still, slightly hunched, one slow breath.
+1–2 s: walks on the spot with two slow, heavy, menacing steps, long arms swinging.
+2–3 s: slowly reaches far forward with one long arm, clawed twig fingers spread, and holds.
+3–4 s: recoils — leans back, lifts a forearm in front of its head to shield itself from a light, steps back on the spot.
+The creature is a TALL, THIN forest spirit made of dark shadow and mist: a dark blue-black smoky body, long thin limbs, long twig-like clawed fingers, small twigs growing from the shoulders and back, and large branching deer antlers on a long faceless head. It has NO face, NO eyes, NO mouth: the head is a smooth dark shape. It is BIPEDAL: upright on its TWO legs, never on all fours (except where it crouches with one hand on the ground). It is silent.
+Every action happens ON THE SPOT: it never travels across the frame, it stays centered and fully inside the frame, antlers included.
+Camera: locked static camera, no zoom, no pan, orthographic side view, the creature the same size throughout.
+Style: keep the exact painted misty look and dark colours of <Picture 1>; soft smoky edges, a little mist at the feet.
+Background: one flat plain pure WHITE #FFFFFF that never changes colour or brightness, no shadows, no ground, no floor line, no props, no trees, no text.
