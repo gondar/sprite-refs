@@ -62,7 +62,8 @@
    "parts": [
     "body",
     "tail",
-    "feet"
+    "feet",
+    "nape"
    ],
    "under": [
     "wing",
@@ -103,9 +104,10 @@
    "src": "nohat",
    "parent": "body",
    "soft_into": [
-    "body"
+    "body",
+    "nape"
    ],
-   "soft_px": 12,
+   "soft_px": 18,
    "z": 3,
    "exclude": [
     "wing"
@@ -145,6 +147,18 @@
    "parent": "head",
    "within": [
     "head"
+   ]
+  }
+ },
+ "split": {
+  "head": {
+   "into": "nape",
+   "keep_above": 340,
+   "ellipse": [
+    530,
+    430,
+    240,
+    215
    ]
   }
  }

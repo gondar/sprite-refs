@@ -147,3 +147,6 @@ Layer order and hidden areas (user review of C2): (1) a fill that removes a part
 rest, but a moving wing must draw above the head's side fur, or it slides under it and reads as "behind the back".
 (3) Limbs and wings pivot at the upper INNER corner (`shoulder_right/left`), not the middle of the top edge.
 (4) A mirrored far wing must sit fully behind the body at rest.
+(5) The parts map can draw a part far too big (the owl's "head" ran down its whole back). A rotating layer that
+covers fur belonging to the body shows a second outline when it moves ("double back"). Split it (`split`:
+keep the ears and an oval round the face, give the rest to the body) and feather the seam.

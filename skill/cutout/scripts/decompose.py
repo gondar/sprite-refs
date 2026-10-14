@@ -56,6 +56,12 @@ if fix.any():
     _, (iy, ix) = ndi.distance_transform_edt(lab == bgi, return_indices=True)
     lab[fix] = lab[iy[fix], ix[fix]]
 part = {n: (main_blobs(lab == i) if n != "bg" else lab == i) for i, n in enumerate(names)}
+# split a part the parts map drew too generously (the owl's "head" ran down its back): keep what is above
+# `keep_above` or inside the ellipse [cx, cy, rx, ry]; the rest becomes a new part (give it to the body)
+for n, sp_ in S.get("split", {}).items():
+    yy, xx = np.mgrid[0:H, 0:W]; cx, cy, rx, ry = sp_["ellipse"]
+    keep = (yy < sp_.get("keep_above", -1)) | (((xx - cx) / rx) ** 2 + ((yy - cy) / ry) ** 2 <= 1)
+    part[sp_["into"]] = part[n] & ~keep; part[n] = part[n] & keep
 
 
 def register(img, target_mask):
