@@ -1,0 +1,10 @@
+Motion reference clip: a plain smooth grey artist's mannequin figure, short and chubby with a large round head (child proportions), standing upright on two legs, strict side view facing right, full body visible with plenty of empty space above the head and around it.
+The mannequin carries a small old-fashioned lantern in ONE hand: that arm is bent at the elbow and holds the lantern forward, in front of its chest, and this arm stays STILL in the same place for the whole clip, so the lantern is always visible in front of the body. Only the other arm swings.
+It performs FOUR actions one after another, in exactly this timing:
+0.0–1.0 s: idle — stands still, one slow calm breath.
+1.0–2.0 s: walks on the spot — two calm steps, legs swinging, free arm swinging, no forward travel.
+2.0–3.0 s: runs on the spot — four quick running steps, knees high, body leaning forward, free arm pumping, lantern still held forward, no forward travel.
+3.0–4.0 s: looks back — it stops and stands, turns its head over its shoulder to look behind itself to the left, holds the look, then turns its head back to face right.
+Every action happens ON THE SPOT: the figure never travels across the frame, it stays centered. Each action is clearly separated and finished before the next one starts.
+Camera: locked static camera, no zoom, no pan, orthographic side view, the figure the same size throughout and always fully inside the frame.
+Background: flat solid bright green #00FF00, evenly lit, no shadows, no floor, no props, no text.

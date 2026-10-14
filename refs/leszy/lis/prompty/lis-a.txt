@@ -1,0 +1,5 @@
+<Picture 1> is a painted fox wanderer in a hooded olive cloak, with a leather satchel and a small glowing lantern held in his paw. Animate <Picture 1> performing exactly the same four actions with the same timing as the grey figure in <Video 1>: calm breathing idle, walking on the spot, running on the spot, jumping straight up and landing.
+He is ANTHROPOMORPHIC and BIPEDAL: upright on his TWO hind legs in every frame, front legs are ARMS that never touch the ground, never on all fours. The lantern stays in his front paw in EVERY frame, he never lets go of it. Mouth closed: he is silent, he does not speak or sing.
+Every action happens ON THE SPOT: he never travels across the frame, he stays centered and fully inside the frame, feet always on the same invisible ground line.
+Camera: locked static camera, no zoom, no pan, orthographic side view facing right, the character the same size throughout.
+Style: keep the exact painted storybook look, colours and outfit of <Picture 1>. Background: one flat solid magenta #FF00FF that never changes colour or brightness, no shadows, no ground, no light rays, no glow on the background, no particles, no props, no text.
