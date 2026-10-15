@@ -1,0 +1,5 @@
+<Picture 1> is the Mountain King, a big grumpy-but-lovable mountain spirit made of mossy grey stone with glowing amber eyes and a crown of amber quartz crystals, a 2D game character sitting on his rough stone throne. Animate <Picture 1> performing exactly the same four actions with the same timing as the grey figure in <Video 1>: a calm breath, then two nods of his head, then a cheer with both stone fists raised high above his crown, then settling back into the starting pose with his hands on the throne's arms.
+He stays SEATED on his throne in every frame: he never stands up, the throne never moves and never changes. Mouth closed: he is silent, he does not speak or sing; during the cheer he grins with his mouth closed.
+Front view, the whole throne and the raised fists always inside the frame. He never travels sideways and never turns.
+Camera: locked static camera, no zoom, no pan, the character centered and the same size throughout.
+Style: keep the exact painted cartoon look, colours, moss and crystals of <Picture 1>. Background: one flat solid magenta #FF00FF that never changes colour or brightness, no shadows, no ground, no props, no text.
