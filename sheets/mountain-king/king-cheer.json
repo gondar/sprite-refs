@@ -1,0 +1,38 @@
+{
+ "frames": 21,
+ "cell": [
+  479,
+  444
+ ],
+ "pivot": [
+  248.6,
+  442.8
+ ],
+ "fps": 12.0,
+ "loop": true,
+ "pingpong": false,
+ "anchor": "fixed",
+ "sources": [
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_00.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_01.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_02.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_03.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_04.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_05.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_06.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_07.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_08.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_09.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_10.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_11.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_12.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_13.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_14.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_15.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_16.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_17.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_18.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_19.png",
+  "frames/20261015-215628-c72e2d/fixed/cheer/f_20.png"
+ ]
+}

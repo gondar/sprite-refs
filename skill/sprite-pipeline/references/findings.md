@@ -150,3 +150,19 @@ rest, but a moving wing must draw above the head's side fur, or it slides under 
 (5) The parts map can draw a part far too big (the owl's "head" ran down its whole back). A rotating layer that
 covers fur belonging to the body shows a second outline when it moves ("double back"). Split it (`split`:
 keep the ears and an oval round the face, give the rest to the body) and feather the seam.
+
+
+## Mountain King, seated front view (2026-10-15, MusicGames 4 · Palce)
+
+- A new mannequin for a SEATED character: `refs/mannequins/seated-front-idle-nod-cheer-settle-4s.mp4`
+  (text-to-video, 1:1, $0.12, clean on the first try): idle 0–1 · nod 1–2 · fists up 2–3 · settle 3–4.
+- Character clip v1 (reference padded ×1.5): the background drifted magenta → lavender, a floor appeared
+  under the throne, and he talked through the nod. v2 (×1.3 padding; "MOUTH CLOSED IN EVERY FRAME", the
+  background "the SAME magenta as <Picture 1> … never turns purple or lavender … no floor, no shadow"): mouth
+  shut, no floor, figure bigger — but the background still drifted magenta → lavender → teal. Two of two.
+- Rescued without a third clip, because the throne and legs never move: key every frame on its own border
+  (`--key border`), then clip alpha below 72 % of the figure to the clean first frame's silhouette (kills
+  the soft shadow ring) and colour-match each frame to that first frame by per-channel gains measured on the
+  same static region (undoes the drifting light and the despill tint). `scripts/mountain_king_fix.py`.
+- The nod held two small nods in its one second; one (frames 0–6) is one beat's cycle, and the frame with
+  the crown lowest (measured, frame 2) is what the game lands on the beat. Cost: $0.36 for three clips.

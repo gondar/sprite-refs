@@ -1,0 +1,24 @@
+{
+ "frames": 7,
+ "cell": [
+  479,
+  444
+ ],
+ "pivot": [
+  245.6,
+  442.8
+ ],
+ "fps": 12.0,
+ "loop": true,
+ "pingpong": false,
+ "anchor": "fixed",
+ "sources": [
+  "frames/20261015-215628-c72e2d/fixed/nod/f_00.png",
+  "frames/20261015-215628-c72e2d/fixed/nod/f_01.png",
+  "frames/20261015-215628-c72e2d/fixed/nod/f_02.png",
+  "frames/20261015-215628-c72e2d/fixed/nod/f_03.png",
+  "frames/20261015-215628-c72e2d/fixed/nod/f_04.png",
+  "frames/20261015-215628-c72e2d/fixed/nod/f_05.png",
+  "frames/20261015-215628-c72e2d/fixed/nod/f_06.png"
+ ]
+}
