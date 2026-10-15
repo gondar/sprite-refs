@@ -70,6 +70,7 @@ stripped, 4 s each:
 | `std4-idle-walk-run-jump-4s.mp4` | idle · walk · run · jump, 1 s each |
 | `std6-idle-walk-run-jump-sit-stand-4s.mp4` | the same + sit down · stand up, 0.67 s each |
 | `std8-idle-walk-run-jump-sit-stand-turn-turnback-4s.mp4` | the same + turn to face left · turn back, 0.5 s each |
+| `seated-front-idle-nod-cheer-settle-4s.mp4` | **seated, FRONT view** (a heavier adult build on a block): idle 0–1 · nod 1–2 · cheer, fists up 2–3 · settle 3–4 (drove the Mountain King, MusicGames 4 · Palce) |
 
 Reuse one when its actions fit (the character clip then costs $0.12 alone); generate a new one only for new
 motion, store it here with audio stripped, and add a row. A new file name for every new clip — never overwrite.
