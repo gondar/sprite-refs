@@ -1,0 +1,21 @@
+{
+ "cell": [
+  479,
+  444
+ ],
+ "pivot": [
+  239.5,
+  441.5
+ ],
+ "fps": 24.0,
+ "cols": 34,
+ "rows": 4,
+ "gestures": [
+  {
+   "name": "downrev",
+   "at": 0,
+   "frames": 104,
+   "src": "chain-down-rev 0.00-4.29s"
+  }
+ ]
+}

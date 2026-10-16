@@ -228,3 +228,16 @@ keep the ears and an oval round the face, give the rest to the body) and feather
 - Scores (`scripts/score.py`, lower better except motion): shipped v2 throne 4.22 / colour 4.69 / motion 6.88;
   v3 throne 0.64 / colour 5.43 (the crown really moving counts) / motion 6.52; cutout throne 0.05 / colour 1.39 /
   motion 2.30. The owner: v3 "perfect", the cutout "brill" except the beard touch (an arm crossfade ghosts).
+
+### Round 4 — the owner's H3 research, tested (2026-10-16, $0.36)
+
+- Structured reference mode (MiniMax's `subject_definitions` / `retention_analysis` grammar, `fully_preserved` on
+  character, backdrop and picture): repainted the scene from frame 0 — backdrop dark navy (33,41,57) instead of the
+  picture's blue, frame 0 off the picture by 60 MAE. Nice motion, nothing lockable. Dropped.
+- Beard stroke chained through a drawn peak (the cutout's "hand on beard" edit, re-keyed onto the blue picture's
+  framing, lower body within 2.3 MAE): home → peak and peak → home, both first/last-frame clips on blue. Backdrop held
+  in both; the halves meet at the peak (5.5 MAE). H3 moved for ~3 s and settled into the drawn peak by 3.4 s, so the
+  moving spans play at 2×: 41 frames, 3.3 s. score.py: throne 0.31, colour 4.09, seams 0, motion 6.80. Join step 0.35
+  against a median of 1.1; one crown. The cutout's version of the same gesture ghosted; this one is clean.
+- Bug of my own on the way: `| head -1` on a lock.py run killed it by SIGPIPE before it wrote its atlas — log to a
+  file and tail it.

@@ -18,7 +18,7 @@ home frame between them. Because every gesture meets the same frame, any order i
 | Good at | MANY small variations: blinks, glances, smiles, tilts, sway, breath, nods, glow pulses, combinations of them | REAL movement: a hand to the face, a head that turns, a sigh with the eyes closing, a shrug |
 | Bad at | a limb travelling across the body (the beard touch ghosted), turning, anything big | quantity: ~two movements per $0.12 clip; MBs of frames |
 | Static parts | identical by construction | identical through the lock (`--keep` the prop) |
-| Cost | ≈ $0.025 per new face edit; every combination free | $0.12 per two gestures (+ a re-try budget) |
+| Cost | ≈ $0.025 per new face edit; every combination free | $0.12 per two free-running gestures; $0.24 for one gesture chained through a drawn peak pose (home → peak → home), which lands exactly where you drew it (+ a re-try budget) |
 
 Pick by asking:
 1. **What must move?** Only the face and small body sway → cutout. A hand, an arm, a head turn → MiniMax.
@@ -28,6 +28,10 @@ Pick by asking:
 4. **What is attached?** A throne, desk or instrument that must never move is a separate static layer (cutout) or the
    `--keep` mask (MiniMax). Decide this before generating anything.
 5. **Download budget?** Every atlas frame costs bytes (a 479×444 cell ≈ 10 KB in WebP). Count frames, not gestures.
+
+**Both, for one gesture**: the cutout's single-change edits double as MiniMax peak poses. A move the cutout cannot
+do cleanly (the King's hand to his beard ghosted as a crossfade) becomes two chained MiniMax clips through that
+same edit — clean, and exactly the pose that was drawn (sprite-pipeline §2).
 
 **Hybrid** — the usual answer for a main character: the cutout supplies the bulk (most of the bag), MiniMax supplies
 two to four signature moves that only real video can do. Context decides the mix; neither alone is wrong.

@@ -24,7 +24,8 @@ read the `idle-animation` skill first: it decides between MiniMax, cutout and a 
 ## 2. MiniMax-H3 — the recipe that works (2026-10-16, the owner's "perfect")
 
 The two things that ruin a clip are the MODE and the BACKGROUND, not the wording of the motion. Evidence:
-`references/findings.md` (Mountain King, three rounds) and `references/minimax-research.md`.
+`references/findings.md` (Mountain King, four rounds), `references/minimax-research.md` and the owner's own
+research, distilled to what applies to the hosted API, in `references/h3-research-owner.md`.
 
 **Mode: first frame = last frame = the same picture.** Not `reference_image`: that is a *subject* reference — the
 model imitates the character, reframes, relights and darkens it (frame 0 differed from the picture by 9–10.6 MAE; in
@@ -48,6 +49,19 @@ clock syntax ("0.0–1.0 s"): it is followed loosely. Worked prompts: `sprite-re
 **Plan: TWO movements per 4 s clip.** Asked for four, H3 in this mode made two, with one near-rest at ~2 s. So 4
 gestures = 2 clips ($0.24); 8 = 4 clips. Cut at the real rests (`--pose-s 2`), never on the clock. Submit the first
 clip on blue AND green when the character is new ($0.24) and keep the colour that held.
+
+**A gesture that must reach a specific pose: chain two clips through a DRAWN peak.** Hosted H3 pins only the first
+and last frame, and identical ends damp the motion. So draw the peak (a single-change image edit of the picture —
+the cutout's edits are exactly this), put it on the same ground in the same framing, and run two clips: home → peak
+and peak → home (the second one reversed before `lock.py`, so both start at home). Cut each half with
+`lock.py --open-end` (eases into home at the start only), keep the moving spans, and join them; the King's beard
+stroke joined with a frame-to-frame change of 0.35 at the peak against a median of 1.1. H3 takes its time — the
+moving span was ~3 s per half — so play it at 2× (every 4th source frame at 12 fps). $0.24 per gesture.
+
+**Reference mode is out, even with MiniMax's own grammar.** `subject_definitions` / `retention_analysis` with
+`fully_preserved` on the character, the backdrop and the picture (tested 2026-10-16, $0.12) still repainted the
+scene from frame 0: backdrop dark navy instead of the picture's blue, frame 0 off the picture by 60 (first-frame mode:
+~6). It is a subject reference by design; use it only when nothing has to be locked to the picture.
 
 **Run** (from the sprite-refs root; `h3.py` logs to `jobs/jobs.jsonl` BEFORE the paid call — check it before
 re-running anything, a resubmit is billed twice; tell the person the cost first):

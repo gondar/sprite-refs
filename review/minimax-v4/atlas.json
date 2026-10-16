@@ -1,0 +1,21 @@
+{
+ "cell": [
+  479,
+  444
+ ],
+ "pivot": [
+  239.5,
+  441.5
+ ],
+ "fps": 12,
+ "cols": 34,
+ "rows": 2,
+ "gestures": [
+  {
+   "name": "beard-chain",
+   "at": 0,
+   "frames": 41,
+   "src": "chain up 494ebb + down d7f413 reversed, moving spans at 2x"
+  }
+ ]
+}

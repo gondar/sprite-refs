@@ -35,7 +35,8 @@ def main():
     ap.add_argument("--pose-s", type=float, default=1.0); ap.add_argument("--thresh", type=float, default=30)
     ap.add_argument("--grow", type=int, default=6); ap.add_argument("--feather", type=float, default=3)
     ap.add_argument("--cell", default="479,444"); ap.add_argument("--pivot", default="245.6,442.8"); ap.add_argument("--fig", type=float, default=327)
-    ap.add_argument("--step", type=int, default=2); ap.add_argument("--ease", type=int, default=3); ap.add_argument("--webp", type=int, default=70)
+    ap.add_argument("--step", type=int, default=2); ap.add_argument("--ease", type=int, default=3)
+    ap.add_argument("--open-end", action="store_true", help="half of a chained gesture: ease into home at the START only; the end is a drawn peak pose that the next half starts from"); ap.add_argument("--webp", type=int, default=70)
     a = ap.parse_args(); os.makedirs(a.out, exist_ok=True)
     cut = np.asarray(Image.open(a.home).convert("RGBA"), dtype=float); ox, oy = map(int, a.at.split(","))
     rows = []
@@ -106,9 +107,10 @@ def main():
             i0, i1 = cuts[k], cuts[k + 1]
             print(f"  {nm}: {i0 / FPS:.2f}-{i1 / FPS:.2f} s, moving area at the cuts {masks[i0] / 1000:.1f}k / {masks[i1] / 1000:.1f}k px")
             seq = frames[i0:i1 + 1:a.step]; n = len(seq)
+            if a.open_end: seq[0] = home
             # the ends ARE home; a cut that is not a full rest eases into it over --ease frames
             for j in range(n):
-                w = min(1.0, j / a.ease, (n - 1 - j) / a.ease)
+                w = min(1.0, j / a.ease, (n - 1 - j) / a.ease if not a.open_end else 1.0)
                 if w < 1:
                     f = seq[j]; pa = f[..., 3:4] / 255 * w + ha[..., None] * (1 - w)
                     rgb = (f[..., :3] * f[..., 3:4] / 255 * w + home[..., :3] * ha[..., None] * (1 - w)) / np.maximum(pa, 1e-3)
