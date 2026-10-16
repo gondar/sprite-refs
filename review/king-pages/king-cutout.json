@@ -1,0 +1,123 @@
+{
+ "cell": [
+  479,
+  444
+ ],
+ "pivot": [
+  245.6,
+  442.8
+ ],
+ "fps": 12,
+ "base": "king-cutout-base.webp",
+ "crop": [
+  83,
+  105,
+  292,
+  241
+ ],
+ "gutter": 4,
+ "cols": 13,
+ "rows": 16,
+ "per_page": 208,
+ "pages": [
+  "king-cutout-p0.webp",
+  "king-cutout-p1.webp"
+ ],
+ "gestures": [
+  {
+   "name": "breath",
+   "at": 0,
+   "frames": 19
+  },
+  {
+   "name": "glance",
+   "at": 19,
+   "frames": 18
+  },
+  {
+   "name": "look",
+   "at": 37,
+   "frames": 19
+  },
+  {
+   "name": "smile",
+   "at": 56,
+   "frames": 20
+  },
+  {
+   "name": "drum",
+   "at": 76,
+   "frames": 18
+  },
+  {
+   "name": "tilt",
+   "at": 94,
+   "frames": 19
+  },
+  {
+   "name": "sway",
+   "at": 113,
+   "frames": 20
+  },
+  {
+   "name": "blink2",
+   "at": 133,
+   "frames": 13
+  },
+  {
+   "name": "sleepy",
+   "at": 146,
+   "frames": 23
+  },
+  {
+   "name": "dart",
+   "at": 169,
+   "frames": 12
+  },
+  {
+   "name": "glance_left",
+   "at": 181,
+   "frames": 18
+  },
+  {
+   "name": "nod",
+   "at": 199,
+   "frames": 18
+  },
+  {
+   "name": "lookup",
+   "at": 217,
+   "frames": 20
+  },
+  {
+   "name": "shrug",
+   "at": 237,
+   "frames": 17
+  },
+  {
+   "name": "smiletilt",
+   "at": 254,
+   "frames": 23
+  },
+  {
+   "name": "glow",
+   "at": 277,
+   "frames": 20
+  },
+  {
+   "name": "drowsy",
+   "at": 297,
+   "frames": 25
+  },
+  {
+   "name": "curious",
+   "at": 322,
+   "frames": 19
+  },
+  {
+   "name": "grumpy",
+   "at": 341,
+   "frames": 20
+  }
+ ]
+}

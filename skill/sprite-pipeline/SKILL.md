@@ -92,6 +92,10 @@ lock.py OUT --home <clean cut-out>.png --at X,Y --keep <prop mask>.png --pose-s 
 LOOK at each gesture's peak frame at full size, zoomed on the head, next to the raw clip's frame: the score did not see
 two crowns. Then a review page for the owner, side by side with what it replaces, before anything goes into a game.
 
+**Pack for phones**: `scripts/pages.py` (one base + pages of the moving region, ≤ 4096 px a side, edge gutters) — a
+full-cell atlas of a few hundred frames does not decode on a phone; `scripts/rebase.py` when frames from two sources
+must meet on one home frame (idle-animation skill).
+
 **Do not**: `reference_image` mode for a pose that must come home; magenta; a prompt that names colours; a home frame
 taken from a different clip or an older strip (two drawings crossfaded = ghosting); `gestures.py` on a first-frame
 clip (it keys whole frames — it is for clips with no clean picture behind them, e.g. walk cycles cut by `segments.py`).

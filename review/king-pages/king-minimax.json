@@ -1,0 +1,44 @@
+{
+ "cell": [
+  479,
+  444
+ ],
+ "pivot": null,
+ "fps": 12,
+ "base": "king-minimax-base.webp",
+ "crop": [
+  83,
+  105,
+  303,
+  278
+ ],
+ "gutter": 4,
+ "cols": 13,
+ "rows": 14,
+ "per_page": 182,
+ "pages": [
+  "king-minimax-p0.webp"
+ ],
+ "gestures": [
+  {
+   "name": "sigh",
+   "at": 0,
+   "frames": 22
+  },
+  {
+   "name": "squint",
+   "at": 22,
+   "frames": 24
+  },
+  {
+   "name": "sidelook",
+   "at": 46,
+   "frames": 27
+  },
+  {
+   "name": "beard-chain",
+   "at": 73,
+   "frames": 41
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+{
+ "cell": [
+  479,
+  444
+ ],
+ "fps": 12,
+ "cols": 34,
+ "rows": 4,
+ "gestures": [
+  {
+   "name": "sigh",
+   "at": 0,
+   "frames": 22
+  },
+  {
+   "name": "squint",
+   "at": 22,
+   "frames": 24
+  },
+  {
+   "name": "sidelook",
+   "at": 46,
+   "frames": 27
+  },
+  {
+   "name": "beard-chain",
+   "at": 73,
+   "frames": 41
+  }
+ ]
+}

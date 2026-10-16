@@ -49,6 +49,17 @@ two to four signature moves that only real video can do. Context decides the mix
 - **Weights**: signature (MiniMax) moves rarer than small ones — e.g. weight 1 against 3 — and never two signature
   moves in a row. A big move every few seconds turns into a tic.
 
+**Ship it for phones** (both learned putting the King's hybrid into the game):
+- **Rebase the second source onto the first one's home** — `sprite-pipeline/scripts/rebase.py`. Two sources placed by
+  the same transform still cut the outline differently: the King's MiniMax frames averaged 0.9 off the cutout's home
+  but 1,600 pixels were off by > 40 levels — a visible jump into and out of every signature move. Rebased, the ends
+  are the shared home exactly; the test counts clearly changed pixels, which a whole-frame mean does not show.
+- **Never ship a full-cell atlas** — `sprite-pipeline/scripts/pages.py`. The download is not the problem, the DECODE is:
+  386 cells of 479×444 = an 87 Mpx image, ~350 MB in memory; headless Chromium refused it and iOS Safari refuses
+  images over ~16.7 Mpx. Ship one base picture + pages of only the region that moves (≤ 4096 px a side), each cell in
+  a gutter of its own repeated edge pixels — without the gutter a scaled page bled the next frame in as a hairline.
+  The King: 4 MB in four files, the largest page 16.2 Mpx.
+
 ## 3. The player
 
 A shuffled bag (Fisher–Yates, refilled when empty, skipping the gesture just played), a rest of 0.4–2.2 s on the home
