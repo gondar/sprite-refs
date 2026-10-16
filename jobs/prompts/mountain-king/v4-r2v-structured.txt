@@ -1,0 +1,17 @@
+subject_definitions:
+<Subject 1> is the stone troll king from <Picture 1>, preserving his exact silhouette, head-to-body proportions, mossy grey stone, glowing amber eyes, amber quartz crystal crown, and his seated pose on the rough stone throne.
+<Subject 2> is the plain flat backdrop of <Picture 1>.
+
+summary:
+[reference generation] <Subject 1> sits on his throne and makes two small, slow idle movements, intended as source material for a 2D game sprite.
+
+retention_analysis:
+<Subject 1> (appears throughout [Shot 1]): fully_preserved - identity, proportions, colours, crown, throne, framing, size and position on the canvas are retained.
+<Subject 2> (appears throughout [Shot 1]): fully_preserved - its flat colour and lighting remain unchanged for the full shot.
+<Picture 1>: fully_preserved - its composition is the first and last frame of the shot.
+
+detailed_description:
+Painted 2D cartoon style. [Shot 1] A locked front view frames <Subject 1> exactly as in <Picture 1>; the camera, framing, subject scale and lighting stay unchanged throughout. First he lifts the hand on the left side of the picture from the throne arm, strokes his mossy beard once, lips pressed together, and puts the hand back. Then he turns his head slightly towards the right side of the picture with a small contented smile and turns back to the front. He ends exactly in the pose of <Picture 1>. The throne, legs, feet and backdrop stay completely still.
+
+overall_soundscape: a soft, low cave ambience only
+non_diegetic_music: N/A
