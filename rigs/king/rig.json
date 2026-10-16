@@ -1,0 +1,101 @@
+{
+ "size": [
+  1331,
+  1331
+ ],
+ "ref": "refs/mountain-king/king-ref-headroom-v2.png",
+ "layers": {
+  "base": "base.png",
+  "king": "king.png"
+ },
+ "deformers": {
+  "torso": {
+   "weights": "w_torso.png",
+   "pivot": [
+    680,
+    1000
+   ]
+  },
+  "head": {
+   "weights": "w_head.png",
+   "pivot": [
+    675,
+    740
+   ]
+  },
+  "hand": {
+   "weights": "w_hand.png",
+   "pivot": [
+    560,
+    760
+   ]
+  }
+ },
+ "chain": [
+  "head",
+  "torso"
+ ],
+ "overlays": {
+  "blink": {
+   "png": "ov_blink.png",
+   "xy": [
+    559,
+    507
+   ],
+   "area": 10518
+  },
+  "glance": {
+   "png": "ov_glance.png",
+   "xy": [
+    563,
+    530
+   ],
+   "area": 5387
+  },
+  "down": {
+   "png": "ov_down.png",
+   "xy": [
+    563,
+    500
+   ],
+   "area": 4803
+  },
+  "smile": {
+   "png": "ov_smile.png",
+   "xy": [
+    500,
+    469
+   ],
+   "area": 49753
+  },
+  "beard": {
+   "png": "ov_beard.png",
+   "xy": [
+    273,
+    640
+   ],
+   "area": 60820
+  },
+  "drum2": {
+   "png": "ov_drum2.png",
+   "xy": [
+    800,
+    760
+   ],
+   "area": 17112
+  }
+ },
+ "home": {
+  "strip": "sheets/mountain-king/king-idle.json",
+  "frame": 0,
+  "cell": [
+   479,
+   444
+  ],
+  "pivot": [
+   245.6,
+   442.8
+  ],
+  "fit": "rigs/king/home_fit.json"
+ }
+}

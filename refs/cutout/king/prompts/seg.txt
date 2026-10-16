@@ -1,0 +1,8 @@
+Recolour this exact image as a flat-colour segmentation map. Keep every shape exactly where it is, the same size and position, the same canvas — only replace the painting with flat colours, no shading, no outlines, no texture:
+- the troll king's head with its face, ears, beard and the crystal crown = pure red #FF0000
+- his torso, belly and the crystals and moss on his shoulders = pure blue #0000FF
+- his arm and hand on the LEFT side of the picture = pure yellow #FFFF00
+- his arm and hand on the RIGHT side of the picture = pure cyan #00FFFF
+- both his legs and feet = pure green #00FF00
+- the stone throne (backrest, seat, both armrests) = pure white #FFFFFF
+- the background = pure black #000000

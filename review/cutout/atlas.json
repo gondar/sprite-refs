@@ -1,0 +1,63 @@
+{
+ "cell": [
+  479,
+  444
+ ],
+ "pivot": [
+  245.6,
+  442.8
+ ],
+ "fps": 12,
+ "cols": 34,
+ "rows": 5,
+ "gestures": [
+  {
+   "name": "breath",
+   "at": 0,
+   "frames": 19,
+   "src": "cutout"
+  },
+  {
+   "name": "glance",
+   "at": 19,
+   "frames": 18,
+   "src": "cutout"
+  },
+  {
+   "name": "look",
+   "at": 37,
+   "frames": 19,
+   "src": "cutout"
+  },
+  {
+   "name": "smile",
+   "at": 56,
+   "frames": 20,
+   "src": "cutout"
+  },
+  {
+   "name": "beard",
+   "at": 76,
+   "frames": 20,
+   "src": "cutout"
+  },
+  {
+   "name": "drum",
+   "at": 96,
+   "frames": 18,
+   "src": "cutout"
+  },
+  {
+   "name": "tilt",
+   "at": 114,
+   "frames": 19,
+   "src": "cutout"
+  },
+  {
+   "name": "sway",
+   "at": 133,
+   "frames": 20,
+   "src": "cutout"
+  }
+ ]
+}
