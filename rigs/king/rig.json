@@ -22,13 +22,6 @@
     675,
     740
    ]
-  },
-  "hand": {
-   "weights": "w_hand.png",
-   "pivot": [
-    560,
-    760
-   ]
   }
  },
  "chain": [
@@ -68,14 +61,6 @@
    ],
    "area": 49753
   },
-  "beard": {
-   "png": "ov_beard.png",
-   "xy": [
-    273,
-    640
-   ],
-   "area": 60820
-  },
   "drum2": {
    "png": "ov_drum2.png",
    "xy": [
@@ -83,6 +68,54 @@
     760
    ],
    "area": 17112
+  },
+  "left": {
+   "png": "ov_left.png",
+   "xy": [
+    569,
+    527
+   ],
+   "area": 8222
+  },
+  "sleepy": {
+   "png": "ov_sleepy.png",
+   "xy": [
+    536,
+    481
+   ],
+   "area": 14163
+  },
+  "up": {
+   "png": "ov_up.png",
+   "xy": [
+    566,
+    474
+   ],
+   "area": 13285
+  },
+  "brow": {
+   "png": "ov_brow.png",
+   "xy": [
+    658,
+    471
+   ],
+   "area": 9379
+  },
+  "grumpy": {
+   "png": "ov_grumpy.png",
+   "xy": [
+    574,
+    463
+   ],
+   "area": 14424
+  },
+  "glow": {
+   "png": "ov_glow.png",
+   "xy": [
+    442,
+    316
+   ],
+   "area": 28089
   }
  },
  "home": {

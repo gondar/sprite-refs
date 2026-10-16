@@ -72,7 +72,7 @@ def active(name, p):
 
 def render_src(p):
     img = king.copy()
-    for n in ("smile", "glance", "down", "blink", "drum2", "beard"):
+    for n in ("glow", "smile", "glance", "left", "up", "down", "grumpy", "brow", "sleepy", "blink", "drum2", "beard"):
         a = p.get("ov." + n, 0)
         if n in OV and a > 1e-6:
             o = OV[n]; img = img * (1 - a * o[..., 3:] / 255) + a * o

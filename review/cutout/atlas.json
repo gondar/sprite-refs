@@ -9,7 +9,7 @@
  ],
  "fps": 12,
  "cols": 34,
- "rows": 5,
+ "rows": 12,
  "gestures": [
   {
    "name": "breath",
@@ -36,26 +36,98 @@
    "src": "cutout"
   },
   {
-   "name": "beard",
-   "at": 76,
-   "frames": 20,
-   "src": "cutout"
-  },
-  {
    "name": "drum",
-   "at": 96,
+   "at": 76,
    "frames": 18,
    "src": "cutout"
   },
   {
    "name": "tilt",
-   "at": 114,
+   "at": 94,
    "frames": 19,
    "src": "cutout"
   },
   {
    "name": "sway",
+   "at": 113,
+   "frames": 20,
+   "src": "cutout"
+  },
+  {
+   "name": "blink2",
    "at": 133,
+   "frames": 13,
+   "src": "cutout"
+  },
+  {
+   "name": "sleepy",
+   "at": 146,
+   "frames": 23,
+   "src": "cutout"
+  },
+  {
+   "name": "dart",
+   "at": 169,
+   "frames": 12,
+   "src": "cutout"
+  },
+  {
+   "name": "glance_left",
+   "at": 181,
+   "frames": 18,
+   "src": "cutout"
+  },
+  {
+   "name": "nod",
+   "at": 199,
+   "frames": 18,
+   "src": "cutout"
+  },
+  {
+   "name": "lookup",
+   "at": 217,
+   "frames": 20,
+   "src": "cutout"
+  },
+  {
+   "name": "shrug",
+   "at": 237,
+   "frames": 17,
+   "src": "cutout"
+  },
+  {
+   "name": "sigh",
+   "at": 254,
+   "frames": 25,
+   "src": "cutout"
+  },
+  {
+   "name": "smiletilt",
+   "at": 279,
+   "frames": 23,
+   "src": "cutout"
+  },
+  {
+   "name": "glow",
+   "at": 302,
+   "frames": 20,
+   "src": "cutout"
+  },
+  {
+   "name": "drowsy",
+   "at": 322,
+   "frames": 25,
+   "src": "cutout"
+  },
+  {
+   "name": "curious",
+   "at": 347,
+   "frames": 19,
+   "src": "cutout"
+  },
+  {
+   "name": "grumpy",
+   "at": 366,
    "frames": 20,
    "src": "cutout"
   }

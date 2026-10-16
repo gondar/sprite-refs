@@ -209,3 +209,22 @@ keep the ears and an oval round the face, give the rest to the body) and feather
   `gestures.py` now makes everything 10 px inside the home silhouette opaque with the clip's ORIGINAL pixels and
   keys only the edges; gains are brightness-only per band (per-channel gains copy the home frame's magenta cast).
 - Delivered: 2 clips, 8 gestures, 104 frames, 1.5 MB WebP (was 9 clips, 2.0 MB). Total spend on the set $1.44.
+
+## Mountain King v3 — first frame = last frame on blue, and the static lock (2026-10-16, owner: "perfect")
+
+- After two rounds the owner called the set "sloppy" (broken throne, colour changes). A research pass
+  (`references/minimax-research.md`) ranked the causes: reference mode is a SUBJECT reference (frame 0 off the
+  picture by 9–10.6 MAE, King darker), the saturated magenta ground is "fixed" by the model from ~0.5 s and relights
+  the figure, and the 1,800-character prompts named the very colours it drifted to.
+- v3: the cut-out on flat #2F6BD8 blue and on #22B24C green, first = last = that picture, the 132-word motion-only
+  prompt. Both grounds held to ±3 levels for 4 s (no magenta clip ever did); frame 0 within ~5 MAE. $0.36 for 3 clips.
+- H3 made TWO movements per clip, not the four asked, with one near-rest at ~2 s — cut there (`--pose-s 2`).
+- `lock.py` (the static lock) went through five fixes in one sitting, each found by LOOKING at full size, each now a
+  comment in the script: blue spill on the crown glow; the model's soft shadow on the backdrop (dominance key);
+  throne the model erased behind a raised arm (keep from home); an orange cast (match colour against the clip's own
+  first frame, capped); and two crowns — the keep rule applied to the whole outline restored the crown where the head
+  had moved away. Restricted to a prop mask (`--keep`, from the cutout parts map) it is right. The score script did
+  not catch the two crowns; a zoom on the head next to the raw frame did.
+- Scores (`scripts/score.py`, lower better except motion): shipped v2 throne 4.22 / colour 4.69 / motion 6.88;
+  v3 throne 0.64 / colour 5.43 (the crown really moving counts) / motion 6.52; cutout throne 0.05 / colour 1.39 /
+  motion 2.30. The owner: v3 "perfect", the cutout "brill" except the beard touch (an arm crossfade ghosts).

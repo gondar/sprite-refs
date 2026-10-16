@@ -35,15 +35,6 @@
   "seam_last": 0.0,
   "max_px_any_static": 0.0
  },
- "beard": {
-  "bottom28": 0.0,
-  "throne_back": 0.0,
-  "both": 0.0,
-  "armrests_info": 0.6465,
-  "seam_first": 0.0,
-  "seam_last": 0.0,
-  "max_px_any_static": 0.0
- },
  "drum": {
   "bottom28": 0.0,
   "throne_back": 0.0,
@@ -70,5 +61,122 @@
   "seam_first": 0.0,
   "seam_last": 0.0,
   "max_px_any_static": 131.0
+ },
+ "blink2": {
+  "bottom28": 0.0,
+  "throne_back": 0.0,
+  "both": 0.0,
+  "armrests_info": 0.0,
+  "seam_first": 0.0,
+  "seam_last": 0.0,
+  "max_px_any_static": 0.0
+ },
+ "sleepy": {
+  "bottom28": 0.0,
+  "throne_back": 0.0,
+  "both": 0.0,
+  "armrests_info": 0.0,
+  "seam_first": 0.0,
+  "seam_last": 0.0,
+  "max_px_any_static": 0.0
+ },
+ "dart": {
+  "bottom28": 0.0,
+  "throne_back": 0.0,
+  "both": 0.0,
+  "armrests_info": 0.0,
+  "seam_first": 0.0,
+  "seam_last": 0.0,
+  "max_px_any_static": 0.0
+ },
+ "glance_left": {
+  "bottom28": 0.0,
+  "throne_back": 0.0,
+  "both": 0.0,
+  "armrests_info": 0.0,
+  "seam_first": 0.0,
+  "seam_last": 0.0,
+  "max_px_any_static": 0.0
+ },
+ "nod": {
+  "bottom28": 0.0,
+  "throne_back": 0.0,
+  "both": 0.0,
+  "armrests_info": 0.0,
+  "seam_first": 0.0,
+  "seam_last": 0.0,
+  "max_px_any_static": 0.0
+ },
+ "lookup": {
+  "bottom28": 0.0,
+  "throne_back": 0.0,
+  "both": 0.0,
+  "armrests_info": 0.0,
+  "seam_first": 0.0,
+  "seam_last": 0.0,
+  "max_px_any_static": 0.0
+ },
+ "shrug": {
+  "bottom28": 0.0,
+  "throne_back": 0.4208,
+  "both": 0.0156,
+  "armrests_info": 0.0069,
+  "seam_first": 0.0,
+  "seam_last": 0.0,
+  "max_px_any_static": 83.0
+ },
+ "sigh": {
+  "bottom28": 0.0,
+  "throne_back": 0.3598,
+  "both": 0.0133,
+  "armrests_info": 0.0032,
+  "seam_first": 0.0,
+  "seam_last": 0.0,
+  "max_px_any_static": 64.0
+ },
+ "smiletilt": {
+  "bottom28": 0.0,
+  "throne_back": 0.0,
+  "both": 0.0,
+  "armrests_info": 0.0,
+  "seam_first": 0.0,
+  "seam_last": 0.0,
+  "max_px_any_static": 0.0
+ },
+ "glow": {
+  "bottom28": 0.0,
+  "throne_back": 0.0309,
+  "both": 0.0011,
+  "armrests_info": 0.0,
+  "seam_first": 0.0,
+  "seam_last": 0.0,
+  "max_px_any_static": 8.0
+ },
+ "drowsy": {
+  "bottom28": 0.0,
+  "throne_back": 0.0925,
+  "both": 0.0034,
+  "armrests_info": 0.0012,
+  "seam_first": 0.0,
+  "seam_last": 0.0,
+  "max_px_any_static": 18.0
+ },
+ "curious": {
+  "bottom28": 0.0,
+  "throne_back": 0.0,
+  "both": 0.0,
+  "armrests_info": 0.0,
+  "seam_first": 0.0,
+  "seam_last": 0.0,
+  "max_px_any_static": 0.0
+ },
+ "grumpy": {
+  "bottom28": 0.0,
+  "throne_back": 0.0,
+  "both": 0.0,
+  "armrests_info": 0.0,
+  "seam_first": 0.0,
+  "seam_last": 0.0,
+  "max_px_any_static": 0.0
  }
 }

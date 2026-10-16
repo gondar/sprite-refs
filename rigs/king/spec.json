@@ -1,24 +1,270 @@
 {
  "ref": "refs/mountain-king/king-ref-headroom-v2.png",
  "key": "magenta",
- "seg": {"path": "refs/cutout/king/seg.png", "reg": [1.2998, 0, 0.6, 0.8],
-         "colors": {"head": [255, 0, 0], "torso": [0, 0, 255], "armL": [255, 255, 0], "armR": [0, 255, 255],
-                    "legs": [0, 255, 0], "throne": [255, 255, 255], "bg": [0, 0, 0]}},
+ "seg": {
+  "path": "refs/cutout/king/seg.png",
+  "reg": [
+   1.2998,
+   0,
+   0.6,
+   0.8
+  ],
+  "colors": {
+   "head": [
+    255,
+    0,
+    0
+   ],
+   "torso": [
+    0,
+    0,
+    255
+   ],
+   "armL": [
+    255,
+    255,
+    0
+   ],
+   "armR": [
+    0,
+    255,
+    255
+   ],
+   "legs": [
+    0,
+    255,
+    0
+   ],
+   "throne": [
+    255,
+    255,
+    255
+   ],
+   "bg": [
+    0,
+    0,
+    0
+   ]
+  }
+ },
  "edits": "refs/cutout/king/register.json",
  "under": "throne2",
- "home": {"strip": "sheets/mountain-king/king-idle.json", "frame": 0, "cell": [479, 444], "pivot": [245.6, 442.8],
-          "fit": "rigs/king/home_fit.json"},
+ "home": {
+  "strip": "sheets/mountain-king/king-idle.json",
+  "frame": 0,
+  "cell": [
+   479,
+   444
+  ],
+  "pivot": [
+   245.6,
+   442.8
+  ],
+  "fit": "rigs/king/home_fit.json"
+ },
  "deformers": {
-  "torso": {"pivot": [680, 1000], "y_full": 720, "y_zero": 960, "arm_falloff": 90, "blur": 14},
-  "head":  {"pivot": [675, 740], "blur": 16, "beard_y": [690, 840], "beard_keep": 0.45},
-  "hand":  {"pivot": [560, 760], "of": "beard", "blur": 6}
+  "torso": {
+   "pivot": [
+    680,
+    1000
+   ],
+   "y_full": 720,
+   "y_zero": 960,
+   "arm_falloff": 90,
+   "blur": 14
+  },
+  "head": {
+   "pivot": [
+    675,
+    740
+   ],
+   "blur": 16,
+   "beard_y": [
+    690,
+    840
+   ],
+   "beard_keep": 0.45
+  }
  },
  "overlays": {
-  "blink":  {"within": ["head"], "box": [500, 480, 860, 640], "thr": 28, "grow": 8, "feather": 4},
-  "glance": {"within": ["head"], "box": [500, 480, 860, 640], "thr": 28, "grow": 8, "feather": 4},
-  "down":   {"within": ["head"], "box": [500, 470, 860, 640], "thr": 28, "grow": 8, "feather": 4},
-  "smile":  {"within": ["head"], "box": [500, 440, 870, 760], "thr": 24, "grow": 12, "feather": 6},
-  "beard":  {"within": ["head", "torso", "armL"], "grow_within": 24, "box": [230, 560, 760, 920], "thr": 30, "grow": 10, "feather": 4},
-  "drum2":  {"within": ["armR"], "grow_within": 16, "box": [800, 760, 1070, 930], "thr": 30, "grow": 8, "feather": 3}
+  "blink": {
+   "within": [
+    "head"
+   ],
+   "box": [
+    500,
+    480,
+    860,
+    640
+   ],
+   "thr": 28,
+   "grow": 8,
+   "feather": 4
+  },
+  "glance": {
+   "within": [
+    "head"
+   ],
+   "box": [
+    500,
+    480,
+    860,
+    640
+   ],
+   "thr": 28,
+   "grow": 8,
+   "feather": 4
+  },
+  "down": {
+   "within": [
+    "head"
+   ],
+   "box": [
+    500,
+    470,
+    860,
+    640
+   ],
+   "thr": 28,
+   "grow": 8,
+   "feather": 4
+  },
+  "smile": {
+   "within": [
+    "head"
+   ],
+   "box": [
+    500,
+    440,
+    870,
+    760
+   ],
+   "thr": 24,
+   "grow": 12,
+   "feather": 6
+  },
+  "drum2": {
+   "within": [
+    "armR"
+   ],
+   "grow_within": 16,
+   "box": [
+    800,
+    760,
+    1070,
+    930
+   ],
+   "thr": 30,
+   "grow": 8,
+   "feather": 3
+  },
+  "left": {
+   "within": [
+    "head"
+   ],
+   "box": [
+    500,
+    470,
+    860,
+    650
+   ],
+   "thr": 28,
+   "grow": 8,
+   "feather": 4
+  },
+  "sleepy": {
+   "within": [
+    "head"
+   ],
+   "box": [
+    500,
+    470,
+    860,
+    650
+   ],
+   "thr": 28,
+   "grow": 8,
+   "feather": 4
+  },
+  "up": {
+   "within": [
+    "head"
+   ],
+   "box": [
+    500,
+    440,
+    860,
+    650
+   ],
+   "thr": 28,
+   "grow": 8,
+   "feather": 4
+  },
+  "brow": {
+   "within": [
+    "head"
+   ],
+   "box": [
+    500,
+    430,
+    860,
+    650
+   ],
+   "thr": 28,
+   "grow": 10,
+   "feather": 5
+  },
+  "grumpy": {
+   "within": [
+    "head"
+   ],
+   "box": [
+    500,
+    430,
+    860,
+    680
+   ],
+   "thr": 26,
+   "grow": 10,
+   "feather": 5
+  }
+ },
+ "glow": {
+  "gain": 1.35,
+  "lift": 18,
+  "sat_min": 0.35,
+  "val_min": 150,
+  "boxes": [
+   [
+    540,
+    300,
+    830,
+    475
+   ],
+   [
+    430,
+    540,
+    540,
+    650
+   ],
+   [
+    860,
+    520,
+    970,
+    650
+   ],
+   [
+    560,
+    520,
+    620,
+    600
+   ],
+   [
+    680,
+    520,
+    760,
+    600
+   ]
+  ]
  }
 }

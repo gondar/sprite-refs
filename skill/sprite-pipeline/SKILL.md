@@ -1,6 +1,6 @@
 ---
 name: sprite-pipeline
-description: Animate a 2D game character — idle, idle gestures, walk, run, jump, sit, turn, wave, nod, cheer — through APIYI. Starts by choosing the method (MiniMax-H3 video, a drawn cycle sheet, a cutout puppet, or no animation at all via asset-sheet), then gives the exact MiniMax-H3 recipe (one pose per second, four per 4 s clip, home pose between) and the scripts that key, cut, align and pack the frames. Use this whenever a character, mascot or unit has to MOVE, an animation "feels repetitive", or a generated video has to become game frames — and before spending money on video. For many STATIC assets (props, icons, items) use the `asset-sheet` skill instead.
+description: Animate a 2D game character — idle, idle gestures, walk, run, jump, sit, turn, wave, nod, cheer — through APIYI. Starts by choosing the method (MiniMax-H3 video, a drawn cycle sheet, a cutout puppet, or no animation at all via asset-sheet), then gives the MiniMax-H3 recipe that works (first frame = last frame on a flat blue ground, a short motion-only prompt, two movements per 4 s clip, the static lock in lock.py) and the scripts that cut, align, score and pack the frames. For an idle, the idle-animation skill picks between MiniMax, cutout and both. Use this whenever a character, mascot or unit has to MOVE, an animation "feels repetitive", or a generated video has to become game frames — and before spending money on video. For many STATIC assets (props, icons, items) use the `asset-sheet` skill instead.
 ---
 
 # Sprite pipeline — animation
@@ -11,77 +11,76 @@ finished strip/atlas goes into the game repo, as a fail-open WebP. Evidence for 
 
 ## 1. Choose the method first — every time
 
-Ask **what has to move, how much, and how big the file may be**:
+Ask **what has to move, how much, and how big the file may be**. For an IDLE (a character waiting on screen),
+read the `idle-animation` skill first: it decides between MiniMax, cutout and a hybrid of both.
 
 | Method | Use when | Cost / size | Not for |
 |---|---|---|---|
 | **No animation** — `asset-sheet` skill | it never moves (props, icons, items, poses shown one at a time) | ≈ $0.0003–0.0015 per asset | anything that should breathe |
-| **Cutout puppet** — `sprite-refs/skill/cutout` (parts map + Nano Banana edits of the reference, `decompose.py`, `cutout.js`) | rigid parts on pivots: bob, sway, blink, wing flap, head tilt, many procedural actions on one small rig | ≈ $0.15–0.25 once; **40–50 KB** for all actions | facial expressions, turning, limbs crossing the face, anything soft. No SKILL.md yet: rigging is by eye |
+| **Cutout** — `skill/cutout/SKILL.md` (the picture bent by weight maps + overlays from single-change image edits) | many SMALL variations on a fixed body: blink, glance, smile, tilt, sway, breath, glow, nods | ≈ $0.025 per new face edit, combinations free; static parts identical by construction | a limb travelling across the body (a hand to the beard ghosts), turning, big actions |
 | **Drawn cycle** — one Nano Banana image, 8 frames on a 4 × 2 grid | a small looping story (dozing owl) where a hand-drawn feel is fine | ≈ $0.025 | smooth motion; it drifts in size (`pack.py --fix-scale`) |
-| **MiniMax-H3 video** (§2) | real, organic motion of body AND face in the painted look: idle gestures, nod, cheer, walk, jump | $0.12 per 4 s clip; **MBs** (164 frames ≈ 2 MB WebP) | tiny downloads; a character whose silhouette leaves the reference a lot (the camera reframes) |
+| **MiniMax-H3 video** (§2) | REAL movement: a hand to the face, a head turn, a sigh with the eyes closing, nod, cheer, walk, jump | $0.12 per 4 s clip = about two movements; MBs | tiny downloads; dozens of variations (the cutout is cheaper per variation) |
 
-A complaint like "it is the same animation, constantly" is a **variety** problem, not a fidelity one: several short
-gestures on one shared home frame, mixed at random (§2, `gestures.py`), beat one longer loop.
+## 2. MiniMax-H3 — the recipe that works (2026-10-16, the owner's "perfect")
 
-## 2. MiniMax-H3 — the recipe
+The two things that ruin a clip are the MODE and the BACKGROUND, not the wording of the motion. Evidence:
+`references/findings.md` (Mountain King, three rounds) and `references/minimax-research.md`.
 
-**Plan.** ONE pose per second, FOUR poses per 4 s clip, the **home pose at every whole second** (0, 1, 2, 3, 4 s).
-8 poses = **2 clips = $0.24**. Not one clip per pose (9 clips, $1.08 — 2026-10-16), not 2 s per pose, not one 8 s clip
-(H3 stretches its motion and barely moves). Budget one re-try clip ($0.12): one clip in two or three comes back broken.
+**Mode: first frame = last frame = the same picture.** Not `reference_image`: that is a *subject* reference — the
+model imitates the character, reframes, relights and darkens it (frame 0 differed from the picture by 9–10.6 MAE; in
+first-frame mode by ~5). Pinning both ends also brings every clip home to the same frame, which is what lets clips
+be cut into gestures that play in any order. `h3.py submit --first URL --last URL` (same URL twice).
 
-**Reference image** (`<Picture 1>`): the character design on flat magenta (#FF00FF; green if the character has
-pink/purple), with headroom for raised arms, padded with **the image's own border colour**. Host on jsDelivr without a
-version (`https://cdn.jsdelivr.net/gh/gondar/sprite-refs/<path>`); never overwrite a hosted file — new version, new name.
+**Background: flat blue #2F6BD8** (or green #22B24C when the character has blue). Never magenta: a saturated
+magenta ground is out of distribution, the model "fixes" it from ~0.5 s on and relights the character with the new
+colour — every magenta clip drifted (sky blue, teal with a grassy floor, pale green, black). On blue and on green the
+corner colour held to ±3 levels for all 4 s. Prepare the picture once: key the design, clean its fringe, put it on the
+flat colour at ~64 % of the height with room above for a raised arm, save it under a NEW name, host on jsDelivr.
 
-**Motion reference** (`<Video 1>`): for BODY motion (walk, hop, nod, cheer) add a grey mannequin clip from
-`refs/mannequins/` — it holds the timing, the framing and the background. FACE gestures (smile, squint, glance) have
-no mannequin: reference image only, and expect more drift. No mannequin fits → make one ($0.12, text-to-video, 1:1,
-"a plain smooth grey artist's mannequin … flat solid bright green #00FF00 … no floor", per-second timing), strip its
-audio, add it to the table below.
+**Prompt: ~130 words, only what moves.** Open with `[Static shot]`, one sentence that the camera is locked and the
+lighting never changes, then the movements in order ("First … Then … Last …, resting in the starting pose between"),
+"He ends exactly in his starting pose", "lips pressed together" (positive, not a list of forbidden mouth actions —
+a "breath" still opened the mouth once), "his throne, legs, feet and the plain backdrop stay completely still", and
+"Sound: a soft, low cave ambience only" (H3 always makes audio; a voice makes lip-sync). **Never name the background
+colour** and never list colours it must not become — the old prompts named exactly the colours it drifted to. No
+clock syntax ("0.0–1.0 s"): it is followed loosely. Worked prompts: `sprite-refs/jobs/prompts/mountain-king/v3-first-last-{A,B}.txt`.
 
-**Prompt** — fill this in; every line is there because its absence broke a clip:
-```
-<Picture 1> is <who>, a 2D game character <pose: sitting on …/standing>.
-This clip is FOUR SHORT <subtle idle gestures | actions> for a game, ONE PER SECOND, each one starting and
-ending in EXACTLY the pose of <Picture 1>:
-0.0–1.0 s, <POSE IN CAPITALS>: <what moves, small>.   … (four lines)
-[with a mannequin: "performing exactly the same actions with the same timing as the grey figure in <Video 1>"]
-The pose of <Picture 1> is the home pose: he is in it at 0.0, 1.0, 2.0, 3.0 and 4.0 s.
-<BODY PLAN IN CAPITALS + the forbidden alternative: "BIPEDAL … never on all fours" / "stays SEATED … never stands">
-MOUTH CLOSED IN EVERY FRAME: he never speaks, sings or opens his mouth.        (H3 adds audio and lip-syncs)
-<Front|side> view, the whole figure always inside the frame. Never travels, never turns.
-Camera: locked static camera, no zoom, no pan, the character centered and the same size throughout.
-Style: keep the exact painted look, colours and details of <Picture 1>.
-Background: the SAME flat solid magenta #FF00FF as <Picture 1> in every frame: never changes colour, never fades,
-never turns purple or lavender. No floor, no ground, no shadow, no props, no particles, no text.
-```
-Never compare a motion to an object ("as on a treadmill" drew a treadmill). Do not use first+last-frame mode for
-keyed sprites (it repaints the background).
+**Plan: TWO movements per 4 s clip.** Asked for four, H3 in this mode made two, with one near-rest at ~2 s. So 4
+gestures = 2 clips ($0.24); 8 = 4 clips. Cut at the real rests (`--pose-s 2`), never on the clock. Submit the first
+clip on blue AND green when the character is new ($0.24) and keep the colour that held.
 
-**Run** (from the sprite-refs root; both scripts log to `jobs/jobs.jsonl` BEFORE the paid call — check the log
-before re-running anything, a resubmit is billed twice):
+**Run** (from the sprite-refs root; `h3.py` logs to `jobs/jobs.jsonl` BEFORE the paid call — check it before
+re-running anything, a resubmit is billed twice; tell the person the cost first):
 ```
 python3 skill/sprite-pipeline/scripts/h3.py submit --tag <char>-<set> --prompt-file jobs/prompts/<char>/<set>.txt \
-        --duration 4 --ratio adaptive --ref-image <URL> [--ref-video <mannequin URL>]
+        --duration 4 --ratio adaptive --first <URL> --last <URL>
 python3 skill/sprite-pipeline/scripts/h3.py poll <job_id> --every 15        # 2–7 min; downloads raw/<job_id>.mp4
 ffmpeg -i raw/<job>.mp4 -vf "fps=4,scale=200:-1,tile=8x2" -frames:v 1 sheet.png   # LOOK before cutting
 ```
-Tell the person the cost before submitting (H3 is $0.03 × seconds, pre-charged, refunded if the task fails).
+Measure before cutting: the corner colour per frame (must not move) and frame 0 against the picture (MAE ≈ 5).
 
-**Judge the contact sheet**: (1) background drift — magenta held ~1.5–2 s in every reference-only clip, then went
-lavender/teal/green/black; lavender and teal key, **black next to dark stone does not**; (2) reframing — H3 may zoom
-in (a hand near the face pulled it in twice) or out on its own; (3) the mouth. Re-try only the broken clip.
+**Cut with the static lock — `scripts/lock.py`**, never by keying whole frames. Only pixels that really move come
+from the clip; every other pixel is the picture itself, so a throne, legs and body cannot shimmer or change colour:
+```
+lock.py OUT --home <clean cut-out>.png --at X,Y --keep <prop mask>.png --pose-s 2 \
+        raw/A.mp4=sigh,squint raw/B.mp4=beard,sidelook [--cell 479,444 --pivot X,Y --fig H]
+```
+- motion is measured against the clip's OWN first frame (against the picture, repaint noise lit up 20k px at rest);
+- colour of the moving area is matched to the same area of the clip's first frame, gains capped ±15 % (matching to the
+  painted picture gave an orange cast; per-channel gains on a ring gave a purple one);
+- outside the outline it keys on how much the ground colour DOMINATES, not on distance (the model casts soft shadows
+  on the backdrop; a distance key kept them and the spill clamp turned them teal);
+- **`--keep` is a mask of the PROP only** (throne, stand — from the cutout's parts map or painted once): there, pixels
+  the clip erases come back from the picture. Applied to the whole outline, it pasted the home crown back where the
+  head had just moved away — the King wore two crowns. Elsewhere, the space a moving part leaves is empty.
 
-**Cut**:
-- Gestures on one home frame (idle variety, nods, reactions): **`scripts/gestures.py`** — keys every frame on its
-  own border, registers it to the home frame by the part that never moves (`--static 0.72` = the bottom 28 %: legs,
-  feet, throne) or by the upper body when the clip is framed too close, clips steam/glow/vignette, finds each cut at
-  the dip of the distance-to-home curve near every whole second, crossfades 2 frames into the home frame, packs a
-  row-major atlas + JSON + review sheet + a random-mix GIF. Pass `--home <existing strip>.json:0` so the gestures
-  meet the character's other animations:
-  `gestures.py OUT raw/A.mp4=sigh,glance,look,smile raw/B.mp4=beard,drum,tilt,sway --home sheets/<c>/idle.json:0`
-- Actions and cycles (walk, run, jump): `segments.py` (mark cycles `:loop` — it finds a whole stride) then `pack.py`.
-- Read the printed curve, not the prompt's clock; a cut flagged "does not come home" needs a look or a re-try.
+**Check, then show** — `scripts/score.py` on the atlas (throne shimmer, colour drift, seams, motion), then
+LOOK at each gesture's peak frame at full size, zoomed on the head, next to the raw clip's frame: the score did not see
+two crowns. Then a review page for the owner, side by side with what it replaces, before anything goes into a game.
+
+**Do not**: `reference_image` mode for a pose that must come home; magenta; a prompt that names colours; a home frame
+taken from a different clip or an older strip (two drawings crossfaded = ghosting); `gestures.py` on a first-frame
+clip (it keys whole frames — it is for clips with no clean picture behind them, e.g. walk cycles cut by `segments.py`).
 
 **Play** the atlas as a shuffled bag — never the same gesture twice running, 0.4–2.2 s of rest on the home frame
 between — and keep beat-locked moves (a nod on the beat) on the beat. Worked example: the Mountain King in

@@ -106,12 +106,26 @@ for n, o in S["overlays"].items():
     bb = [int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1]
     save(f"ov_{n}.png", lay[bb[1]:bb[3], bb[0]:bb[2]])
     ovs[n] = {"png": f"ov_{n}.png", "xy": bb[:2], "area": int((a > 0.5).sum())}
-    if n == D["hand"]["of"]:   # the hand that strokes the beard: the part of the overlay over the head
+    if "hand" in D and n == D["hand"]["of"]:   # the hand that strokes the beard: the part of the overlay over the head
         hm = m & part["head"]
         weights["hand"] = np.clip(ndi.gaussian_filter(hm.astype(float), D["hand"]["blur"]) * 1.4, 0, 1)
 
 for n, w in weights.items():
     save(f"w_{n}.png", w * 255)
+
+# --- glow: the amber crystals and eye glow, brightened (a brightness overlay, no geometry) ---
+if S.get("glow"):
+    gl = S["glow"]; c = ref[..., :3]; mx, mn = c.max(2), c.min(2)
+    sat = (mx - mn) / np.maximum(mx, 1)
+    amber = (c[..., 0] >= c[..., 1]) & (c[..., 1] >= c[..., 2]) & (sat > gl["sat_min"]) & (mx > gl["val_min"]) & king
+    inb = np.zeros((H, W), bool)
+    for x0, y0, x1, y1 in gl.get("boxes", [[0, 0, W, H]]): inb[y0:y1, x0:x1] = True   # crystals + eyes only
+    amber = ndi.binary_opening(amber & inb, iterations=1)
+    a = np.clip(ndi.gaussian_filter(amber.astype(float), 2.0) * 1.5, 0, 1) * (ref[..., 3] / 255) * king
+    lay = np.dstack([np.clip(c * gl["gain"] + gl["lift"], 0, 255), a * 255])
+    ys, xs = np.nonzero(a > 0.004); bb = [int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1]
+    save("ov_glow.png", lay[bb[1]:bb[3], bb[0]:bb[2]])
+    ovs["glow"] = {"png": "ov_glow.png", "xy": bb[:2], "area": int((a > 0.5).sum())}
 
 rig = {"size": [W, H], "ref": S["ref"], "layers": {"base": "base.png", "king": "king.png"},
        "deformers": {n: {"weights": f"w_{n}.png", "pivot": D[n]["pivot"]} for n in weights},
