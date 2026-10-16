@@ -1,52 +1,69 @@
-# Mountain King — cutout-puppet idle (8 gestures), experiment vs the H3 video set
+# Mountain King — cutout-puppet idle, round 2 (20 gestures)
 
-Built 2026-10-16. 8 gestures, 153 frames at 12 fps, cell 479×444, pivot (245.6, 442.8), atlas 34 cols × 5 rows
-(`atlas.png` 6.5 MB, `atlas.webp` 1.55 MB at q70). First and last frame of every gesture = `rest.png` exactly.
+20 gestures, 386 frames at 12 fps, cell 479×444, pivot (245.6, 442.8), atlas 34 cols × 12 rows.
+`atlas.webp` = **4.24 MB** (`atlas.png` for the review page). Because that is over 3 MB there is also a split version
+in `split/`: `base.png/.webp` (everything that never changes, 5 KB) + `atlas.{png,webp,json}` holding only the
+rectangle that ever changes, `crop` = [83, 105, 292, 241] (33 % of the cell), **2.93 MB** webp. Draw the base at the
+cell origin, then the cell at (crop.x, crop.y). Rebuilding every frame from the split is exact (max error 0).
+First and last frame of every gesture = `rest.png`, bit for bit.
 
-## How it is built
-- Rest pose = the reference picture itself (`refs/mountain-king/king-ref-headroom-v2.png`), placed in the cell by a
-  similarity fit to frame 0 of the shipped `king-idle` strip (scale 0.3588, silhouette IoU 0.988 vs that frame).
-- Rig `rigs/king/` (built by `skill/cutout/scripts/build_warp_rig.py rigs/king/spec.json rigs/king`):
-  `base.png` (throne; inside the figure the "King removed" edit, seen only in slivers the head/torso uncover),
-  `king.png` (figure, hard-cut from the reference), `ov_*.png` overlays (only the pixels an edit changed,
-  registered + feathered), `w_head/w_torso/w_hand.png` weight maps, `rig.json`, `gestures.json` (keyframes).
-- Instead of rigid pieces the figure is ONE layer bent by smooth weight maps (skinning: head, torso, hand).
-  A seated, front-view troll has no clean joints (beard over neck, belly over hips, hands on the throne), so rigid
-  pieces would open gaps / double outlines; a weighted bend cannot. Weight 0 (throne, legs, feet, hands) = the
-  same pixels in every frame.
-- Render: `python3 skill/cutout/scripts/render_gestures.py rigs/king review/cutout` (from the sprites root, ~75 s).
+## Round 2 changes
+- **beard: removed.** I chose to drop it rather than redo it. Any hand-to-beard move means a large part changing
+  position, and the slide-on-the-armrest version would show the throne edit's own hand painted under the King's
+  hand. Its overlay (`ov_beard`) and hand deformer are gone from the rig.
+- The 7 kept gestures render the same pixels as round 1 (all 133 frames checked: max difference 0).
+- New: 5 flash face edits (eyes left, eyes up, sleepy half-lids, one raised brow, grumpy furrow), all clean on the
+  first try, plus a free `glow` overlay (the crystals and eye glow pixels brightened ×1.35, picked by colour inside
+  boxes around the crown, shoulder crystals and eyes).
 
-## Edits (gemini-3.1-flash-image, $0.0245 each, all logged in jobs/jobs.jsonl, tags K-cut-*)
-| edit | result | used |
+## Gestures (seconds = (frames − 1) / 12)
+| name | s | what |
 |---|---|---|
-| throne (King removed) | redrew the whole throne taller/different | no |
-| throne2 ("make him invisible, keep the low backrest") | kept hands/legs but painted the backrest behind head+torso | yes (base) |
-| seg (flat parts map) | aligned to 1–2 px | yes (masks) |
-| blink | clean closed eyes | yes |
-| glance (eyes right) | clean | yes |
-| down (eyes down) | clean, heavier lids | yes |
-| smile | warm smile + happy squint | yes |
-| beard (hand strokes beard) | good pose, armrest repainted | yes |
-| drum (fingers lifted) | lifted the whole hand into a wave | no |
-| drum2 (only fingers bend up) | small finger lift | yes |
-10 successful calls = **$0.245**. Two more calls returned HTTP 502 (logged at $0; if billed anyway, +$0.049 →
-worst case **$0.294**). All edits came back at 1024² aligned to the reference (registered scale 1.298–1.299, shift ≤2 px).
+| breath | 1.5 | chest swells (torso scale), head rides up |
+| glance | 1.42 | eyes right + small head turn |
+| look | 1.5 | eyes down + head dips |
+| smile | 1.58 | warm smile, slow blink inside it |
+| drum | 1.42 | fingers of the right-side hand lift and tap three times |
+| tilt | 1.5 | curious head tilt 4.5° |
+| sway | 1.58 | upper body sways ±1.3°, hands stay put |
+| blink2 | 1.0 | double blink |
+| sleepy | 1.83 | lids sink to half, head drops a little, eyes reopen |
+| dart | 0.92 | eyes dart right and back (head still) |
+| glance_left | 1.42 | mirror of glance (eyes-left edit) |
+| nod | 1.42 | two tiny "hmm" nods |
+| lookup | 1.58 | eyes up, head lifts a little |
+| shrug | 1.33 | shoulders rise and settle |
+| sigh | 2.0 | deep inhale, eyes close, exhale with the head dropping |
+| smiletilt | 1.83 | smile + tilt |
+| glow | 1.58 | crown crystals and eye glow brighten and fade |
+| drowsy | 2.0 | head sinks, lids droop, eyes close, then a small startle awake |
+| curious | 1.5 | one brow up + slight tilt |
+| grumpy | 1.58 | brows furrow, head lowers a little |
 
-## Self-check (render_gestures.py writes check.json)
-Max over frames of mean |RGBA diff| vs frame 0: bottom 28 % of figure = 0.000 in all 8 gestures; throne back
-outside the head = 0.000 (glance, look, smile, beard, drum), 0.10 (tilt), 0.30 (breath), 0.50 (sway: the
-shoulders cover/uncover the backrest edge; the throne pixels themselves never change). Seams: first/last frame vs
-rest = 0.000 for all. (Armrests under the hands change in beard/drum on purpose: 0.65 / 0.90.)
+## Cost (gemini-3.1-flash-image, $0.0245 per edit, all in jobs/jobs.jsonl)
+- Round 1, tags K-cut-*: 10 edits = $0.245. Two more calls returned HTTP 502; they are logged at $0, and if they
+  were billed anyway that adds up to $0.049.
+- Round 2, tags K-cut2-*: 5 edits = $0.1225.
+- Total: $0.3675, worst case $0.4165.
 
-## What worked
-- Throne, legs, feet: bit-identical across all frames — the video route's main failure is gone.
-- Face edits (blink, glance, down, smile) are clean overlays; flash was enough, pro not needed.
-- Skinned head/torso: tilt, look-down, sway, breath have no holes, no double outlines.
+## Checks (`check.json`, written by render_gestures.py)
+- Bottom 28 % of the figure: 0.000 in every gesture.
+- Throne back outside the head: ≤ 0.50 (sway 0.50, shrug 0.42, sigh 0.36, breath 0.30, others ≤ 0.10). The non-zero
+  values come from the shoulders covering and uncovering the backrest edge; the throne pixels themselves never change.
+- Seams (first and last frame vs rest): 0.000 for all 20.
+- `review/score.py`: static 0.05, colour 4.55 (most of it from the glow gesture, which brightens on purpose),
+  seam 0.00, motion 1.83.
 
-## What did not / weak spots
-- Beard: the arm swap is a crossfade (rest arm → raised arm) — one in-between frame each way shows a faint ghost
-  arm. The stroke itself is a small warp of the hand (reads as a rub, not finger motion).
-- Drum: a swap between two finger positions; the lift is small, reads as a twitch at game size.
-- Glance/look are eye overlays + a small head shift (no 3D head turn).
-- The "King removed" throne behind him is an edit, not the original; only thin slivers of it ever show.
-- Sway is deliberately tiny (±1.3°); the hands stay pinned so the forearms bend slightly.
+## Weak spots
+- Eye changes (glance, dart, lookup) are 1–2 frame crossfades of the pupils inside the socket. The move is small,
+  so there is no visible ghost.
+- drum is a swap between two finger positions; it may read as a twitch at game size.
+- The throne back that the head and torso uncover comes from an edit, not the original painting; only slivers of a
+  few pixels ever show.
+- The atlas is large (4.2 MB, or 2.9 MB split). Lower webp quality or keeping every other frame would shrink it.
+
+## Rebuild
+`python3 skill/cutout/scripts/build_warp_rig.py rigs/king/spec.json rigs/king`, then
+`python3 skill/cutout/scripts/render_gestures.py rigs/king review/cutout` (~3 min), then
+`python3 skill/cutout/scripts/split_atlas.py review/cutout/atlas.json review/cutout/split`.
+The gestures are keyframes in `rigs/king/gestures.json`, so a new gesture costs nothing but a few lines there.
