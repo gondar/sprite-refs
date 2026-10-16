@@ -1,0 +1,7 @@
+# regenerated scratch: extracted video frames, per-clip working folders, uncompressed atlases, bytecode
+frames/
+review/*/2026*/
+review/*/atlas.png
+review/cutout/frames/
+__pycache__/
+*.pyc
