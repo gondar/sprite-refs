@@ -1,0 +1,14 @@
+<Picture 1> is the Mountain King, a big grumpy-but-lovable mountain spirit made of mossy grey stone with glowing amber eyes and a crown of amber quartz crystals, a 2D game character sitting on his rough stone throne with both hands resting on the throne's arms.
+This clip is FOUR SHORT, SUBTLE idle gestures for a game, ONE PER SECOND, each one starting and ending in EXACTLY the pose of <Picture 1>:
+0.0–1.0 s, STROKE THE BEARD: one hand lifts, strokes the mossy beard once, goes back to the throne's arm.
+1.0–2.0 s, DRUM THE FINGERS of one hand on the throne's arm.
+2.0–3.0 s, a CURIOUS HEAD TILT to one side and back.
+3.0–4.0 s, a SLOW SWAY of the upper body to one side and back.
+
+The pose of <Picture 1> is the home pose: he is in it at 0.0, 1.0, 2.0, 3.0 and 4.0 s, hands on the throne's arms, looking straight ahead. Every movement is small, slow and gentle — an idle animation, not an action.
+He stays SEATED on his throne in every frame: he never stands up, his legs and feet never move, the throne never moves and never changes.
+MOUTH CLOSED IN EVERY FRAME: he is completely silent, he never speaks, sings, growls, yawns or opens his mouth.
+Front view, the whole throne always inside the frame. He never travels sideways and never turns his body. His colours never change: the same grey stone, the same moss, the same lighting from start to end.
+Camera: locked static camera, no zoom, no pan, the character centered and the same size throughout.
+Style: keep the exact painted cartoon look, colours, moss and crystals of <Picture 1>.
+Background: the SAME flat solid magenta #FF00FF as <Picture 1> in every frame, from the first frame to the last: it never changes colour, never fades, never turns purple or lavender, never gets brighter or darker. No floor, no ground, no horizon, no shadow under the throne, no props, no particles, no text.

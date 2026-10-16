@@ -191,3 +191,21 @@ keep the ears and an oval round the face, give the rest to the body) and feather
   frames ghosted visibly (two poses half-and-half); two do not.
 - Delivered: 8 gestures, 164 frames, one 24-column atlas (a WebP side cannot pass 16383 px), 2.0 MB at q70.
   `sheets/mountain-king/king-idle8.json` + review sheet + a GIF of a random mix.
+
+### Correction, same day — the set as it should have been made
+
+- Owner's review: nine clips with two seconds per gesture was the wrong plan ("we want one animation, 1 s for each
+  pose"), and the one-off `mountain_king_idle8.py` living outside the skill meant the next character had no
+  cutting script. Both fixed: the recipe in SKILL.md §2 is now explicit (four poses per 4 s clip, home pose on every
+  whole second), and the cutter is `scripts/gestures.py` (generic; the one-off is gone).
+- Re-made as two 4 s clips ($0.24) + one re-try ($0.12). Reference-only drift started earlier than in the
+  two-gesture clips: one clip went dark teal with a grassy floor from 0.75 s (unkeyable next to dark stone);
+  the other drifted to a PALE green that keys perfectly. Pale is fine, dark is fatal — judge the contact sheet.
+- H3's 1 s poses do not land on the clock: the beard stroke came home at ~0.9 s, the finger drum ran past 2.2 s.
+  `gestures.py` searches +-0.35 s around every whole second for the dip of the distance to home and prints it.
+- Colour, the real cause: on a PALE drifted ground the stone's highlights sit close to the ground in colour
+  distance, so `key_border` called them half transparent — and its edge un-mixing, (pix − (1−a)·ground)/a,
+  subtracted the green and painted the face purple (green on the reverse drift). No colour gain can undo that.
+  `gestures.py` now makes everything 10 px inside the home silhouette opaque with the clip's ORIGINAL pixels and
+  keys only the edges; gains are brightness-only per band (per-channel gains copy the home frame's magenta cast).
+- Delivered: 2 clips, 8 gestures, 104 frames, 1.5 MB WebP (was 9 clips, 2.0 MB). Total spend on the set $1.44.

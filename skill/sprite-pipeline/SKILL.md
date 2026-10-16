@@ -1,211 +1,119 @@
 ---
 name: sprite-pipeline
-description: Animate a 2D game character — idle, walk, run, jump, sit, turn, wave — from AI images and video: design the character once (Nano Banana), drive its motion with a mannequin clip (MiniMax-H3), then chroma-key, find clean loops, align pivots and pack sprite strips with a review page, through APIYI. Use this whenever a character, mascot or unit has to MOVE: "make the character move", an idle or walk cycle, a sprite animation, an animated conductor, turning a generated video into game frames — and before spending money on video generation. For many STATIC assets (props, icons, items) use the `asset-sheet` skill instead.
+description: Animate a 2D game character — idle, idle gestures, walk, run, jump, sit, turn, wave, nod, cheer — through APIYI. Starts by choosing the method (MiniMax-H3 video, a drawn cycle sheet, a cutout puppet, or no animation at all via asset-sheet), then gives the exact MiniMax-H3 recipe (one pose per second, four per 4 s clip, home pose between) and the scripts that key, cut, align and pack the frames. Use this whenever a character, mascot or unit has to MOVE, an animation "feels repetitive", or a generated video has to become game frames — and before spending money on video. For many STATIC assets (props, icons, items) use the `asset-sheet` skill instead.
 ---
 
 # Sprite pipeline — animation
 
-**This skill is for things that move.** Static props, icons and items come cheaper from one dense sheet:
-use `asset-sheet` (up to ~100 assets per image, ≈ $0.00025 each). Only the character's design sheet is shared ground.
+Media, the job log, the mannequin library and the source of truth for this skill live in **`gondar/sprite-refs`**
+(`skill/sprite-pipeline/`; also the public hosting H3 needs). Clone it and run every script from its root. Only the
+finished strip/atlas goes into the game repo, as a fail-open WebP. Evidence for every rule: `references/findings.md`.
 
-From a one-line character idea to a packed, keyed, pivot-aligned animation strip a game can play, at a known
-cost. Learned on two characters (a scout fox and a sleepy owlet, 2026-10-12, ~$2.40 for ~30 paid calls).
-The evidence behind every rule is in `references/findings.md`; read it when a rule here surprises you.
+## 1. Choose the method first — every time
 
-**Where the work lives.** Generated media, the job log and the mannequin library live in the public
-`gondar/sprite-refs` repo (it doubles as the hosting H3 needs). Clone it and run the scripts from its root;
-only the finished strip goes into the game's own repo. This skill is copied into each game repo under
-`.claude/skills/sprite-pipeline/`; the copy in sprite-refs (`skill/sprite-pipeline/`) is the source of truth.
-If the game repo has its own art-direction skill (MathGames: `oprawa-gry`), use that for direction, mock-ups
-and layout, and this one for turning a character into animation strips.
+Ask **what has to move, how much, and how big the file may be**:
 
-## The recipe that won
+| Method | Use when | Cost / size | Not for |
+|---|---|---|---|
+| **No animation** — `asset-sheet` skill | it never moves (props, icons, items, poses shown one at a time) | ≈ $0.0003–0.0015 per asset | anything that should breathe |
+| **Cutout puppet** — `sprite-refs/skill/cutout` (parts map + Nano Banana edits of the reference, `decompose.py`, `cutout.js`) | rigid parts on pivots: bob, sway, blink, wing flap, head tilt, many procedural actions on one small rig | ≈ $0.15–0.25 once; **40–50 KB** for all actions | facial expressions, turning, limbs crossing the face, anything soft. No SKILL.md yet: rigging is by eye |
+| **Drawn cycle** — one Nano Banana image, 8 frames on a 4 × 2 grid | a small looping story (dozing owl) where a hand-drawn feel is fine | ≈ $0.025 | smooth motion; it drifts in size (`pack.py --fix-scale`) |
+| **MiniMax-H3 video** (§2) | real, organic motion of body AND face in the painted look: idle gestures, nod, cheer, walk, jump | $0.12 per 4 s clip; **MBs** (164 frames ≈ 2 MB WebP) | tiny downloads; a character whose silhouette leaves the reference a lot (the camera reframes) |
 
-1. **Design once with Nano Banana Pro** (`gemini-3-pro-image`, $0.09): one character, full body, on a flat key
-   colour, with a style reference image from the target game. Show it to the person before anything else.
-2. **Everything after uses Nano Banana** (`gemini-3.1-flash-image`, ≈ $0.025) **with that design as an identity
-   reference**. With the reference, flash is as consistent as Pro.
-3. **Animation, two routes — pick by budget and motion type:**
-   - **Drawn cycle** (≈ $0.025): one image, 8 frames on a 4 × 2 grid. Best value for small story loops (the owl's
-     dozing idle was the session's best price/quality). Its weak spot, the figure growing a few % across the frames,
-     is measured and undone in packing (`pack.py --fix-scale`); a jump at the seam can remain.
-   - **Video** (MiniMax-H3, $0.03/s, use 4 s): **reference image + reference motion clip** is the winner
-     ("hands down the best" — owner). The motion clip is a grey mannequin doing the action on green, generated by
-     H3 itself from text ($0.12, reusable for every character). Steady figure, stable background, closes into a loop.
-   - **Several actions per clip:** one 4 s clip driven by a mannequin doing idle → wave → hop → settle gave three
-     usable animations (~$0.04 each once the mannequin exists). Cut them apart with `segments.py`.
-4. **Post-process:** key → (cut sheet | extract + find loop) → align → pack → onion-skin numbers → review page.
-5. **Integrate** by the target game's own conventions (a strip + `steps(N)` in CSS, or a canvas player), fail-open.
+A complaint like "it is the same animation, constantly" is a **variety** problem, not a fidelity one: several short
+gestures on one shared home frame, mixed at random (§2, `gestures.py`), beat one longer loop.
 
-## Planning a character's animation set — the rule
+## 2. MiniMax-H3 — the recipe
 
-**One second per pose, four poses per 4 s clip.** Fewer seconds per pose left too little motion to cut a clean
-loop (a 0.5 s walk slot held one step and snapped at the seam); one second holds a full stride for walk and run
-and a finished sit, stand or turn. For N poses, submit ⌈N/4⌉ clips of 4 s, not one long clip.
+**Plan.** ONE pose per second, FOUR poses per 4 s clip, the **home pose at every whole second** (0, 1, 2, 3, 4 s).
+8 poses = **2 clips = $0.24**. Not one clip per pose (9 clips, $1.08 — 2026-10-16), not 2 s per pose, not one 8 s clip
+(H3 stretches its motion and barely moves). Budget one re-try clip ($0.12): one clip in two or three comes back broken.
 
-Why 4 s clips and not one long clip, at the same price:
-- H3 bills $0.03 × requested seconds, nothing extra for reference media — 8 poses cost $0.24 either way, and so do
-  the mannequins (one 8 s or two 4 s). Same list price.
-- A clip that comes back with a broken background (1 in 3 did) is re-run whole: $0.12 for a 4 s clip, $0.24 for
-  8 s, and the 8 s retry throws away four good poses with the bad ones. Expected cost favours short clips, more so
-  if long clips fail more often.
-- 8 s is unproven: the one 8 s clip (E5) barely moved — H3 stretched its 4.45 s motion clip instead of filling the
-  time. (That clip had a 4 s mannequin; an 8 s mannequin was not tried.)
-- The cost of splitting: each clip spends its first ~0.5 s settling from the reference image's framing (a small
-  zoom). Put idle first in every clip — it is the pose that tolerates a soft start.
-- 4 s clips line up with the mannequin library, so most new characters need no new mannequin at all.
+**Reference image** (`<Picture 1>`): the character design on flat magenta (#FF00FF; green if the character has
+pink/purple), with headroom for raised arms, padded with **the image's own border colour**. Host on jsDelivr without a
+version (`https://cdn.jsdelivr.net/gh/gondar/sprite-refs/<path>`); never overwrite a hosted file — new version, new name.
 
-Budget per character: 2 clips × $0.12 for 8 poses, plus ~$0.12 for the likely retry; mannequins from the library.
+**Motion reference** (`<Video 1>`): for BODY motion (walk, hop, nod, cheer) add a grey mannequin clip from
+`refs/mannequins/` — it holds the timing, the framing and the background. FACE gestures (smile, squint, glance) have
+no mannequin: reference image only, and expect more drift. No mannequin fits → make one ($0.12, text-to-video, 1:1,
+"a plain smooth grey artist's mannequin … flat solid bright green #00FF00 … no floor", per-second timing), strip its
+audio, add it to the table below.
 
-## Mannequin library — look here before generating motion
+**Prompt** — fill this in; every line is there because its absence broke a clip:
+```
+<Picture 1> is <who>, a 2D game character <pose: sitting on …/standing>.
+This clip is FOUR SHORT <subtle idle gestures | actions> for a game, ONE PER SECOND, each one starting and
+ending in EXACTLY the pose of <Picture 1>:
+0.0–1.0 s, <POSE IN CAPITALS>: <what moves, small>.   … (four lines)
+[with a mannequin: "performing exactly the same actions with the same timing as the grey figure in <Video 1>"]
+The pose of <Picture 1> is the home pose: he is in it at 0.0, 1.0, 2.0, 3.0 and 4.0 s.
+<BODY PLAN IN CAPITALS + the forbidden alternative: "BIPEDAL … never on all fours" / "stays SEATED … never stands">
+MOUTH CLOSED IN EVERY FRAME: he never speaks, sings or opens his mouth.        (H3 adds audio and lip-syncs)
+<Front|side> view, the whole figure always inside the frame. Never travels, never turns.
+Camera: locked static camera, no zoom, no pan, the character centered and the same size throughout.
+Style: keep the exact painted look, colours and details of <Picture 1>.
+Background: the SAME flat solid magenta #FF00FF as <Picture 1> in every frame: never changes colour, never fades,
+never turns purple or lavender. No floor, no ground, no shadow, no props, no particles, no text.
+```
+Never compare a motion to an object ("as on a treadmill" drew a treadmill). Do not use first+last-frame mode for
+keyed sprites (it repaints the background).
 
-`refs/mannequins/` in the sprites repo (served as `https://cdn.jsdelivr.net/gh/gondar/sprite-refs/refs/mannequins/<file>`,
-which H3 accepts as `reference_video`). Grey child-proportioned mannequin, side view facing right, green, audio
-stripped, 4 s each:
+**Run** (from the sprite-refs root; both scripts log to `jobs/jobs.jsonl` BEFORE the paid call — check the log
+before re-running anything, a resubmit is billed twice):
+```
+python3 skill/sprite-pipeline/scripts/h3.py submit --tag <char>-<set> --prompt-file jobs/prompts/<char>/<set>.txt \
+        --duration 4 --ratio adaptive --ref-image <URL> [--ref-video <mannequin URL>]
+python3 skill/sprite-pipeline/scripts/h3.py poll <job_id> --every 15        # 2–7 min; downloads raw/<job_id>.mp4
+ffmpeg -i raw/<job>.mp4 -vf "fps=4,scale=200:-1,tile=8x2" -frames:v 1 sheet.png   # LOOK before cutting
+```
+Tell the person the cost before submitting (H3 is $0.03 × seconds, pre-charged, refunded if the task fails).
 
-| File | Actions (measured) |
+**Judge the contact sheet**: (1) background drift — magenta held ~1.5–2 s in every reference-only clip, then went
+lavender/teal/green/black; lavender and teal key, **black next to dark stone does not**; (2) reframing — H3 may zoom
+in (a hand near the face pulled it in twice) or out on its own; (3) the mouth. Re-try only the broken clip.
+
+**Cut**:
+- Gestures on one home frame (idle variety, nods, reactions): **`scripts/gestures.py`** — keys every frame on its
+  own border, registers it to the home frame by the part that never moves (`--static 0.72` = the bottom 28 %: legs,
+  feet, throne) or by the upper body when the clip is framed too close, clips steam/glow/vignette, finds each cut at
+  the dip of the distance-to-home curve near every whole second, crossfades 2 frames into the home frame, packs a
+  row-major atlas + JSON + review sheet + a random-mix GIF. Pass `--home <existing strip>.json:0` so the gestures
+  meet the character's other animations:
+  `gestures.py OUT raw/A.mp4=sigh,glance,look,smile raw/B.mp4=beard,drum,tilt,sway --home sheets/<c>/idle.json:0`
+- Actions and cycles (walk, run, jump): `segments.py` (mark cycles `:loop` — it finds a whole stride) then `pack.py`.
+- Read the printed curve, not the prompt's clock; a cut flagged "does not come home" needs a look or a re-try.
+
+**Play** the atlas as a shuffled bag — never the same gesture twice running, 0.4–2.2 s of rest on the home frame
+between — and keep beat-locked moves (a nod on the beat) on the beat. Worked example: the Mountain King in
+MusicGames `fingerpick-warmup/index.html` (`SPR.idle`, `idleFrame`, `kingListens`) and its test §5a, which checks
+every gesture's ends against the home frame with the middles as the positive control.
+
+## Mannequin library (`refs/mannequins/`, 4 s each, audio stripped)
+
+| File | Actions |
 |---|---|
-| `idle-breath-4s.mp4` | calm breathing idle (drove the shipped fox idle) |
+| `idle-breath-4s.mp4` | calm breathing idle (side view) |
 | `idle-wave-hop-settle-4s.mp4` | idle 0–0.8 · wave 0.8–2.6 · hop 2.8–3.8 · settle |
 | `std4-idle-walk-run-jump-4s.mp4` | idle · walk · run · jump, 1 s each |
-| `std6-idle-walk-run-jump-sit-stand-4s.mp4` | the same + sit down · stand up, 0.67 s each |
-| `std8-idle-walk-run-jump-sit-stand-turn-turnback-4s.mp4` | the same + turn to face left · turn back, 0.5 s each |
-| `seated-front-idle-nod-cheer-settle-4s.mp4` | **seated, FRONT view** (a heavier adult build on a block): idle 0–1 · nod 1–2 · cheer, fists up 2–3 · settle 3–4 (drove the Mountain King, MusicGames 4 · Palce) |
+| `std6-…-sit-stand-4s.mp4`, `std8-…-turn-turnback-4s.mp4` | 6 and 8 actions — at 0.5–0.67 s a pose is a sketch; prefer 1 s |
+| `seated-front-idle-nod-cheer-settle-4s.mp4` | seated FRONT view, heavy adult build: idle · nod · fists up · settle (Mountain King) |
 
-Reuse one when its actions fit (the character clip then costs $0.12 alone); generate a new one only for new
-motion, store it here with audio stripped, and add a row. A new file name for every new clip — never overwrite.
+## Other routes and scripts
 
-**Density tested:** 4, 6 and 8 actions per 4 s all ran, but at 0.5 s a pose is a sketch (run ≈ brisk walk, jump ≈
-bounce) and a cycle cannot loop. Density did not break the background — luck did (clean in 1 of 3 clips), so
-judge every clip on its contact sheet before cutting it. Hence the 1 s rule above. Still missing from the
-library for an 8-pose set at 1 s each: `std4b` = sit down · stand up · turn to face left · turn back.
+- **Design** once on Nano Banana Pro (`gemini-3-pro-image`, $0.09) with a style reference cut from the target game;
+  every later image on Nano Banana (`gemini-3.1-flash-image`, ≈ $0.025) with that design as identity reference
+  (`scripts/gen_image.py`). Show the design to the person before animating it.
+- **Drawn cycle**: "the SAME character drawn 8 times on a clean 4 × 2 grid, same size, feet on one baseline … no
+  text, no numbers, no grid lines", frames numbered with what each does, "frame 8 flows back into frame 1".
+  `key.py` → `cut_sheet.py --grid 4x2` → `pack.py --fix-scale`.
+- `key.py` (magenta/green/`--key border`), `video_frames.py` (extract + best loop), `pack.py` (align: `feet` for
+  idles/walks, `head` for turns, `fixed` for anything that leaves the ground; ONE `--src-scale` for all strips of a
+  character), `onion.py` (idle IoU > 0.9), `compare_gif.py`, `build_viewer.py` (review page). Judge at game size.
+- GPT image models: only if the style needs them — a non-streamed `gpt-image-2` over 30 s dies with 502 and is
+  billed (`--stream 2`).
 
-## Before any paid call
+## Prices and timings (2026-10)
 
-- Run `python3 scripts/gen_image.py …` / `scripts/h3.py submit …` only; both append to `jobs/jobs.jsonl`
-  **before** the request (status `submitting`) and after. Check the log before re-running anything: a timed-out
-  image call is billed even though nothing came back, and a resubmitted video is billed twice.
-- Tell the person the batch cost first. Prices to quote (check `https://api.apiyi.com/api/pricing`, they move):
-  flash image ≈ $0.025, Pro image $0.09, gpt-image-2.5-flare/sunburst ≈ $0.02 (medium), H3 $0.03 × seconds
-  (pre-charged, refunded if the task fails; a 4xx at submission is free).
-- Read `references/h3-video-generation.md` (the live H3 doc, saved) before changing the H3 body.
-- In a sandbox, these hosts must be reachable: `api.apiyi.com`, `docs.apiyi.com`, and H3's output storage
-  `*.myqcloud.com`. A wrong key shows as `X-Proxy-Error: upstream auth failed` + `401 Invalid token`.
-
-## Hosting reference media for H3
-
-H3 only takes public HTTPS URLs. What actually works:
-
-- **jsDelivr without a version**: `https://cdn.jsdelivr.net/gh/<user>/<repo>/<path>` (default branch).
-- Not `…/<repo>@<sha>/…` — H3 rejects the `@` at submission ("must be a public HTTPS URL"); `%40` is not served.
-- Not raw.githubusercontent.com — accepted once, then three tasks failed `input_download_failed … network is
-  unreachable` (H3 fetches over IPv6).
-- Because the URL is not pinned, **never overwrite a reference file**; a new version gets a new filename.
-- H3's own result URLs (`*.myqcloud.com`, public, unsigned) can be passed straight back as `reference_video` —
-  that is how a mannequin clip drives the character clip without re-hosting.
-- `scripts/h3.py` GET-checks every URL before the paid call (`H3_SKIP_CHECK=1` skips it for myqcloud links when
-  the sandbox cannot reach them).
-
-## Prompt patterns
-
-**Body plan, every time, in capitals, with the forbidden alternative.** Without it, an upright fox drifted onto
-four legs in 2 of 8 poses. With it, 24/24 upright, even on the cheap model:
-> He is ANTHROPOMORPHIC and BIPEDAL: upright on his TWO hind legs in every frame, front legs are ARMS that never
-> touch the ground, never on all fours.
-
-For a bird: "She has WINGS, no arms, no hands." Repeat it inside each pose line of a sheet.
-
-**Image prompts** (skill `image-generation` formula: style · subject · composition · context):
-- Name the style by pointing at the attached reference ("painted in the SAME style as the attached image").
-- Background line, verbatim: "perfectly flat solid magenta #FF00FF everywhere, no gradient, no ground, no
-  shadow, no text, no border". Green #00FF00 when the character has pink/purple/magenta in it.
-- Sheets: "the SAME character drawn 8 times on a clean 4 × 2 grid, every figure the same size, feet on the same
-  baseline in each row, never overlapping, wide gaps … no text, no numbers, no grid lines".
-- Cycles: number the frames and say what each does; "Frame 8 must flow back into frame 1." A four-beat story
-  (nod off · eyes shut · start awake · settle) is followed almost literally.
-- The model ignores "fill 65 %, generous margin" — pad the image yourself, with the image's **own** border
-  colour (pure #FF00FF padding around a slightly different magenta left a visible square that H3 copied).
-- Mood board + sheet in one image: worse on every model (ground lines, body-plan drift). Do not.
-
-**Video prompts** (H3):
-- Reference mode: "`<Picture 1>` … performing the same … as the grey figure in `<Video 1>`".
-- "Mouth closed: he is silent, he does not speak or sing." H3 always generates audio and lip-syncs to it; without
-  this line the fox talked. (The owl still opened her beak once — it reduces, not removes.)
-- "locked static camera, no zoom, no pan … centered and the same size throughout", "never travels sideways".
-- "one flat solid magenta #FF00FF that never changes colour or brightness, no shadows, no ground, no particles".
-- **Never compare the motion to an object.** "walking in place, as on a treadmill" drew a treadmill. Say "walks on
-  the spot, does not travel".
-- Give a hop headroom in the reference image, or it leaves the frame.
-
-**Modes that failed — do not use for keyed sprites:**
-- `first_frame` = `last_frame`: perfect identity, but H3 repaints the flat background (rainbow cycle; with an
-  explicit "never changes colour" it swapped magenta for cyan and added a shadow). 2/2 unkeyable.
-- Reference image without a motion clip: background mostly holds for a calm idle, drifts to white for a busy
-  multi-action clip, and nothing pulls the clip back to its start (seam 0.78–1.5 vs 0.57 with a motion clip).
-- 8 s instead of 4 s: twice the price, the motion clip is stretched, the character barely moves.
-
-**Mannequin motion clips** (text-to-video, ratio 1:1, $0.12): "a plain smooth grey artist's mannequin, short and
-chubby with a large round head (child proportions), strict side view facing right … plenty of empty space above
-the head … flat solid bright green #00FF00 … no floor". Give per-second timing for multi-action clips; H3 keeps it.
-
-## GPT image models (only if the style needs them)
-
-- Through APIYI, a **non-streamed** `gpt-image-2` call that takes > 30 s dies with HTTP 502 "upstream request
-  failed" — and **is billed**, with no way to get the image (APIYI image calls are synchronous, no task id).
-  `--stream 2` (SSE, partial images) gets it through. `gpt-image-2.5-flare/-sunburst` finish in 15–17 s.
-- `gpt-image-1.5` supports `--background transparent` (no keying); `gpt-image-2` refuses it.
-- Against a painted style reference, GPT drew shaggy feathery fur; Gemini matched the reference better.
-
-## Post-processing (scripts/)
-
-All stages are re-runnable and deterministic; outputs never overwrite `raw/`.
-
-| Step | Script | Settings that worked |
-|---|---|---|
-| Key a still/sheet | `key.py IN OUT --check CHECK.png` | auto magenta/green, `--lo 40 --hi 120`; despill = subtract the key excess on edge pixels only (pale opaque fur turned green otherwise); pale pink survives a magenta key |
-| Odd background | `key.py --key border` | key colour = this frame's border median; cannot save a background that matches the character's colours |
-| Cut a sheet | `cut_sheet.py KEYED OUTDIR` | dilate 4 px, `--min-area 4000` (drops motion marks/specks), reading order by rows |
-| Video → loop | `video_frames.py RAW.mp4 OUT --pick 24` | 24 fps extract, seam score on premultiplied 96 px thumbnails (< 1 ≈ seamless), `--min-len` ≈ clip length to force a full loop; also prints drift |
-| Multi-action clip | `segments.py SRC OUT name=t0-t1:step[:loop] …` | prints a motion curve — read real boundaries off it, do not trust the prompt's timing; mark cycles (walk, run) `:loop` so the cut lands on one whole stride found in the clip — a clock cut snaps at the seam (run 3.03 → 0.65) |
-| Align + pack | `pack.py OUT frames… --anchor feet\|head\|fixed --height 160 [--fix-scale] [--src-scale 0.25]` | all strips of one character at ONE `--src-scale` (else a sit is blown up to standing size); `--fix-scale` for idles only — on pose actions it 'corrects' a crouch by +15 %; drawn action rows: `cut_sheet.py --grid 4x4` + `--anchor fixed`; `--fix-scale` on drawn cycles: each frame rescaled by the factor that best overlays it on frame 1 (feet-anchored, 0.85–1.15) — fox idle drift +4.5 % → ±1.6 %, owl −4…+9 % → 0…+3 % with the wing flap kept; walks: add `--fit-top 0.6` (fit head+torso, the legs swing) and expect little to fix; otherwise one scale for the whole set; `head` for turnarounds, `feet` for idles/walks, **`fixed` for anything that leaves the ground** (feet-aligning erases a hop); `--largest` drops sparkles |
-| Check | `onion.py STRIP JSON OUT` | idle IoU > 0.9, walk 0.75–0.9, area within a few %, shifts > 3 px flagged |
-| Compare | `compare_gif.py OUT.gif NAME=STRIP…` | side by side on one clock |
-| Review page | `build_viewer.py OUT.html NAME=STRIP\|note …` | single-file viewer (`viewer/viewer.html`): game size, fps, onion skin, frame toggles, draggable pivot, copy JSON |
-
-Pack output: `NAME.png` (equal cells in a row), `NAME.json` (`frames`, `cell`, `pivot`, `fps`, `loop`), a GIF on
-a dark ground and one at real size. Judge at game size and speed; a take that only looks good full-screen is not
-a game asset.
-
-## Layout
-
-Run every script from the sprites project folder (or set `SPRITE_ROOT`); the paid-call scripts write
-`jobs/jobs.jsonl` and `raw/` relative to it. Python 3 with Pillow, numpy and scipy; ffmpeg for video.
-
-```
-refs/<character>/        designs and reference images (never overwritten — new version, new name)
-refs/style/              style references cut from the target game
-jobs/jobs.jsonl          append-only log of every paid call (prompt, refs, task_id, cost, result)
-jobs/prompts/<char>/     prompt files, one per job
-raw/<job_id>.mp4         downloaded clips, never edited
-frames/<job_id>/         src/ (extracted), loop/ (picked keyed frames), loop.json
-sheets/<character>/      packed strips + json + gifs
-review/index.html        the review page
-```
-
-## Real costs and timings (2026-10-12)
-
-| Item | Cost | Time |
-|---|---|---|
-| Nano Banana image | ≈ $0.025 | 12–17 s |
-| Nano Banana Pro image | $0.09 | 19–33 s |
-| H3 4 s, text only (mannequin) | $0.12 | ~1.5 min |
-| H3 4 s, reference image | $0.12 | 1.5–25 min (queue varies) |
-| H3 4 s, reference image + video | $0.12 | 3–7 min |
-| One character, design + sheet + drawn idle + video idle | ≈ $0.36 | ~15 min |
-
-## Open questions for the next character
-
-- Does a walk cycle work in reference + mannequin mode (the only walk tried used reference-only and grew a treadmill)?
-- Veo 3.1 fast ($0.30/clip on the `default` group) was not tried; nor were Seedance/Wan (other APIYI groups).
-- A crossfade at the seam for clips that do not loop (owl video, seam 1.5) — not built yet.
-- How small can a strip get (WebP quality, frame count) before the motion reads worse at game size?
+Nano Banana ≈ $0.025 (15 s) · Pro $0.09 (25 s) · H3 4 s $0.12 (text 1.5 min; reference + video 3–7 min; reference
+only up to 25 min). Check `https://api.apiyi.com/api/pricing` — they move. Hosts that must be reachable:
+`api.apiyi.com`, `cdn.jsdelivr.net`, H3's output storage `*.myqcloud.com`.
