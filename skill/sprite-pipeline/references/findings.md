@@ -166,3 +166,28 @@ keep the ears and an oval round the face, give the rest to the body) and feather
   same static region (undoes the drifting light and the despill tint). `scripts/mountain_king_fix.py`.
 - The nod held two small nods in its one second; one (frames 0–6) is one beat's cycle, and the frame with
   the crown lowest (measured, frame 2) is what the game lands on the beat. Cost: $0.36 for three clips.
+
+## Mountain King, eight idle gestures on one home frame (2026-10-16, MusicGames 4 · Palce)
+
+- Asked for: "8 subtle short animations (smile, look down, sway, breath …) with the same frame between them, then
+  a mix" — the shipped idle was one 8-frame ping-pong and read as one constant animation.
+- Reference image only (no mannequin: a smile or a squint has no mannequin), 4 s, two gestures per clip with the
+  home pose of `<Picture 1>` at 0, 2 and 4 s. Nine clips, $1.08: four two-gesture clips, then three and two
+  one-gesture re-tries for the gestures that did not survive.
+- **The background drift is the cost, and it lands in the SECOND half.** Magenta held for ~1.5–2 s in every
+  clip, then went lavender, purple, teal, green, or black (black next to dark stone cannot be keyed at all).
+  So a gesture in 0–2 s is cheap and one in 2–4 s is a coin toss: re-tries were one gesture in 0.2–1.8 s and
+  "nothing moves from 2 to 4 s".
+- **H3 re-frames a reference-only clip on its own.** Two of five one-gesture clips came back zoomed in with the
+  feet out of frame (both beard strokes: a hand near the face pulls the camera in), one zoomed out on a green
+  ground. Same prompt, same reference. Budget a re-try per gesture.
+- Rescue for a seated character, `scripts/mountain_king_idle8.py`: register each frame to the shipped home frame
+  by the throne's bottom 28 % (width = scale, bottom centre = offset, median-smoothed per frame); for a clip
+  framed too close, fit ONE scale + offset on the upper body by silhouette IoU (0.907) and let the home frame
+  supply everything below the static line through a 24-row fade. Then: alpha clipped to the home silhouette
+  dilated 16 px (steam puffs, glows, vignettes), and anything magenta faded out (the King has none).
+- Cut at the dips of a "distance to home" curve over the moving part, keep every 2nd frame (12 fps), and
+  crossfade the first and last 2 frames into the home frame so each gesture's ends ARE the home frame. Three
+  frames ghosted visibly (two poses half-and-half); two do not.
+- Delivered: 8 gestures, 164 frames, one 24-column atlas (a WebP side cannot pass 16383 px), 2.0 MB at q70.
+  `sheets/mountain-king/king-idle8.json` + review sheet + a GIF of a random mix.
