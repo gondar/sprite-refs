@@ -241,3 +241,21 @@ keep the ears and an oval round the face, give the rest to the body) and feather
   against a median of 1.1; one crown. The cutout's version of the same gesture ghosted; this one is clean.
 - Bug of my own on the way: `| head -1` on a lock.py run killed it by SIGPIPE before it wrote its atlas — log to a
   file and tail it.
+
+### Round 5 — the hybrid into the game (2026-10-16, PR #294)
+
+The review page played two full-cell atlases fine on a desktop; the game's own test is what found three problems.
+- **Decode, not download.** The cutout atlas, 386 cells of 479×444, was 16286×5328 px = 87 Mpx ≈ 350 MB decoded;
+  headless Chromium threw `EncodingError` and iOS Safari refuses images over ~16.7 Mpx. Even `split_atlas.py`'s
+  moving-region atlas was ~29 Mpx. `scripts/pages.py`: one base picture + pages of only the region that ever changes
+  (crop 292×241 of 479×444), ≤ 4096 px a side; the King ships 4 MB in five files, the largest page 16.2 Mpx.
+- **A hairline at the crop's bottom edge** when the browser scaled a page: it sampled the next frame's top row. Fixed
+  with a 4 px gutter of each cell's own repeated edge pixels (`pages.py --gutter`).
+- **A jump into every signature move.** The MiniMax frames, placed on the cutout's home by the same transform,
+  averaged 0.9 off it — but 1,600 pixels were off by > 40 levels, all along the outline (each source cut its edges its
+  own way). `scripts/rebase.py` keeps only the pixels that moved and takes the rest from the shared home: 310 px at the
+  ends afterwards, the WebP noise of the cutout's own cells.
+- **A whole-frame mean is the wrong control for small gestures**: the eye dart moved it 2.6 against 2.4 of noise. A
+  count of clearly changed pixels (> 40 levels) separates them: ends ≤ 310, the dart's peak 437, the beard's 13,888.
+- **The shuffle gave in** at the end of a bag when only signature moves were left right after one (the 3-minute test
+  found it): slip in a small gesture from outside the bag instead.

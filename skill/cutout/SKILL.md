@@ -79,13 +79,15 @@ distant positions** — the King's arm-to-beard swap showed a ghost arm and was 
 ```
 python3 skill/cutout/scripts/render_gestures.py rigs/<char> review/cutout     # atlas.{png,webp,json}, review.png,
                                                                               # check.json, rest.png, frames/
-python3 skill/cutout/scripts/split_atlas.py review/cutout/atlas.json review/cutout/split   # if webp > ~3 MB
+python3 skill/sprite-pipeline/scripts/pages.py review/cutout/atlas.json review/cutout/pages <char>-cutout   # to ship
 python3 skill/sprite-pipeline/scripts/score.py cutout=review/cutout/atlas.json
 ```
 `atlas.json`: `{cell, pivot, fps, cols (=16383 // cell w), rows, gestures:[{name, at, frames, src:"cutout"}]}`.
-The split writes `base.png` (everything that never changes, the changing rectangle cleared) + an atlas of only that
-rectangle, `crop:[x,y,w,h]` in its JSON; draw base, then the cell at (x, y). It verifies the rebuild is exact.
-Checks: `check.json` — max over frames of mean |RGBA diff| vs frame 0 on the bottom 28 % of the figure (must be 0)
+**Ship with `pages.py`, not `split_atlas.py`**: the full-cell atlas (King: 16286×5328 px, 87 Mpx) and even the
+split's single moving-region atlas (~29 Mpx) are over what a phone decodes (iOS Safari refuses > ~16.7 Mpx; headless
+Chromium refused the 87 Mpx one). `pages.py` writes one base + pages ≤ 4096 px a side, each cell in a gutter of its
+own repeated edge pixels (no hairline when the page is scaled), and checks the rebuild is exact. The game draws the
+base, then the cell on a crop layer (MusicGames `fingerpick-warmup/index.html`, `pagedFrame`). Checks: `check.json` — max over frames of mean |RGBA diff| vs frame 0 on the bottom 28 % of the figure (must be 0)
 and on the throne back outside the head (< 0.5; the residue is the shoulders covering its edge), seams first/last
 vs rest (must be 0). Then LOOK at every gesture's extreme frame at full size, zoomed on head and hands — that is how
 the bent crown spikes (blurred head weight) were found. Review page for the owner before anything ships.

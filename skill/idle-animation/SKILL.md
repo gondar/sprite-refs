@@ -62,7 +62,9 @@ two to four signature moves that only real video can do. Context decides the mix
 
 ## 3. The player
 
-A shuffled bag (Fisher–Yates, refilled when empty, skipping the gesture just played), a rest of 0.4–2.2 s on the home
+A shuffled bag (Fisher–Yates, refilled when empty, skipping the gesture just played, and skipping a signature move
+right after a signature move — at the end of a bag only signature moves can be left, so then slip in a small gesture
+from outside the bag rather than give in; the King's first build gave in and the 3-minute test caught it), a rest of 0.4–2.2 s on the home
 frame between gestures, and a frame clock in milliseconds, never in rAF ticks. Beat-locked moves (a conductor's nod)
 stay on the beat; the bag fills the gaps — the Mountain King nods on the downbeat and gestures between nods when it
 fits before the next one. Worked example: MusicGames `fingerpick-warmup/index.html` (`SPR.idle`, `idleFrame`,
@@ -71,6 +73,10 @@ middles do not; a minute of the mixer plays every gesture and never repeats one 
 
 ## 4. Checks before anyone sees it
 
+0. **In the game's own test**: every gesture's first and last frame against the shared home (from either source),
+   the pages' sizes against the decode limit, and a minute or three of the player on a fake clock (every gesture
+   plays, no repeats, no two signature moves running). For the positive control COUNT clearly changed pixels (a
+   channel off by > 40): an eye dart changes ~440 of them while moving a whole-frame mean by 0.2 — under WebP noise.
 1. `sprite-pipeline/scripts/score.py NAME=atlas.json …` for every source: throne/legs shimmer (≈0 for both methods),
    colour drift, seams, motion. Motion keeps you honest — a sprite that never moves wins the other three.
 2. **Look at every gesture's peak frame at full size**, zoomed on the head and hands, next to its raw source (the clip
