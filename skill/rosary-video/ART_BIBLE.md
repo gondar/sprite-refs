@@ -91,3 +91,9 @@ Owner decisions so far, collected over 7 iterations. Every scene is judged again
 7. Visible seams, ghost edges, doubled features, keying fringe, or flicker artefacts.
 8. The caption is missing, unreadable, or covering important content.
 9. Text, letters or a signature inside the painted image.
+
+## Continuity (added during production)
+- **Mary is the same person in every scene:** a young girl with a beige head cloth and a grey-blue patched dress, as in R1.
+  - From R3 to C5 pass a crop of her from `i5/R1_full.jpg` as an identity reference.
+  - She is never an old woman and never a cute storybook girl.
+- **Symbols the engine animates** (for example the crown of 12 stars in C5) are drawn in code from `i6/fx/<id>.json`, not painted. Leave clear space for them in the image.
