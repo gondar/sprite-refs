@@ -92,6 +92,12 @@ It refuses to let a misnamed set through quietly:
 - A call slower than ~30 s can come back HTTP 502 "upstream request failed" through the gateway and still be
   billed (seen on gpt-image and on a 2K Gemini sheet). Keep dense sheets at 1K; never auto-retry a 502 without
   checking the APIYI log first.
+- The cut is ~30.5 s with no byte received. **For a slow Gemini call (Pro, 2K) pass `--stream 1`**: it calls
+  `streamGenerateContent?alt=sse` with `includeThoughts`, and the streamed thoughts (first one at 22–29 s) keep the
+  connection open; the final non-thought image is kept. Measured 2026-10-17: six 2K Pro mockups, 40–56 s each,
+  through. When the first thought is itself later than 30 s it still 502s; the same call on
+  `APIYI_HOST=https://b.apiyi.com` went through twice when api.apiyi.com had cut it four times. `thinkingLevel: low`
+  did not help.
 - `gen_image.py` logs a `submitting` line before the call and the result after, in `jobs/jobs.jsonl`.
 
 ## Into the game
