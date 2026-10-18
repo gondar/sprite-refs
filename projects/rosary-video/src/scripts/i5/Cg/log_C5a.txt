@@ -1,3 +1,0 @@
-C5_a.jpg try1 urllib.error.HTTPError: HTTP Error 502: Bad Gateway
-C5_a.jpg try2 urllib.error.HTTPError: HTTP Error 502: Bad Gateway
-C5_a.jpg try3 scripts/i5/Cg/C5_a.jpg (1376, 768) {'promptTokenCount': 1893, 'candidatesTokenCount': 1120, 'totalTokenCount': 3427, 'thoughtsTokenCount': 414, 'promptTokensDetails': [{'modality': 'IMAGE', 'tokenCoun

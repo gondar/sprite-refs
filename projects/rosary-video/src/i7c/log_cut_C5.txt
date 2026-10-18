@@ -1,7 +1,0 @@
-C5 mary blink 10 fr ends 0.0 0.0 bottom15% 0.0 KB 94
-C5 mary blink2 16 fr ends 0.0 0.0 bottom15% 0.0 KB 155
-C5 mary breath 30 fr ends 0.0 0.0 bottom15% 0.0 KB 322
-C5 mary tilt_r 27 fr ends 0.0 0.0 bottom15% 0.0 KB 259
-C5 mary look_up 30 fr ends 0.0 0.0 bottom15% 0.0 KB 288
-C5 mary smile 27 fr ends 0.0 0.0 bottom15% 0.0 KB 254
-mary home + ['blink', 'blink2', 'breath', 'tilt_r', 'look_up', 'smile']

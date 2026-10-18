@@ -1,1 +1,0 @@
-B3_plateg.jpg try1 scripts/i5/B/B3_plateg.jpg (1376, 768) {'promptTokenCount': 698, 'candidatesTokenCount': 1120, 'totalTokenCount': 2064, 'thoughtsTokenCount': 246, 'promptTokensDetails': [{'modality': 'TEXT', 'tokenCo

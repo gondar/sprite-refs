@@ -1,1 +1,0 @@
-C4_plate.jpg try1 scripts/i5/Cg/C4_plate.jpg (1376, 768) {'promptTokenCount': 744, 'candidatesTokenCount': 1120, 'totalTokenCount': 2107, 'thoughtsTokenCount': 243, 'promptTokensDetails': [{'modality': 'TEXT', 'tokenCo

@@ -1,1 +1,0 @@
-C5_plate.jpg try1 scripts/i5/Cg/C5_plate.jpg (1376, 768) {'promptTokenCount': 698, 'candidatesTokenCount': 1120, 'totalTokenCount': 2078, 'thoughtsTokenCount': 260, 'promptTokensDetails': [{'modality': 'TEXT', 'tokenCo

@@ -1,6 +1,0 @@
-B4/cut.json veronica blink2 165,13,198,50
-B5/cut.json mary blink2 14,23,72,60
-C1/cut.json jesus blink2 60,65,97,92
-S3/cut.json child blink2 29,24,82,61
-S4/cut.json john blink2 87,17,113,47
-S5/cut.json peter blink2 44,43,102,86

@@ -1,1 +1,0 @@
-B4_a.jpg try1 scripts/i5/B/B4_a.jpg (1376, 768) {'promptTokenCount': 1975, 'candidatesTokenCount': 1120, 'totalTokenCount': 3517, 'thoughtsTokenCount': 422, 'promptTokensDetails': [{'modality': 'IMAGE', 'tokenCount

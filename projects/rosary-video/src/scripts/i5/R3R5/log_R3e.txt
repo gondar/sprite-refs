@@ -1,3 +1,0 @@
-R3_edit_a.jpg try1 urllib.error.HTTPError: HTTP Error 502: Bad Gateway
-R3_edit_a.jpg try2 urllib.error.HTTPError: HTTP Error 502: Bad Gateway
-R3_edit_a.jpg try3 scripts/i5/R3R5/R3_edit_a.jpg (1376, 768) {'promptTokenCount': 715, 'candidatesTokenCount': 1120, 'totalTokenCount': 2094, 'thoughtsTokenCount': 259, 'promptTokensDetails': [{'modality': 'TEXT', 'toke

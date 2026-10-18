@@ -1,1 +1,0 @@
-R4_full_c.jpg try1 scripts/i5/R3R5/R4_full_c.jpg (1376, 768) {'promptTokenCount': 813, 'candidatesTokenCount': 1120, 'totalTokenCount': 2193, 'thoughtsTokenCount': 260, 'promptTokensDetails': [{'modality': 'IMAGE', 'tok

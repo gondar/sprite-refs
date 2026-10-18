@@ -1,1 +1,0 @@
-C4_a.jpg try1 scripts/i5/Cg/C4_a.jpg (1376, 768) {'promptTokenCount': 1961, 'candidatesTokenCount': 1120, 'totalTokenCount': 3454, 'thoughtsTokenCount': 373, 'promptTokensDetails': [{'modality': 'IMAGE', 'tokenCoun

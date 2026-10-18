@@ -1,1 +1,0 @@
-B5_c.jpg try1 scripts/i5/B/B5_c.jpg (1376, 768) {'promptTokenCount': 2769, 'candidatesTokenCount': 1120, 'totalTokenCount': 4302, 'thoughtsTokenCount': 413, 'promptTokensDetails': [{'modality': 'TEXT', 'tokenCount'
