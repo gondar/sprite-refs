@@ -267,7 +267,7 @@ function triskele(x,cx,cy,r,rot,col,lw){for(let k=0;k<3;k++){const a=rot+k*2.094
 /* figura z „gięciem”: paski poziome przesuwane tym mocniej, im dalej od punktu obrotu */
 function drawFig(x,im,bx,by,bw,bh,pv,m){
  if(!ok(im))return;const px=bx+pv[0]*bw,py=by+pv[1]*bh,N=36,ih=im.height,iw=im.width;
- x.save();x.globalAlpha*=m.a??1;x.translate(px,py+(m.dy||0));x.rotate(m.rot||0);x.scale(m.sx||1,m.sy||1);x.translate(-px,-py);
+ x.save();x.globalAlpha*=m.a??1;x.translate(px+(m.dx||0),py+(m.dy||0));x.rotate(m.rot||0);x.scale(m.sx||1,m.sy||1);x.translate(-px,-py);
  const bend=(m.bend||0)*bw;
  if(Math.abs(bend)<.05){x.drawImage(im,bx,by,bw,bh);x.restore();return}
  /* paski z całkowitymi granicami w osobnym buforze, potem jeden drawImage pod transformacją — brak szwów */
@@ -561,7 +561,7 @@ document.fonts&&document.fonts.ready.then(icons);
 <script>
 /* ---------- iteracja 6: żywe tło, orzesznica z MiniMax, trasa po scenie, stały podpis ---------- */
 const FXL={},DMS={};
-IDS.forEach(([id,pi,i])=>{fetch(`i6/fx/${id}.json`).then(r=>r.ok?r.json():null).then(j=>{if(!j)return;(j.sway||[]).forEach(s=>s.im=img(s.file));j.clean=j.no_clean?null:img(`i6/fx/${id}_plate_clean.jpg`);FXL[pi+"_"+i]=j}).catch(()=>{})});
+IDS.forEach(([id,pi,i])=>{fetch(`i6/fx/${id}.json`).then(r=>r.ok?r.json():null).then(j=>{if(!j)return;(j.sway||[]).forEach(s=>s.im=img(s.file));j.clean=j.no_clean?null:img(`i6/fx/${id}_plate_clean.jpg`);if(j.rise){if(j.rise.plate)j.clean=img(j.rise.plate);j.rise.im=img(j.rise.file)}(j.drop||[]).forEach(d=>d.im=img(d.file));FXL[pi+"_"+i]=j}).catch(()=>{})});
 fetch("i6/dm/dm.json").then(r=>r.ok?r.json():null).then(j=>{if(!j)return;for(const k in j)DMS[k]={...j[k],im:img(j[k].file)};buildDmUI()}).catch(()=>{});
 const ACTMAP={land:"stop_sniff",stop:"stop_sniff",sniff:"stop_sniff",stop_sniff:"stop_sniff",look:"idle_look",idle_look:"idle_look",run:"run_cycle",run_cycle:"run_cycle",climb:"climb",leap:"leap",jump:"leap",groom_wonder:"groom_wonder",watch:"groom_wonder",sit:"idle_look"};
 const POSEFALL={stop_sniff:"land",idle_look:"sit",run_cycle:"run",climb:"sit",leap:"leap",groom_wonder:"sit"};
@@ -591,7 +591,7 @@ function fxBack(x,F,P,b,t){
 function fxFront(x,F,b,t,pi,n){
  (F.flicker||[]).forEach((f,k)=>{const X=b.ox+f.x*b.w,Y=b.oy+f.y*b.h,sp=f.speed||1,fl=.75+.12*Math.sin(t*9*sp+k)+.08*Math.sin(t*23*sp+k*3)+.05*Math.sin(t*41*sp);const R=(f.r||.03)*b.h*2.4*fl;
   const g=x.createRadialGradient(X,Y,0,X,Y,R);const c=f.color||"#ffd27a",ia=Math.round(clamp(f.intensity??.45,0,1)*170).toString(16).padStart(2,"0"),ib=Math.round(clamp(f.intensity??.45,0,1)*60).toString(16).padStart(2,"0");g.addColorStop(0,c+ia);g.addColorStop(.35,c+ib);g.addColorStop(1,c+"00");x.globalCompositeOperation="lighter";x.fillStyle=g;x.beginPath();x.arc(X,Y,R,0,7);x.fill();x.globalCompositeOperation="source-over"});
- if(F.crown){const c=F.crown,X=b.ox+c.x*b.w,Y=b.oy+c.y*b.h,R=c.r*b.h;x.save();x.globalCompositeOperation="lighter";
+ if(F.crown){const c=F.crown,cq=c.drop?ease(prog(t,c.drop[0],c.drop[1])):1,X=b.ox+c.x*b.w,Y=b.oy+c.y*b.h-(1-cq)*(c.dropH||.16)*b.h,R=c.r*b.h*(1.25-.25*cq);x.save();x.globalAlpha=.25+.75*cq;x.globalCompositeOperation="lighter";
   for(let k=0;k<12;k++){const a=-Math.PI/2+k/12*Math.PI*2+t*.08,sx=X+Math.cos(a)*R,sy=Y+Math.sin(a)*R*.45,tw=.8+.2*Math.sin(t*3+k*1.7),sz=R*.17*tw;
    x.globalCompositeOperation="lighter";const g=x.createRadialGradient(sx,sy,0,sx,sy,sz*1.4);g.addColorStop(0,"rgba(255,250,225,.45)");g.addColorStop(1,"rgba(255,240,190,0)");x.fillStyle=g;x.beginPath();x.arc(sx,sy,sz*1.4,0,7);x.fill();
    x.globalCompositeOperation="source-over";x.fillStyle="rgba(255,250,230,.97)";x.strokeStyle="rgba(196,150,60,.9)";x.lineWidth=1.2;x.beginPath();for(let q=0;q<10;q++){const aa=q*Math.PI/5-Math.PI/2,rr=q%2?sz*.42:sz;x.lineTo(sx+Math.cos(aa)*rr,sy+Math.sin(aa)*rr)}x.closePath();x.fill();x.stroke()}
@@ -607,7 +607,7 @@ function scene(x,n,t,mode){
   const P=s.plate,b=camBox(P.width,P.height,fx,.5,z);x.__b=b;
   if(mode==="figs"){x.fillStyle="#1c2242";x.fillRect(0,0,W,H)}
   else{x.drawImage(F&&ok(F.clean)?F.clean:P,b.ox,b.oy,b.w,b.h);
-   if(F)fxBack(x,F,P,b,t);else{const f=s.fx||{};if(f.foliage)bandWave(x,P,b,f.foliage[0],f.foliage[1],t,1.6,.045,1.1);if(f.water)bandWave(x,P,b,f.water[0],f.water[1],t,3.2,.16,2.2)}
+   if(F){fxBack(x,F,P,b,t);if(F.rise)riseDraw(x,F.rise,b,t)}else{const f=s.fx||{};if(f.foliage)bandWave(x,P,b,f.foliage[0],f.foliage[1],t,1.6,.045,1.1);if(f.water)bandWave(x,P,b,f.water[0],f.water[1],t,3.2,.16,2.2)}
    glow(x,b,(s.fx||{}).glow,t)}
   if(mode!=="plate"){const cs=s.figs.map(g=>g.bbox[0]+g.bbox[2]/2);
    s.figs.forEach((g,gi)=>{const others=cs.filter((_,j)=>j!==gi&&s.figs[j].name!=="dove"&&s.figs[j].name!=="stone");const partner=others.length?others.reduce((a,c)=>Math.abs(c-cs[gi])<Math.abs(a-cs[gi])?c:a):null;
@@ -771,12 +771,20 @@ function cutFrame(id,g,t){
  else{const hm=g.__home&&ok(g.__home)?g.__home:img(C.home);if(!ok(hm))return null;q.drawImage(hm,0,0,cv.width,cv.height)}
  cv.ok=true;return cv;
 }
+/* Wniebowstąpienie: Jezus wycięty z tła unosi się i znika u góry kadru */
+function riseDraw(x,r,b,t){if(!ok(r.im))return;const q=ease(prog(t,r.t0??.8,r.t1??M)),bb=r.bbox,dy=-q*(r.dist??.42)*b.h;
+ x.save();x.globalAlpha=1-.35*q;x.drawImage(r.im,b.ox+bb[0]*b.w,b.oy+bb[1]*b.h+dy,bb[2]*b.w,bb[3]*b.h);x.restore()}
+/* Zesłanie: języki ognia zstępują z góry na głowy, jeden po drugim */
+function dropDraw(x,F,b,t){(F.drop||[]).forEach((d,k)=>{if(!ok(d.im))return;const t0=(F.dropT0??.5)+k*.45,q=ease(prog(t,t0,t0+2.2)),bb=d.bbox,fl=1+.05*Math.sin(t*9+k*2);
+ const w=bb[2]*b.w*fl,h=bb[3]*b.h*fl,X=b.ox+(bb[0]+bb[2]/2)*b.w+Math.sin(t*1.7+k)*4*(1-q),Y=b.oy+(bb[1]+bb[3])*b.h-(1-q)*(F.dropH??.22)*b.h;
+ x.save();x.globalAlpha=.15+.85*q;x.drawImage(d.im,X-w/2,Y-h,w,h);x.globalCompositeOperation="lighter";const g=x.createRadialGradient(X,Y-h*.45,0,X,Y-h*.45,h*1.2);g.addColorStop(0,`rgba(255,200,110,${.18*q})`);g.addColorStop(1,"rgba(255,200,110,0)");x.fillStyle=g;x.fillRect(X-h*1.2,Y-h*1.65,h*2.4,h*2.4);x.restore()})}
 const _scene6=scene;
 scene=function(x,n,t,mode){
  const s=scnOf(n);
  if(s&&s.layered&&s.figs.length&&!s.__wrapped){s.figs.forEach(g=>{g.__home=g.im});s.__wrapped=true}
  if(s&&s.layered){s.figs.forEach(g=>{const c=cutFrame(s.id,g,t);g.im=c||g.__home||g.im})}
  _scene6(x,n,t,mode);
+ {const Fd=FXL[Math.floor(n/5)+"_"+n%5];if(Fd&&Fd.drop&&mode!=="plate")dropDraw(x,Fd,x.__b||{ox:0,oy:0,w:W,h:H},t)}
  const Fg=FXL[Math.floor(n/5)+"_"+n%5];
  if(Fg&&Fg.grade&&mode!=="figs"){const g=Fg.grade;x.save();x.globalCompositeOperation="multiply";x.globalAlpha=g.alpha??.3;x.fillStyle=g.mul||"#c9c2b8";x.fillRect(0,0,W,H);
   if(g.top){x.globalAlpha=1;const gr=x.createLinearGradient(0,0,0,H*.55);gr.addColorStop(0,`rgba(150,150,170,${g.top})`);gr.addColorStop(1,"rgba(255,255,255,0)");x.fillStyle=gr;x.fillRect(0,0,W,H*.55)}x.restore()}
@@ -843,7 +851,7 @@ ALLIDS.forEach(([id,pi,i])=>{
  const key=pi+"_"+i;
  if(!SCN[key]){SCN[key]={id,flat:null,land:[.32,.84],light:[.5,.3],figs:[],fx:{}};
   fetch(`i5/${id}.json`).then(r=>r.ok?r.json():null).then(j=>{if(!j)return;const s=SCN[key];s.layered=true;s.plate=img(j.plate);s.land=j.land||s.land;s.light=j.light||s.light;s.fx=j.fx||{};s.figs=(j.figs||[]).map(f=>({...f,im:img(f.file)}));buildLayerUI()}).catch(()=>{});
-  fetch(`i6/fx/${id}.json`).then(r=>r.ok?r.json():null).then(j=>{if(!j)return;(j.sway||[]).forEach(s=>s.im=img(s.file));j.clean=j.no_clean?null:img(`i6/fx/${id}_plate_clean.jpg`);FXL[key]=j}).catch(()=>{});
+  fetch(`i6/fx/${id}.json`).then(r=>r.ok?r.json():null).then(j=>{if(!j)return;(j.sway||[]).forEach(s=>s.im=img(s.file));j.clean=j.no_clean?null:img(`i6/fx/${id}_plate_clean.jpg`);if(j.rise){if(j.rise.plate)j.clean=img(j.rise.plate);j.rise.im=img(j.rise.file)}(j.drop||[]).forEach(d=>d.im=img(d.file));FXL[key]=j}).catch(()=>{});
   if(!IDS.some(q=>q[0]===id))IDS.push([id,pi,i,""]);
  }
  if(id!=="R1")fetch(`i7/cut/${id}/cut.json`).then(r=>r.ok?r.json():null).then(j=>{if(!j)return;for(const k in j){const f=j[k];CUT[id+":"+k]={...f,gs:f.gestures.map(g=>({...g,im:img(g.file)})),cv:document.createElement("canvas"),sched:null}}}).catch(()=>{});
@@ -946,6 +954,11 @@ function mystery(x,n,l,type,prevDraw){
 const _motion7=motion;
 motion=function(id,f,t,partner){const m=_motion7(id,f,t,partner);if(!CUT[id+":"+f.name])return m;
  return{...m,bend:(m.bend||0)*.35,rot:(m.rot||0)*.35,dy:(m.dy||0)*.4,sx:1,sy:1}};
+/* śmielszy ruch istniejących warstw: dryf postaci w trakcie tajemnicy (i5/fx <id>.json → drift.<postać>) */
+const _motion8=motion;
+motion=function(id,f,t,partner){const m=_motion8(id,f,t,partner);const F=FXL["RSBC".indexOf(id[0])+"_"+(+id[1]-1)],d=F&&F.drift&&F.drift[f.name];if(!d)return m;
+ const q=ease(prog(t,d.t0??0,d.t1??M)),fr=d.from||[0,0],to=d.to||[0,0];
+ return{...m,dx:(m.dx||0)+lerp(fr[0],to[0],q)*W,dy:(m.dy||0)+lerp(fr[1],to[1],q)*H,rot:(m.rot||0)+lerp(d.rot0||0,d.rot1||0,q),a:(m.a??1)*lerp(d.a0??1,1,q)}};
 </script>
 <script>
 /* wstęp i finał jako wyrenderowane sceny (MiniMax-H3, klatki 30 fps): orzesznica budzi się, bawi paciorkiem i skacze za nim;
