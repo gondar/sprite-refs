@@ -1,0 +1,169 @@
+{
+ "id": "C2",
+ "units": "all x,y,bbox,pts in frame fractions of 1376x768; r = fraction of frame HEIGHT; pivot = fraction of the layer box; amp = max sideways displacement of the layer top as fraction of layer height (~radians of bend); speed = cycles/second",
+ "draw_order": "plate (or plate_clean) -> beam/disc/shimmer/flicker fx -> sway layers -> figures -> particles(front ones) -> dormouse -> caption",
+ "sway": [
+  {
+   "name": "bush",
+   "file": "i6/fx/C2_bush.png",
+   "bbox": [
+    0.5451,
+    0.569,
+    0.101,
+    0.138
+   ],
+   "pivot": [
+    0.445,
+    0.949
+   ],
+   "amp": 0.012,
+   "speed": 0.3,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)",
+   "note": "spiral bush on the hilltop"
+  }
+ ],
+ "flicker": [
+  {
+   "x": 0.31,
+   "y": 0.32,
+   "r": 0.008,
+   "color": "#fffbe8",
+   "speed": 1.5,
+   "note": "sparkle on a cloud spiral"
+  },
+  {
+   "x": 0.55,
+   "y": 0.1,
+   "r": 0.008,
+   "color": "#fffbe8",
+   "speed": 1.8,
+   "note": "sparkle on a cloud spiral"
+  },
+  {
+   "x": 0.47,
+   "y": 0.37,
+   "r": 0.008,
+   "color": "#fffbe8",
+   "speed": 1.3,
+   "note": "sparkle on a cloud spiral"
+  }
+ ],
+ "shimmer": [
+  {
+   "y0": 0.64,
+   "y1": 0.75,
+   "x0": 0.0,
+   "x1": 0.32,
+   "amp": 0.0015,
+   "note": "valley mist drift"
+  }
+ ],
+ "beam": [],
+ "disc": [],
+ "particles": [
+  {
+   "type": "gold motes",
+   "region": [
+    0.2,
+    0.3,
+    0.6,
+    0.62
+   ],
+   "note": "slow, few, under the cloud"
+  },
+  {
+   "type": "petals",
+   "region": [
+    0.0,
+    0.62,
+    0.58,
+    0.95
+   ],
+   "note": "rare tiny white flower petals in the breeze, kept away from the apostles faces"
+  }
+ ],
+ "route": [
+  {
+   "t": 0.0,
+   "x": 0.26,
+   "y": 0.885,
+   "act": "stop_sniff",
+   "facing": "right",
+   "note": "starts in the scene"
+  },
+  {
+   "t": 1.6,
+   "x": 0.26,
+   "y": 0.885,
+   "act": "idle_look",
+   "facing": "right",
+   "note": "notices the mystery"
+  },
+  {
+   "t": 3.5,
+   "x": 0.26,
+   "y": 0.885,
+   "act": "jump",
+   "facing": "right",
+   "note": "one jump to the watching spot"
+  },
+  {
+   "t": 5.0,
+   "x": 0.5,
+   "y": 0.8,
+   "act": "idle_look",
+   "facing": "left",
+   "note": "watches the mystery, eyes open"
+  },
+  {
+   "t": 8.0,
+   "x": 0.5,
+   "y": 0.8,
+   "act": "idle_look",
+   "facing": "right",
+   "note": "turns to the leaving bead"
+  },
+  {
+   "t": 8.6,
+   "x": 0.5,
+   "y": 0.8,
+   "act": "idle_look",
+   "facing": "right"
+  }
+ ],
+ "watch": [
+  0.5,
+  0.8
+ ],
+ "caption": {
+  "pos": "top-right",
+  "x": 0.7,
+  "y": 0.04,
+  "w": 0.27,
+  "h": 0.12
+ },
+ "dormouse": {
+  "height": 0.17,
+  "note": "y = feet contact; 'facing' applies to the segment that starts at that point"
+ },
+ "plate_clean": "i6/fx/C2_plate_clean.jpg",
+ "grade": {
+  "mul": "#c9c2b8",
+  "alpha": 0.35,
+  "top": 0.25
+ },
+ "rise": {
+  "name": "jesus",
+  "file": "i6/fx/C2_jesus.png",
+  "bbox": [
+   0.3169,
+   0.0,
+   0.1228,
+   0.2383
+  ],
+  "plate": "i6/fx/C2_plate_nojesus.jpg",
+  "dist": 0.3,
+  "t0": 0.6,
+  "t1": 10.0
+ }
+}

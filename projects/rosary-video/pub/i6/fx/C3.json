@@ -1,0 +1,193 @@
+{
+ "id": "C3",
+ "units": "all x,y,bbox,pts in frame fractions of 1376x768; r = fraction of frame HEIGHT; pivot = fraction of the layer box; amp = max sideways displacement of the layer top as fraction of layer height (~radians of bend); speed = cycles/second",
+ "draw_order": "plate (or plate_clean) -> beam/disc/shimmer/flicker fx -> sway layers -> figures -> particles(front ones) -> dormouse -> caption",
+ "sway": [
+  {
+   "name": "cloth",
+   "file": "i6/fx/C3_cloth.png",
+   "bbox": [
+    0.7355,
+    0.1549,
+    0.1991,
+    0.2982
+   ],
+   "pivot": [
+    0.977,
+    -0.016
+   ],
+   "amp": 0.02,
+   "speed": 0.55,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)",
+   "note": "linen cloth on a nail blown by the wind"
+  },
+  {
+   "name": "paper1",
+   "file": "i6/fx/C3_paper1.png",
+   "bbox": [
+    0.4484,
+    0.4349,
+    0.0661,
+    0.1107
+   ],
+   "pivot": [
+    0.478,
+    -0.044
+   ],
+   "amp": 0.02,
+   "speed": 0.5,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)",
+   "note": "flying sheet: flutter"
+  },
+  {
+   "name": "paper2",
+   "file": "i6/fx/C3_paper2.png",
+   "bbox": [
+    0.5378,
+    0.5755,
+    0.0901,
+    0.0703
+   ],
+   "pivot": [
+    0.468,
+    -0.078
+   ],
+   "amp": 0.02,
+   "speed": 0.45,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)",
+   "note": "flying sheet: flutter"
+  }
+ ],
+ "flicker": [],
+ "shimmer": [
+  {
+   "y0": 0.24,
+   "y1": 0.56,
+   "x0": 0.43,
+   "x1": 0.86,
+   "amp": 0.002,
+   "note": "the white spiral wind ribbon ripples"
+  }
+ ],
+ "beam": [],
+ "disc": [],
+ "particles": [
+  {
+   "type": "dust",
+   "region": [
+    0.55,
+    0.25,
+    0.95,
+    0.62
+   ],
+   "note": "dust whirling in the window light, follows the wind to the left"
+  }
+ ],
+ "route": [
+  {
+   "t": 0.0,
+   "x": 0.62,
+   "y": 0.93,
+   "act": "stop_sniff",
+   "facing": "left",
+   "note": "starts in the scene"
+  },
+  {
+   "t": 1.6,
+   "x": 0.62,
+   "y": 0.93,
+   "act": "idle_look",
+   "facing": "left",
+   "note": "notices the mystery"
+  },
+  {
+   "t": 3.5,
+   "x": 0.62,
+   "y": 0.93,
+   "act": "jump",
+   "facing": "left",
+   "note": "one jump to the watching spot"
+  },
+  {
+   "t": 5.0,
+   "x": 0.47,
+   "y": 0.705,
+   "act": "idle_look",
+   "facing": "left",
+   "note": "watches the mystery, eyes open"
+  },
+  {
+   "t": 8.0,
+   "x": 0.47,
+   "y": 0.705,
+   "act": "idle_look",
+   "facing": "right",
+   "note": "turns to the leaving bead"
+  },
+  {
+   "t": 8.6,
+   "x": 0.47,
+   "y": 0.705,
+   "act": "idle_look",
+   "facing": "right"
+  }
+ ],
+ "watch": [
+  0.47,
+  0.705
+ ],
+ "caption": {
+  "pos": "bottom-left",
+  "x": 0.02,
+  "y": 0.86,
+  "w": 0.36,
+  "h": 0.16
+ },
+ "dormouse": {
+  "height": 0.17,
+  "note": "y = feet contact; 'facing' applies to the segment that starts at that point"
+ },
+ "plate_clean": "i6/fx/C3_plate_clean.jpg",
+ "drop": [
+  {
+   "name": "flame_old",
+   "file": "i6/fx/C3_flame_old.png",
+   "bbox": [
+    0.1475,
+    0.1367,
+    0.0603,
+    0.1562
+   ]
+  },
+  {
+   "name": "flame_mary",
+   "file": "i6/fx/C3_flame_mary.png",
+   "bbox": [
+    0.3299,
+    0.332,
+    0.04,
+    0.0898
+   ]
+  },
+  {
+   "name": "flame_young",
+   "file": "i6/fx/C3_flame_young.png",
+   "bbox": [
+    0.633,
+    0.237,
+    0.0407,
+    0.1003
+   ]
+  },
+  {
+   "name": "flame_kneel",
+   "file": "i6/fx/C3_flame_kneel.png",
+   "bbox": [
+    0.7878,
+    0.4362,
+    0.0254,
+    0.0677
+   ]
+  }
+ ]
+}

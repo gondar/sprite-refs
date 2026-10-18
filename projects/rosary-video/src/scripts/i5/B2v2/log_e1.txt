@@ -1,0 +1,5 @@
+e1.jpg try1 urllib.error.HTTPError: HTTP Error 502: Bad Gateway
+e1.jpg try2 urllib.error.HTTPError: HTTP Error 502: Bad Gateway
+e1.jpg try3 urllib.error.HTTPError: HTTP Error 502: Bad Gateway
+e1.jpg try4 urllib.error.HTTPError: HTTP Error 502: Bad Gateway
+e1.jpg try1 scripts/i5/B2v2/e1.jpg (1376, 768) {'promptTokenCount': 1003, 'candidatesTokenCount': 1120, 'totalTokenCount': 2554, 'thoughtsTokenCount': 431, 'promptTokensDetails': [{'modality': 'IMAGE', 'tokenCoun

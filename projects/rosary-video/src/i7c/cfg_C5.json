@@ -1,0 +1,66 @@
+{
+ "figs": {
+  "mary": {
+   "head": [
+    986,
+    350,
+    36,
+    44
+   ],
+   "neck": [
+    983,
+    392
+   ],
+   "foot": [
+    962,
+    532
+   ],
+   "torso": [
+    405,
+    532
+   ],
+   "gestures": [
+    "blink",
+    "blink2",
+    "breath",
+    "tilt_r",
+    "look_up",
+    "smile"
+   ]
+  }
+ },
+ "ovs": {
+  "smile": {
+   "crop": [
+    870,
+    250,
+    200
+   ],
+   "thr": 18,
+   "boxes": {
+    "mary": [
+     966,
+     361,
+     1010,
+     386
+    ]
+   }
+  },
+  "blink": {
+   "note": "procedural closed eyes from fix6/lid.py job C5_spirit; do not run cut.py with 'ov' unless ed/C5_blink_raw.png exists",
+   "crop": [
+    870,
+    250,
+    200
+   ],
+   "boxes": {
+    "mary": [
+     968,
+     342,
+     1013,
+     360
+    ]
+   }
+  }
+ }
+}

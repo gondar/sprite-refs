@@ -1,0 +1,2 @@
+S5_e2.jpg try1 urllib.error.HTTPError: HTTP Error 502: Bad Gateway
+S5_e2.jpg try2 scripts/i5/S345/S5_e2.jpg (1376, 768) {'promptTokenCount': 758, 'candidatesTokenCount': 1120, 'totalTokenCount': 2185, 'thoughtsTokenCount': 307, 'promptTokensDetails': [{'modality': 'TEXT', 'tokenCount': 198}, {'modality': 'IMAGE', 'tokenCount': 560}], 'candidatesTokensDetails': [{'modality': 'IMAG

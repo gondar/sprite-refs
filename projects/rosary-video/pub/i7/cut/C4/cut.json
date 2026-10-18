@@ -1,0 +1,131 @@
+{
+ "mary": {
+  "home": "i7/cut/C4/mary_home.png",
+  "w": 222,
+  "h": 452,
+  "gestures": [
+   {
+    "name": "tilt_r",
+    "file": "i7/cut/C4/mary_tilt_r.webp",
+    "cols": 18,
+    "rows": 2,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "tilt",
+    "file": "i7/cut/C4/mary_tilt.webp",
+    "cols": 18,
+    "rows": 2,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ },
+ "old": {
+  "home": "i7/cut/C4/old_home.png",
+  "w": 174,
+  "h": 330,
+  "gestures": [
+   {
+    "name": "blink",
+    "file": "i7/cut/C4/old_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/C4/old_breath.webp",
+    "cols": 23,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "nod",
+    "file": "i7/cut/C4/old_nod.webp",
+    "cols": 20,
+    "rows": 1,
+    "frames": 20,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "look_up",
+    "file": "i7/cut/C4/old_look_up.webp",
+    "cols": 23,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "tilt",
+    "file": "i7/cut/C4/old_tilt.webp",
+    "cols": 23,
+    "rows": 2,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ },
+ "young": {
+  "home": "i7/cut/C4/young_home.png",
+  "w": 338,
+  "h": 262,
+  "gestures": [
+   {
+    "name": "blink",
+    "file": "i7/cut/C4/young_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "blink2",
+    "file": "i7/cut/C4/young_blink2.webp",
+    "cols": 12,
+    "rows": 2,
+    "frames": 16,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/C4/young_breath.webp",
+    "cols": 12,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "tilt",
+    "file": "i7/cut/C4/young_tilt.webp",
+    "cols": 12,
+    "rows": 3,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "smile",
+    "file": "i7/cut/C4/young_smile.webp",
+    "cols": 12,
+    "rows": 3,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ }
+}

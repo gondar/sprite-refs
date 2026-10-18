@@ -1,0 +1,150 @@
+{
+ "id": "B5",
+ "units": "all x,y,bbox,pts in frame fractions of 1376x768; r = fraction of frame HEIGHT; pivot = fraction of the layer box; amp = max sideways displacement of the layer top as fraction of layer height (~radians of bend); speed = cycles/second",
+ "draw_order": "plate (or plate_clean) -> beam/disc/shimmer/flicker fx -> sway layers -> figures -> particles(front ones) -> dormouse -> caption",
+ "sway": [
+  {
+   "name": "olive",
+   "file": "i6/fx/B5_olive.png",
+   "bbox": [
+    0.0036,
+    0.0065,
+    0.3045,
+    0.4635
+   ],
+   "pivot": [
+    0.5,
+    1.0
+   ],
+   "amp": 0.006,
+   "speed": 0.25,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)",
+   "note": "olive crown in the night wind; bottom row fixed"
+  }
+ ],
+ "flicker": [
+  {
+   "x": 0.62,
+   "y": 0.09,
+   "r": 0.004,
+   "color": "#e8f0ff",
+   "speed": 1.4,
+   "note": "star"
+  },
+  {
+   "x": 0.9,
+   "y": 0.06,
+   "r": 0.004,
+   "color": "#e8f0ff",
+   "speed": 1.9,
+   "note": "star"
+  }
+ ],
+ "shimmer": [
+  {
+   "x0": 0.6,
+   "x1": 0.98,
+   "y0": 0.0,
+   "y1": 0.3,
+   "amp": 0.002,
+   "freq": 0.03,
+   "step": 2,
+   "note": "slow spiral clouds"
+  }
+ ],
+ "beam": [],
+ "disc": [
+  {
+   "x": 0.4,
+   "y": 0.385,
+   "r": 0.035,
+   "kind": "glow",
+   "note": "crimson horizon behind the cross; very slow faint pulse"
+  }
+ ],
+ "particles": [
+  {
+   "type": "fireflies",
+   "region": [
+    0.0,
+    0.62,
+    0.5,
+    0.95
+   ],
+   "note": "few, slow, in the dry grass"
+  }
+ ],
+ "route": [
+  {
+   "t": 0.0,
+   "x": 0.885,
+   "y": 0.875,
+   "act": "stop_sniff",
+   "facing": "left",
+   "note": "na prawym końcu płaskiej skały"
+  },
+  {
+   "t": 1.6,
+   "x": 0.885,
+   "y": 0.875,
+   "act": "idle_look",
+   "facing": "left",
+   "note": "zauważa krzyż i Maryję"
+  },
+  {
+   "t": 3.5,
+   "x": 0.885,
+   "y": 0.875,
+   "act": "jump",
+   "facing": "left",
+   "note": "jeden krótki skok w lewo po skale, bliżej Maryi i Jana (nie nad postaciami)"
+  },
+  {
+   "t": 5.0,
+   "x": 0.835,
+   "y": 0.8,
+   "act": "groom_wonder",
+   "facing": "left",
+   "note": "na skale, patrzy w lewo na Maryję i krzyż"
+  },
+  {
+   "t": 6.1,
+   "x": 0.835,
+   "y": 0.8,
+   "act": "idle_look",
+   "facing": "left",
+   "note": "patrzy z otwartymi oczami"
+  },
+  {
+   "t": 8.0,
+   "x": 0.835,
+   "y": 0.8,
+   "act": "idle_look",
+   "facing": "right",
+   "note": "odwraca się za paciorkiem"
+  },
+  {
+   "t": 8.6,
+   "x": 0.835,
+   "y": 0.8,
+   "act": "idle_look",
+   "facing": "right"
+  }
+ ],
+ "watch": [
+  0.835,
+  0.8
+ ],
+ "caption": {
+  "pos": "bottom-left",
+  "x": 0.03,
+  "y": 0.855,
+  "w": 0.3,
+  "h": 0.1
+ },
+ "dormouse": {
+  "height": 0.14,
+  "note": "y = feet contact; 'facing' applies to the segment that starts at that point"
+ },
+ "plate_clean": "i6/fx/B5_plate_clean.jpg"
+}

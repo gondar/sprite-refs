@@ -1,0 +1,158 @@
+{
+ "dove": {
+  "home": "i7/cut/S1/dove_home.png",
+  "w": 90,
+  "h": 67,
+  "gestures": [
+   {
+    "name": "flutter",
+    "file": "i7/cut/S1/dove_flutter.webp",
+    "cols": 16,
+    "rows": 1,
+    "frames": 16,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "glide",
+    "file": "i7/cut/S1/dove_glide.webp",
+    "cols": 23,
+    "rows": 1,
+    "frames": 23,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "bob",
+    "file": "i7/cut/S1/dove_bob.webp",
+    "cols": 20,
+    "rows": 1,
+    "frames": 20,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "beat",
+    "file": "i7/cut/S1/dove_beat.webp",
+    "cols": 9,
+    "rows": 1,
+    "frames": 9,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ },
+ "jesus": {
+  "home": "i7/cut/S1/jesus_home.png",
+  "w": 160,
+  "h": 288,
+  "gestures": [
+   {
+    "name": "breath",
+    "file": "i7/cut/S1/jesus_breath.webp",
+    "cols": 25,
+    "rows": 2,
+    "frames": 32,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "bow",
+    "file": "i7/cut/S1/jesus_bow.webp",
+    "cols": 25,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "lift",
+    "file": "i7/cut/S1/jesus_lift.webp",
+    "cols": 25,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 1
+   },
+   {
+    "name": "sway",
+    "file": "i7/cut/S1/jesus_sway.webp",
+    "cols": 25,
+    "rows": 2,
+    "frames": 37,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "smile",
+    "file": "i7/cut/S1/jesus_smile.webp",
+    "cols": 25,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "open",
+    "file": "i7/cut/S1/jesus_open.webp",
+    "cols": 25,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 1
+   }
+  ]
+ },
+ "john": {
+  "home": "i7/cut/S1/john_home.png",
+  "w": 313,
+  "h": 392,
+  "gestures": [
+   {
+    "name": "blink",
+    "file": "i7/cut/S1/john_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "nod",
+    "file": "i7/cut/S1/john_nod.webp",
+    "cols": 13,
+    "rows": 2,
+    "frames": 23,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "laugh",
+    "file": "i7/cut/S1/john_laugh.webp",
+    "cols": 13,
+    "rows": 2,
+    "frames": 20,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/S1/john_breath.webp",
+    "cols": 13,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "lean_in",
+    "file": "i7/cut/S1/john_lean_in.webp",
+    "cols": 13,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 1
+   }
+  ]
+ }
+}

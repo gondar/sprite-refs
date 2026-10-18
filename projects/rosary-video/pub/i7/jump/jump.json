@@ -1,0 +1,130 @@
+{
+ "poses": [
+  {
+   "name": "j1_crouch",
+   "file": "i7/jump/j1_crouch.png",
+   "w": 390,
+   "h": 177,
+   "ground": [
+    245.0,
+    168.0
+   ],
+   "com": [
+    278.7,
+    91.6
+   ],
+   "anchor": [
+    245.0,
+    168.0
+   ],
+   "scale_from_raw": 0.4283
+  },
+  {
+   "name": "j2_push",
+   "file": "i7/jump/j2_push.png",
+   "w": 402,
+   "h": 276,
+   "ground": [
+    171.0,
+    267.0
+   ],
+   "com": [
+    282.5,
+    116.5
+   ],
+   "anchor": [
+    171.0,
+    267.0
+   ],
+   "scale_from_raw": 0.4555
+  },
+  {
+   "name": "j3_rise",
+   "file": "i7/jump/j3_rise.png",
+   "w": 412,
+   "h": 228,
+   "ground": null,
+   "com": [
+    279.2,
+    98.5
+   ],
+   "anchor": [
+    279.2,
+    98.5
+   ],
+   "scale_from_raw": 0.4494
+  },
+  {
+   "name": "j4_apex",
+   "file": "i7/jump/j4_apex.png",
+   "w": 297,
+   "h": 266,
+   "ground": null,
+   "com": [
+    162.9,
+    181.4
+   ],
+   "anchor": [
+    162.9,
+    181.4
+   ],
+   "scale_from_raw": 0.4622
+  },
+  {
+   "name": "j5_fall",
+   "file": "i7/jump/j5_fall.png",
+   "w": 302,
+   "h": 288,
+   "ground": null,
+   "com": [
+    188.8,
+    180.0
+   ],
+   "anchor": [
+    188.8,
+    180.0
+   ],
+   "scale_from_raw": 0.495
+  },
+  {
+   "name": "j6_land",
+   "file": "i7/jump/j6_land.png",
+   "w": 313,
+   "h": 242,
+   "ground": [
+    243.0,
+    233.0
+   ],
+   "com": [
+    189.5,
+    157.5
+   ],
+   "anchor": [
+    243.0,
+    233.0
+   ],
+   "scale_from_raw": 0.4718
+  },
+  {
+   "name": "j7_settle",
+   "file": "i7/jump/j7_settle.png",
+   "w": 311,
+   "h": 236,
+   "ground": [
+    231.0,
+    227.0
+   ],
+   "com": [
+    190.9,
+    142.4
+   ],
+   "anchor": [
+    231.0,
+    227.0
+   ],
+   "scale_from_raw": 0.4741
+  }
+ ],
+ "charH": 220,
+ "note": "side view facing right; ground = paw contact point (bottom of paws) for crouch/push/land/settle; com = centre of the body+head mass (tail and legs excluded) for rotation; anchor = ground if any else com"
+}

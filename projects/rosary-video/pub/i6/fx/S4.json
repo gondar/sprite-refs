@@ -1,0 +1,167 @@
+{
+ "id": "S4",
+ "units": "all x,y,bbox,pts in frame fractions of 1376x768; r = fraction of frame HEIGHT; pivot = fraction of the layer box; amp = max sideways displacement of the layer top as fraction of layer height (~radians of bend); speed = cycles/second",
+ "draw_order": "plate (or plate_clean) -> beam/disc/shimmer/flicker fx -> sway layers -> figures -> particles(front ones) -> dormouse -> caption",
+ "sway": [
+  {
+   "name": "bush_right",
+   "file": "i6/fx/S4_bush_right.png",
+   "bbox": [
+    0.7747,
+    0.6693,
+    0.1759,
+    0.2122
+   ],
+   "pivot": [
+    0.428,
+    0.969
+   ],
+   "amp": 0.012,
+   "speed": 0.35,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)",
+   "note": "thorn bush in the summit wind"
+  }
+ ],
+ "flicker": [],
+ "shimmer": [
+  {
+   "y0": 0.4,
+   "y1": 0.6,
+   "x0": 0.0,
+   "x1": 0.3,
+   "amp": 0.0015,
+   "note": "heat haze over the plain far below"
+  }
+ ],
+ "beam": [],
+ "disc": [
+  {
+   "x": 0.64,
+   "y": 0.3,
+   "r": 0.06,
+   "kind": "glow",
+   "note": "painted white light around Jesus: pulse +-3% only, NO added brightness, never gold"
+  }
+ ],
+ "particles": [
+  {
+   "type": "white motes",
+   "region": [
+    0.36,
+    0.02,
+    0.92,
+    0.45
+   ],
+   "avoid": [
+    0.6,
+    0.18,
+    0.69,
+    0.3
+   ],
+   "note": "few slow white light motes drifting out along the spiral rays"
+  },
+  {
+   "type": "dust",
+   "region": [
+    0.0,
+    0.8,
+    0.6,
+    0.98
+   ],
+   "note": "rare dust in the wind, very faint"
+  }
+ ],
+ "route": [
+  {
+   "t": 0.0,
+   "x": 0.7086,
+   "y": 0.8724,
+   "act": "stop_sniff",
+   "facing": "left",
+   "note": "starts in the scene"
+  },
+  {
+   "t": 1.2,
+   "x": 0.7086,
+   "y": 0.8724,
+   "act": "idle_look",
+   "facing": "left",
+   "note": "notices the mystery, eyes open"
+  },
+  {
+   "t": 3.6,
+   "x": 0.7086,
+   "y": 0.8724,
+   "act": "jump",
+   "facing": "right",
+   "note": "one jump to the watching spot"
+  },
+  {
+   "t": 5.1,
+   "x": 0.895,
+   "y": 0.795,
+   "act": "idle_look",
+   "facing": "left",
+   "note": "watches the mystery, eyes open"
+  },
+  {
+   "t": 8.0,
+   "x": 0.895,
+   "y": 0.795,
+   "act": "idle_look",
+   "facing": "right",
+   "note": "turns to the leaving bead"
+  },
+  {
+   "t": 8.6,
+   "x": 0.895,
+   "y": 0.795,
+   "act": "idle_look",
+   "facing": "right"
+  }
+ ],
+ "watch": [
+  0.895,
+  0.795
+ ],
+ "caption": {
+  "pos": "top-left",
+  "x": 0.02,
+  "y": 0.04,
+  "w": 0.34,
+  "h": 0.13
+ },
+ "dormouse": {
+  "height": 0.14,
+  "note": "y = feet contact; 'facing' applies to the segment that starts at that point; present from t=0, one jump, exit jump from 8.67 by the engine"
+ },
+ "plate_clean": "i6/fx/S4_plate_clean.jpg",
+ "drift": {
+  "moses": {
+   "from": [
+    -0.09,
+    -0.14
+   ],
+   "to": [
+    0,
+    0
+   ],
+   "t0": 0.6,
+   "t1": 5.8,
+   "a0": 0.2
+  },
+  "elijah": {
+   "from": [
+    0.09,
+    -0.14
+   ],
+   "to": [
+    0,
+    0
+   ],
+   "t0": 0.9,
+   "t1": 6.1,
+   "a0": 0.2
+  }
+ }
+}

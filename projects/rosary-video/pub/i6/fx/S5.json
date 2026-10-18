@@ -1,0 +1,128 @@
+{
+ "id": "S5",
+ "units": "all x,y,bbox,pts in frame fractions of 1376x768; r = fraction of frame HEIGHT; pivot = fraction of the layer box; amp = max sideways displacement as fraction of frame width; speed = cycles/second",
+ "draw_order": "plate -> beam/disc/shimmer/flicker fx -> figures -> particles(front ones) -> dormouse -> caption",
+ "sway": [],
+ "flicker": [
+  {
+   "x": 0.4913,
+   "y": 0.5573,
+   "r": 0.012,
+   "color": "#ffc46b",
+   "speed": 6.5,
+   "glow": 0.022,
+   "note": "the single oil-lamp flame on the table (painted); flicker only, glow radius small"
+  }
+ ],
+ "shimmer": [
+  {
+   "y0": 0.47,
+   "y1": 0.545,
+   "x0": 0.478,
+   "x1": 0.506,
+   "amp": 0.0015,
+   "note": "heat haze right above the lamp flame"
+  },
+  {
+   "y0": 0.1,
+   "y1": 0.47,
+   "x0": 0.462,
+   "x1": 0.532,
+   "amp": 0.0018,
+   "speed": 0.6,
+   "freq": 0.08,
+   "note": "slow wobble of the painted smoke curl rising from the lamp (between John and Jesus); no figure pixels are warped"
+  }
+ ],
+ "beam": [],
+ "disc": [],
+ "particles": [
+  {
+   "type": "dust",
+   "region": [
+    0.4,
+    0.36,
+    0.6,
+    0.56
+   ],
+   "avoid": [
+    0.52,
+    0.28,
+    0.62,
+    0.42
+   ],
+   "note": "a few slow warm motes in the lamp pool over the table, never over Jesus's face"
+  }
+ ],
+ "route": [
+  {
+   "t": 0.0,
+   "x": 0.11,
+   "y": 0.93,
+   "act": "stop_sniff",
+   "facing": "right",
+   "note": "starts in the scene on the mat, lower-left corner"
+  },
+  {
+   "t": 1.2,
+   "x": 0.11,
+   "y": 0.93,
+   "act": "idle_look",
+   "facing": "right",
+   "note": "notices the meal, eyes open"
+  },
+  {
+   "t": 3.6,
+   "x": 0.11,
+   "y": 0.93,
+   "act": "jump",
+   "facing": "right",
+   "note": "one jump onto the open earth floor in front of the table"
+  },
+  {
+   "t": 5.1,
+   "x": 0.44,
+   "y": 0.875,
+   "act": "idle_look",
+   "facing": "right",
+   "note": "watches Jesus breaking the bread, eyes open; between the old man's back and the two backs, below every face"
+  },
+  {
+   "t": 8.0,
+   "x": 0.44,
+   "y": 0.875,
+   "act": "idle_look",
+   "facing": "right",
+   "note": "turns to the leaving bead"
+  },
+  {
+   "t": 8.6,
+   "x": 0.44,
+   "y": 0.875,
+   "act": "idle_look",
+   "facing": "right"
+  }
+ ],
+ "watch": [
+  0.44,
+  0.875
+ ],
+ "caption": {
+  "pos": "top-left",
+  "w": 0.3,
+  "note": "plain dark plaster and the small dark window at the upper left; the left group's heads start at y~0.36"
+ },
+ "dormouse": {
+  "note": "y = feet contact; present from t=0, one jump, exit jump from 8.67 by the engine",
+  "tint": {
+   "col": "#7a4a1e",
+   "a": 0.3
+  }
+ },
+ "no_clean": true,
+ "exit": {
+  "dir": "L",
+  "y": 0.86,
+  "arc": 50
+ }
+}

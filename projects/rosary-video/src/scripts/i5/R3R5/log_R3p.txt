@@ -1,0 +1,1 @@
+R3_plate_a.jpg try1 scripts/i5/R3R5/R3_plate_a.jpg (1376, 768) {'promptTokenCount': 744, 'candidatesTokenCount': 1120, 'totalTokenCount': 2236, 'thoughtsTokenCount': 372, 'promptTokensDetails': [{'modality': 'TEXT', 'tok

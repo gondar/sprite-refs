@@ -1,0 +1,54 @@
+{
+ "id": "R1",
+ "full": "i5/R1_full.jpg",
+ "plate": "i5/R1_plate.jpg",
+ "figs": [
+  {
+   "name": "angel",
+   "file": "i5/R1_fig_angel.png",
+   "bbox": [
+    0.1839,
+    0.1029,
+    0.3554,
+    0.6693
+   ],
+   "pivot": [
+    0.55,
+    0.95
+   ],
+   "motion": "light figure: slow bend toward mary (rotate ~1deg around pivot) + soft opacity/glow pulse 0.9-1.0; wing spirals may shimmer"
+  },
+  {
+   "name": "mary",
+   "file": "i5/R1_fig_mary.png",
+   "bbox": [
+    0.4201,
+    0.2839,
+    0.2267,
+    0.4948
+   ],
+   "pivot": [
+    0.4,
+    0.85
+   ],
+   "motion": "startled stillness: slow breath scaleY 1->1.01 from knees, tiny head-turn sway toward the angel (rotate ~1deg); keep small, her hands sit in the dough"
+  }
+ ],
+ "land": [
+  0.3,
+  0.88
+ ],
+ "light": [
+  0.634,
+  0.462
+ ],
+ "fx": {
+  "foliage": null,
+  "water": null,
+  "glow": [
+   0.634,
+   0.462,
+   0.08
+  ]
+ }
+}

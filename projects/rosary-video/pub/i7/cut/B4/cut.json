@@ -1,0 +1,124 @@
+{
+ "jesus_simon": {
+  "home": "i7/cut/B4/jesus_simon_home.png",
+  "w": 679,
+  "h": 606,
+  "gestures": [
+   {
+    "name": "breath",
+    "file": "i7/cut/B4/jesus_simon_breath.webp",
+    "cols": 6,
+    "rows": 5,
+    "frames": 30,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "blink",
+    "file": "i7/cut/B4/jesus_simon_blink.webp",
+    "cols": 6,
+    "rows": 2,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "jblink",
+    "file": "i7/cut/B4/jesus_simon_jblink.webp",
+    "cols": 6,
+    "rows": 2,
+    "frames": 10,
+    "fps": 12,
+    "weight": 5
+   },
+   {
+    "name": "jnod",
+    "file": "i7/cut/B4/jesus_simon_jnod.webp",
+    "cols": 6,
+    "rows": 4,
+    "frames": 23,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "jsigh",
+    "file": "i7/cut/B4/jesus_simon_jsigh.webp",
+    "cols": 6,
+    "rows": 6,
+    "frames": 35,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "nod",
+    "file": "i7/cut/B4/jesus_simon_nod.webp",
+    "cols": 6,
+    "rows": 4,
+    "frames": 20,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "tilt_r",
+    "file": "i7/cut/B4/jesus_simon_tilt_r.webp",
+    "cols": 6,
+    "rows": 5,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ },
+ "veronica": {
+  "home": "i7/cut/B4/veronica_home.png",
+  "w": 302,
+  "h": 366,
+  "gestures": [
+   {
+    "name": "breath",
+    "file": "i7/cut/B4/veronica_breath.webp",
+    "cols": 13,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "blink",
+    "file": "i7/cut/B4/veronica_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "blink2",
+    "file": "i7/cut/B4/veronica_blink2.webp",
+    "cols": 13,
+    "rows": 2,
+    "frames": 16,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "nod",
+    "file": "i7/cut/B4/veronica_nod.webp",
+    "cols": 13,
+    "rows": 2,
+    "frames": 20,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "tilt_r",
+    "file": "i7/cut/B4/veronica_tilt_r.webp",
+    "cols": 13,
+    "rows": 3,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ }
+}

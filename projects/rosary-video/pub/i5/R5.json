@@ -1,0 +1,98 @@
+{
+ "id": "R5",
+ "full": "i5/R5_full.jpg",
+ "plate": "i5/R5_plate.jpg",
+ "figs": [
+  {
+   "name": "joseph",
+   "file": "i5/R5_fig_joseph.png",
+   "bbox": [
+    0.0763,
+    0.1263,
+    0.2049,
+    0.6211
+   ],
+   "pivot": [
+    0.5,
+    0.98
+   ],
+   "motion": "relieved, hand on Mary's shoulder: slow breath scaleY 1->1.006; keep rotation <=0.3deg (overlaps mary)"
+  },
+  {
+   "name": "mary",
+   "file": "i5/R5_fig_mary.png",
+   "bbox": [
+    0.1395,
+    0.1901,
+    0.1744,
+    0.7214
+   ],
+   "pivot": [
+    0.5,
+    0.98
+   ],
+   "motion": "relieved, hands on her chest: slow breath scaleY 1->1.008, rotate <=0.4deg"
+  },
+  {
+   "name": "jesus",
+   "file": "i5/R5_fig_jesus.png",
+   "bbox": [
+    0.5254,
+    0.4336,
+    0.1606,
+    0.4557
+   ],
+   "pivot": [
+    0.4,
+    0.95
+   ],
+   "motion": "eager, leaning to the scroll: slow breath scaleY 1->1.006, tiny lean (rotate <=0.5deg); finger stays on the scroll"
+  },
+  {
+   "name": "teacher1",
+   "file": "i5/R5_fig_teacher1.png",
+   "bbox": [
+    0.6781,
+    0.2474,
+    0.1577,
+    0.4375
+   ],
+   "pivot": [
+    0.5,
+    0.95
+   ],
+   "motion": "surprised listener: slow breath scaleY 1->1.005, rotate <=0.4deg"
+  },
+  {
+   "name": "teacher2",
+   "file": "i5/R5_fig_teacher2.png",
+   "bbox": [
+    0.7355,
+    0.2721,
+    0.2558,
+    0.5755
+   ],
+   "pivot": [
+    0.4,
+    0.95
+   ],
+   "motion": "thoughtful, hand at beard: slow breath scaleY 1->1.005, rotate <=0.3deg; long scroll near the bottom stays still"
+  }
+ ],
+ "land": [
+  0.4,
+  0.885
+ ],
+ "light": [
+  0.42,
+  0.32
+ ],
+ "fx": {
+  "foliage": [
+   0.12,
+   0.15
+  ],
+  "water": null,
+  "glow": null
+ }
+}

@@ -1,0 +1,7 @@
+Edit this image. It is a crop of a hand-drawn pencil-and-gouache illustration of the Last Supper in a poor lamp-lit room.
+
+Change only one person: the small dark-haired figure sitting cross-legged on the mat in the centre foreground, seen from behind. Redraw him as a grown adult man, an apostle, exactly as big as the bearded man sitting to his right: broad strong shoulders as wide as his neighbour's, a thick muscular neck, a larger adult head with short dark hair, and a short dark beard visible at the edge of his cheek. He wears the same pale patched tunic with the same patches and the same brown belt, sits in the same cross-legged pose on the same mat, still seen from behind and facing the table. His larger head and shoulders may overlap the table edge behind him.
+
+Keep unchanged: the bearded man on the right, everyone behind the table, Jesus breaking the bread, the table, the lamp, the bowls, the cup, the floor, the mats, the lighting, the colours, the line style and the framing. Same flat ink outlines and gouache shading as the rest of the image.
+
+Hard exclusions: no child, no new people, no text, no border.

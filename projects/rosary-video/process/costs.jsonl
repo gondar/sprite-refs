@@ -1,0 +1,167 @@
+{"id":"B1","what":"cutout edit b1j_lips","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C1","what":"cutout edit c1j_down","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C1","what":"cutout edit c1j_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"B1","what":"cutout edit b1j_open","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C1","what":"cutout edit c1j_smile","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S1","what":"cutout face edit S1_john_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R2","what":"cutout face edit R2_mary_smile","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R2","what":"cutout face edit R2_mary_peek","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R2","what":"cutout face edit R2_eliz_laugh","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R2","what":"cutout face edit R2_eliz_open","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S1","what":"cutout face edit S1_jesus_smile","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S1","what":"cutout face edit S1_john_laugh","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S1","what":"cutout face edit S1_jesus_open","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S2","what":"cutout face edit S2_mary_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S2","what":"cutout face edit S2_jesus_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S2","what":"cutout face edit S2_mary_whisper","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S2","what":"cutout face edit S2_boy_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S2","what":"cutout face edit S2_boy_oh","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S2","what":"cutout face edit S2_jesus_brow","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C2","what":"full image a","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"C3","what":"full image a","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"C4","what":"full image a","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"C5","what":"full image a (rejected)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"C5","what":"full image b","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"R3","what":"full scene v_a (Phase A)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"R4","what":"full scene v_a (Phase A)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"R5","what":"full scene v_a (Phase A)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"S3","what":"full image v1 (Phase A)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"S4","what":"full image v1 (Phase A)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"S5","what":"full image v1 (Phase A)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"B2","what":"full image a","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"B4","what":"full image a","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"B5","what":"full image a","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"B1","what":"cutout edit b1a_eye (apostle closed eyelid, review fix 4)","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R3","what":"baby glow + Mary face edit","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"R4","what":"full scene v_b (Gate A fix)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"R5","what":"plate edit","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"R4","what":"full scene v_c edit (pillars/lid)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"R5","what":"cutout face edit R5_joseph_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C3","what":"full image c (gate A fix)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"C4","what":"full image c (gate A fix)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"C5","what":"full image c (too dark, std 37)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"C2","what":"plate edit","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"R5","what":"cutout face edit R5_jesus_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R5","what":"cutout face edit R5_jesus_ask","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R5","what":"cutout face edit R5_t1_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R5","what":"cutout face edit R5_mary_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R5","what":"cutout face edit R5_t2_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R3","what":"plate edit","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"S4","what":"full image v2 (Gate A fix)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"S4","what":"full image v3 (Gate A fix, chosen)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"S5","what":"image edit e1 (Gate A fixes)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"S5","what":"image edit e2 (upright stool, bread glow)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"S3","what":"plate edit a","model":"gemini-3-pro-image-preview","usd":0.05}
+{"id":"S4","what":"plate edit a","model":"gemini-3-pro-image-preview","usd":0.05}
+{"id":"S5","what":"plate edit a","model":"gemini-3-pro-image-preview","usd":0.05}
+{"id":"R4","what":"plate edit","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"R3","what":"cutout face edit R3_joseph_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R3","what":"cutout face edit R3_mary_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R3","what":"cutout face edit R3_mary_smile","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"B3","what":"full image a","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"R4","what":"cutout face edit R4_simeon_speak","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R4","what":"cutout face edit R4_mary_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R4","what":"cutout face edit R4_joseph_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R4","what":"cutout face edit R4_mary_smile","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C2","what":"cutout face edit C2_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C2","what":"cutout face edit C2_smile","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C5","what":"full image d (gate A fix 2)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"C4","what":"plate edit","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"C4","what":"cutout face edit C4_mblink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C5","what":"plate edit","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"C4","what":"cutout face edit C4_msmile","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C4","what":"cutout face edit C4_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C4","what":"cutout face edit C4_smile","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S4","what":"cutout face edit S4_peter_close","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S5","what":"cutout face edit S5_peter_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S5","what":"cutout face edit S5_jesus_smile","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S5","what":"cutout face edit S5_jesus_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S4","what":"cutout face edit S4_john_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S3","what":"cutout face edit S3_jesus_speak","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S3","what":"cutout face edit S3_child_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S3","what":"cutout face edit S3_fisherman_smile","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S5","what":"cutout face edit S5_john_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S4","what":"cutout face edit S4_jesus_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S3","what":"cutout face edit S3_jesus_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S3","what":"cutout face edit S3_fisherman_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S4","what":"cutout face edit S4_peter_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S5","what":"cutout face edit S5_john_oh","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C5","what":"cutout face edit C5_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C5","what":"cutout face edit C5_smile","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"B2","what":"Gate A fix B2b","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"B4","what":"Gate A fix B4b","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"B5","what":"Gate A fix B5b","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"B3","what":"Gate A fix B3e","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"C3","what":"plate edit","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"C3","what":"cutout face edit C3_ablink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C3","what":"cutout face edit C3_asmile","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C3","what":"cutout face edit C3_bsmile","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C3","what":"cutout face edit C3_bblink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"B2","what":"B2 plate edit","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"B4","what":"B4 plate edit","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"B3","what":"B3 Gate A fix edit2","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"B5","what":"B5 Gate A fix c","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"S2","what":"full v3a (redo)","model":"gemini-3-pro-image-preview","usd":0.08}
+{"id":"S2","what":"full v3b (redo)","model":"gemini-3-pro-image-preview","usd":0.08}
+{"id":"S2","what":"plate edit (redo)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"S2","what":"cutout face edit S2_mary_brow","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S2","what":"cutout face edit S2_mary_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S2","what":"cutout face edit S2_jesus_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S2","what":"cutout face edit S2_jesus_laugh","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S2","what":"cutout face edit S2_boy_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S2","what":"cutout face edit S2_boy_grin","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"B3","what":"B3 plate edit","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"B5","what":"B5 plate edit","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"B2","what":"cutout face edit B2_open","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"B5","what":"cutout face edit B5_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"B4","what":"cutout face edit B4_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"B3","what":"cutout face edit B3_open","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C4","what":"plate edit: rock niche instead of round stone (final review fix 2)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"R5","what":"cutout face edit R5_jesus_face","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R5","what":"cutout face edit R5_t1_face","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R5","what":"cutout face edit R5_jesus_ask","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R5","what":"cutout face edit R5_t1_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"R5","what":"cutout face edit R5_jesus_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"C4","what":"Mary eyes closed + hands crossed edit (crop)","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S4","what":"spirits edit e1 (Moses+Elijah) on S4_full","model":"gemini-3-pro-image-preview","usd":0.09}
+{"id":"B2","what":"v2 full edit (Jesus facing pillar, half naked) e1","model":"gemini-3-pro-image-preview","usd":0.09}
+{"id":"B2","what":"v2 plate edit (remove Jesus)","model":"gemini-3-pro-image-preview","usd":0.09}
+{"id":"S4","what":"spirits edit e1 failed 502 x4 (1376px input, assumed unbilled)","model":"gemini-3-pro-image-preview","usd":0}
+{"id":"B2","what":"v2 cutout face edit B2_eopen","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S5","what":"v3 full image v1 (13 people)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"S5","what":"v3 edit v2 (add 3 apostles)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"S5","what":"v3 edit v3 (add 2 apostles)","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"S5","what":"v3 plate edit a","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"S5","what":"cutout face edit S5_jesus_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S5","what":"cutout face edit S5_john_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S5","what":"cutout face edit S5_peter_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S5","what":"cutout face edit S5_jesus_smile","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S5","what":"cutout face edit S5_right_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S5","what":"cutout face edit S5_left_blink","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"S5","what":"fix: frontr middle apostle adult edit","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"S5","what":"fix: frontr middle apostle beard at cheek","model":"gemini-3-pro-image-preview","usd":0.07}
+{"id":"DM-new","what":"dormouse crouch peak edit (crouch_takeoff end pose)","model":"gemini-3.1-flash-image","usd":0.0245}
+{"id":"DM-new","what":"dormouse crouch peak edit v2 (deeper crouch)","model":"gemini-3.1-flash-image","usd":0.0245}
+{"id":"DM-new","what":"MiniMax-H3 dormouse look_up_follow (job ..5d6c97)","model":"MiniMax-H3","usd":0.12}
+{"id":"DM-new","what":"MiniMax-H3 dormouse bat_reach (job ..bba28d)","model":"MiniMax-H3","usd":0.12}
+{"id":"DM-new","what":"MiniMax-H3 dormouse happy_hop (job ..5ae9fc)","model":"MiniMax-H3","usd":0.12}
+{"id":"DM-new","what":"MiniMax-H3 dormouse sniff_up (job ..7a6cb0)","model":"MiniMax-H3","usd":0.12}
+{"id":"DM-new","what":"MiniMax-H3 dormouse pounce (job ..6fa4a7)","model":"MiniMax-H3","usd":0.18}
+{"id":"DM-new","what":"MiniMax-H3 dormouse crouch_takeoff (job ..894383)","model":"MiniMax-H3","usd":0.12}
+{"id":"INTRO","what":"K0 keyframe (night hazel nest, asleep) job 20261018-060905-28a28f","model":"gemini-3-pro-image-preview","usd":0.09}
+{"id":"INTRO","what":"K1 keyframe edit (sitting, paws up) job 20261018-060953-09b40c","model":"gemini-3-pro-image-preview","usd":0.09}
+{"id":"INTRO","what":"K2 keyframe edit (leap upper right) job 20261018-060954-8b50cb","model":"gemini-3-pro-image-preview","usd":0.09}
+{"id":"INTRO","what":"H3 clip A K0->K1 5s (rejected: tail morph) job 20261018-061130-61d535","model":"MiniMax-H3","usd":0.15}
+{"id":"INTRO","what":"H3 clip B K1->K2 5s (used) job 20261018-061132-c10d79","model":"MiniMax-H3","usd":0.15}
+{"id":"INTRO","what":"K0v2 keyframe edit (asleep, tail behind like K1) job 20261018-062449-4becc0","model":"gemini-3-pro-image-preview","usd":0.09}
+{"id":"INTRO","what":"H3 clip A2 K0v2->K1 5s (used) job 20261018-062556-5ff2a4","model":"MiniMax-H3","usd":0.15}
+{"id":"B5","what":"Mary aged face edit (mid-50s)","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"B5","what":"Mary aged closed-eye edit (blink overlay)","model":"gemini-3.1-flash-image-preview","usd":0.0245}
+{"id":"OUTRO","what":"O2 try1 dawn + rosary in nest (rosary unreadable) job 20261018-063938-c98677","model":"gemini-3-pro-image-preview","usd":0.09}
+{"id":"OUTRO","what":"O2 try2 dawn + rosary on branch (miscounted, floating) job 20261018-064026-512c30","model":"gemini-3-pro-image-preview","usd":0.09}
+{"id":"OUTRO","what":"OD dawn base, rosary removed (end keyframe) job 20261018-064152-bbbca4","model":"gemini-3-pro-image-preview","usd":0.09}
+{"id":"OUTRO","what":"O1 arrival keyframe edit job 20261018-064227-58c79d","model":"gemini-3-pro-image-preview","usd":0.09}
+{"id":"OUTRO","what":"H3 clip O1->OD 6s (used) job 20261018-070528-bca969; 4 earlier submits failed input_download_failed (raw.githubusercontent unreachable from H3), auto-refunded","model":"MiniMax-H3","usd":0.18}
+{"id":"C5","what":"owner change: Mary as light spirit, region edit try1 (pro, C5 crop + R1 angel + B5 face refs)","model":"gemini-3-pro-image-preview","usd":0.09}
+{"id":"C5","what":"owner change: Mary as light spirit, region edit try2 (more translucent, younger 50s face)","model":"gemini-3-pro-image-preview","usd":0.09}
+{"id":"C5","what":"cutout face edit C5_ssmile","model":"gemini-3.1-flash-image-preview","usd":0.0245}

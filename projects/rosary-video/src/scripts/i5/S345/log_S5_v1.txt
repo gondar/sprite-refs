@@ -1,0 +1,1 @@
+S5_v1.jpg try1 scripts/i5/S345/S5_v1.jpg (1376, 768) {'promptTokenCount': 2566, 'candidatesTokenCount': 1120, 'totalTokenCount': 4031, 'thoughtsTokenCount': 345, 'promptTokensDetails': [{'modality': 'TEXT', 'tokenCount': 886}, {'modality': 'IMAGE', 'tokenCount': 1680}], 'candidatesTokensDetails': [{'modality': 'IM

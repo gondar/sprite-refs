@@ -1,0 +1,195 @@
+{
+ "id": "B1",
+ "units": "all x,y,bbox,pts in frame fractions of 1376x768; r = fraction of frame HEIGHT; pivot = fraction of the layer box; amp = max sideways displacement of the layer top as fraction of layer height (~radians of bend); speed = cycles/second",
+ "draw_order": "plate (or plate_clean) -> beam/disc/shimmer/flicker fx -> sway layers -> figures -> particles(front ones) -> dormouse -> caption",
+ "sway": [
+  {
+   "name": "flowers_left",
+   "file": "i6/fx/B1_flowers_left.png",
+   "bbox": [
+    0.0,
+    0.7109,
+    0.2929,
+    0.2891
+   ],
+   "pivot": [
+    0.341,
+    1.0
+   ],
+   "amp": 0.02,
+   "speed": 0.4,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)"
+  },
+  {
+   "name": "flowers_right",
+   "file": "i6/fx/B1_flowers_right.png",
+   "bbox": [
+    0.7798,
+    0.7422,
+    0.2202,
+    0.2578
+   ],
+   "pivot": [
+    0.546,
+    1.0
+   ],
+   "amp": 0.02,
+   "speed": 0.37,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)"
+  }
+ ],
+ "flicker": [
+  {
+   "x": 0.355,
+   "y": 0.035,
+   "r": 0.006,
+   "color": "#e8f0ff",
+   "speed": 1.3,
+   "note": "star"
+  },
+  {
+   "x": 0.685,
+   "y": 0.035,
+   "r": 0.006,
+   "color": "#e8f0ff",
+   "speed": 1.7,
+   "note": "star"
+  },
+  {
+   "x": 0.62,
+   "y": 0.045,
+   "r": 0.005,
+   "color": "#e8f0ff",
+   "speed": 2.1,
+   "note": "star"
+  }
+ ],
+ "shimmer": [],
+ "beam": [
+  {
+   "pts": [
+    [
+     0.445,
+     0.33
+    ],
+    [
+     0.565,
+     0.33
+    ],
+    [
+     0.65,
+     0.645
+    ],
+    [
+     0.37,
+     0.645
+    ]
+   ],
+   "color": "#dfe8ff",
+   "note": "moonbeams onto the prayer rock; slow sparkles drift down"
+  }
+ ],
+ "disc": [
+  {
+   "x": 0.503,
+   "y": 0.19,
+   "r": 0.1,
+   "kind": "moon",
+   "note": "slow halo pulse; clouds overlap its lower-left/right edge, so pulse the halo, not the disc pixels"
+  }
+ ],
+ "particles": [
+  {
+   "type": "dust",
+   "region": [
+    0.4,
+    0.33,
+    0.62,
+    0.64
+   ],
+   "note": "silver motes in the moonbeam"
+  },
+  {
+   "type": "fireflies",
+   "region": [
+    0.03,
+    0.5,
+    0.62,
+    0.8
+   ]
+  },
+  {
+   "type": "fireflies",
+   "region": [
+    0.8,
+    0.5,
+    0.97,
+    0.8
+   ]
+  }
+ ],
+ "route": [
+  {
+   "t": 0.0,
+   "x": 0.26,
+   "y": 0.875,
+   "act": "stop_sniff",
+   "facing": "right",
+   "note": "na ścieżce z przodu po lewej, z dala od Jezusa"
+  },
+  {
+   "t": 1.9,
+   "x": 0.26,
+   "y": 0.875,
+   "act": "idle_look",
+   "facing": "right",
+   "note": "zauważa Jezusa w świetle księżyca"
+  },
+  {
+   "t": 3.5,
+   "x": 0.26,
+   "y": 0.875,
+   "act": "jump",
+   "facing": "right",
+   "note": "jeden skok na trawę przed korzeniami drzewa"
+  },
+  {
+   "t": 5.0,
+   "x": 0.32,
+   "y": 0.72,
+   "act": "groom_wonder",
+   "facing": "right",
+   "note": "patrzy na modlącego się Jezusa z ~110 px odstępu od płaszcza"
+  },
+  {
+   "t": 6.2,
+   "x": 0.32,
+   "y": 0.72,
+   "act": "idle_look",
+   "facing": "right"
+  },
+  {
+   "t": 8.6,
+   "x": 0.32,
+   "y": 0.72,
+   "act": "idle_look",
+   "facing": "right"
+  }
+ ],
+ "watch": [
+  0.32,
+  0.72
+ ],
+ "caption": {
+  "pos": "bottom-right",
+  "x": 0.51,
+  "y": 0.79,
+  "w": 0.46,
+  "h": 0.17
+ },
+ "dormouse": {
+  "height": 0.14,
+  "note": "y = feet contact; 'facing' applies to the segment that starts at that point"
+ },
+ "plate_clean": "i6/fx/B1_plate_clean.jpg"
+}
