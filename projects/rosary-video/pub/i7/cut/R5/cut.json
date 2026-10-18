@@ -1,0 +1,235 @@
+{
+ "joseph": {
+  "home": "i7/cut/R5/joseph_home.png",
+  "w": 282,
+  "h": 477,
+  "gestures": [
+   {
+    "name": "breath",
+    "file": "i7/cut/R5/joseph_breath.webp",
+    "cols": 14,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "blink",
+    "file": "i7/cut/R5/joseph_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "nod",
+    "file": "i7/cut/R5/joseph_nod.webp",
+    "cols": 14,
+    "rows": 2,
+    "frames": 20,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "sigh",
+    "file": "i7/cut/R5/joseph_sigh.webp",
+    "cols": 14,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 1
+   }
+  ]
+ },
+ "mary": {
+  "home": "i7/cut/R5/mary_home.png",
+  "w": 240,
+  "h": 554,
+  "gestures": [
+   {
+    "name": "breath",
+    "file": "i7/cut/R5/mary_breath.webp",
+    "cols": 17,
+    "rows": 2,
+    "frames": 32,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "blink",
+    "file": "i7/cut/R5/mary_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "blink2",
+    "file": "i7/cut/R5/mary_blink2.webp",
+    "cols": 15,
+    "rows": 1,
+    "frames": 15,
+    "fps": 12,
+    "weight": 1
+   },
+   {
+    "name": "sigh",
+    "file": "i7/cut/R5/mary_sigh.webp",
+    "cols": 17,
+    "rows": 2,
+    "frames": 32,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "tilt",
+    "file": "i7/cut/R5/mary_tilt.webp",
+    "cols": 17,
+    "rows": 2,
+    "frames": 27,
+    "fps": 12,
+    "weight": 1
+   }
+  ]
+ },
+ "jesus": {
+  "home": "i7/cut/R5/jesus_home.png",
+  "w": 221,
+  "h": 350,
+  "gestures": [
+   {
+    "name": "blink",
+    "file": "i7/cut/R5/jesus_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "ask",
+    "file": "i7/cut/R5/jesus_ask.webp",
+    "cols": 18,
+    "rows": 2,
+    "frames": 25,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "tilt",
+    "file": "i7/cut/R5/jesus_tilt.webp",
+    "cols": 18,
+    "rows": 2,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/R5/jesus_breath.webp",
+    "cols": 18,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "nod",
+    "file": "i7/cut/R5/jesus_nod.webp",
+    "cols": 18,
+    "rows": 2,
+    "frames": 20,
+    "fps": 12,
+    "weight": 1
+   }
+  ]
+ },
+ "teacher1": {
+  "home": "i7/cut/R5/teacher1_home.png",
+  "w": 217,
+  "h": 336,
+  "gestures": [
+   {
+    "name": "blink",
+    "file": "i7/cut/R5/teacher1_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/R5/teacher1_breath.webp",
+    "cols": 18,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "nod",
+    "file": "i7/cut/R5/teacher1_nod.webp",
+    "cols": 18,
+    "rows": 2,
+    "frames": 20,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "tilt",
+    "file": "i7/cut/R5/teacher1_tilt.webp",
+    "cols": 18,
+    "rows": 2,
+    "frames": 27,
+    "fps": 12,
+    "weight": 1
+   }
+  ]
+ },
+ "teacher2": {
+  "home": "i7/cut/R5/teacher2_home.png",
+  "w": 352,
+  "h": 442,
+  "gestures": [
+   {
+    "name": "blink",
+    "file": "i7/cut/R5/teacher2_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/R5/teacher2_breath.webp",
+    "cols": 11,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "hm",
+    "file": "i7/cut/R5/teacher2_hm.webp",
+    "cols": 11,
+    "rows": 3,
+    "frames": 25,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "blink2",
+    "file": "i7/cut/R5/teacher2_blink2.webp",
+    "cols": 11,
+    "rows": 2,
+    "frames": 15,
+    "fps": 12,
+    "weight": 1
+   }
+  ]
+ }
+}

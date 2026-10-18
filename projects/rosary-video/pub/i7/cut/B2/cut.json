@@ -1,0 +1,54 @@
+{
+ "jesus": {
+  "home": "i7/cut/B2/jesus_home.png",
+  "w": 229,
+  "h": 535,
+  "gestures": [
+   {
+    "name": "breath",
+    "file": "i7/cut/B2/jesus_breath.webp",
+    "cols": 17,
+    "rows": 2,
+    "frames": 32,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "bow",
+    "file": "i7/cut/B2/jesus_bow.webp",
+    "cols": 17,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "lift",
+    "file": "i7/cut/B2/jesus_lift.webp",
+    "cols": 17,
+    "rows": 3,
+    "frames": 35,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "blink",
+    "file": "i7/cut/B2/jesus_blink.webp",
+    "cols": 17,
+    "rows": 2,
+    "frames": 21,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "sigh",
+    "file": "i7/cut/B2/jesus_sigh.webp",
+    "cols": 17,
+    "rows": 3,
+    "frames": 37,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ }
+}

@@ -1,0 +1,140 @@
+{
+ "simeon": {
+  "home": "i7/cut/R4/simeon_home.png",
+  "w": 259,
+  "h": 470,
+  "gestures": [
+   {
+    "name": "breath",
+    "file": "i7/cut/R4/simeon_breath.webp",
+    "cols": 15,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "rock",
+    "file": "i7/cut/R4/simeon_rock.webp",
+    "cols": 15,
+    "rows": 3,
+    "frames": 32,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "speak",
+    "file": "i7/cut/R4/simeon_speak.webp",
+    "cols": 15,
+    "rows": 2,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "nod",
+    "file": "i7/cut/R4/simeon_nod.webp",
+    "cols": 15,
+    "rows": 2,
+    "frames": 20,
+    "fps": 12,
+    "weight": 1
+   }
+  ]
+ },
+ "mary": {
+  "home": "i7/cut/R4/mary_home.png",
+  "w": 171,
+  "h": 467,
+  "gestures": [
+   {
+    "name": "breath",
+    "file": "i7/cut/R4/mary_breath.webp",
+    "cols": 23,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "blink",
+    "file": "i7/cut/R4/mary_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "blink2",
+    "file": "i7/cut/R4/mary_blink2.webp",
+    "cols": 15,
+    "rows": 1,
+    "frames": 15,
+    "fps": 12,
+    "weight": 1
+   },
+   {
+    "name": "smile",
+    "file": "i7/cut/R4/mary_smile.webp",
+    "cols": 23,
+    "rows": 2,
+    "frames": 32,
+    "fps": 12,
+    "weight": 1
+   },
+   {
+    "name": "lean",
+    "file": "i7/cut/R4/mary_lean.webp",
+    "cols": 23,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ },
+ "joseph": {
+  "home": "i7/cut/R4/joseph_home.png",
+  "w": 209,
+  "h": 533,
+  "gestures": [
+   {
+    "name": "breath",
+    "file": "i7/cut/R4/joseph_breath.webp",
+    "cols": 19,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "blink",
+    "file": "i7/cut/R4/joseph_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "tilt",
+    "file": "i7/cut/R4/joseph_tilt.webp",
+    "cols": 19,
+    "rows": 2,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "nod",
+    "file": "i7/cut/R4/joseph_nod.webp",
+    "cols": 19,
+    "rows": 2,
+    "frames": 20,
+    "fps": 12,
+    "weight": 1
+   }
+  ]
+ }
+}

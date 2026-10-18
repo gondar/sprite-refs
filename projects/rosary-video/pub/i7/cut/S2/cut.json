@@ -1,0 +1,185 @@
+{
+ "mary": {
+  "home": "i7/cut/S2/mary_home.png",
+  "w": 227,
+  "h": 461,
+  "gestures": [
+   {
+    "name": "whisper_lean",
+    "file": "i7/cut/S2/mary_whisper_lean.webp",
+    "cols": 18,
+    "rows": 2,
+    "frames": 27,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "whisper",
+    "file": "i7/cut/S2/mary_whisper.webp",
+    "cols": 18,
+    "rows": 2,
+    "frames": 20,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/S2/mary_breath.webp",
+    "cols": 18,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "tilt",
+    "file": "i7/cut/S2/mary_tilt.webp",
+    "cols": 18,
+    "rows": 2,
+    "frames": 27,
+    "fps": 12,
+    "weight": 1
+   },
+   {
+    "name": "blink",
+    "file": "i7/cut/S2/mary_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "earnest",
+    "file": "i7/cut/S2/mary_earnest.webp",
+    "cols": 18,
+    "rows": 2,
+    "frames": 25,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ },
+ "jesus": {
+  "home": "i7/cut/S2/jesus_home.png",
+  "w": 228,
+  "h": 477,
+  "gestures": [
+   {
+    "name": "tilt",
+    "file": "i7/cut/S2/jesus_tilt.webp",
+    "cols": 17,
+    "rows": 2,
+    "frames": 27,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "hand",
+    "file": "i7/cut/S2/jesus_hand.webp",
+    "cols": 17,
+    "rows": 2,
+    "frames": 23,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "laugh",
+    "file": "i7/cut/S2/jesus_laugh.webp",
+    "cols": 17,
+    "rows": 2,
+    "frames": 20,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/S2/jesus_breath.webp",
+    "cols": 17,
+    "rows": 2,
+    "frames": 32,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "nod",
+    "file": "i7/cut/S2/jesus_nod.webp",
+    "cols": 17,
+    "rows": 2,
+    "frames": 20,
+    "fps": 12,
+    "weight": 1
+   },
+   {
+    "name": "blink",
+    "file": "i7/cut/S2/jesus_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   }
+  ]
+ },
+ "boy": {
+  "home": "i7/cut/S2/boy_home.png",
+  "w": 124,
+  "h": 256,
+  "gestures": [
+   {
+    "name": "peek",
+    "file": "i7/cut/S2/boy_peek.webp",
+    "cols": 27,
+    "rows": 1,
+    "frames": 27,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "bounce",
+    "file": "i7/cut/S2/boy_bounce.webp",
+    "cols": 18,
+    "rows": 1,
+    "frames": 18,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/S2/boy_breath.webp",
+    "cols": 27,
+    "rows": 1,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "look",
+    "file": "i7/cut/S2/boy_look.webp",
+    "cols": 25,
+    "rows": 1,
+    "frames": 25,
+    "fps": 12,
+    "weight": 1
+   },
+   {
+    "name": "blink",
+    "file": "i7/cut/S2/boy_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "grin",
+    "file": "i7/cut/S2/boy_grin.webp",
+    "cols": 25,
+    "rows": 1,
+    "frames": 25,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ }
+}

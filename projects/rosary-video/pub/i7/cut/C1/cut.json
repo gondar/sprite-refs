@@ -1,0 +1,72 @@
+{
+ "jesus": {
+  "home": "i7/cut/C1/jesus_home.png",
+  "w": 185,
+  "h": 330,
+  "gestures": [
+   {
+    "name": "breath",
+    "file": "i7/cut/C1/jesus_breath.webp",
+    "cols": 22,
+    "rows": 2,
+    "frames": 32,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "blink",
+    "file": "i7/cut/C1/jesus_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "blink2",
+    "file": "i7/cut/C1/jesus_blink2.webp",
+    "cols": 16,
+    "rows": 1,
+    "frames": 16,
+    "fps": 12,
+    "weight": 1
+   },
+   {
+    "name": "smile",
+    "file": "i7/cut/C1/jesus_smile.webp",
+    "cols": 22,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "look_down",
+    "file": "i7/cut/C1/jesus_look_down.webp",
+    "cols": 22,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "banner",
+    "file": "i7/cut/C1/jesus_banner.webp",
+    "cols": 22,
+    "rows": 2,
+    "frames": 37,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "glow",
+    "file": "i7/cut/C1/jesus_glow.webp",
+    "cols": 22,
+    "rows": 2,
+    "frames": 32,
+    "fps": 12,
+    "weight": 1
+   }
+  ]
+ }
+}

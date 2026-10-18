@@ -1,0 +1,188 @@
+{
+ "id": "C4",
+ "units": "all x,y,bbox,pts in frame fractions of 1376x768; r = fraction of frame HEIGHT; pivot = fraction of the layer box; amp = max sideways displacement of the layer top as fraction of layer height (~radians of bend); speed = cycles/second",
+ "draw_order": "plate (or plate_clean) -> beam/disc/shimmer/flicker fx -> sway layers -> figures -> particles(front ones) -> dormouse -> caption",
+ "sway": [
+  {
+   "name": "bush_mid",
+   "file": "i6/fx/C4_bush_mid.png",
+   "bbox": [
+    0.5138,
+    0.5352,
+    0.1177,
+    0.2005
+   ],
+   "pivot": [
+    0.52,
+    0.972
+   ],
+   "amp": 0.012,
+   "speed": 0.3,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)"
+  },
+  {
+   "name": "bush_left",
+   "file": "i6/fx/C4_bush_left.png",
+   "bbox": [
+    0.0,
+    0.7643,
+    0.2369,
+    0.2357
+   ],
+   "pivot": [
+    0.422,
+    1.0
+   ],
+   "amp": 0.012,
+   "speed": 0.35,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)"
+  },
+  {
+   "name": "tree_right",
+   "file": "i6/fx/C4_tree_right.png",
+   "bbox": [
+    0.7703,
+    0.0,
+    0.2297,
+    0.375
+   ],
+   "pivot": [
+    0.608,
+    1.0
+   ],
+   "amp": 0.006,
+   "speed": 0.25,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)",
+   "note": "olive canopy only, trunk stays in plate"
+  }
+ ],
+ "flicker": [],
+ "shimmer": [
+  {
+   "y0": 0.4,
+   "y1": 0.5,
+   "x0": 0.58,
+   "x1": 0.76,
+   "amp": 0.0015,
+   "note": "warm haze above the rising sun"
+  }
+ ],
+ "beam": [],
+ "disc": [
+  {
+   "x": 0.665,
+   "y": 0.47,
+   "r": 0.045,
+   "kind": "sun",
+   "note": "painted sun: pulse +-3% only, no added brightness"
+  }
+ ],
+ "particles": [
+  {
+   "type": "petals",
+   "region": [
+    0.18,
+    0.5,
+    0.55,
+    0.95
+   ],
+   "note": "a few rose petals drifting from the tomb"
+  },
+  {
+   "type": "gold motes",
+   "region": [
+    0.42,
+    0.05,
+    0.62,
+    0.6
+   ],
+   "note": "few, slow, rising around Mary"
+  }
+ ],
+ "route": [
+  {
+   "t": 0.0,
+   "x": 0.42,
+   "y": 0.905,
+   "act": "stop_sniff",
+   "facing": "left",
+   "note": "starts in the scene"
+  },
+  {
+   "t": 1.6,
+   "x": 0.42,
+   "y": 0.905,
+   "act": "idle_look",
+   "facing": "right",
+   "note": "notices the mystery"
+  },
+  {
+   "t": 3.5,
+   "x": 0.42,
+   "y": 0.905,
+   "act": "jump",
+   "facing": "right",
+   "note": "one jump to the watching spot"
+  },
+  {
+   "t": 5.0,
+   "x": 0.63,
+   "y": 0.885,
+   "act": "idle_look",
+   "facing": "left",
+   "note": "watches the mystery, eyes open"
+  },
+  {
+   "t": 8.0,
+   "x": 0.63,
+   "y": 0.885,
+   "act": "idle_look",
+   "facing": "right",
+   "note": "turns to the leaving bead"
+  },
+  {
+   "t": 8.6,
+   "x": 0.63,
+   "y": 0.885,
+   "act": "idle_look",
+   "facing": "right"
+  }
+ ],
+ "watch": [
+  0.63,
+  0.885
+ ],
+ "caption": {
+  "pos": "top-right",
+  "x": 0.59,
+  "y": 0.03,
+  "w": 0.25,
+  "h": 0.16
+ },
+ "dormouse": {
+  "height": 0.14,
+  "note": "y = feet contact; 'facing' applies to the segment that starts at that point",
+  "tint": {
+   "col": "#8a8670",
+   "a": 0.18
+  }
+ },
+ "plate_clean": "i6/fx/C4_plate_clean.jpg",
+ "exit": {
+  "dir": "L"
+ },
+ "drift": {
+  "mary": {
+   "from": [
+    0,
+    0.05
+   ],
+   "to": [
+    0,
+    -0.05
+   ],
+   "t0": 0,
+   "t1": 10.2
+  }
+ }
+}

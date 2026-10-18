@@ -1,0 +1,6 @@
+cut.json mary blink2 139,33,209,80
+R3/cut.json mary blink2 417,50,493,98
+R4/cut.json mary blink2 27,25,87,69
+R5/cut.json mary blink2 160,40,215,80
+R5/cut.json mary blink 160,40,215,80
+R5/cut.json teacher2 blink2 122,35,182,70

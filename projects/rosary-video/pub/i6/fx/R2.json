@@ -1,0 +1,229 @@
+{
+ "id": "R2",
+ "units": "all x,y,bbox,pts in frame fractions of 1376x768; r = fraction of frame HEIGHT; pivot = fraction of the layer box; amp = max sideways displacement of the layer top as fraction of layer height (~radians of bend); speed = cycles/second",
+ "draw_order": "plate (or plate_clean) -> beam/disc/shimmer/flicker fx -> sway layers -> figures -> particles(front ones) -> dormouse -> caption",
+ "sway": [
+  {
+   "name": "olive_center",
+   "file": "i6/fx/R2_olive_center.png",
+   "bbox": [
+    0.25,
+    0.2331,
+    0.1265,
+    0.2812
+   ],
+   "pivot": [
+    0.538,
+    1.0
+   ],
+   "amp": 0.018,
+   "speed": 0.35,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)"
+  },
+  {
+   "name": "olive_left",
+   "file": "i6/fx/R2_olive_left.png",
+   "bbox": [
+    0.032,
+    0.3255,
+    0.1272,
+    0.1706
+   ],
+   "pivot": [
+    0.44,
+    1.0
+   ],
+   "amp": 0.018,
+   "speed": 0.3,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)"
+  },
+  {
+   "name": "olive_back1",
+   "file": "i6/fx/R2_olive_back1.png",
+   "bbox": [
+    0.3881,
+    0.2656,
+    0.0785,
+    0.1263
+   ],
+   "pivot": [
+    0.623,
+    1.0
+   ],
+   "amp": 0.015,
+   "speed": 0.4,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)"
+  },
+  {
+   "name": "olive_back2",
+   "file": "i6/fx/R2_olive_back2.png",
+   "bbox": [
+    0.4695,
+    0.2474,
+    0.0712,
+    0.1029
+   ],
+   "pivot": [
+    0.541,
+    1.0
+   ],
+   "amp": 0.015,
+   "speed": 0.38,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)"
+  },
+  {
+   "name": "thistle_left",
+   "file": "i6/fx/R2_thistle_left.png",
+   "bbox": [
+    0.0538,
+    0.7161,
+    0.0959,
+    0.1901
+   ],
+   "pivot": [
+    0.377,
+    0.967
+   ],
+   "amp": 0.02,
+   "speed": 0.5,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)"
+  }
+ ],
+ "flicker": [],
+ "shimmer": [],
+ "beam": [
+  {
+   "pts": [
+    [
+     0.2,
+     0.27
+    ],
+    [
+     0.24,
+     0.36
+    ],
+    [
+     0.6,
+     0.62
+    ],
+    [
+     0.73,
+     0.62
+    ],
+    [
+     0.73,
+     0.25
+    ]
+   ],
+   "color": "#ffd9a0",
+   "note": "low dawn sunlight from the sun toward the lit house wall; very faint, motes only"
+  }
+ ],
+ "disc": [
+  {
+   "x": 0.1875,
+   "y": 0.322,
+   "r": 0.035,
+   "kind": "sun",
+   "note": "lower half hidden behind the hill: clip to y<0.345 or draw halo only"
+  }
+ ],
+ "particles": [
+  {
+   "type": "gold motes",
+   "region": [
+    0.18,
+    0.25,
+    0.74,
+    0.62
+   ]
+  },
+  {
+   "type": "olive leaves",
+   "region": [
+    0.02,
+    0.25,
+    0.55,
+    0.6
+   ],
+   "note": "a few leaves falling from the trees"
+  }
+ ],
+ "route": [
+  {
+   "t": 0.0,
+   "x": 0.875,
+   "y": 0.905,
+   "act": "stop_sniff",
+   "facing": "left",
+   "note": "na ziemi przy ostu po prawej, węszy"
+  },
+  {
+   "t": 1.6,
+   "x": 0.875,
+   "y": 0.905,
+   "act": "idle_look",
+   "facing": "left",
+   "note": "podnosi głowę, zauważa uścisk"
+  },
+  {
+   "t": 3.6,
+   "x": 0.875,
+   "y": 0.905,
+   "act": "jump",
+   "facing": "left",
+   "note": "jeden skok na próg drzwi"
+  },
+  {
+   "t": 5.1,
+   "x": 0.8,
+   "y": 0.85,
+   "act": "stop_sniff",
+   "facing": "left",
+   "note": "lądowanie na progu, w ciemnych drzwiach"
+  },
+  {
+   "t": 5.6,
+   "x": 0.8,
+   "y": 0.85,
+   "act": "idle_look",
+   "facing": "left",
+   "note": "patrzy na uścisk Maryi i Elżbiety"
+  },
+  {
+   "t": 8.0,
+   "x": 0.8,
+   "y": 0.85,
+   "act": "idle_look",
+   "facing": "right",
+   "note": "odwraca się za odlatującym paciorkiem"
+  },
+  {
+   "t": 8.6,
+   "x": 0.8,
+   "y": 0.85,
+   "act": "idle_look",
+   "facing": "right"
+  }
+ ],
+ "watch": [
+  0.8,
+  0.85
+ ],
+ "caption": {
+  "pos": "top-left",
+  "x": 0.03,
+  "y": 0.035,
+  "w": 0.3,
+  "h": 0.1
+ },
+ "dormouse": {
+  "height": 0.14,
+  "note": "y = feet contact; 'facing' applies to the segment that starts at that point; present from t=0, one jump, exit jump from 8.67 by the engine",
+  "tint": {
+   "col": "#3e3729",
+   "a": 0.45
+  }
+ },
+ "plate_clean": "i6/fx/R2_plate_clean.jpg"
+}

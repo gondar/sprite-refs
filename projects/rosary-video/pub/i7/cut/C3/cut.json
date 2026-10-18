@@ -1,0 +1,210 @@
+{
+ "old": {
+  "home": "i7/cut/C3/old_home.png",
+  "w": 338,
+  "h": 622,
+  "gestures": [
+   {
+    "name": "blink",
+    "file": "i7/cut/C3/old_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/C3/old_breath.webp",
+    "cols": 12,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "nod",
+    "file": "i7/cut/C3/old_nod.webp",
+    "cols": 12,
+    "rows": 2,
+    "frames": 20,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "tilt",
+    "file": "i7/cut/C3/old_tilt.webp",
+    "cols": 12,
+    "rows": 3,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "smile",
+    "file": "i7/cut/C3/old_smile.webp",
+    "cols": 12,
+    "rows": 3,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ },
+ "mary": {
+  "home": "i7/cut/C3/mary_home.png",
+  "w": 299,
+  "h": 424,
+  "gestures": [
+   {
+    "name": "blink",
+    "file": "i7/cut/C3/mary_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "blink2",
+    "file": "i7/cut/C3/mary_blink2.webp",
+    "cols": 13,
+    "rows": 2,
+    "frames": 16,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/C3/mary_breath.webp",
+    "cols": 13,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "look_up",
+    "file": "i7/cut/C3/mary_look_up.webp",
+    "cols": 13,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "tilt_r",
+    "file": "i7/cut/C3/mary_tilt_r.webp",
+    "cols": 13,
+    "rows": 3,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "smile",
+    "file": "i7/cut/C3/mary_smile.webp",
+    "cols": 13,
+    "rows": 3,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ },
+ "young": {
+  "home": "i7/cut/C3/young_home.png",
+  "w": 341,
+  "h": 497,
+  "gestures": [
+   {
+    "name": "breath",
+    "file": "i7/cut/C3/young_breath.webp",
+    "cols": 12,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "nod",
+    "file": "i7/cut/C3/young_nod.webp",
+    "cols": 12,
+    "rows": 2,
+    "frames": 20,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "tilt_r",
+    "file": "i7/cut/C3/young_tilt_r.webp",
+    "cols": 12,
+    "rows": 3,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "lift",
+    "file": "i7/cut/C3/young_lift.webp",
+    "cols": 12,
+    "rows": 3,
+    "frames": 32,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ },
+ "kneel": {
+  "home": "i7/cut/C3/kneel_home.png",
+  "w": 354,
+  "h": 414,
+  "gestures": [
+   {
+    "name": "blink",
+    "file": "i7/cut/C3/kneel_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "blink2",
+    "file": "i7/cut/C3/kneel_blink2.webp",
+    "cols": 11,
+    "rows": 2,
+    "frames": 16,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/C3/kneel_breath.webp",
+    "cols": 11,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "look_up",
+    "file": "i7/cut/C3/kneel_look_up.webp",
+    "cols": 11,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "smile",
+    "file": "i7/cut/C3/kneel_smile.webp",
+    "cols": 11,
+    "rows": 3,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ }
+}

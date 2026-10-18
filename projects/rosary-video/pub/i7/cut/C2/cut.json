@@ -1,0 +1,219 @@
+{
+ "young": {
+  "home": "i7/cut/C2/young_home.png",
+  "w": 257,
+  "h": 355,
+  "gestures": [
+   {
+    "name": "blink",
+    "file": "i7/cut/C2/young_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "blink2",
+    "file": "i7/cut/C2/young_blink2.webp",
+    "cols": 15,
+    "rows": 2,
+    "frames": 16,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/C2/young_breath.webp",
+    "cols": 15,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "look_up",
+    "file": "i7/cut/C2/young_look_up.webp",
+    "cols": 15,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "tilt",
+    "file": "i7/cut/C2/young_tilt.webp",
+    "cols": 15,
+    "rows": 2,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "smile",
+    "file": "i7/cut/C2/young_smile.webp",
+    "cols": 15,
+    "rows": 2,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ },
+ "old": {
+  "home": "i7/cut/C2/old_home.png",
+  "w": 148,
+  "h": 330,
+  "gestures": [
+   {
+    "name": "blink",
+    "file": "i7/cut/C2/old_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/C2/old_breath.webp",
+    "cols": 27,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "nod",
+    "file": "i7/cut/C2/old_nod.webp",
+    "cols": 20,
+    "rows": 1,
+    "frames": 20,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "tilt_r",
+    "file": "i7/cut/C2/old_tilt_r.webp",
+    "cols": 27,
+    "rows": 1,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "smile",
+    "file": "i7/cut/C2/old_smile.webp",
+    "cols": 27,
+    "rows": 1,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ },
+ "kneel": {
+  "home": "i7/cut/C2/kneel_home.png",
+  "w": 310,
+  "h": 278,
+  "gestures": [
+   {
+    "name": "blink",
+    "file": "i7/cut/C2/kneel_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "blink2",
+    "file": "i7/cut/C2/kneel_blink2.webp",
+    "cols": 13,
+    "rows": 2,
+    "frames": 16,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/C2/kneel_breath.webp",
+    "cols": 13,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "look_up",
+    "file": "i7/cut/C2/kneel_look_up.webp",
+    "cols": 13,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "nod",
+    "file": "i7/cut/C2/kneel_nod.webp",
+    "cols": 13,
+    "rows": 2,
+    "frames": 20,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ },
+ "waver": {
+  "home": "i7/cut/C2/waver_home.png",
+  "w": 142,
+  "h": 319,
+  "gestures": [
+   {
+    "name": "blink",
+    "file": "i7/cut/C2/waver_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/C2/waver_breath.webp",
+    "cols": 28,
+    "rows": 2,
+    "frames": 30,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "tilt",
+    "file": "i7/cut/C2/waver_tilt.webp",
+    "cols": 27,
+    "rows": 1,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "sway",
+    "file": "i7/cut/C2/waver_sway.webp",
+    "cols": 28,
+    "rows": 2,
+    "frames": 35,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "nod",
+    "file": "i7/cut/C2/waver_nod.webp",
+    "cols": 20,
+    "rows": 1,
+    "frames": 20,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ }
+}

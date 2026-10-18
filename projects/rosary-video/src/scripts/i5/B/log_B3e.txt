@@ -1,0 +1,1 @@
+B3_e1.jpg try1 scripts/i5/B/B3_e1.jpg (1376, 768) {'promptTokenCount': 833, 'candidatesTokenCount': 1120, 'totalTokenCount': 2214, 'thoughtsTokenCount': 261, 'promptTokensDetails': [{'modality': 'IMAGE', 'tokenCount

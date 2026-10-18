@@ -1,0 +1,63 @@
+{
+ "mary": {
+  "home": "i7/cut/C5/mary_home.png",
+  "w": 300,
+  "h": 410,
+  "gestures": [
+   {
+    "name": "blink",
+    "file": "i7/cut/C5/mary_blink.webp",
+    "cols": 10,
+    "rows": 1,
+    "frames": 10,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "blink2",
+    "file": "i7/cut/C5/mary_blink2.webp",
+    "cols": 13,
+    "rows": 2,
+    "frames": 16,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "breath",
+    "file": "i7/cut/C5/mary_breath.webp",
+    "cols": 13,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 3
+   },
+   {
+    "name": "tilt_r",
+    "file": "i7/cut/C5/mary_tilt_r.webp",
+    "cols": 13,
+    "rows": 3,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "look_up",
+    "file": "i7/cut/C5/mary_look_up.webp",
+    "cols": 13,
+    "rows": 3,
+    "frames": 30,
+    "fps": 12,
+    "weight": 2
+   },
+   {
+    "name": "smile",
+    "file": "i7/cut/C5/mary_smile.webp",
+    "cols": 13,
+    "rows": 3,
+    "frames": 27,
+    "fps": 12,
+    "weight": 2
+   }
+  ]
+ }
+}

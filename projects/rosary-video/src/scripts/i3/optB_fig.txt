@@ -1,0 +1,11 @@
+The attached image is the style reference for the holy figures: same sepia pen-and-ink linework with muted watercolor, same gentle storybook faces and robe colours.
+
+Draw an asset sheet of EXACTLY five separate flat figures, each appearing exactly once, for a small paper toy theatre of the Nativity. Each figure looks like a hand-painted cut-out from thick old paper, flat and frontal or in simple profile, with a thin pale cream paper margin around its outline. All five are drawn at the SAME consistent scale (as if they will stand together in one scene), arranged in an invisible grid of 3 columns and 2 rows: top row left to right Mary, Joseph, the manger; bottom row left to right the ox, the star. Each figure is centred in its own cell, surrounded by plenty of empty magenta space, never touching or overlapping any other figure:
+- Mary, kneeling in profile facing right, hands folded in prayer, blue-grey mantle over a cream dress, head bowed, soft gold halo disc.
+- Joseph, standing, facing left, in an ochre-brown cloak, holding a tall wooden shepherd's staff, grey-brown beard, soft gold halo disc. He is the tallest figure.
+- The manger: a small wooden trough on crossed legs filled with golden straw, the Infant Jesus swaddled in white lying in it, a pale solid gold halo disc behind his head. The manger is about knee-high to Joseph.
+- An ox lying down calmly, facing left, warm brown with small curved horns, about as tall as the kneeling Mary.
+- A single eight-pointed star, pale gold, drawn as one compact solid flat paper shape with no separate rays or sparkles around it, smaller than the manger.
+
+The holy figures are simple, gentle and quiet, slightly flat like figures in an old storybook or a small icon: calm oval faces with closed or lowered eyes, soft simple robes, no exaggerated or grotesque features.
+Each piece stands alone: no ground, no cast shadow, no scenery, no soft glow, no smoke. Background: perfectly flat solid magenta #FF00FF everywhere. No figure contains magenta or pink; use dusty blue, ochre, brown, cream and gold. No text, no labels, no numbers, no signature, no border.

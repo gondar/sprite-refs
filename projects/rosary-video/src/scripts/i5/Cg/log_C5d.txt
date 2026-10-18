@@ -1,0 +1,1 @@
+C5_d.jpg try1 scripts/i5/Cg/C5_d.jpg (1376, 768) {'promptTokenCount': 2835, 'candidatesTokenCount': 1120, 'totalTokenCount': 4303, 'thoughtsTokenCount': 348, 'promptTokensDetails': [{'modality': 'IMAGE', 'tokenCoun

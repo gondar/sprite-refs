@@ -1,0 +1,19 @@
+C4 mary blink 10 fr ends 0.0 0.0 bottom15% 0.0 KB 117
+C4 mary blink2 16 fr ends 0.0 0.0 bottom15% 0.0 KB 185
+C4 mary breath 30 fr ends 0.0 0.0 bottom15% 0.022 KB 416
+C4 mary look_up 30 fr ends 0.0 0.0 bottom15% 0.0 KB 331
+C4 mary tilt_r 27 fr ends 0.0 0.0 bottom15% 0.0 KB 299
+C4 mary smile 27 fr ends 0.0 0.0 bottom15% 0.0 KB 300
+C4 old blink 10 fr ends 0.0 0.0 bottom15% 0.0 KB 98
+C4 old breath 30 fr ends 0.0 0.0 bottom15% 0.045 KB 333
+C4 old nod 20 fr ends 0.0 0.0 bottom15% 0.0 KB 200
+C4 old look_up 30 fr ends 0.0 0.0 bottom15% 0.0 KB 292
+C4 old tilt 27 fr ends 0.0 0.0 bottom15% 0.0 KB 266
+C4 young blink 10 fr ends 0.0 0.0 bottom15% 0.0 KB 104
+C4 young blink2 16 fr ends 0.0 0.0 bottom15% 0.0 KB 157
+C4 young breath 30 fr ends 0.0 0.0 bottom15% 0.0 KB 334
+C4 young tilt 27 fr ends 0.0 0.0 bottom15% 0.0 KB 267
+C4 young smile 27 fr ends 0.0 0.0 bottom15% 0.0 KB 264
+mary home + ['blink', 'blink2', 'breath', 'look_up', 'tilt_r', 'smile']
+old home + ['blink', 'breath', 'nod', 'look_up', 'tilt']
+young home + ['blink', 'blink2', 'breath', 'tilt', 'smile']

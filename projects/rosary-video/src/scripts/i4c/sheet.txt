@@ -1,0 +1,10 @@
+The attached image is the character reference: a tiny hazel dormouse with golden-ginger fur, cream belly and chin, huge round dark eyes with a small white highlight, small round pinkish ears, tiny pink nose, compact round body, and a big fluffy ginger tail drawn as a single flowing spiral curl. Keep exactly this character design, colours, proportions and drawing style (flat 2D Cartoon Saloon / Tomm Moore look, soft dark-brown pencil outline, textured gouache fill).
+
+Create a character pose sheet: the SAME dormouse drawn four times in one horizontal row, left to right, all at the same scale, all facing RIGHT (head toward the right edge of the image), each pose well separated with wide empty gaps so no two poses touch or overlap:
+1. Running: bounding gallop, body low, front paws reaching forward, hind legs pushing back, tail streaming behind in its spiral curl.
+2. Leaping: stretched out long in mid-air, front paws reaching far forward, hind legs extended back, tail flowing behind.
+3. Landing crouch: just landed, body squashed low and round, all four paws on the ground, tail curled up over the back.
+4. Sitting upright on its haunches, looking up toward the upper right with wonder, front paws held together at the chest, tail curled up behind in a spiral.
+
+Background: one perfectly flat, uniform pure bright green (#00FF00) colour filling the entire image, with no shadows, no ground line, no gradient, no texture, no glow. Nothing else in the image: no bead, no light trails, no props.
+No text, no labels, no numbers, no signature, no watermark.

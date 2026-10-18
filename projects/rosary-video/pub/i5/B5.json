@@ -1,0 +1,62 @@
+{
+ "id": "B5",
+ "full": "i5/B5_full.jpg",
+ "plate": "i5/B5_plate.jpg",
+ "figs": [
+  {
+   "name": "mary",
+   "file": "i5/B5_fig_mary.png",
+   "bbox": [
+    0.6199,
+    0.306,
+    0.117,
+    0.4974
+   ],
+   "pivot": [
+    0.5,
+    0.98
+   ],
+   "head": [
+    0.38,
+    0.09
+   ],
+   "motion": "standing grief: slow breath scaleY 1->1.008 from the feet (5 s); figures touch (John's hand on her shoulder): tiny rotation only <=0.5 deg"
+  },
+  {
+   "name": "john",
+   "file": "i5/B5_fig_john.png",
+   "bbox": [
+    0.6897,
+    0.2669,
+    0.1156,
+    0.4909
+   ],
+   "pivot": [
+    0.5,
+    0.98
+   ],
+   "head": [
+    0.48,
+    0.11
+   ],
+   "motion": "breath scaleY 1->1.008 from the feet (5.5 s, out of phase with Mary); his hand rests on Mary: no rotation >0.5 deg"
+  }
+ ],
+ "land": [
+  0.85,
+  0.8
+ ],
+ "light": [
+  0.4,
+  0.38
+ ],
+ "fx": {
+  "foliage": null,
+  "water": null,
+  "glow": [
+   0.4,
+   0.385,
+   0.05
+  ]
+ }
+}

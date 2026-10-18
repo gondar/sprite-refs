@@ -1,0 +1,176 @@
+{
+ "id": "R1",
+ "units": "all x,y,bbox,pts in frame fractions of 1376x768; r = fraction of frame HEIGHT; pivot = fraction of the layer box; amp = max sideways displacement of the layer top as fraction of layer height (~radians of bend); speed = cycles/second",
+ "draw_order": "plate (or plate_clean) -> beam/disc/shimmer/flicker fx -> sway layers -> figures -> particles(front ones) -> dormouse -> caption",
+ "sway": [
+  {
+   "name": "curtain",
+   "file": "i6/fx/R1_curtain.png",
+   "bbox": [
+    0.7253,
+    0.1016,
+    0.1141,
+    0.5898
+   ],
+   "pivot": [
+    0.479,
+    0.006
+   ],
+   "amp": 0.012,
+   "speed": 0.25,
+   "motion": "bend: horizontal shift grows with distance from pivot (top moves, pivot row fixed)",
+   "note": "cloth hanging from the rod: top fixed, hem drifts in the draught from the door"
+  }
+ ],
+ "flicker": [
+  {
+   "x": 0.633,
+   "y": 0.462,
+   "r": 0.022,
+   "color": "#ffb347",
+   "speed": 7.0,
+   "glow": 0.09,
+   "note": "oil-lamp flame; also brighten wall glow"
+  }
+ ],
+ "shimmer": [
+  {
+   "y0": 0.33,
+   "y1": 0.445,
+   "x0": 0.615,
+   "x1": 0.652,
+   "amp": 0.002,
+   "note": "heat haze above the flame"
+  }
+ ],
+ "beam": [
+  {
+   "pts": [
+    [
+     0.09,
+     0.12
+    ],
+    [
+     0.145,
+     0.12
+    ],
+    [
+     0.335,
+     0.44
+    ],
+    [
+     0.43,
+     0.8
+    ],
+    [
+     0.1,
+     0.8
+    ]
+   ],
+   "color": "#cfe0ff",
+   "note": "cool daylight from the door; dust motes drift slowly inside"
+  }
+ ],
+ "disc": [],
+ "particles": [
+  {
+   "type": "dust",
+   "region": [
+    0.1,
+    0.14,
+    0.42,
+    0.79
+   ],
+   "note": "inside door beam only, slow drift"
+  },
+  {
+   "type": "flour_puffs",
+   "region": [
+    0.55,
+    0.72,
+    0.75,
+    0.84
+   ],
+   "note": "rare tiny white puffs near the trough, optional"
+  }
+ ],
+ "route": [
+  {
+   "t": 3.88,
+   "x": 0.82,
+   "y": 0.86,
+   "act": "stop_sniff",
+   "facing": "left",
+   "note": "po lądowaniu na macie"
+  },
+  {
+   "t": 4.7,
+   "x": 0.82,
+   "y": 0.86,
+   "act": "idle_look",
+   "facing": "left",
+   "note": "zauważa Maryję i anioła"
+  },
+  {
+   "t": 5.1,
+   "x": 0.82,
+   "y": 0.86,
+   "act": "jump",
+   "facing": "left",
+   "note": "skok na półkę przy lampce"
+  },
+  {
+   "t": 6.6,
+   "x": 0.708,
+   "y": 0.512,
+   "act": "groom_wonder",
+   "facing": "left",
+   "note": "patrzy na tajemnicę"
+  },
+  {
+   "t": 8.2,
+   "x": 0.708,
+   "y": 0.512,
+   "act": "idle_look",
+   "facing": "right"
+  },
+  {
+   "t": 8.67,
+   "x": 0.708,
+   "y": 0.512,
+   "act": "idle_look",
+   "facing": "right"
+  }
+ ],
+ "watch": [
+  0.708,
+  0.512
+ ],
+ "caption": {
+  "pos": "bottom-left",
+  "x": 0.03,
+  "y": 0.855,
+  "w": 0.36,
+  "h": 0.1
+ },
+ "dormouse": {
+  "height": 0.17,
+  "note": "y = feet contact; 'facing' applies to the segment that starts at that point"
+ },
+ "plate_clean": "i6/fx/R1_plate_clean.jpg",
+ "drift": {
+  "angel": {
+   "from": [
+    -0.035,
+    -0.01
+   ],
+   "to": [
+    0,
+    0
+   ],
+   "t0": 0.3,
+   "t1": 3.2,
+   "a0": 0.4
+  }
+ }
+}

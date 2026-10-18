@@ -1,0 +1,83 @@
+{
+ "id": "S3",
+ "full": "i5/S3_full.jpg",
+ "plate": "i5/S3_plate.jpg",
+ "figs": [
+  {
+   "name": "jesus",
+   "file": "i5/S3_fig_jesus.png",
+   "bbox": [
+    0.2674,
+    0.2227,
+    0.1948,
+    0.6198
+   ],
+   "pivot": [
+    0.381,
+    0.586
+   ],
+   "motion": "seated on the boat rim, talking: slow breath scaleY 1->1.006 from the pivot; keep tiny; tiny forward lean 0.4deg toward the listeners"
+  },
+  {
+   "name": "boy",
+   "file": "i5/S3_fig_boy.png",
+   "bbox": [
+    0.6025,
+    0.293,
+    0.0828,
+    0.5039
+   ],
+   "pivot": [
+    0.447,
+    0.556
+   ],
+   "motion": "standing in the water with a rope: slow breath scaleY 1->1.006 from the pivot; keep tiny from the feet; tiny sway 0.3deg"
+  },
+  {
+   "name": "child",
+   "file": "i5/S3_fig_child.png",
+   "bbox": [
+    0.5458,
+    0.569,
+    0.1257,
+    0.2331
+   ],
+   "pivot": [
+    0.312,
+    0.978
+   ],
+   "motion": "sitting hugging her knees: slow breath scaleY 1->1.006 from the pivot; keep tiny from the seat; tiny rock 0.4deg toward Jesus"
+  },
+  {
+   "name": "fisherman",
+   "file": "i5/S3_fig_fisherman.png",
+   "bbox": [
+    0.6315,
+    0.3802,
+    0.2078,
+    0.4622
+   ],
+   "pivot": [
+    0.633,
+    0.755
+   ],
+   "motion": "seated mending the net: slow breath scaleY 1->1.006 from the pivot; keep tiny from the seat; no rotation (net on the ground is part of the layer)"
+  }
+ ],
+ "land": [
+  0.52,
+  0.948
+ ],
+ "light": [
+  0.39,
+  0.05
+ ],
+ "fx": {
+  "foliage": null,
+  "water": [
+   0.3,
+   0.48
+  ],
+  "glow": null
+ }
+}
