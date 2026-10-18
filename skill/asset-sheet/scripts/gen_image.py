@@ -61,6 +61,10 @@ def gemini(a, prompt):
         parts.append({"inline_data": {"mime_type": mime, "data": base64.b64encode(open(r, "rb").read()).decode()}})
     body = {"contents": [{"role": "user", "parts": parts}],
             "generationConfig": {"responseModalities": ["IMAGE"], "imageConfig": dict({"aspectRatio": a.aspect}, **({"imageSize": a.size} if a.size else {}))}}
+    if a.stream:  # the gateway cuts a call that sends no byte for ~30 s; streamed thoughts keep it talking
+        body["generationConfig"]["responseModalities"] = ["TEXT", "IMAGE"]
+        body["generationConfig"]["thinkingConfig"] = {"includeThoughts": True}
+        return gemini_sse(a, body)
     res = post(f"{HOST}/v1beta/models/{a.model}:generateContent", json.dumps(body).encode(),
                {"Content-Type": "application/json"})
     img, text = None, []
@@ -71,6 +75,31 @@ def gemini(a, prompt):
         elif "text" in p: text.append(p["text"])
     cost = PER_CALL.get(a.model, 0.1) if img else 0
     return img, res.get("usageMetadata", {}), cost, " ".join(text)[:300], cand.get("finishReason")
+
+
+def gemini_sse(a, body):
+    """Gemini streamed: keep the last image that is NOT a thought (thought images are drafts)."""
+    req = urllib.request.Request(f"{HOST}/v1beta/models/{a.model}:streamGenerateContent?alt=sse",
+                                 data=json.dumps(body).encode(),
+                                 headers={**auth(), "Content-Type": "application/json", "Accept": "text/event-stream"})
+    t0 = time.time(); first = None; n = 0; img = None; usage = {}; finish = None; text = []
+    with urllib.request.urlopen(req, timeout=360) as r:
+        for raw in r:
+            line = raw.decode(errors="replace").strip()
+            if not line.startswith("data:"): continue
+            try: ev = json.loads(line[5:].strip())
+            except ValueError: continue
+            if first is None: first = round(time.time() - t0, 1)
+            n += 1
+            cand = (ev.get("candidates") or [{}])[0]
+            finish = cand.get("finishReason") or finish
+            usage = ev.get("usageMetadata") or usage
+            for p in cand.get("content", {}).get("parts", []):
+                d = p.get("inlineData") or p.get("inline_data")
+                if d and not p.get("thought"): img = base64.b64decode(d["data"])
+                elif "text" in p and not p.get("thought"): text.append(p["text"])
+    note = json.dumps({"events": n, "first_event_s": first, "text": " ".join(text)[:200]})
+    return img, usage, PER_CALL.get(a.model, 0.1) if img else 0, note, finish
 
 
 def sse(url, data, headers, timeout=360):
@@ -127,7 +156,7 @@ def main():
     ap.add_argument("--aspect", default="1:1"); ap.add_argument("--background")
     ap.add_argument("--size", help="Gemini only: 1K | 2K | 4K output (more pixels per asset on a dense sheet)")
     ap.add_argument("--quality"); ap.add_argument("--tag", default="")
-    ap.add_argument("--stream", type=int, default=0, help="OpenAI only: stream with N partial images (1-3)")
+    ap.add_argument("--stream", type=int, default=0, help="OpenAI: stream with N partial images (1-3). Gemini: any N>0 streams the thoughts, which keeps a call slower than ~30 s alive")
     a = ap.parse_args()
     if a.background == "transparent" and a.model.startswith("gpt-image-2"):
         sys.exit("gpt-image-2 refuses background=transparent (image-generation skill); use gpt-image-1.5")
