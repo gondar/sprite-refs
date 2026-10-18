@@ -47,7 +47,7 @@ Owner decisions so far, collected over 7 iterations. Every scene is judged again
 
 ## People
 - **Figures are intimate, human, mid-gesture,** a little tender or playful. The angel whispers into Mary's ear; Elizabeth laughs.
-- **Mary is a poor village girl of about 14–15:** barefoot, patched dress, rough head cloth, working hands.
+- **Mary is a poor village girl of about 14–15** (in her 50s under the cross, B5 — see Continuity): barefoot, patched dress, rough head cloth, working hands.
 - **Figures must live.** "animacja Maryi i anioła jest zbyt statyczna".
   - Every figure gets a cutout idle bag: blink, glance, breath, small head tilt, lips.
   - Every figure also gets slow code motion (breath, lean).
@@ -93,7 +93,9 @@ Owner decisions so far, collected over 7 iterations. Every scene is judged again
 9. Text, letters or a signature inside the painted image.
 
 ## Continuity (added during production)
-- **Mary is the same person in every scene:** a young girl with a beige head cloth and a grey-blue patched dress, as in R1.
-  - From R3 to C5 pass a crop of her from `i5/R1_full.jpg` as an identity reference.
-  - She is never an old woman and never a cute storybook girl.
+- **Mary is the same person in every scene:** the R1 girl, with a beige head cloth and a grey-blue patched dress, poor and simple.
+  - **Joyful mysteries:** she is the young R1 girl (about 14–15).
+  - **Under the cross (B5):** she is the same woman in her 50s (owner decision, iteration 9): the R1 face grown older, slightly thinner, fine lines at the eyes, a few grey strands under the cloth; a tired, quiet grief, no pathos and no streaming tears.
+  - From R3 to C5 pass a crop of her from `i5/R1_full.jpg` as an identity reference (for B5, the face of `i5/B5_full.jpg`).
+  - She is never a frail old woman and never a cute storybook girl.
 - **Symbols the engine animates** (for example the crown of 12 stars in C5) are drawn in code from `i6/fx/<id>.json`, not painted. Leave clear space for them in the image.

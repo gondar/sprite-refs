@@ -6,7 +6,7 @@ const MIME={'.html':'text/html; charset=utf-8','.js':'text/javascript','.json':'
 const srv=http.createServer((q,r)=>{const f=path.join(ROOT,decodeURIComponent(q.url.split('?')[0]));fs.readFile(f,(e,d)=>{if(e){r.writeHead(404);r.end();return}r.writeHead(200,{'Content-Type':MIME[path.extname(f)]||'application/octet-stream'});r.end(d)})});
 srv.listen(0,async()=>{
  const b=await chromium.launch();const p=await b.newPage({viewport:{width:1300,height:900}});const errs=[];p.on('pageerror',e=>errs.push(String(e.stack||e)));
- await p.goto(`http://localhost:${srv.address().port}/index.html`);await p.waitForTimeout(8000);
+ await p.goto(`http://localhost:${srv.address().port}/index.html`,{waitUntil:'domcontentloaded',timeout:60000});await p.waitForTimeout(15000);
  await p.evaluate(()=>{const c=document.createElement('canvas');c.width=1280;c.height=720;window.__fc=c;window.__fx=c.getContext('2d');for(let k=0;k<22;k++)renderTo(window.__fx,k<21?INTRO+(k-1)*M+5:OUTRO+2)});
  await p.waitForTimeout(8000);const t0=Date.now();
  for(let k=F0;k<F1;k+=12){

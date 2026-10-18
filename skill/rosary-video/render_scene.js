@@ -8,7 +8,7 @@ const srv=http.createServer((q,r)=>{const f=path.join(ROOT,decodeURIComponent(q.
 srv.listen(0,async()=>{
  const port=srv.address().port;const b=await chromium.launch();const p=await b.newPage({viewport:{width:1300,height:900}});
  const errs=[];p.on('pageerror',e=>errs.push(String(e.stack||e)));
- await p.goto(`http://localhost:${port}/index.html`);await p.waitForTimeout(7000);
+ await p.goto(`http://localhost:${port}/index.html`,{waitUntil:'domcontentloaded',timeout:60000});await p.waitForTimeout(7000);
  const T=[0.4,1.2,2.0,2.6,3.4,4.2,5.0,6.0,7.0,8.0,9.0,9.9];
  const res=await p.evaluate(({n,T})=>{
   const c=document.createElement('canvas');c.width=1280;c.height=720;const x=c.getContext('2d');
