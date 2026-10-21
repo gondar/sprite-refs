@@ -1,0 +1,23 @@
+Game asset sheet: separate comic paper cut-out BUILDINGS and big PROPS for a children's game about the history of Wielkopolska and Poznan, Poland. Drawn in the style of a 1970s Polish comic book (the Papcio Chmiel school, Tytus Romek i A'Tomek era) — exactly the style of the reference image: bold lively black brush-ink outlines of varying weight, flat bright offset-print colours, simple ink hatching for shade, cheerful cartoon proportions with big heads, round noses, big expressive friendly faces. Every figure is a paper cut-out sticker: a clean white scissor-cut card border about 12 px wide runs all around its black ink outline. Drawn flat-on, each piece stands on its own: no ground, no grass, no cast shadow, no scenery. Do not draw any existing comic character, only the style.
+Use the reference image only for the drawing style and the white paper border (its oak, cathedral, hotel, town hall and tram show the exact look); draw new, more detailed pieces.
+Draw EXACTLY 18 separate pieces, one per cell of an invisible 3 x 6 grid (3 rows of 6), in the order of this list in reading order (row 1 left to right, then row 2, then row 3), each piece centred in its own cell, filling about 85% of the cell, never touching or overlapping a neighbour, wide empty background between them. Buildings drawn straight from the front, the bottom edge of each building cut straight and level:
+- a huge ancient oak tree with a gnarled trunk and a wide green crown, a big EMPTY round eagle's nest of sticks sitting in the middle of its crown, no bird, no ground
+- an early-medieval wooden palace (palatium) of dark timber with a shingle roof, joined to a small round chapel of pale stone blocks with a conical roof
+- Gniezno cathedral: a red-brick Gothic cathedral with TWO tall towers topped by green copper baroque spires
+- Hotel Bazar in Poznan: a cream 19th-century hotel, 3 storeys, red roof, rows of tall windows, an empty balcony with a railing in the middle of the first floor, NOBODY on the balcony, no sign, no lettering
+- the Poznan Renaissance town hall: white and cream facade with three storeys of arcaded loggias, painted attic, a tall slender clock tower with a green copper spire and a small eagle on top
+- a row of five narrow tall colourful merchant houses of the Poznan Old Market square, side by side, each a different colour (yellow, orange, red, blue, ochre) with arcaded ground floor and stepped or curved gables
+- the gate of a 1950s brick factory: red-brick walls with a big iron double gate in the middle, a small gatehouse, and one very tall red-brick chimney behind it, no smoke
+- an early-medieval round tent of striped red-and-cream cloth with a wooden pole sticking out of the top
+- a 1950s Poznan tram, side view, red bottom and cream top, two pantograph poles on the roof, windows, no number, no lettering
+- a 1950s army tank, side view, FACING LEFT with its gun pointing level to the left, hatch closed, olive-drab, chunky and round like a toy, comic and friendly, not scary, not firing, no star, no markings
+- a small dugout boat carved from one log, with a cheerful bearded Slavic man sitting in it holding a paddle, side view
+- a wooden baptismal tub made of staves with iron hoops, filled with blue water, waist-high
+- St Martin, a Roman soldier-saint in a red cloak and a golden helmet, riding a big white horse walking to the left, side view, smiling
+- two 1956 factory workers in caps walking side by side, each holding one tall wooden pole, a long BLANK plain white cloth banner stretched tight between the two poles above their heads, the cloth completely empty with nothing written on it
+- a white goat with curved horns standing on its hind legs, facing RIGHT, ready to butt, comic
+- a white goat with curved horns standing on its hind legs, facing LEFT, ready to butt, comic, mirror twin of the previous one
+- an EMPTY plain red heraldic shield (heater shape: flat top, straight sides curving down to one point at the bottom), plain flat red with a thin dark edge, nothing on it
+- a white-and-red Polish flag (white stripe on top, red stripe below) waving on a tall thin wooden flagpole with a gold knob
+Each piece stands alone. Draw NO text anywhere: no letters, no numbers, no signs, no labels, no captions, no grid lines, no borders between cells.
+Background: perfectly flat solid magenta #FF00FF everywhere around the white paper borders. No piece may contain magenta, pink or purple; use red, orange, blue instead.

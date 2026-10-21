@@ -1,0 +1,20 @@
+Game asset sheet: separate comic paper cut-out FIGURES for a children's game about the early history of Wielkopolska, Poland. Drawn in the style of a 1970s Polish comic book (the Papcio Chmiel school, Tytus Romek i A'Tomek era) — exactly the style of the reference image: bold lively black brush-ink outlines of varying weight, flat bright offset-print colours, simple ink hatching for shade, cheerful cartoon proportions with big heads, round noses, big expressive friendly faces. Every figure is a paper cut-out sticker: a clean white scissor-cut card border about 12 px wide runs all around its black ink outline. Drawn flat-on, each figure stands on its own feet: no ground, no grass, no cast shadow, no scenery. Do not draw any existing comic character, only the style.
+Use the reference image only for the drawing style and the white paper border; draw new figures, bigger and more detailed than its small people, like its large crowd at the bottom.
+Draw EXACTLY 15 separate full-length standing figures, one per cell of an invisible 3 x 5 grid (3 rows of 5), in the order of this list in reading order (row 1 left to right, then row 2, then row 3), each figure centred in its own cell, filling about 85% of the cell's height, never touching or overlapping a neighbour, wide empty background between them. Every figure faces the viewer or stands in 3/4 view, whole body from head to feet:
+- Lech, a legendary Slavic chieftain, walking to the right, long brown beard, fur-trimmed red-brown tunic, round fur cap, holding a tall spear upright
+- a Slavic warrior walking to the right, young, linen tunic, leather helmet, spear upright and a round wooden shield with an iron boss
+- another Slavic warrior walking to the right, older with a blond moustache, brown tunic, conical helmet, spear upright and a round blue-and-yellow shield
+- Duke Mieszko the First standing, moustache, dark-red cloak with a gold brooch, hands together, head slightly bowed humbly
+- Princess Dobrawa of Bohemia standing, long blue dress, white veil and a small gold circlet, hands folded, gentle smile
+- a sturdy cheerful early-medieval Polish warrior, conical iron helmet with a nose guard, chain mail shirt, spear upright, round red shield
+- a sturdy cheerful warrior with a big beard, round iron helmet, chain mail, red tunic underneath, spear, round blue shield with a white cross
+- a sturdy cheerful young warrior, conical helmet, chain mail, leather belt, spear on his shoulder, round yellow shield with a red boss
+- a sturdy cheerful warrior with a grey moustache, helmet with a nose guard, chain mail, axe at his belt, spear upright, round brown wooden shield
+- King Boleslaw the Brave walking in a procession to the right, golden crown, long red royal cloak with white ermine collar, holding a golden sceptre, big beard, proud happy face
+- a medieval man walking to the right carrying a tall wooden pole with a long plain red banner flying from its top, blue tunic
+- a medieval townsman cheering with both arms up, brown hood, olive tunic
+- a medieval townswoman cheering with both arms up, headscarf, long red dress and apron
+- a medieval old man cheering with one arm up and a cap in his hand, grey beard, blue tunic
+- a medieval boy cheering with both arms up, short tunic, bare head, big smile
+Each figure stands alone. Draw NO text anywhere: no letters, no numbers, no labels, no captions, no grid lines, no borders between cells.
+Background: perfectly flat solid pure green #00FF00 everywhere around the white paper borders. No figure may contain bright green; use olive, brown, blue, red instead.
