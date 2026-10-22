@@ -1,0 +1,14 @@
+{
+ "image": "atlas.png",
+ "frames": {
+  "ship": {
+   "x": 0,
+   "y": 0,
+   "w": 1400,
+   "h": 1264
+  }
+ },
+ "source": "refs/abordaz/gen/ship.png",
+ "grid": "1x1",
+ "key": "magenta"
+}
