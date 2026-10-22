@@ -1,0 +1,23 @@
+Game asset sheet: separate comic paper cut-out FIGURES for a children's game about the history of Poznan, Poland. Drawn in the style of a 1970s Polish comic book (the Papcio Chmiel school, Tytus Romek i A'Tomek era) — exactly the style of the reference image: bold lively black brush-ink outlines of varying weight, flat bright offset-print colours, simple ink hatching for shade, cheerful cartoon proportions with big heads, round noses, big expressive friendly faces. Every figure is a paper cut-out sticker: a clean white scissor-cut card border about 12 px wide runs all around its black ink outline. Drawn flat-on, each figure stands on its own feet: no ground, no grass, no cast shadow, no scenery. Do not draw any existing comic character, only the style.
+Use the reference image only for the drawing style and the white paper border; draw new figures, as big and as detailed as its large crowd at the bottom.
+Draw EXACTLY 18 separate pieces, one per cell of an invisible 3 x 6 grid (3 rows of 6), in the order of this list in reading order (row 1 left to right, then row 2, then row 3), each piece centred in its own cell, people filling about 85% of the cell's height, never touching or overlapping a neighbour, wide empty background between them. People face the viewer or stand in 3/4 view, whole body from head to feet unless said otherwise:
+- a cheerful man of 1918 in a long brown winter coat and flat cap, holding up a small white-and-red Polish flag on a stick
+- a young woman of 1918 in a mustard winter coat with a fur collar and a knitted hat, waving a white-and-red flag
+- an old man of 1918 with a white moustache, grey overcoat, fur hat, holding a white-and-red flag
+- a boy of 1918 in a short navy coat, scarf and cap, waving a white-and-red flag above his head
+- a woman of 1918 in a dark-blue coat and headscarf, holding a white-and-red flag on a pole
+- a modern child (girl) in a red puffer jacket and bobble hat, holding a big golden St Martin's croissant in both hands
+- a 1956 factory worker marching to the right, flat cap, blue overalls, rolled sleeves, fists at his sides, determined but friendly face
+- a 1956 factory worker marching, beret, grey work jacket, a tool bag on his shoulder, determined face
+- a 1956 woman factory worker marching, headscarf, brown work apron over a dress, determined face
+- a 1956 old factory worker marching, cap, moustache, dark-blue jacket, determined face
+- a modern child (boy) in a yellow raincoat, holding up a golden St Martin's croissant
+- a modern child (small girl) in a blue coat, munching a golden St Martin's croissant, happy
+- a medieval bishop standing in 3/4 view facing left, tall white-and-gold mitre, white robe with gold trim, red cope, kind face, left hand holding a golden crozier; his RIGHT ARM IS NOT DRAWN AT ALL: on that side the robe ends at the shoulder in a smooth rounded line (the arm is a separate piece)
+- the same bishop's right arm ALONE, same size and style as the bishop: white sleeve with gold trim from the shoulder to the hand, slightly bent, the hand holding a small brown clay jug tipped to pour; the shoulder end is a rounded top
+- Ignacy Paderewski, the pianist, shown only from the waist up (cut straight at the waist), huge wild reddish-blond hair, moustache, black frock coat, white shirt and bow tie, joyful face, his RIGHT ARM IS NOT DRAWN AT ALL: on that side the coat ends at the shoulder in a smooth rounded line (the arm is a separate piece)
+- the same Paderewski's right arm ALONE, same size and style: black coat sleeve from the shoulder, white cuff, raised up with the open hand waving, the shoulder end is a rounded bottom
+- a golden royal crown alone, medieval, with five big fleur-de-lis points and red and blue jewels
+- a golden-brown St Martin's croissant (rogal) alone, big crescent with a white icing glaze and poppy seeds
+Each piece stands alone. Draw NO text anywhere: no letters, no numbers, no labels, no captions, no grid lines, no borders between cells.
+Background: perfectly flat solid pure green #00FF00 everywhere around the white paper borders. No piece may contain bright green; use olive, brown, blue, red instead.

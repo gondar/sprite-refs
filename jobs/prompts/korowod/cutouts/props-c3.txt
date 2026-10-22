@@ -1,0 +1,22 @@
+Game asset sheet: separate comic paper cut-out PROPS, vehicles, animals and bushes for a children's game about the history of Wielkopolska and Poznan, Poland. Drawn in the style of a 1970s Polish comic book (the Papcio Chmiel school, Tytus Romek i A'Tomek era) — exactly the style of the reference image: bold lively black brush-ink outlines of varying weight, flat bright offset-print colours, simple ink hatching for shade, cheerful cartoon proportions with big heads, round noses, big expressive friendly faces. Every figure is a paper cut-out sticker: a clean white scissor-cut card border about 12 px wide runs all around its black ink outline. Drawn flat-on, each piece stands on its own: no ground, no grass, no cast shadow, no scenery. Do not draw any existing comic character, only the style.
+Use the reference image only for the drawing style and the white paper border (its oak, cathedral, hotel, town hall and tram show the exact look); draw new, more detailed pieces.
+Draw EXACTLY 17 separate pieces, arranged in 3 rows (6 in row 1, 6 in row 2, 5 in row 3), in the order of this list in reading order (row 1 left to right, then row 2, then row 3), each piece centred in its own slot, as big as the slot allows, never touching or overlapping a neighbour, clear empty background between them:
+- an early-medieval round tent of striped red-and-cream cloth with a wooden pole sticking out of the top
+- a 1950s Poznan tram, side view, red bottom and cream top, two pantograph poles on the roof, windows, no number, no lettering
+- a 1950s army tank, side view, FACING LEFT with its gun pointing level to the left, hatch closed, olive-drab, chunky and round like a toy, comic and friendly, not scary, not firing, no star, no markings
+- a small dugout boat carved from one log, with a cheerful bearded Slavic man sitting in it holding a paddle, side view
+- a wooden baptismal tub made of staves with iron hoops, filled with blue water, waist-high
+- St Martin, a Roman soldier-saint in a red cloak and a golden helmet, riding a big white horse walking to the left, side view, smiling
+- two 1956 factory workers in caps walking side by side, each holding one tall wooden pole, a long BLANK plain white cloth banner stretched tight between the two poles above their heads, the cloth completely empty with nothing written on it
+- a white goat with curved horns standing on its hind legs, facing RIGHT, ready to butt, comic
+- a white goat with curved horns standing on its hind legs, facing LEFT, ready to butt, comic, mirror twin of the previous one
+- an EMPTY plain red heraldic shield (heater shape: flat top, straight sides curving down to one point at the bottom), plain flat red with a thin dark edge, nothing on it
+- a white-and-red Polish flag (white stripe on top, red stripe below) waving on a tall thin wooden flagpole with a gold knob
+- a round leafy comic bush, dark and light green, simple hatching
+- a wide low clump of tall meadow grass and reeds with a few small yellow flowers
+- a lumpy hazel shrub, wider than tall, olive and green leaves
+- a small group of four grey field boulders of different sizes lying together
+- a tall clump of dry golden grass and thistles
+- two big mossy grey field stones lying together
+Each piece stands alone, the bushes and stones too (no ground under them). Draw NO text anywhere: no letters, no numbers, no signs, no labels, no captions, no grid lines, no borders between cells.
+Background: perfectly flat solid magenta #FF00FF everywhere around the white paper borders. No piece may contain magenta, pink or purple; use red, orange, blue instead.

@@ -1,0 +1,1 @@
+{"job_id": "20261021-201901-954168", "ok": true, "s": 42.9, "cost_usd": 0.09, "tag": "korowod-eagle2-home-b"}

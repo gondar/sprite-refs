@@ -1,0 +1,1 @@
+{"job_id": "20261021-202015-7c928f", "ok": true, "s": 60.4, "cost_usd": 0.09, "tag": "korowod-eagle2-perch-a"}
