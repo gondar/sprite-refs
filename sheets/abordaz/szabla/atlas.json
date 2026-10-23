@@ -1,0 +1,14 @@
+{
+ "image": "atlas.png",
+ "frames": {
+  "szabla": {
+   "x": 0,
+   "y": 0,
+   "w": 746,
+   "h": 900
+  }
+ },
+ "source": "refs/abordaz/gen/szabla-noarm.png",
+ "grid": "1x1",
+ "key": "magenta"
+}

@@ -1,0 +1,10 @@
+szabla-body
+szabla-arm
+lina-hang
+pieprznik
+grzmot
+lina-crouch
+lina-leap
+lina-air
+lina-land
+szabla-cheer

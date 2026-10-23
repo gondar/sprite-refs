@@ -1,0 +1,18 @@
+Character cut-out sheet for a children's music game: the pirate crew from the attached moodboard (the second image is the canonical crew line-up — copy those designs exactly: faces, clothes, colours, proportions). Style: a European watercolour picture-book illustration. Wet-in-wet sky, transparent glazes, sun glints and foam lifted out of the white paper, visible soft paper grain. Characters are simple, friendly figures with a thin, even sepia outline (#3A3330) and flat watercolour fills, big readable silhouettes. Sunny summer palette, warm but mid-key, NOT high contrast, not busy: sky #7DB4E0, sea #3C9BA8 to deep #2F6F8F, ship wood #A8744A, sails #EAD9B5, pirate red #D2603F, navy #33476B, treasure gold #E2B04A. Original designs only.
+
+Draw EXACTLY 10 separate figures, one per cell of an invisible 5 x 2 grid (2 rows of 5), in this reading order (row 1 left to right, then row 2), each centred in its own cell, filling about 75% of the cell height, never touching a neighbour, wide empty space between them. ALL figures at the same scale family (a child-sized crew), all FACING RIGHT, full body, nothing cropped:
+- Kapitan Szabla: a SMALL, confident boy captain with a round young CLEAN-SHAVEN face (no moustache, no beard), a big black tricorne hat with a white plume, a red cape, a navy coat. He stands in a heroic pose, his LEFT arm holds a small ukulele against his chest. His RIGHT arm is MISSING entirely (it is drawn separately in the next cell) — the shoulder just ends cleanly at the coat.
+- Kapitan Szabla's right arm ALONE, separated: the navy sleeve from the shoulder to the hand, the hand gripping a cartoon cutlass (curved blade, gold hilt), the arm stretched out horizontally to the right, blade pointing up-right. Nothing else.
+- Mała Lina hanging: a small quick girl with a red knotted head-scarf, striped top, green trousers, striped leggings, NO eyepatch, hanging from both raised hands (hands together above her head, gripping nothing — the rope will be drawn later), legs swinging happily, big smile.
+- Pieprznik: a noodle-thin sailor in a blue-and-white striped shirt and a BLUE knitted cap, long nose, holding a long wooden pepper mill like a fencing sword, in a lunge.
+- Grzmot: an enormous gentle bald giant with a TINY head, white shirt, braces and blue trousers, holding a wooden treasure chest in front of his belly like a teacup; a brown capybara sleeps curled on top of the chest.
+- Mała Lina crouching, ready to jump (knees bent, arms back).
+- Mała Lina leaping upward (body stretched, arms up, one knee up).
+- Mała Lina mid-air at the top of a hop (knees tucked, arms out, happy).
+- Mała Lina landing (one foot down, knees soft, arms out for balance).
+- Kapitan Szabla cheering: both arms up, hat lifted high in one hand, plume flying, big grin (both arms present in this one).
+
+Each figure stands alone: no ground, no floor, no shadow, no scenery, no speech bubbles, no motion lines, no glow. Draw NO text anywhere: no names, no numbers, no letters, no grid lines, no borders.
+Every figure has a clean thin sepia outline all round; the watercolour stays INSIDE the outline, nothing painted outside it.
+Background: perfectly flat solid magenta #FF00FF everywhere. No figure may contain magenta or pink; skin is warm peach, the cape is orange-red.
+Avoid look-alikes: not Jack Sparrow, not Captain Hook, not Popeye, not any famous pirate.

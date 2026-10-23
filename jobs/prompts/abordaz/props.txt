@@ -1,0 +1,13 @@
+Game asset sheet: separate small objects for a watercolour picture-book pirate game (style of the attached moodboard). Style: a European watercolour picture-book illustration. Wet-in-wet sky, transparent glazes, sun glints and foam lifted out of the white paper, visible soft paper grain. Characters are simple, friendly figures with a thin, even sepia outline (#3A3330) and flat watercolour fills, big readable silhouettes. Sunny summer palette, warm but mid-key, NOT high contrast, not busy: sky #7DB4E0, sea #3C9BA8 to deep #2F6F8F, ship wood #A8744A, sails #EAD9B5, pirate red #D2603F, navy #33476B, treasure gold #E2B04A. Original designs only.
+All lit from the top-left, all in the same style.
+Draw EXACTLY 8 separate objects, one per cell of an invisible 4 x 2 grid (2 rows of 4), placed in the order of this list in reading order (row 1 left to right, then row 2), each object centred in its own cell, filling about 70% of the cell, never touching or overlapping a neighbour, empty space between them:
+- a small tropical treasure island seen from the sea: a sandy hump with three palm trees and green bushes (side view, flat bottom edge where the water would be)
+- a wooden treasure chest, OPEN, full of black peppercorns heaped up, a few gold coins
+- a seagull flying, wings raised high (side view, facing right)
+- the same seagull, wings level and spread (side view, facing right)
+- the same seagull, wings pushed down (side view, facing right)
+- a small soft white cumulus cloud with lavender-grey shadow
+- a long wooden pepper mill
+- a brown capybara curled up asleep (side view)
+Each object stands alone: no ground, no water, no shadow, no scenery, no glow. Draw NO text anywhere: no numbers, no letters, no labels, no grid lines, no borders. Thin sepia outlines; watercolour inside the outlines only.
+Background: perfectly flat solid magenta #FF00FF everywhere. No object may contain magenta or pink.

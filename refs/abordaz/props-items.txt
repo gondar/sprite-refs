@@ -1,0 +1,8 @@
+island
+chest-open
+gull-up
+gull-mid
+gull-down
+cloud
+mill
+capybara
