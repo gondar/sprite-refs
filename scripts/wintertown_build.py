@@ -185,14 +185,16 @@ big = keyed("sheet-animals-big.png", "green")       # rows 2, 3 (horse, pig) are
 big[: int(big.shape[0] * .21), :, 3] = 0; big[int(big.shape[0] * .615):, :, 3] = 0   # the rest has bits of the moodboard pasted in: drop it
 bb = cells(big, 4, 5)
 hs = keyed("sheet-horse.png", "green")               # the horse redone alone: its old row touched the pasted moodboard
-hb = cells(hs, 4, 2)                                 # it came as two rows of four: the top row
+hb = cells(hs, 4, 2)
+pg = keyed("sheet-pig.png", "green")                 # the pig redone alone: its old row's feet ran into the pasted moodboard
+pb = cells(pg, 4, 1)                                 # it came as two rows of four: the top row
 big2 = keyed("sheet-animals-big2.png", "green")     # donkey, sheep, fox redone on a clean ground
 bb2 = cells(big2, 4, 3)
 small = keyed("sheet-animals-small.png", "green")
 sb = cells(small, 4, 6)
 TARGET = {"horse": 460, "donkey": 400, "pig": 260, "sheep": 250, "fox": 230,
           "hen": 160, "rooster": 190, "dove": 120, "sparrow": 92, "rat": 124, "rat2": 124}
-ROWS = [("horse", hs, hb, 0), ("pig", big, bb, 2), ("donkey", big2, bb2, 0), ("sheep", big2, bb2, 1), ("fox", big2, bb2, 2),
+ROWS = [("horse", hs, hb, 0), ("pig", pg, pb, 0), ("donkey", big2, bb2, 0), ("sheep", big2, bb2, 1), ("fox", big2, bb2, 2),
         ("hen", small, sb, 0), ("rooster", small, sb, 1), ("dove", small, sb, 2), ("sparrow", small, sb, 3), ("rat", small, sb, 4), ("rat2", small, sb, 5)]
 for nm, sh, boxes, row in ROWS:
     ks = [(c, row) for c in range(4)]
