@@ -1,0 +1,13 @@
+Animation sheet for a children's game, using the attached three pictures as the exact canon: the same white-and-grey seagull with a yellow beak, the same European watercolour picture-book style with a thin sepia outline and the white paper sticker outline, flying to the RIGHT, seen from the side.
+
+Draw EXACTLY 8 frames of ONE smooth wing-flap cycle in an invisible 4 x 2 grid (row 1 left to right, then row 2), each frame centred in its cell, the body at EXACTLY the same size and position in every frame, only the wings move:
+- frame 1: wings fully UP, tips high above the back.
+- frame 2: wings coming down, about 45 degrees up.
+- frame 3: wings level, straight out (gliding position).
+- frame 4: wings 45 degrees down.
+- frame 5: wings fully DOWN below the body.
+- frame 6: wings rising, slightly below level, bent at the wrist.
+- frame 7: wings level again, bent at the wrist.
+- frame 8: wings rising high, about 60 degrees up.
+No text, no numbers, no grid lines, no borders, no clouds, no shadow.
+Background: perfectly flat solid magenta #FF00FF everywhere. The gull has no pink or magenta in it.

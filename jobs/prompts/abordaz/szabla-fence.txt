@@ -1,0 +1,9 @@
+Character animation sheet for a children's game, using the attached picture as the exact character canon: the same boy pirate captain (black tricorne hat with gold trim and a white plume, orange-red cape, navy coat with gold buttons, red neckerchief, brown trousers, brown boots), the same European watercolour picture-book style with a thin sepia outline and a white paper sticker outline around the figure, the same proportions. His ukulele now hangs on his BACK on a strap (only a bit of it shows behind his shoulder). He holds a curved pirate cutlass with a gold hand guard.
+
+Draw EXACTLY 4 frames of ONE short loop — he fences playfully, waving the cutlass like a swordsman — in an invisible 2 x 2 grid (row 1 left to right, then row 2), each frame centred in its cell, the whole figure from hat to boots, all four at EXACTLY the same size. He faces the viewer's RIGHT in a fencer's stance: his LEFT side is toward the viewer, his LEFT leg is in FRONT (stepping toward the right) with the knee bent, his right leg behind, and the cutlass is in his LEFT hand, held in front of him toward the right. His back foot stays in the same place in every frame. His right arm is raised behind him, bent, for balance, as fencers do. His face is always visible and smiling bravely; nothing covers his face.
+- frame 1: en garde — the cutlass held forward at chest height, pointing right and slightly up.
+- frame 2: the cutlass raised high above his head, ready to swing, leaning back a little.
+- frame 3: a big swing — the cutlass slashes down and forward, his front knee more bent.
+- frame 4: a lunge — the front leg steps further right, the arm and cutlass fully stretched forward horizontally.
+No motion lines, no swoosh effects, no text, no numbers, no grid lines, no borders, no ground, no shadow.
+Background: perfectly flat solid magenta #FF00FF everywhere.

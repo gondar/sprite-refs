@@ -1,0 +1,12 @@
+Character animation sheet for a children's game. The attached pictures are the exact canon: the boy pirate captain in a fencer's stance (first picture = frame 1, the en garde pose; second picture = the lunge), in the same European watercolour picture-book style with a thin sepia outline and the white paper sticker outline around the figure, the ukulele on his back on a strap.
+
+Draw EXACTLY 6 frames of ONE smooth sword-swing loop in an invisible 3 x 2 grid (row 1 left to right, then row 2), each frame centred in its cell, the whole figure from hat to boots, all six at EXACTLY the same size, his back foot (on the LEFT of the picture) in the same place in every frame.
+VERY IMPORTANT: the cutlass is ALWAYS in the SAME hand — the hand on the RIGHT side of the picture (his left hand), the arm reaching toward the right. His other hand (on the LEFT side of the picture) is always empty, raised and bent behind him for balance, as fencers do. His front leg (on the RIGHT of the picture) is forward with the knee bent. His face is always visible, smiling bravely; the sword never crosses his face.
+- frame 1: en garde, exactly as the first attached picture: the cutlass forward at chest height, pointing right and up.
+- frame 2: the sword arm lifts, the cutlass pointing straight up beside his hat on the right side.
+- frame 3: the cutlass raised high above and behind his hat, leaning back a little, ready to swing.
+- frame 4: mid-swing: the arm comes forward and down, the cutlass pointing forward-right at shoulder height, body leaning forward.
+- frame 5: the end of the slash: the cutlass low in front of him, pointing down-right, front knee deeply bent.
+- frame 6: the lunge, exactly as the second attached picture: the front leg further right, the arm and cutlass fully stretched forward horizontally.
+No motion lines, no swoosh arcs, no effects, no text, no numbers, no grid lines, no borders, no ground, no shadow.
+Background: perfectly flat solid magenta #FF00FF everywhere.

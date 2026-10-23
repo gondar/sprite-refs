@@ -1,0 +1,9 @@
+Character animation sheet for a children's game, using the attached picture as the exact character canon: the same boy pirate captain (black tricorne hat with gold trim and a white plume, orange-red cape, navy coat with gold buttons, red neckerchief, brown trousers, brown boots), the same light wooden ukulele, the same European watercolour picture-book style with a thin sepia outline and a white paper sticker outline around the figure, the same proportions.
+
+Draw EXACTLY 4 frames of ONE short loop — he plays the ukulele and SINGS happily — in an invisible 2 x 2 grid (row 1 left to right, then row 2), each frame centred in its cell, the whole figure from hat to boots, all four at EXACTLY the same size and the same standing position, feet planted in the same place, body turned slightly to the viewer's right, as in the attached picture. Both hands are on the ukulele in every frame: his left hand on the neck (on the right of the picture), his right hand strumming over the round body. Only the strumming hand, the mouth, the eyes and the head tilt change:
+- frame 1: strumming hand UP above the strings, mouth closed in a smile, eyes open.
+- frame 2: strumming hand DOWN past the strings, mouth wide open singing "aaa", eyes open, head slightly up.
+- frame 3: strumming hand UP, mouth open in a round "ooo", head tilted a little to the left, eyes half closed.
+- frame 4: strumming hand DOWN, mouth open singing, eyes closed happily, head tilted a little to the right.
+No arm in front of his face. No musical notes, no motion lines, no text, no numbers, no grid lines, no borders, no ground, no shadow.
+Background: perfectly flat solid magenta #FF00FF everywhere.

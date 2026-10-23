@@ -1,0 +1,9 @@
+Character animation sheet for a children's game, using the attached picture as the exact character canon: the same big, gentle, bald sailor with a round face, white shirt with rolled sleeves, brown suspenders, blue jeans, holding the same small wooden treasure chest with gold fittings against his belly, with the same sleeping brown capybara lying on top of the chest; the same European watercolour picture-book style, thin sepia outline and the white paper sticker outline around the figure, the same proportions.
+
+Draw EXACTLY 4 frames of ONE calm idle loop in an invisible 2 x 2 grid (row 1 left to right, then row 2), each frame centred in its cell, the whole figure from head to shoes, all four at EXACTLY the same size and standing position, feet in the same place, facing the viewer as in the attached picture. Only small things change:
+- frame 1: exactly the attached pose — eyes open, a gentle smile.
+- frame 2: eyes CLOSED (a blink), the same smile, everything else identical to frame 1.
+- frame 3: he looks DOWN at the sleeping capybara with a fond smile, head tilted slightly, eyes open.
+- frame 4: he takes a deep happy breath — chest and shoulders a little raised, eyes closed contentedly, the capybara's ear twitching.
+No text, no numbers, no "zzz", no grid lines, no borders, no ground, no shadow.
+Background: perfectly flat solid magenta #FF00FF everywhere.
