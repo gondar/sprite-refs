@@ -162,23 +162,93 @@ for p in PLATES:
         d.ellipse((x - rr, y - rr, x + rr, y + rr), outline=(0, 255, 255), width=2)
     chk.save(os.path.join(REV, "check-lights-%s.jpg" % p), quality=80)
 
-# ---------------- the cast: 8 × 3 cells (the model drew 8 columns, not 5) ----------------
-cast = keyed("sheet-cast.png", "magenta")
-cb = cells(cast, 8, 3)
-CAST = {   # name: [(col, row) stand, sing/play A, sing/play B]
-    "fiddler": [(0, 0), (0, 1), (1, 2)],
-    "starboy": [(2, 0), (2, 1), (2, 2)],
-    "shepherd": [(4, 0), (4, 1), (4, 2)],
-    "angel": [(5, 0), (5, 1), (5, 2)],
-    "girl": [(6, 0), (6, 1), (7, 2)],
+# ---------------- the cast (cast2): one sheet per character, 3 poses (rest · perform · big perform) ----------------
+# Drawn in three-quarter view facing right (the game mirrors the right-hand ones). Each sheet is a row of 3 equal
+# cells on magenta; the fiddler's came on magenta panels inside a white page, so the white touching the border is
+# keyed too. `edge` thins a cream sticker outline (px eroded at sheet size) to a hair-thin paper edge.
+CAST = {   # name: (sheet, body height in px on stage, body share of frame 0's box, white page?, edge erosion)
+    "fiddler": ("sheet-cast2-fiddler.png", 560, 1.0, True, 0),
+    "starboy": ("sheet-cast2-starboy-v2.png", 380, .79, False, 0),     # a child; the star on its pole sits above
+    "girl": ("sheet-cast2-girl.png", 505, 1.0, False, 10),
+    "shepherd": ("sheet-cast2-shepherd-v3.png", 590, .97, False, 0),
+    "angel": ("sheet-cast2-angel.png", 370, .93, False, 0),           # small; the halo floats above the curls
 }
-CAST_H = 560
-f0 = cb[CAST["fiddler"][0]]
-cast_scale = CAST_H / (f0[3] - f0[1])
-for nm, ks in CAST.items():
-    # one scale for the whole cast (relative heights kept): frame 0's height × cast_scale
-    t = (cb[ks[0]][3] - cb[ks[0]][1]) * cast_scale
-    strip(nm, [(cast, cb[k], cb[k][3]) for k in ks], round(t), PALCE, ART_P)
+CAST_H = CAST["fiddler"][1]
+
+
+def cast_keyed(name, white, erode):
+    rgb = np.array(Image.open(src(name)).convert("RGB"))
+    if white:   # the page around the panels → key colour; its light antialiased rim → transparent
+        mn, mx = rgb.min(2).astype(int), rgb.max(2).astype(int)
+        wh = (mn > 225) & (mx - mn < 25)
+        lab, _ = ndimage.label(wh)
+        edge_ids = np.unique(np.r_[lab[0], lab[-1], lab[:, 0], lab[:, -1]])
+        page = np.isin(lab, edge_ids[edge_ids > 0])
+        rgb = rgb.copy(); rgb[page] = (255, 0, 255)
+    rgba, _ = key_image(rgb, "magenta", 40, 120)
+    if white:
+        near = ndimage.binary_dilation(page, iterations=4) & ~page
+        light = np.clip((mn - 150) / 75.0, 0, 1) * (mx - mn < 40)
+        rgba[..., 3] = np.where(near, rgba[..., 3] * (1 - light), rgba[..., 3])
+    if erode:
+        m = ndimage.binary_erosion(rgba[..., 3] > 128, iterations=erode)
+        rgba[..., 3] = np.minimum(rgba[..., 3], ndimage.gaussian_filter(m.astype(float), 1.2) * 255)
+    return np.round(rgba).astype(np.uint8)
+
+
+def cast_cells(rgba, n=3):
+    """the figure in each of n equal columns: every solid piece whose centre falls in the column and that is at
+    least 0.2 % of the column's biggest piece (a floating halo stays); a drawn divider line (tall, thin) goes"""
+    a = rgba[..., 3] > 40
+    lab, _ = ndimage.label(ndimage.binary_dilation(a, iterations=2))
+    h, w = a.shape
+    per = {}
+    for i, sl in enumerate(ndimage.find_objects(lab), 1):
+        ys, xs = sl
+        if ys.stop - ys.start > .9 * h and xs.stop - xs.start < 40: continue
+        area = (lab[sl] == i).sum()
+        per.setdefault(int((xs.start + xs.stop) / 2 * n / w), []).append((area, i, (xs.start, ys.start, xs.stop, ys.stop)))
+    out = []
+    for c in range(n):
+        ps = sorted(per[c], reverse=True)
+        keep = [p for p in ps if p[0] >= .002 * ps[0][0]]
+        m = np.isin(lab, [p[1] for p in keep]) & a
+        x0 = min(p[2][0] for p in keep); y0 = min(p[2][1] for p in keep)
+        x1 = max(p[2][2] for p in keep); y1 = max(p[2][3] for p in keep)
+        crop = rgba[y0:y1, x0:x1].copy(); crop[..., 3] = np.where(m[y0:y1, x0:x1], crop[..., 3], 0)
+        out.append(crop)
+    return out
+
+
+def feet_x(im):
+    a = np.array(im)[..., 3] > 128
+    ys = np.where(a.any(1))[0]
+    band = a[ys[-1] - max(2, int(.08 * (ys[-1] - ys[0]))):ys[-1] + 1]
+    return np.where(band)[1].mean()
+
+
+def cast_strip(name, crops, target, dest, art, pad=6):
+    """like strip(), but each pose stands with its FEET on the anchor (not its box centre), so a crook thrown out
+    to one side does not slide the body across the stage between frames"""
+    s = target / crops[0].shape[0]
+    ims = [Image.fromarray(c).resize((max(1, round(c.shape[1] * s)), max(1, round(c.shape[0] * s))), Image.LANCZOS) for c in crops]
+    fx = [feet_x(im) for im in ims]
+    half = max(max(f, im.size[0] - f) for im, f in zip(ims, fx))
+    cw = int(np.ceil(2 * half)) + 2 * pad
+    ch = max(im.size[1] for im in ims) + 2 * pad
+    sheet = Image.new("RGBA", (cw * len(ims), ch))
+    for i, (im, f) in enumerate(zip(ims, fx)):
+        sheet.paste(im, (i * cw + round(cw / 2 - f), ch - pad - im.size[1]), im)
+    size = save(sheet, os.path.join(dest, name + ".webp"))
+    art[name] = {"cell": [cw, ch], "frames": len(ims), "anchor": [cw / 2, ch - pad], "ref": round(ims[0].size[1], 1), "kb": round(size / 1024)}
+    return sheet
+
+
+cast_f0 = {}
+for nm, (sheet, body, share, white, erode) in CAST.items():
+    crops = cast_cells(cast_keyed(sheet, white, erode))
+    cast_f0[nm] = crops[0]
+    cast_strip(nm, crops, round(body / share), PALCE, ART_P)
 
 # ---------------- the animals: 4 poses each (stand · sing · dance · mischief) ----------------
 big = keyed("sheet-animals-big.png", "green")       # rows 2, 3 (horse, pig) are clean
@@ -291,10 +361,10 @@ if os.path.exists(src("sheet-run.png")):
         bl = [max(rb[(c, r)][3] for c in range(4)) for r in range(2)]   # each row of the sheet has its own ground
         strip("starboy-run", [(rn, rb[k], bl[k[1]]) for k in ks], 150, SONG, ART_S)
     else: print("run: missing cells", [k for k in ks if k not in rb])
-    single(cast, cb[CAST["starboy"][0]], "starboy", 300, SONG, ART_S)
+    single(cast_f0["starboy"], (0, 0, cast_f0["starboy"].shape[1], cast_f0["starboy"].shape[0]), "starboy", 300, SONG, ART_S)
 # the songbook theme's other pictures: the fiddler who calls the count-in, the donkey who peeks when paused, and
 # the town at night as the page's background, with the stage's curtain and valance for its edges
-single(cast, cb[CAST["fiddler"][0]], "fiddler", 300, SONG, ART_S)
+single(cast_f0["fiddler"], (0, 0, cast_f0["fiddler"].shape[1], cast_f0["fiddler"].shape[0]), "fiddler", 300, SONG, ART_S)
 single(big2, bb2[(1, 0)], "donkey-sing", 220, SONG, ART_S)
 import shutil
 for f in ("plate-town", "curtain", "valance"):
