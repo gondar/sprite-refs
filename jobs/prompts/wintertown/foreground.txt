@@ -1,0 +1,16 @@
+Game asset sheet: separate foreground scenery pieces that stand at the front edge of painted winter night backdrops (an old Polish town, a Slavic forest, a frozen harbour, mountains, a snowy station, a frozen lake), painted in rich gouache with visible brush texture and a slight woodcut grain, matching the attached style reference exactly: smoky-blue night shadows, cream snow, copper and candle-orange light, dark silhouettes. Front view, each piece standing on its own flat bottom edge, all lit from the top-left by moonlight.
+Draw EXACTLY 12 separate pieces, one per cell of an invisible 4 x 3 grid, in the order of this list in reading order, each centred in its own cell, filling about 80% of the cell height, never touching a neighbour:
+- a tall dark snowy fir tree, branches heavy with snow
+- a small snow-covered young spruce
+- a bare birch trunk with frost and a few snowy twigs
+- a snowdrift mound with a few dry grass stalks sticking out
+- a short wooden picket fence segment with snow caps, wider than tall
+- an old iron street lamp post with a lit lantern on top (the glass warm yellow)
+- a clump of frozen reeds and cattails with frost
+- a big grey boulder capped with thick snow
+- a snow-covered wooden bench
+- a wooden wayside signpost with two blank arrow boards (no writing) and snow on top
+- a stack of snowy barrels and a coil of rope
+- a bare twisted oak branch hanging down from the top, with icicles (its broken end at the TOP edge of the cell)
+Each piece stands alone: no ground around it, no shadow on the background, no glow, no falling snow. Draw NO text anywhere: no letters, no numbers, no labels, no grid lines, no borders.
+Background: perfectly flat solid bright green #00FF00 everywhere. No piece may contain green; paint the fir trees in dark blue-teal and charcoal, not green.

@@ -1,0 +1,13 @@
+A character sheet for a game: five puppet characters, each drawn THREE times, in a strict invisible grid of 5 columns and 3 rows. Column = character, the same character down the whole column, IDENTICAL in face, costume, colours, size and proportions in all three rows, full body, feet on the same baseline in every row, every figure the same height scale, facing the viewer in three-quarter view, centred in its cell with wide empty margins; nothing touches or overlaps.
+Columns, left to right:
+- the old fiddler: grey beard, black hat with a red-and-white folk band, red embroidered vest over a cream shirt, dark trousers, boots, playing a violin (exactly like the attached fiddler reference)
+- the star boy: a young caroller in a red cap and red cape, holding a tall pole with a big eight-pointed gold-and-red paper star on top (exactly like the attached star boy reference)
+- the shepherd: tall, brown sheepskin cloak, wide brimmed hat, long wooden crook, a stubbly kind face
+- the angel: curly golden hair, cream robe, small feathered wings, playing a lute
+- the caroller girl: red folk dress with an embroidered apron and a red headscarf, holding an open songbook
+Rows, top to bottom:
+- row 1: standing calmly, mouth closed, holding the instrument or prop at rest
+- row 2: singing or playing: mouth open in song, the instrument being played (bow on the strings, fingers on the lute, the star raised a little, the book held up)
+- row 3: a second singing or playing pose: head tilted the other way, a bigger livelier gesture (bow lifted, star swung to the other side, girl's hand raised)
+Painted as cardboard cut-out theatre puppets: gouache-painted figures with visible brush texture and a slight woodcut grain, a thin cream paper edge around each figure, small brass paper-fastener pins at the shoulders, elbows, hips and knees, matching the attached moodboard cast exactly in style and costume. Warm, characterful, a little funny, not cute, not kawaii. Lit from the top-left.
+Background: perfectly flat solid magenta #FF00FF everywhere. No magenta or pink anywhere on the figures. No text, no letters, no numbers, no labels, no grid lines, no ground, no shadows on the background.

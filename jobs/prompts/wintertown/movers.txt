@@ -1,0 +1,20 @@
+Game asset sheet: separate small objects that will move across painted winter night backdrops of an old Polish town, a station, a frozen lake and mountains, painted in rich gouache with visible brush texture and a slight woodcut grain, matching the attached style references exactly, warm lantern-lit night colours (smoky blue, oxblood, copper, candle orange, cream snow on top of things). All in side view, all lit from the top-left, same style family.
+Draw EXACTLY 16 separate objects, one per cell of an invisible 4 x 4 grid, in the order of this list in reading order, each centred in its own cell, filling about 70% of the cell, never touching a neighbour:
+- a small old steam locomotive with a tall funnel, facing RIGHT, drawn WITHOUT its wheels (just the body above the axles)
+- a small old wooden passenger carriage with lit windows, facing right, drawn WITHOUT wheels
+- one big spoked red locomotive wheel, flat side view, a perfect circle
+- one small dark iron carriage wheel, flat side view, a perfect circle
+- an empty red wooden sleigh with curled runners, facing right
+- a child in a red hat on a wooden sled sliding to the right, arms up with joy
+- a woman ice-skater in a long blue coat and red shawl, gliding to the right on one leg
+- a man ice-skater in a brown coat with a long striped scarf flying, gliding to the right
+- a skier in an old wool sweater with a long scarf, crouched, going downhill to the right
+- a wooden market cart loaded with sacks and a Christmas tree, facing right, drawn WITHOUT wheels
+- one wooden cart wheel, flat side view, a perfect circle
+- a small ice-yacht (a wooden sail-sledge on runners) with a cream sail, facing right
+- a townsman in a long coat and fur hat carrying a lantern, walking to the right
+- an old woman in a shawl carrying a basket of bread, walking to the right
+- a black crow flying to the right, wings raised up
+- the same black crow flying, wings pushed down
+Each object stands alone: no ground, no shadow, no snow spray, no glow, no smoke, no steam. Draw NO text anywhere: no numbers, no letters, no labels, no grid lines, no borders.
+Background: perfectly flat solid bright green #00FF00 everywhere. No object may contain green; use blue, red, brown instead.
