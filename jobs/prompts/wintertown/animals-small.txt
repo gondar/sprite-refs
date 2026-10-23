@@ -1,0 +1,15 @@
+A character sheet for a game: six small birds and animals, each drawn FOUR times, in a strict invisible grid of 4 columns and 6 rows. Row = animal, the same animal across the whole row, IDENTICAL in markings, colours, size and proportions in all four cells, full body, side view facing RIGHT, each animal filling about 70% of its cell, centred with empty margins; nothing touches or overlaps.
+Rows, top to bottom:
+- a plump brown speckled hen
+- a proud rooster with a red comb and a tail of copper and dark-blue feathers
+- a white dove
+- a little brown sparrow with a puffed chest
+- a grey rat with a long pink tail and a tiny red knitted cap
+- a second rat, darker brown, with a tiny striped scarf
+Columns, left to right:
+- column 1: standing calmly, beak or mouth closed
+- column 2: singing: head lifted, beak or mouth wide open
+- column 3: hopping or flapping: wings spread or all feet off the ground
+- column 4: mischief: the hen flusters with feathers flying, the rooster crows on tiptoe, the dove flies with wings up, the sparrow hops with a crumb in its beak, the first rat carries a big wedge of cheese, the second rat stands on its hind legs holding a sausage
+Painted as cardboard cut-out theatre puppets: gouache-painted with visible brush texture and a slight woodcut grain, a thin cream paper edge around each figure, a small brass paper-fastener pin at the leg or wing joint, matching the attached moodboard in style. Characterful and funny, not cute, not kawaii. Lit from the top-left.
+Background: perfectly flat solid bright green #00FF00 everywhere. No green anywhere on the animals. No text, no letters, no numbers, no labels, no grid lines, no ground, no shadows on the background.

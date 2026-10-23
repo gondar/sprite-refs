@@ -1,0 +1,12 @@
+A character sheet for a game: three animals, each drawn FOUR times, in a strict invisible grid of 4 columns and 3 rows. Row = animal, the same animal across the whole row, IDENTICAL in markings, colours, size and proportions in all four cells, full body, side view facing RIGHT, feet on the same baseline in every cell, centred in its cell with wide empty margins; nothing touches or overlaps.
+Rows, top to bottom:
+- a grey donkey with a red embroidered saddle blanket with a gold fringe, long ears, a cream muzzle
+- a fluffy cream sheep with a dark grey face and dark legs
+- a red fox with a white chest, a white-tipped bushy tail and a sly grin
+Columns, left to right:
+- column 1: standing calmly, mouth closed
+- column 2: singing: head lifted, mouth wide open in a big carol
+- column 3: dancing: a front leg lifted high, body bouncing, ears and tail flying
+- column 4: mischief: the donkey kicks out with both back legs, the sheep jumps with all four legs off the ground, the fox tiptoes sneakily with one paw raised
+Painted EXACTLY in the style of the attached horse and pig: cardboard cut-out theatre puppets, gouache-painted with visible brush texture, a thin cream paper edge around each figure, small brass paper-fastener pins at the leg joints and the neck. Characterful and funny, not cute, not kawaii. Lit from the top-left.
+Background: perfectly flat solid bright green #00FF00 everywhere, nothing else at all: no scenery, no pictures, no collage. No green anywhere on the animals. No text, no letters, no numbers, no labels, no grid lines, no ground, no shadows.

@@ -5,3 +5,4 @@ review/*/atlas.png
 review/cutout/frames/
 __pycache__/
 *.pyc
+refs/wintertown/**/*.png

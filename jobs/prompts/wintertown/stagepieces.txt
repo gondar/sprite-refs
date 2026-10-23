@@ -1,0 +1,11 @@
+Game asset sheet: the separate pieces of an ornate little Polish puppet-theatre stage, painted in rich gouache with visible brush texture, matching the attached style references (the curtained stage) exactly: oxblood red velvet, gilded carved wood, warm candle light. Front view.
+Lay the pieces out like this, each piece separate with wide empty space around it, nothing touching:
+- far left, the whole height of the image: ONE tall heavy oxblood velvet curtain drape for the left side of the stage, gathered toward the left by a gold rope with a big tassel, its lower part falling in deep folds to the floor, a gold fringe at the bottom
+- next to it, the whole height: ONE tall slender carved gilded wooden column (pillar) with a capital at the top and a base at the bottom
+- in the middle, top: ONE wide horizontal scalloped velvet valance (pelmet) in oxblood with a gold fringe and gold braid, straight top edge
+- in the middle, below it: ONE carved gilded crest ornament (scrolls and leaves around an eight-pointed star), wider than tall
+- right side, top: ONE tin-and-paper hanging star lantern with eight points, red and gold, candle inside, on a short chain
+- right side, middle: ONE brass shell-shaped footlight with a candle
+- along the bottom right: ONE long horizontal strip of worn wooden stage floor planks seen from the front edge, with a carved gilded front edge
+No glow, no light rays, no shadows on the background. No text, no letters, no numbers.
+Background: perfectly flat solid bright green #00FF00 everywhere. No green anywhere on the pieces.
