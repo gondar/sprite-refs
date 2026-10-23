@@ -6,3 +6,4 @@ review/cutout/frames/
 __pycache__/
 *.pyc
 refs/wintertown/**/*.png
+!refs/wintertown/h3/*.png
