@@ -9,3 +9,7 @@ for s in ${@:-town forest port mountains station lake stable}; do
   python3 skill/asset-sheet/scripts/gen_image.py --model gemini-3-pro-image --prompt-file "$P/bg-$s.txt" \
     --ref "$REF" --aspect 16:9 --size 2K --stream 1 --out "refs/wintertown/gen/bg2-$s.png" --tag "wintertown-bg2-$s" &
 done; wait
+# the port's lit lamp room, laid over the unlit lighthouse of bg-port with the beam drawn in code (one light in the
+# port's sky, as the owner asked): Nano Banana, 1:1, ~$0.025, key with skill/asset-sheet/scripts/key.py
+[ -z "$1" ] || [ "$1" = port ] && python3 skill/asset-sheet/scripts/gen_image.py --model gemini-3.1-flash-image \
+  --prompt-file "$P/port-lamp.txt" --ref "refs/wintertown/gen/plate-port.webp" --aspect 1:1 --out "refs/wintertown/gen/port-lamp.png" --tag wintertown-port-lamp
