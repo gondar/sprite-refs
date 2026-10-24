@@ -1,0 +1,16 @@
+Game asset sheet: separate painted cut-out figures for a Polish winter nativity puppet theatre, painted in rich gouache with visible brush texture and a slight woodcut grain, warm candle light from the left, exactly matching the style of the attached reference picture (image 1: the stable plate of the same game). Every figure is a whole figure, side-on and WALKING TO THE RIGHT (except where said), feet on an invisible baseline, all in one consistent scale family as if standing on the same stage.
+Draw EXACTLY 12 separate figures, one per cell of an invisible 3 x 4 grid (3 rows of 4), in the order of this list in reading order (row 1 left to right, then row 2, then row 3), each centred in its own cell, filling about 75% of the cell, never touching a neighbour:
+- Saint Joseph, a bearded man in a brown cloak with a staff, walking right and leading a small grey donkey by a rope; on the donkey sits Mary in a deep blue mantle and a white veil, sitting sideways, one hand on her lap
+- the Holy Family at rest for inside the stable, facing the viewer: Mary kneeling in a blue mantle, Joseph standing with his staff, between them the wooden manger with the baby Jesus in white swaddling on straw
+- an ox lying down side-on, facing right, calm, brown and cream
+- the same grey donkey on its own, standing side-on facing right, no rider (for after Mary has stepped down)
+- an old shepherd with a white beard, sheepskin coat and a crook, walking right
+- a young shepherd boy in a felt hat carrying a white lamb in his arms, walking right
+- a white sheep walking right
+- a second white sheep with a black face walking right
+- three carol singers walking right in a little group: a boy holding a tall eight-pointed paper star on a pole, a girl with a lantern, a small boy with a drum
+- an old woman in a headscarf carrying a basket of bread, walking right
+- a highlander musician with a small fiddle (złóbcoki) walking right
+- a small dog trotting right
+Each figure stands alone: no ground, no shadow, no scenery, no glow. Draw NO text anywhere: no numbers, no letters, no labels, no grid lines, no borders.
+Background: perfectly flat solid green #00FF00 everywhere. No figure may contain bright green; use dark spruce green, blue or brown instead.
