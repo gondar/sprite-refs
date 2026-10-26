@@ -57,7 +57,9 @@ Why each line is there:
 - **Key colour:** magenta by default; green #00FF00 when the set has pink, purple or magenta things in it (the
   sheet must be one key colour — split a mixed set into two sheets).
 - **A style reference image helps match an existing game** (pass it with `--ref`, as in sprite-pipeline);
-  without one the model's house style is a clean cartoon icon look.
+  without one the model's house style is a clean cartoon icon look. A NEW look (mockup, style frame) is designed
+  on GPT first (`gpt-image-2 --stream 2`, Nano Banana if GPT misses — see sprite-pipeline "Design"); the dense
+  sheet itself stays on Nano Banana, which is what the counts and the cutter here were measured on.
 
 ## Generate, cut, verify
 
