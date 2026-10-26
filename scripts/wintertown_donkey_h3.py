@@ -31,6 +31,19 @@ def cut(sheet, cols, rows, c, r):
     return Image.fromarray(rgba, "RGBA")
 
 
+def off_blue(path):
+    """a figure the image model drew on flat blue -> RGBA, cropped tight (keyed on how much blue dominates)"""
+    cell = np.array(Image.open(path).convert("RGB")).astype(int)
+    R, G, B = cell[..., 0], cell[..., 1], cell[..., 2]
+    dom = B - np.maximum(R, G)
+    a = np.clip((90 - dom) * 255 / 50, 0, 255)      # 40 -> opaque, 90 -> clear
+    rgb = cell.copy()
+    edge = (a > 8) & (a < 250)
+    rgb[..., 2] = np.where(edge, np.minimum(B, np.maximum(R, G) + 20), B)   # no blue fringe
+    im = Image.fromarray(np.dstack([rgb, a]).astype(np.uint8), "RGBA")
+    return im.crop(im.getchannel("A").point(lambda v: 255 if v > 60 else 0).getbbox())
+
+
 def on_blue(fig, name, frac=.64, cx=.5, feet=.84):
     W, H = 1280, 720
     k = frac * H / fig.height
@@ -42,6 +55,10 @@ def on_blue(fig, name, frac=.64, cx=.5, feet=.84):
 
 
 if __name__ == "__main__":
+    import sys
+    if sys.argv[1:] == ["townsman"]:   # the Nano Banana edit, re-placed in the donkey's framing
+        on_blue(off_blue(OUT + "townsman-edit-raw.png"), "townsman-home.png", frac=.64, cx=.5)
+        sys.exit()
     donkey = cut("refs/wintertown/gen/sheet-animals-big2.webp", 4, 3, 0, 0)
     on_blue(donkey, "donkey-home.png", frac=.6, cx=.5)
     town = cut("refs/wintertown/gen/sheet-movers.webp", 4, 4, 0, 3)

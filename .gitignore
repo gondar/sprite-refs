@@ -7,3 +7,7 @@ __pycache__/
 *.pyc
 refs/wintertown/**/*.png
 !refs/wintertown/h3/*.png
+review/wintertown/h3/*/2026*/
+review/wintertown/h3/*/atlas.png
+review/wintertown/h3/*/atlas.webp
+review/wintertown/h3/*/atlas-clean.png

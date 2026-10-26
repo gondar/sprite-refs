@@ -4,7 +4,7 @@ and every other pixel is the home picture itself — the throne, legs and body c
 
 usage: lock.py OUT --home HOME.png --at X,Y [--keep PROP_MASK.png] CLIP.mp4=name,name,name,name [CLIP2.mp4=…]
                [--pose-s 1.0] [--thresh 30] [--grow 6] [--feather 3] [--cell 479,444 --pivot 245.6,442.8 --fig 327]
-               [--step 2] [--webp 70]
+               [--step 2] [--webp 70] [--reach 24]
 
 --keep is a mask (frame-sized, white = prop) of what is NOT the character — a throne, a stand: there, pixels the
 clip erases come back from home. Nowhere else: a head that moves leaves real empty space behind it.
@@ -35,7 +35,7 @@ def main():
     ap.add_argument("--pose-s", type=float, default=1.0); ap.add_argument("--thresh", type=float, default=30)
     ap.add_argument("--grow", type=int, default=6); ap.add_argument("--feather", type=float, default=3)
     ap.add_argument("--cell", default="479,444"); ap.add_argument("--pivot", default="245.6,442.8"); ap.add_argument("--fig", type=float, default=327)
-    ap.add_argument("--step", type=int, default=2); ap.add_argument("--ease", type=int, default=3)
+    ap.add_argument("--step", type=int, default=2); ap.add_argument("--reach", type=int, default=24, help="px past the home outline a gesture may reach (a donkey's buck: 160)"); ap.add_argument("--ease", type=int, default=3)
     ap.add_argument("--open-end", action="store_true", help="half of a chained gesture: ease into home at the START only; the end is a drawn peak pose that the next half starts from"); ap.add_argument("--webp", type=int, default=70)
     a = ap.parse_args(); os.makedirs(a.out, exist_ok=True)
     cut = np.asarray(Image.open(a.home).convert("RGBA"), dtype=float); ox, oy = map(int, a.at.split(","))
@@ -52,7 +52,7 @@ def main():
         ha = home[..., 3] / 255; fig = ha > 0.5
         body = ndi.binary_erosion(fig, iterations=4)
         keep = (np.asarray(Image.open(a.keep).convert("L"), dtype=float) > 128) if a.keep else np.zeros_like(fig)
-        region = ndi.binary_dilation(fig, iterations=24)       # where a gesture may reach past the outline
+        region = ndi.binary_dilation(fig, iterations=a.reach)       # where a gesture may reach past the outline
         frames, masks = [], []
         # motion is measured against the clip's OWN first frame (the model's render of the picture): measured against
         # the picture, its repaint differences alone lit up ~20k px at rest and the cuts missed the home pose
@@ -78,6 +78,10 @@ def main():
             mf = np.clip(ndi.gaussian_filter(m.astype(float), a.feather), 0, 1)
             # local colour match on a ring of body just outside the moving area
             ring = m & body          # the moving area itself, against the same pixels of the clip's first frame
+            # … where both frames show figure: where the figure moved away, the ground's own drift (a bluer blue) set
+            # the gains and gave a grey donkey a yellow cast (2026-10-26)
+            kg = int(np.argmax(f0[:6].reshape(-1, 3).mean(0))); og = [c for c in range(3) if c != kg]
+            ring &= (rgb[..., kg] - rgb[..., og].max(2) < 20) & (f0[..., kg] - f0[..., og].max(2) < 20)
             if ring.sum() > 300:
                 # relighting SINCE THE START, measured model-render against model-render (the clip's own first frame):
                 # measured against the painted picture, local detail differences (crown glow, edges) became an orange cast
