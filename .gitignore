@@ -7,3 +7,4 @@ __pycache__/
 *.pyc
 refs/wintertown/**/*.png
 !refs/wintertown/h3/*.png
+review/wintertown/h3/*/2026*/
