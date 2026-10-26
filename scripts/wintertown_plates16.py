@@ -16,7 +16,7 @@ from key import key_image  # noqa: E402
 
 GEN = "refs/wintertown/gen"
 OUT = sys.argv[1] if len(sys.argv) > 1 else "../MusicGames"
-IDS = sys.argv[2:] or ["town", "forest", "port", "mountains", "station", "lake"]
+IDS = sys.argv[2:] or ["town", "forest", "port", "mountains", "station", "lake", "stable"]   # stable: the EMPTY one
 PALCE = os.path.join(OUT, "fingerpick-warmup/art/wintertown")
 REV = "review/wintertown"
 os.makedirs(REV, exist_ok=True)
@@ -54,7 +54,7 @@ def lights_of(im, n=40):
 art_path = os.path.join(PALCE, "art.json")
 J = json.load(open(art_path))
 for p in IDS:
-    im = Image.open(src(("bg2-%s.png" if p != "stable" else "plate-stable-empty.png") % p)).convert("RGB")
+    im = Image.open(src("bg2-%s.png" % p if p != "stable" else "plate-stable-empty.png")).convert("RGB")
     W = round(im.size[0] * PLATE_H / im.size[1])
     im = im.resize((W, PLATE_H), Image.LANCZOS)
     out = os.path.join(PALCE, "plate-%s.webp" % p)
