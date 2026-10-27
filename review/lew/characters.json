@@ -1,0 +1,120 @@
+{
+ "_about": "Lew śpi dziś w nocy — three ukulele musicians. Each strip: cells row-major, frame i on page p where first<=i<first+cols*rows; frame 0 == home. Loop: play frames play[0]..play[1] then wrap to play[0] (the frame after the last one is home again). Draw the cell with its anchor (figure bottom centre) on the lane's bottom-left spot.",
+ "characters": {
+  "lew": {
+   "home": "lew-home.webp",
+   "cell": [
+    360,
+    360
+   ],
+   "fps": 12,
+   "frames": 51,
+   "pages": [
+    {
+     "file": "lew-play.webp",
+     "cols": 11,
+     "rows": 5,
+     "first": 0
+    }
+   ],
+   "play": [
+    0,
+    50
+   ],
+   "strum_low": [
+    11,
+    23,
+    36
+   ],
+   "anchor": [
+    180,
+    360
+   ],
+   "figure_bbox_home": [
+    39,
+    40,
+    283,
+    320
+   ],
+   "source_job": "20261026-215944-42e0f2"
+  },
+  "papuga": {
+   "home": "papuga-home.webp",
+   "cell": [
+    360,
+    360
+   ],
+   "fps": 12,
+   "frames": 51,
+   "pages": [
+    {
+     "file": "papuga-play.webp",
+     "cols": 11,
+     "rows": 5,
+     "first": 0
+    }
+   ],
+   "play": [
+    0,
+    50
+   ],
+   "strum_low": [
+    4,
+    12,
+    19,
+    27,
+    37
+   ],
+   "anchor": [
+    180,
+    360
+   ],
+   "figure_bbox_home": [
+    24,
+    40,
+    313,
+    320
+   ],
+   "source_job": "20261026-215931-c992d4"
+  },
+  "lampart": {
+   "home": "lampart-home.webp",
+   "cell": [
+    360,
+    360
+   ],
+   "fps": 12,
+   "frames": 51,
+   "pages": [
+    {
+     "file": "lampart-play.webp",
+     "cols": 11,
+     "rows": 5,
+     "first": 0
+    }
+   ],
+   "play": [
+    0,
+    50
+   ],
+   "strum_low": [
+    5,
+    13,
+    20,
+    29,
+    40
+   ],
+   "anchor": [
+    180,
+    360
+   ],
+   "figure_bbox_home": [
+    16,
+    40,
+    329,
+    320
+   ],
+   "source_job": "20261026-220009-9133ad"
+  }
+ }
+}
