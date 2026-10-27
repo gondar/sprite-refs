@@ -117,8 +117,12 @@ every gesture's ends against the home frame with the middles as the positive con
 
 ## Other routes and scripts
 
-- **Design** once on Nano Banana Pro (`gemini-3-pro-image`, $0.09) with a style reference cut from the target game;
-  every later image on Nano Banana (`gemini-3.1-flash-image`, ≈ $0.025) with that design as identity reference
+- **Design** once on GPT by default: `gpt-image-2 --quality medium --stream 2` (≈ $0.06, ~35 s; never without
+  `--stream` — a non-streamed call over 30 s 502s and is still billed), with a style reference cut from the target
+  game. **Fall back to Nano Banana Pro** (`gemini-3-pro-image`, $0.09) when GPT does not get it right: two GPT tries
+  with a fixed prompt still miss, or it must match a painted reference (Gemini matched one better; GPT drew shaggy
+  fur), or the design needs a size GPT lacks (it only does 1024² / 1536 × 1024 / 1024 × 1536). Say when you switch.
+  Every later image on Nano Banana (`gemini-3.1-flash-image`, ≈ $0.025) with that design as identity reference
   (`scripts/gen_image.py`). Show the design to the person before animating it.
 - **Drawn cycle**: "the SAME character drawn 8 times on a clean 4 × 2 grid, same size, feet on one baseline … no
   text, no numbers, no grid lines", frames numbered with what each does, "frame 8 flows back into frame 1".
@@ -126,8 +130,8 @@ every gesture's ends against the home frame with the middles as the positive con
 - `key.py` (magenta/green/`--key border`), `video_frames.py` (extract + best loop), `pack.py` (align: `feet` for
   idles/walks, `head` for turns, `fixed` for anything that leaves the ground; ONE `--src-scale` for all strips of a
   character), `onion.py` (idle IoU > 0.9), `compare_gif.py`, `build_viewer.py` (review page). Judge at game size.
-- GPT image models: only if the style needs them — a non-streamed `gpt-image-2` over 30 s dies with 502 and is
-  billed (`--stream 2`).
+- GPT image models: the default for the design (above), always with `--stream 2` — a non-streamed `gpt-image-2`
+  over 30 s dies with 502 and is billed. `gpt-image-2` refuses `--background transparent` (`gpt-image-1.5` takes it).
 
 ## Prices and timings (2026-10)
 
