@@ -1,0 +1,44 @@
+{
+ "image": "atlas.png",
+ "frames": {
+  "walk-squint": {
+   "x": 0,
+   "y": 0,
+   "w": 703,
+   "h": 812
+  },
+  "bow": {
+   "x": 705,
+   "y": 0,
+   "w": 691,
+   "h": 713
+  },
+  "wave": {
+   "x": 0,
+   "y": 814,
+   "w": 651,
+   "h": 802
+  },
+  "glasses-on": {
+   "x": 653,
+   "y": 814,
+   "w": 611,
+   "h": 794
+  },
+  "bow-glasses": {
+   "x": 0,
+   "y": 1618,
+   "w": 735,
+   "h": 731
+  },
+  "stand": {
+   "x": 737,
+   "y": 1618,
+   "w": 527,
+   "h": 774
+  }
+ },
+ "source": "refs/mountain-king/cast/kopus.png",
+ "grid": "2x3",
+ "key": "magenta"
+}

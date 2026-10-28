@@ -1,0 +1,4 @@
+crawl
+look_up
+shell_hide
+proud

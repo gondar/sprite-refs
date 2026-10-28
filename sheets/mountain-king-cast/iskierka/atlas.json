@@ -1,0 +1,32 @@
+{
+ "image": "atlas.png",
+ "frames": {
+  "crawl": {
+   "x": 0,
+   "y": 0,
+   "w": 997,
+   "h": 850
+  },
+  "look-up": {
+   "x": 0,
+   "y": 852,
+   "w": 899,
+   "h": 759
+  },
+  "shell-hide": {
+   "x": 901,
+   "y": 852,
+   "w": 621,
+   "h": 579
+  },
+  "proud": {
+   "x": 0,
+   "y": 1613,
+   "w": 886,
+   "h": 831
+  }
+ },
+ "source": "refs/mountain-king/cast/iskierka.png",
+ "grid": "2x2",
+ "key": "magenta"
+}

@@ -1,0 +1,4 @@
+nod_up
+nod_down
+conduct
+cheer

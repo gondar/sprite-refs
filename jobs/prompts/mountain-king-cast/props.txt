@@ -1,0 +1,10 @@
+Game asset sheet: separate small objects for a children's music game set in a cosy purple cave, painted in the SAME soft cartoon storybook style as the reference image (gentle shading, clean dark-brown outlines), lit from the top-left, all in the same style.
+Draw EXACTLY 6 separate objects, one per cell of an invisible 2 x 3 grid (2 rows of 3), placed in the order of this list in reading order, each centred in its own cell, filling about 70% of the cell, never touching a neighbour, empty space between them:
+- a red pointy dwarf hat lying on its side, tip curling (the same red hat as the dwarf in the reference)
+- a small plump warm RED heart with a white highlight
+- a small round grey pebble with a highlight
+- a little round cartoon dust cloud in warm grey-beige with three bumps, opaque, no transparency
+- a ring of three small yellow five-point stars arranged on a flat ellipse, seen slightly from above
+- a small four-point sparkle star, pale yellow with a white centre, solid, not glowing
+Each object stands alone: no ground, no shadow, no scenery, no glow, no smoke. Draw NO text anywhere: no numbers, no letters, no labels, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. No object may contain magenta or pink; use red, orange, yellow, grey instead.

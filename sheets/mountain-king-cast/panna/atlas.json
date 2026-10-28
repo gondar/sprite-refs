@@ -1,0 +1,44 @@
+{
+ "image": "atlas.png",
+ "frames": {
+  "search": {
+   "x": 0,
+   "y": 0,
+   "w": 650,
+   "h": 751
+  },
+  "swoon": {
+   "x": 652,
+   "y": 0,
+   "w": 442,
+   "h": 756
+  },
+  "spot-gasp": {
+   "x": 1096,
+   "y": 0,
+   "w": 698,
+   "h": 758
+  },
+  "pucker": {
+   "x": 0,
+   "y": 760,
+   "w": 681,
+   "h": 758
+  },
+  "determined": {
+   "x": 683,
+   "y": 760,
+   "w": 490,
+   "h": 779
+  },
+  "cheer": {
+   "x": 1175,
+   "y": 760,
+   "w": 552,
+   "h": 831
+  }
+ },
+ "source": "refs/mountain-king/cast/panna.png",
+ "grid": "2x3",
+ "key": "magenta"
+}

@@ -1,0 +1,6 @@
+asleep
+wake_startle
+grumpy
+yawn
+nod_off
+cheer_sleepy

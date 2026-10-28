@@ -1,0 +1,56 @@
+{
+ "image": "atlas.png",
+ "frames": {
+  "peek-curious": {
+   "x": 0,
+   "y": 0,
+   "w": 593,
+   "h": 792
+  },
+  "shush": {
+   "x": 595,
+   "y": 0,
+   "w": 504,
+   "h": 796
+  },
+  "grin-cheeky": {
+   "x": 1101,
+   "y": 0,
+   "w": 514,
+   "h": 751
+  },
+  "peek-shock": {
+   "x": 0,
+   "y": 798,
+   "w": 523,
+   "h": 777
+  },
+  "sprawl": {
+   "x": 525,
+   "y": 798,
+   "w": 738,
+   "h": 470
+  },
+  "caught-dazed": {
+   "x": 1265,
+   "y": 798,
+   "w": 559,
+   "h": 596
+  },
+  "cheer": {
+   "x": 0,
+   "y": 1577,
+   "w": 590,
+   "h": 711
+  },
+  "stand": {
+   "x": 592,
+   "y": 1577,
+   "w": 418,
+   "h": 766
+  }
+ },
+ "source": "refs/mountain-king/cast/florek.png",
+ "grid": "2x4",
+ "key": "magenta"
+}

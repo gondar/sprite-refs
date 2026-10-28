@@ -1,0 +1,13 @@
+Animation sheet for a children's music game, in the SAME soft cartoon storybook style and the SAME character as the reference image (Florek: young round dwarf, tall red pointy hat, short bushy ginger beard, brown tunic with a brass-buckled belt, dark grey trousers, brown boots).
+Draw the SAME character EXACTLY 8 times on a clean invisible 4 x 2 grid (2 rows of 4), one frame per cell in reading order, every frame at the SAME size and scale, feet on one common baseline near the bottom of each cell, each centred in its cell, never touching a neighbour. It is ONE looping cartoon RUN cycle, the character running toward the LEFT in side view, in full panic: body leaning forward, arms pumping, head turned back over his shoulder looking behind him, eyes huge, mouth open in an "aaa!", beard and hat tip streaming behind.
+- frame 1: contact — left leg reaching far forward, heel down, right leg behind
+- frame 2: down — weight on the left leg, knee bent, body lowest
+- frame 3: passing — right leg swinging past, body rising
+- frame 4: up — pushing off the left foot, both feet off the ground, body highest
+- frame 5: contact — right leg reaching far forward, heel down, left leg behind
+- frame 6: down — weight on the right leg, knee bent, body lowest
+- frame 7: passing — left leg swinging past, body rising
+- frame 8: up — pushing off the right foot, both feet off the ground; frame 8 flows back into frame 1
+Arms swing opposite to the legs. Identical design and colours in every frame.
+No ground, no shadow, no dust, no motion lines, no scenery. Draw NO text anywhere: no numbers, no letters, no labels, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. The character may not contain magenta or pink anywhere.

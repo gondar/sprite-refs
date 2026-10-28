@@ -1,0 +1,14 @@
+Character pose sheet for a children's music game set in a cosy purple cave, painted in the SAME soft cartoon storybook style as the reference image (gentle painterly shading, clean dark-brown outlines, warm rim light from torches, big expressive eyes), lit from the top-left.
+The character: Small skinny green goblin with huge pointed ears, yellow eyes, a wide gap-toothed grin, a purple-blue hood, an orange patched vest and bare big feet; always has a little grey pebble.
+Draw this SAME character EXACTLY 8 times, one pose per cell of an invisible 2 x 4 grid (2 rows of 4), in the order of this list in reading order (row 1 left to right, then row 2), every drawing at the SAME scale (same head size), each centred in its own cell, filling about 75% of the cell height, never touching or overlapping a neighbour, empty space between them:
+- Hunched, tiptoe crouch, finger to his lips toward the viewer, eyes sliding sideways, ears flat back.
+- Holding the grey pebble up between finger and thumb to show the viewer, eyebrows wiggling, wicked-cute grin.
+- Mid-throw follow-through: throwing arm stretched forward and up, tongue sticking out with effort, one foot lifted, hand empty.
+- Both hands over his mouth, shoulders hunched up, eyes squeezed into happy crescents, ears shaking.
+- Just bonked: eyes crossed, tongue out to one side, small bump on his head, arms limp, wobbly knees.
+- Rubbing the bump on his head with one hand, embarrassed lopsided grin, ears drooping, looking at the viewer.
+- Hopping with both arms up, big gap-toothed laugh, ears perked straight up.
+- Standing, facing the viewer, hands behind his back, innocent-looking grin.
+Always the whole character from head to feet (even in peeking poses — draw the full body; the game hides the lower part behind rocks). Identical design, colours and proportions in every pose; only the pose and the facial expression change.
+Each drawing stands alone: no ground, no rock, no ledge, no shadow, no scenery, no glow, no smoke, no motion lines. Draw NO text anywhere: no numbers, no letters, no labels, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. The character may not contain magenta or pink anywhere; use red, orange, purple-blue instead.

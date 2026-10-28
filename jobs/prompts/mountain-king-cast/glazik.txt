@@ -1,0 +1,10 @@
+Character pose sheet for a children's music game set in a cosy purple cave, painted in the SAME soft cartoon storybook style as the reference image (gentle painterly shading, clean dark-brown outlines, warm rim light from torches, big expressive eyes), lit from the top-left.
+The character: Chubby baby stone troll with grey-green rocky skin, big round eyes, two tiny tusk teeth, a tiny amber crystal crown like his dad's, holding a thin crystal stick like a baton.
+Draw this SAME character EXACTLY 4 times, one pose per cell of an invisible 2 x 2 grid (2 rows of 2), in the order of this list in reading order (row 1 left to right, then row 2), every drawing at the SAME scale (same head size), each centred in its own cell, filling about 75% of the cell height, never touching or overlapping a neighbour, empty space between them:
+- Head up, eyes closed, serious little frown of concentration, copying his dad; baton held at chest.
+- Same, head tipped down on the beat, cheeks squished, crown slipping forward.
+- Baton raised high in both hands, eyes shut, mouth open in a tiny 'ooo', utterly lost in the music.
+- Both arms up exactly like his dad's cheer, mouth wide open, baton in one fist, crown askew.
+Always the whole character from head to feet (even in peeking poses — draw the full body; the game hides the lower part behind rocks). Identical design, colours and proportions in every pose; only the pose and the facial expression change.
+Each drawing stands alone: no ground, no rock, no ledge, no shadow, no scenery, no glow, no smoke, no motion lines. Draw NO text anywhere: no numbers, no letters, no labels, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. The character may not contain magenta or pink anywhere; use red, orange, purple-blue instead.
