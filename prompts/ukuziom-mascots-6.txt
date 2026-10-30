@@ -1,0 +1,10 @@
+Game asset sheet: separate character mascots for a children's ukulele game, painted in EXACTLY the style of the reference image (soft glossy storybook cartoon, gentle shading, warm colours, clean silhouettes, big friendly eyes, no hard black outlines), all lit from the top-left, all in the same style and scale family as the fox, the crab, the pig and the lion in the reference. Each character is shown full body, standing, facing the viewer at a three-quarter angle, friendly and cheerful.
+Draw EXACTLY 6 separate characters, one per cell of an invisible 2 x 3 grid (2 rows of 3), placed in the order of this list in reading order (row 1 left to right, then row 2), each character centred in its own cell, filling about 75% of the cell, never touching or overlapping a neighbour, empty space between them:
+- a small friendly green alien with two antennae with yellow balls on top, a round head and big black eyes, wearing a small silver space suit
+- a little brown pony with a cream mane and a small red cowboy bandana around its neck, standing on four legs
+- a small brown monkey with a cream face and a long curly tail, waving one hand
+- a sleepy smiling sloth (light brown fur, dark eye patches) holding a small yellow ukulele, wearing a green, yellow and red striped knitted beanie
+- a cheerful orange octopus with eight curly tentacles, wearing a small navy sailor cap
+- a small cheerful living flame spirit (orange and yellow fire) with a friendly face and two tiny arms, sitting on a small log
+Each character stands alone: no ground, no shadow, no scenery, no glow, no smoke. Draw NO text anywhere: no numbers, no letters, no labels, no captions, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. No character may contain magenta or pink; use red, orange, purple-blue instead.
