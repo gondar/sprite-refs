@@ -1,0 +1,650 @@
+{
+ "seasons": [
+  {
+   "id": "wiosna",
+   "chord": "C",
+   "label": "wiosna",
+   "scenes": [
+    "wiosna-1",
+    "wiosna-2"
+   ],
+   "tint": "#e8a1a8",
+   "particles": "petal"
+  },
+  {
+   "id": "lato",
+   "chord": "G",
+   "label": "lato",
+   "scenes": [
+    "lato-1",
+    "lato-2"
+   ],
+   "tint": "#7fa35b",
+   "particles": "firefly"
+  },
+  {
+   "id": "jesien",
+   "chord": "a",
+   "label": "jesień",
+   "scenes": [
+    "jesien-1",
+    "jesien-2"
+   ],
+   "tint": "#c4512d",
+   "particles": "leaf"
+  },
+  {
+   "id": "zima",
+   "chord": "F",
+   "label": "zima",
+   "scenes": [
+    "zima-1",
+    "zima-2"
+   ],
+   "tint": "#9fb3c8",
+   "particles": "snow"
+  }
+ ],
+ "scenes": {
+  "wiosna-1": {
+   "src": "art/pory-roku/bg-wiosna-1.webp",
+   "w": 2400,
+   "h": 1350,
+   "focus": [
+    0.52,
+    0.45
+   ],
+   "heron": [
+    0.16,
+    0.715
+   ],
+   "layers": [
+    {
+     "id": "plum-branch",
+     "src": "art/pory-roku/n-plum-branch.webp",
+     "w": 1000,
+     "h": 575,
+     "at": [
+      0.62,
+      -0.06
+     ],
+     "width": 0.4,
+     "z": "front",
+     "depth": 0.3,
+     "anim": {
+      "type": "sway",
+      "pivot": [
+       992,
+       311
+      ],
+      "deg": 2.0,
+      "period": 6.5
+     }
+    },
+    {
+     "id": "grass",
+     "src": "art/pory-roku/n-grass-tuft.webp",
+     "w": 800,
+     "h": 320,
+     "at": [
+      0.58,
+      0.8
+     ],
+     "width": 0.24,
+     "z": "back",
+     "depth": 0.6,
+     "anim": {
+      "type": "sway",
+      "pivot": [
+       410,
+       314
+      ],
+      "deg": 1.5,
+      "period": 4.5
+     }
+    }
+   ],
+   "particles": {
+    "kind": "petal",
+    "srcs": [
+     "art/pory-roku/p-petal-1.webp",
+     "art/pory-roku/p-petal-2.webp",
+     "art/pory-roku/p-petal-3.webp",
+     "art/pory-roku/p-petal-4.webp",
+     "art/pory-roku/p-petal-5.webp",
+     "art/pory-roku/p-petal-6.webp"
+    ],
+    "count": 16
+   }
+  },
+  "wiosna-2": {
+   "src": "art/pory-roku/bg-wiosna-2.webp",
+   "w": 2400,
+   "h": 1350,
+   "focus": [
+    0.55,
+    0.5
+   ],
+   "heron": [
+    0.18,
+    0.73
+   ],
+   "layers": [
+    {
+     "id": "blossom-spray",
+     "src": "art/pory-roku/n-blossom-spray.webp",
+     "w": 336,
+     "h": 656,
+     "at": [
+      0.855,
+      0.5
+     ],
+     "width": 0.15,
+     "z": "front",
+     "depth": 0.7,
+     "anim": {
+      "type": "sway",
+      "pivot": [
+       171,
+       652
+      ],
+      "deg": 2.5,
+      "period": 5.0
+     }
+    },
+    {
+     "id": "grass",
+     "src": "art/pory-roku/n-grass-tuft.webp",
+     "w": 800,
+     "h": 320,
+     "at": [
+      0.5,
+      0.86
+     ],
+     "width": 0.26,
+     "z": "front",
+     "depth": 0.8,
+     "anim": {
+      "type": "sway",
+      "pivot": [
+       410,
+       314
+      ],
+      "deg": 1.5,
+      "period": 4.0
+     }
+    }
+   ],
+   "particles": {
+    "kind": "rain",
+    "srcs": [],
+    "count": 90
+   }
+  },
+  "lato-1": {
+   "src": "art/pory-roku/bg-lato-1.webp",
+   "w": 2400,
+   "h": 1350,
+   "focus": [
+    0.52,
+    0.5
+   ],
+   "heron": [
+    0.13,
+    0.78
+   ],
+   "layers": [
+    {
+     "id": "cloud",
+     "src": "art/pory-roku/p-cloud-1.webp",
+     "w": 352,
+     "h": 212,
+     "at": [
+      0.4,
+      0.1
+     ],
+     "width": 0.13,
+     "z": "back",
+     "depth": 0.05,
+     "anim": {
+      "type": "drift",
+      "px": 80,
+      "period": 40
+     }
+    },
+    {
+     "id": "lotus",
+     "src": "art/pory-roku/n-lotus-leaves.webp",
+     "w": 674,
+     "h": 574,
+     "at": [
+      0.36,
+      0.7
+     ],
+     "width": 0.15,
+     "z": "back",
+     "depth": 0.5,
+     "anim": {
+      "type": "bob",
+      "px": 4,
+      "period": 5.5
+     }
+    },
+    {
+     "id": "iris-reeds",
+     "src": "art/pory-roku/n-iris-reeds.webp",
+     "w": 638,
+     "h": 685,
+     "at": [
+      0.83,
+      0.5
+     ],
+     "width": 0.19,
+     "z": "front",
+     "depth": 0.75,
+     "anim": {
+      "type": "sway",
+      "pivot": [
+       330,
+       679
+      ],
+      "deg": 2.0,
+      "period": 5.5
+     }
+    }
+   ],
+   "particles": {
+    "kind": "firefly",
+    "srcs": [
+     "art/pory-roku/p-firefly-1.webp"
+    ],
+    "count": 5
+   }
+  },
+  "lato-2": {
+   "src": "art/pory-roku/bg-lato-2.webp",
+   "w": 2400,
+   "h": 1350,
+   "focus": [
+    0.55,
+    0.45
+   ],
+   "heron": [
+    0.16,
+    0.735
+   ],
+   "layers": [
+    {
+     "id": "reeds",
+     "src": "art/pory-roku/n-reeds-night.webp",
+     "w": 638,
+     "h": 685,
+     "at": [
+      0.84,
+      0.52
+     ],
+     "width": 0.17,
+     "z": "front",
+     "depth": 0.75,
+     "anim": {
+      "type": "sway",
+      "pivot": [
+       330,
+       679
+      ],
+      "deg": 2.0,
+      "period": 6.0
+     }
+    }
+   ],
+   "particles": {
+    "kind": "firefly",
+    "srcs": [
+     "art/pory-roku/p-firefly-1.webp"
+    ],
+    "count": 20
+   }
+  },
+  "jesien-1": {
+   "src": "art/pory-roku/bg-jesien-1.webp",
+   "w": 2400,
+   "h": 1350,
+   "focus": [
+    0.45,
+    0.55
+   ],
+   "heron": [
+    0.16,
+    0.84
+   ],
+   "layers": [
+    {
+     "id": "maple-branch",
+     "src": "art/pory-roku/n-maple-branch.webp",
+     "w": 942,
+     "h": 550,
+     "at": [
+      0.66,
+      -0.07
+     ],
+     "width": 0.38,
+     "z": "front",
+     "depth": 0.3,
+     "anim": {
+      "type": "sway",
+      "pivot": [
+       932,
+       215
+      ],
+      "deg": 1.8,
+      "period": 7.0
+     }
+    },
+    {
+     "id": "pampas",
+     "src": "art/pory-roku/n-pampas.webp",
+     "w": 709,
+     "h": 708,
+     "at": [
+      0.84,
+      0.66
+     ],
+     "width": 0.15,
+     "z": "front",
+     "depth": 0.75,
+     "anim": {
+      "type": "sway",
+      "pivot": [
+       320,
+       702
+      ],
+      "deg": 2.5,
+      "period": 5.0
+     }
+    }
+   ],
+   "particles": {
+    "kind": "leaf",
+    "srcs": [
+     "art/pory-roku/p-leaf-1.webp",
+     "art/pory-roku/p-leaf-2.webp",
+     "art/pory-roku/p-leaf-3.webp",
+     "art/pory-roku/p-leaf-4.webp",
+     "art/pory-roku/p-leaf-5.webp",
+     "art/pory-roku/p-leaf-6.webp",
+     "art/pory-roku/p-leaf-7.webp"
+    ],
+    "count": 14
+   }
+  },
+  "jesien-2": {
+   "src": "art/pory-roku/bg-jesien-2.webp",
+   "w": 2400,
+   "h": 1350,
+   "focus": [
+    0.55,
+    0.5
+   ],
+   "heron": [
+    0.18,
+    0.83
+   ],
+   "layers": [
+    {
+     "id": "persimmon-branch",
+     "src": "art/pory-roku/n-persimmon-branch.webp",
+     "w": 1000,
+     "h": 499,
+     "at": [
+      -0.03,
+      -0.06
+     ],
+     "width": 0.36,
+     "z": "front",
+     "depth": 0.3,
+     "anim": {
+      "type": "sway",
+      "pivot": [
+       7,
+       123
+      ],
+      "deg": 1.6,
+      "period": 7.5
+     }
+    },
+    {
+     "id": "pampas",
+     "src": "art/pory-roku/n-pampas.webp",
+     "w": 709,
+     "h": 708,
+     "at": [
+      0.86,
+      0.68
+     ],
+     "width": 0.14,
+     "z": "front",
+     "depth": 0.75,
+     "anim": {
+      "type": "sway",
+      "pivot": [
+       320,
+       702
+      ],
+      "deg": 2.5,
+      "period": 4.5
+     }
+    }
+   ],
+   "particles": {
+    "kind": "rain",
+    "srcs": [],
+    "count": 110
+   }
+  },
+  "zima-1": {
+   "src": "art/pory-roku/bg-zima-1.webp",
+   "w": 2400,
+   "h": 1350,
+   "focus": [
+    0.6,
+    0.5
+   ],
+   "heron": [
+    0.14,
+    0.83
+   ],
+   "layers": [
+    {
+     "id": "pine-bough",
+     "src": "art/pory-roku/n-pine-bough.webp",
+     "w": 947,
+     "h": 448,
+     "at": [
+      -0.03,
+      -0.07
+     ],
+     "width": 0.34,
+     "z": "front",
+     "depth": 0.3,
+     "anim": {
+      "type": "sway",
+      "pivot": [
+       9,
+       327
+      ],
+      "deg": 1.2,
+      "period": 8.0
+     }
+    },
+    {
+     "id": "frost-grass",
+     "src": "art/pory-roku/n-frost-grass.webp",
+     "w": 747,
+     "h": 392,
+     "at": [
+      0.7,
+      0.82
+     ],
+     "width": 0.22,
+     "z": "front",
+     "depth": 0.8,
+     "anim": {
+      "type": "sway",
+      "pivot": [
+       366,
+       386
+      ],
+      "deg": 1.2,
+      "period": 5.0
+     }
+    }
+   ],
+   "particles": {
+    "kind": "snow",
+    "srcs": [
+     "art/pory-roku/p-snow-1.webp",
+     "art/pory-roku/p-snow-2.webp",
+     "art/pory-roku/p-snow-3.webp",
+     "art/pory-roku/p-snow-4.webp",
+     "art/pory-roku/p-snow-5.webp",
+     "art/pory-roku/p-snow-6.webp"
+    ],
+    "count": 24
+   }
+  },
+  "zima-2": {
+   "src": "art/pory-roku/bg-zima-2.webp",
+   "w": 2400,
+   "h": 1350,
+   "focus": [
+    0.5,
+    0.55
+   ],
+   "heron": [
+    0.17,
+    0.715
+   ],
+   "layers": [
+    {
+     "id": "snow-branch",
+     "src": "art/pory-roku/n-snow-branch.webp",
+     "w": 936,
+     "h": 514,
+     "at": [
+      0.66,
+      -0.07
+     ],
+     "width": 0.38,
+     "z": "front",
+     "depth": 0.3,
+     "anim": {
+      "type": "sway",
+      "pivot": [
+       927,
+       319
+      ],
+      "deg": 1.4,
+      "period": 8.0
+     }
+    }
+   ],
+   "particles": {
+    "kind": "snow",
+    "srcs": [
+     "art/pory-roku/p-snow-1.webp",
+     "art/pory-roku/p-snow-2.webp",
+     "art/pory-roku/p-snow-3.webp",
+     "art/pory-roku/p-snow-4.webp",
+     "art/pory-roku/p-snow-5.webp",
+     "art/pory-roku/p-snow-6.webp"
+    ],
+    "count": 30
+   }
+  }
+ },
+ "ui": {
+  "bird-l": {
+   "src": "art/pory-roku/ui-bird-l.webp",
+   "w": 261,
+   "h": 420
+  },
+  "bird-r": {
+   "src": "art/pory-roku/ui-bird-r.webp",
+   "w": 259,
+   "h": 420
+  },
+  "tree-of-life": {
+   "src": "art/pory-roku/ui-tree-of-life.webp",
+   "w": 319,
+   "h": 420
+  },
+  "flower-border": {
+   "src": "art/pory-roku/ui-flower-border.webp",
+   "w": 1194,
+   "h": 184
+  },
+  "card": {
+   "src": "art/pory-roku/ui-card.webp",
+   "w": 899,
+   "h": 612
+  },
+  "strip": {
+   "src": "art/pory-roku/ui-strip.webp",
+   "w": 1198,
+   "h": 252
+  },
+  "pattern-indigo": {
+   "src": "art/pory-roku/ui-pattern-indigo.webp",
+   "w": 266,
+   "h": 356,
+   "tile": true
+  }
+ },
+ "extras": {
+  "p-mist-1": {
+   "src": "art/pory-roku/p-mist-1.webp",
+   "w": 381,
+   "h": 199
+  },
+  "p-mist-2": {
+   "src": "art/pory-roku/p-mist-2.webp",
+   "w": 382,
+   "h": 188
+  },
+  "p-mist-3": {
+   "src": "art/pory-roku/p-mist-3.webp",
+   "w": 380,
+   "h": 109
+  },
+  "p-mist-4": {
+   "src": "art/pory-roku/p-mist-4.webp",
+   "w": 375,
+   "h": 136
+  },
+  "p-cloud-1": {
+   "src": "art/pory-roku/p-cloud-1.webp",
+   "w": 352,
+   "h": 212
+  },
+  "n-blossom-spray": {
+   "src": "art/pory-roku/n-blossom-spray.webp",
+   "w": 336,
+   "h": 656
+  },
+  "n-ginkgo-spray": {
+   "src": "art/pory-roku/n-ginkgo-spray.webp",
+   "w": 351,
+   "h": 620
+  },
+  "n-lotus-leaves": {
+   "src": "art/pory-roku/n-lotus-leaves.webp",
+   "w": 674,
+   "h": 574
+  },
+  "n-iris-reeds": {
+   "src": "art/pory-roku/n-iris-reeds.webp",
+   "w": 638,
+   "h": 685
+  }
+ }
+}

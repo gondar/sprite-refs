@@ -1,0 +1,185 @@
+{
+ "home": "art/pory-roku/heron-home.webp",
+ "cell": [
+  412,
+  476
+ ],
+ "pivot": [
+  186,
+  460
+ ],
+ "fps": 12,
+ "strum": {
+  "base": "art/pory-roku/heron-home.webp",
+  "pages": [
+   "art/pory-roku/heron-strum-p0.webp"
+  ],
+  "pageRows": [
+   2
+  ],
+  "crop": [
+   67,
+   26,
+   240,
+   439
+  ],
+  "gutter": 4,
+  "cols": 16,
+  "perPage": 144,
+  "cell": [
+   412,
+   476
+  ],
+  "pivot": [
+   186,
+   460
+  ],
+  "fps": 12,
+  "at": 0,
+  "frames": 12,
+  "down": 1,
+  "in": {
+   "at": 12,
+   "frames": 14
+  }
+ },
+ "idle": {
+  "base": "art/pory-roku/heron-home.webp",
+  "pages": [
+   "art/pory-roku/heron-idle-p0.webp",
+   "art/pory-roku/heron-idle-p1.webp",
+   "art/pory-roku/heron-idle-p2.webp"
+  ],
+  "pageRows": [
+   8,
+   8,
+   1
+  ],
+  "crop": [
+   1,
+   0,
+   316,
+   465
+  ],
+  "gutter": 4,
+  "cols": 12,
+  "perPage": 96,
+  "cell": [
+   412,
+   476
+  ],
+  "pivot": [
+   186,
+   460
+  ],
+  "fps": 12,
+  "gestures": [
+   {
+    "name": "blink",
+    "sheet": "idle",
+    "at": 0,
+    "frames": 12,
+    "weight": 3,
+    "src": "cutout"
+   },
+   {
+    "name": "breath",
+    "sheet": "idle",
+    "at": 12,
+    "frames": 25,
+    "weight": 3,
+    "src": "cutout"
+   },
+   {
+    "name": "tilt",
+    "sheet": "idle",
+    "at": 37,
+    "frames": 23,
+    "weight": 2,
+    "src": "cutout"
+   },
+   {
+    "name": "sway",
+    "sheet": "idle",
+    "at": 60,
+    "frames": 25,
+    "weight": 2,
+    "src": "cutout"
+   },
+   {
+    "name": "listen",
+    "sheet": "idle",
+    "at": 85,
+    "frames": 25,
+    "weight": 1,
+    "src": "minimax",
+    "sig": true
+   },
+   {
+    "name": "lookup",
+    "sheet": "idle",
+    "at": 110,
+    "frames": 24,
+    "weight": 1,
+    "src": "minimax",
+    "sig": true
+   },
+   {
+    "name": "ruffle",
+    "sheet": "idle",
+    "at": 134,
+    "frames": 23,
+    "weight": 1,
+    "src": "minimax",
+    "sig": true
+   },
+   {
+    "name": "hat",
+    "sheet": "idle",
+    "at": 157,
+    "frames": 42,
+    "weight": 1,
+    "src": "minimax",
+    "sig": true
+   }
+  ]
+ },
+ "joy": {
+  "base": "art/pory-roku/heron-home.webp",
+  "pages": [
+   "art/pory-roku/heron-joy-p0.webp"
+  ],
+  "pageRows": [
+   6
+  ],
+  "crop": [
+   6,
+   18,
+   406,
+   458
+  ],
+  "gutter": 4,
+  "cols": 9,
+  "perPage": 72,
+  "cell": [
+   412,
+   476
+  ],
+  "pivot": [
+   186,
+   460
+  ],
+  "fps": 12,
+  "at": 0,
+  "frames": 49,
+  "gestures": [
+   {
+    "name": "joy",
+    "sheet": "joy",
+    "at": 0,
+    "frames": 49,
+    "src": "minimax"
+   }
+  ]
+ }
+}

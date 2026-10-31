@@ -1,0 +1,56 @@
+<!doctype html><html lang="pl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Heron Review</title>
+<style>
+:root{--bg:#f3ead8;--ink:#1d1b22;--panel:#e7dcc4;--acc:#b8322a}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.4 Georgia,serif;padding:16px}
+h1{font-size:22px;margin:0 0 4px} .row{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start}
+.card{background:var(--panel);border-radius:8px;padding:10px} canvas{background:#3a3452;border-radius:6px;display:block;max-width:100%}
+button{font:inherit;margin:2px;padding:4px 10px;border-radius:14px;border:1px solid #8a7a5a;background:#fff8e8;cursor:pointer}
+button.on{background:var(--acc);color:#fff} .beat{width:14px;height:14px;border-radius:50%;background:#999;display:inline-block;vertical-align:middle}
+.strip{display:flex;overflow-x:auto;gap:2px;max-width:100%} .strip canvas{width:64px;height:74px}
+</style>
+<h1>Czapla — przegląd animacji</h1>
+<p>Odtwarzacz czyta <code>heron.json</code> (format Króla Gór: base + strony z gutterem). Bicie: jeden cykl dół-góra na uderzenie, klatka <code>down</code> na uderzeniu.</p>
+<div class="row">
+ <div class="card"><b>Bicie (MiniMax)</b> <span class="beat" id="beat"></span><br>
+  <canvas id="cs" width="412" height="476"></canvas>
+  BPM <input id="bpm" type="range" min="60" max="100" value="80"> <span id="bv">80</span>
+  <button id="sp">▶ graj / pauza</button></div>
+ <div class="card"><b>Bezczynność (worek) + radość</b><br>
+  <canvas id="ci" width="412" height="476"></canvas>
+  <div id="gb"></div><button id="bag" class="on">losowy worek</button></div>
+</div>
+<h2 style="font-size:17px">Klatki</h2><div id="strips"></div>
+<script>
+const M=await0();function await0(){return null}
+fetch('heron.json').then(r=>r.json()).then(go);
+function go(m){
+ const imgs={};const load=s=>imgs[s]||(imgs[s]=Object.assign(new Image(),{src:s}));
+ load(m.home);for(const k of['strum','idle','joy'])m[k].pages.forEach(load);
+ function draw(ctx,sh,i){ctx.clearRect(0,0,412,476);ctx.drawImage(imgs[m.home],0,0);if(i<0)return;
+  const pg=Math.floor(i/sh.perPage),j=i%sh.perPage,g=sh.gutter,[x,y,w,h]=sh.crop,pw=w+2*g,ph=h+2*g;
+  ctx.clearRect(x,y,w,h);ctx.drawImage(imgs[sh.pages[pg]],(j%sh.cols)*pw+g,Math.floor(j/sh.cols)*ph+g,w,h,x,y,w,h)}
+ const cs=document.getElementById('cs').getContext('2d'),ci=document.getElementById('ci').getContext('2d');
+ let playing=true,t0=performance.now(),bpm=80;
+ bpmEl=document.getElementById('bpm');bpmEl.oninput=()=>{bpm=+bpmEl.value;document.getElementById('bv').textContent=bpm};
+ document.getElementById('sp').onclick=()=>{playing=!playing;t0=performance.now()};
+ const G=m.idle.gestures;let cur=null,gt=0,rest=0,last=-1,lastSig=false,bagOn=true,bag=[];
+ const gb=document.getElementById('gb');
+ [...G.map(g=>[g.name,'idle',g]),['joy','joy',m.joy.gestures[0]]].forEach(([n,s,g])=>{const b=document.createElement('button');b.textContent=n+(g.src?' · '+g.src:'');b.onclick=()=>{cur={g,s};gt=performance.now()};gb.appendChild(b)});
+ document.getElementById('bag').onclick=e=>{bagOn=!bagOn;e.target.classList.toggle('on',bagOn)};
+ function next(){if(!bag.length){bag=G.flatMap((g,i)=>Array(g.weight).fill(i));bag.sort(()=>Math.random()-.5)}
+  for(let k=0;k<bag.length;k++){const i=bag[k];if(i!==last&&!(lastSig&&G[i].sig)){bag.splice(k,1);last=i;lastSig=!!G[i].sig;return G[i]}}
+  const p=G.filter((g,i)=>!g.sig&&i!==last);const g=p[Math.floor(Math.random()*p.length)];last=G.indexOf(g);lastSig=false;return g}
+ function tick(now){
+  if(playing){const ph=((now-t0)/(60000/bpm))%1;const sh=m.strum;let f=Math.floor(ph*sh.frames+sh.down)%sh.frames;draw(cs,sh,sh.at+f);
+   document.getElementById('beat').style.background=ph<0.12?'#b8322a':'#999'}else draw(cs,m.strum,-1);
+  if(cur){const k=Math.floor((now-gt)/1000*12);const sh=m[cur.s];if(k<cur.g.frames)draw(ci,sh,cur.g.at+k);else{cur=null;rest=now+400+Math.random()*1800;draw(ci,m.idle,-1)}}
+  else{draw(ci,m.idle,-1);if(bagOn&&now>rest){cur={g:next(),s:'idle'};gt=now}}
+  requestAnimationFrame(tick)}
+ Promise.all(Object.values(imgs).map(i=>i.decode())).then(()=>{requestAnimationFrame(tick);strips()});
+ function strips(){const box=document.getElementById('strips');
+  const rows=[['strum cycle',m.strum,m.strum.at,m.strum.frames],['strum in',m.strum,m.strum.in.at,m.strum.in.frames],...G.map(g=>[g.name+' ('+g.src+')',m.idle,g.at,g.frames]),['joy',m.joy,0,m.joy.frames]];
+  for(const[n,sh,at,fr]of rows){const d=document.createElement('div');d.innerHTML='<div>'+n+' — '+fr+' kl.</div>';const s=document.createElement('div');s.className='strip';
+   for(let k=0;k<fr;k++){const c=document.createElement('canvas');c.width=412;c.height=476;draw(c.getContext('2d'),sh,at+k);s.appendChild(c)}d.appendChild(s);box.appendChild(d)}}
+}
+</script></html>

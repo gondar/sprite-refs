@@ -36,6 +36,14 @@ def weights(home):
     return wh, wb, hem
 
 def blink_overlay(home):
+    # the Nano Banana blink edit (refs/cutout/heron/blink.png) drew a grey disc that read as a blind eye; the closed
+    # eye is painted instead (rigs/heron/heron-cut-eyeclosed.png: the eye filled from the slate eye-stripe around it
+    # plus a thin dark lash arc) and laid over home where it differs
+    cl = np.asarray(Image.open(os.path.join(R, "heron-cut-eyeclosed.png")).convert("RGBA"), dtype=float)
+    z = np.zeros((N, N, 4)); z[OY:OY + cl.shape[0], OX:OX + cl.shape[1]] = cl
+    m = ndi.gaussian_filter((np.abs(z - home).max(2) > 2).astype(float), 0.8)
+    return z[..., :3], np.clip(m * 1.5, 0, 1)
+def _nb_blink_overlay(home):
     ed = Image.open(os.path.join(ROOT, "refs/cutout/heron/blink.png")).convert("RGB").resize((1024, 1536), Image.LANCZOS)
     orig = np.asarray(Image.open(os.path.join(ROOT, "refs/heron/design/heron-design-v1.png")).convert("RGB"), dtype=float)
     ed = np.asarray(ed, dtype=float)
