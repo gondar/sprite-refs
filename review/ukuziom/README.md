@@ -14,3 +14,15 @@ MusicGames (13 × 4 grid of 280 × 240 cells, 12 fps), played by `MCOND` in `uku
   chest goes pale and wing blur leaves ghosts (`konfetka-red-default-key.png`); `--dom 100,35 --spill 100,55` is
   clean (`konfetka-red-final.png`).
 - lock.py: `--pose-s 4.4 --cell 280,240 --pivot 140,238 --fig 200 --step 2`, `--reach 60` (Leon, Zenek) / 160 (Konfetka).
+
+## Second round: hop cycles (the owner: "they are mostly jumping and running over text", "Lion better on 4 paws")
+
+The MiniMax loops above stood in place; the conductor hops coin to coin once per beat, so they were replaced by
+drawn hop cycles, one cycle per beat (each frame owns a slice of the beat, as Lina's do).
+- Sheets: `refs/ukuziom/{leon,zenek,konfetka}-run-sheet.png` from `prompts/ukuziom/*-run.txt`, the full-res cut as
+  identity reference, 16:9 2K. Zenek and Konfetka on Nano Banana Pro ($0.09 each). Leon was refused twice by Pro
+  (`PROHIBITED_CONTENT`, not billed) and drawn by Nano Banana flash ($0.0245), in a 4 / 2 / 4 layout instead of 4 × 2.
+- Cut: `scripts/ukuziom_split.py` (key.py magenta, erase the drawn baseline with `LINES=1`, one figure per
+  connected blob), packed by `scripts/ukuziom_pack.py` (one scale per character, each frame's lift above its sheet
+  row's baseline kept). Strips: `sheets/ukuziom-hops/`. Leon [gathered, push, leap, reach, land] = sheet figures
+  3, 5, 4, 0, 2; Zenek and Konfetka figures 1, 2, 3, 0 of row 1 (row 2 repeats it). Leon's map card is figure 8.
