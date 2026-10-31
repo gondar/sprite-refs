@@ -1,0 +1,8 @@
+alien
+pony
+monkey
+sloth
+octopus
+lion-cub
+parrot
+lion-cub-sit
