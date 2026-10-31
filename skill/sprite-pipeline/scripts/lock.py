@@ -4,7 +4,7 @@ and every other pixel is the home picture itself — the throne, legs and body c
 
 usage: lock.py OUT --home HOME.png --at X,Y [--keep PROP_MASK.png] CLIP.mp4=name,name,name,name [CLIP2.mp4=…]
                [--pose-s 1.0] [--thresh 30] [--grow 6] [--feather 3] [--cell 479,444 --pivot 245.6,442.8 --fig 327]
-               [--step 2] [--webp 70] [--reach 24]
+               [--step 2] [--webp 70] [--reach 24] [--dom 60,40] [--spill 25,0]
 
 --keep is a mask (frame-sized, white = prop) of what is NOT the character — a throne, a stand: there, pixels the
 clip erases come back from home. Nowhere else: a head that moves leaves real empty space behind it.
@@ -37,7 +37,10 @@ def main():
     ap.add_argument("--cell", default="479,444"); ap.add_argument("--pivot", default="245.6,442.8"); ap.add_argument("--fig", type=float, default=327)
     ap.add_argument("--step", type=int, default=2); ap.add_argument("--reach", type=int, default=24, help="px past the home outline a gesture may reach (a donkey's buck: 160)"); ap.add_argument("--ease", type=int, default=3)
     ap.add_argument("--open-end", action="store_true", help="half of a chained gesture: ease into home at the START only; the end is a drawn peak pose that the next half starts from"); ap.add_argument("--webp", type=int, default=70)
+    ap.add_argument("--dom", default="60,40", help="outside the outline, alpha falls from 1 to 0 as the ground's channel dominates the other two by HI-WIDTH .. HI (default 60,40, tuned on blue). A red ground under a yellow character needs room: 140,50")
+    ap.add_argument("--spill", default="25,0", help="EXCESS,KEEP: inside the outline the ground's channel is clamped where it exceeds the other two by more than EXCESS; at and outside the outline it is clamped to the others + KEEP (default 25,0). Red under yellow: 100,70")
     a = ap.parse_args(); os.makedirs(a.out, exist_ok=True)
+    dom_hi, dom_w = map(float, a.dom.split(",")); sp_ex, sp_keep = map(float, a.spill.split(","))
     cut = np.asarray(Image.open(a.home).convert("RGBA"), dtype=float); ox, oy = map(int, a.at.split(","))
     rows = []
     for spec in a.clips:
@@ -92,13 +95,13 @@ def main():
             kc0 = int(np.argmax(bg)); o0 = [c for c in range(3) if c != kc0]
             dom = rgb[..., kc0] - rgb[..., o0].max(2)
             # inside the home outline the figure is opaque — except where the character moved away and left bare ground
-            fa = np.where(fig & ~(gone & ~keep), 1.0, np.clip((60 - dom) / 40, 0, 1))
+            fa = np.where(fig & ~(gone & ~keep), 1.0, np.clip((dom_hi - dom) / dom_w, 0, 1))
             # spill: the ground's dominant channel bleeds into glows and edges (a blue rim round the crown) — clamp
             # it to the other two channels wherever the pixel is at the outline or outside it
             kc = int(np.argmax(bg)); oth = [c for c in range(3) if c != kc]
             mx = rgb[..., oth].max(2)
-            sp = (~fig) | edge | (rgb[..., kc] - mx > 25)      # outline, outside, or a clear excess (crown glow)
-            rgb[..., kc] = np.where(sp, np.minimum(rgb[..., kc], mx), rgb[..., kc])
+            sp = (~fig) | edge | (rgb[..., kc] - mx > sp_ex)   # outline, outside, or a clear excess (crown glow)
+            rgb[..., kc] = np.where(sp, np.minimum(rgb[..., kc], mx + sp_keep), rgb[..., kc])
             pa = ha * (1 - mf) + fa * mf
             col = (home[..., :3] * ha[..., None] * (1 - mf[..., None]) + rgb * fa[..., None] * mf[..., None]) / np.maximum(pa, 1e-3)[..., None]
             frames.append(np.dstack([col, pa * 255])); masks.append(mf.sum())
