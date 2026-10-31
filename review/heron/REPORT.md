@@ -19,3 +19,13 @@ score.py: cutout static 3.15 colour 0.33 seam 0 motion 6.2 · A 9.2/6.1/0/18.0 �
 joy 23.4/22.5/0/39.1 (joy repaints the whole bird — by design, it is a big move).
 Jobs: 59e3ea design, 6cd6b1 blink edit, 6f42c8 strum-down edit, clips b0a501 (strum, unused) 05d04a (A) 422153 (B)
 af0b08 (C) ae8326 (joy) 614143 (strum chain); b0906a refunded (input_download_failed); four Gemini 502s.
+
+## Round 2 (coordinator review in pory-roku.html)
+- Ghosting: the page paints base then the crop with source-over, so wherever a frame was less opaque than home the home
+  hat/beak showed through (MiniMax up to ~9k px; even cutout sway ~2.3k and soft edges ~200). Now every sheet has
+  `base: null` and self-contained frames (crop = union of alpha bboxes); `rigs/heron/assemble2.py` packs them and asserts
+  no alpha outside the crop. Sheets: idle (cutout), sig (MiniMax idle), joy, strum.
+- Strum by pattern: `down` = source frames 55 60 67 75 (hit 1), `up` = reversed (hit 2), `top` = down.at, `bottom` =
+  down.at+3; 4 frames each so a down+up pair fits an eighth at 90 BPM. Old loop + `in` kept (loop hit renamed `hit`).
+- Colour: strum frames' clip pixels gain-matched (greyness-weighted) to home's wing grey: (93,88,80) vs home (90.5,87.6,80).
+- ruffle dropped (start pop, cape texture change). No new paid calls.

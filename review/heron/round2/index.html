@@ -1,0 +1,59 @@
+<!doctype html><html lang="pl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Heron Review 2</title>
+<style>
+:root{--bg:#f3ead8;--ink:#1d1b22;--panel:#e7dcc4;--acc:#b8322a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1f1c24;--ink:#eee6d6;--panel:#2c2833}}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.4 Georgia,serif;padding:16px}
+.row{display:flex;flex-wrap:wrap;gap:16px}.card{background:var(--panel);border-radius:8px;padding:10px;max-width:100%}
+canvas{background:#d8ccae;border-radius:6px;display:block;max-width:100%}
+button,select{font:inherit;margin:2px;padding:4px 10px;border-radius:14px;border:1px solid #8a7a5a;background:#fff8e8;color:#1d1b22}
+#pat span{display:inline-block;width:26px;text-align:center;border-radius:4px}#pat span.on{background:var(--acc);color:#fff}
+.strip{display:flex;overflow-x:auto;gap:2px}.strip canvas{width:64px;height:74px;flex:none}
+</style>
+<h1 style="font-size:22px">Czapla — runda 2</h1>
+<p>Each sheet is drawn by itself (<code>base: null</code>), with nothing painted underneath. The strum follows the pattern: <code>down</code> puts its <code>hit</code> frame on the stroke; <code>up</code> does the same. When two downs follow each other, <code>up</code> plays as a silent return. Between strokes the heron holds the <code>top</code> or <code>bottom</code> pose.</p>
+<div class="row">
+<div class="card"><canvas id="cs" width="412" height="476"></canvas>
+ <select id="ps"><option value="whole">whole</option><option value="quarter">quarter</option><option value="folk">folk</option><option value="island" selected>island</option></select>
+ BPM <input id="bpm" type="range" min="60" max="100" value="90"> <span id="bv">90</span><div id="pat"></div></div>
+<div class="card"><canvas id="ci" width="412" height="476"></canvas><div id="gb"></div></div>
+</div><div id="strips"></div>
+<script>
+const PAT={whole:'D.......',quarter:'D.D.D.D.',folk:'D.DUDUDU',island:'D.DU.UDU'};
+fetch('heron.json').then(r=>r.json()).then(m=>{
+ const imgs={},load=s=>s&&(imgs[s]||(imgs[s]=Object.assign(new Image(),{src:s})));
+ load(m.home);['strum','idle','sig','joy'].forEach(k=>m[k].pages.forEach(load));
+ function draw(c,sh,i){c.clearRect(0,0,412,476);if(sh.base)c.drawImage(imgs[sh.base],0,0);
+  const pg=Math.floor(i/sh.perPage),j=i%sh.perPage,g=sh.gutter,[x,y,w,h]=sh.crop,pw=w+2*g,ph=h+2*g;
+  c.drawImage(imgs[sh.pages[pg]],(j%sh.cols)*pw+g,Math.floor(j/sh.cols)*ph+g,w,h,x,y,w,h)}
+ const cs=document.getElementById('cs').getContext('2d'),ci=document.getElementById('ci').getContext('2d');
+ let bpm=90,ps='island';const b=document.getElementById('bpm');b.oninput=()=>{bpm=+b.value;bv.textContent=bpm};
+ document.getElementById('ps').onchange=e=>ps=e.target.value;
+ const st=m.strum,fps=12,t0=performance.now();
+ function strumFrame(now){ // eighth-note grid; returns the frame for the scheduled strokes
+  const e=60000/bpm/2,t=now-t0,p=PAT[ps],n=Math.floor(t/e);
+  const hits=[];for(let k=n-3;k<=n+3;k++){const c=p[((k%8)+8)%8];if(c!=='.')hits.push([k*e,c])}
+  // each hit owns a clip window around its time; pick the latest stroke whose window has started
+  let best=null;
+  for(let i=0;i<hits.length;i++){const[ht,c]=hits[i],clip=c==='D'?st.down:st.up,start=ht-clip.hit*1000/fps;if(start<=t)best=[ht,c,clip,start]}
+  // silent return: a D after a D with no U between: play up between them
+  let prev=null;for(const h of hits){if(h[0]<=t)prev=h}
+  const nxt=hits.find(h=>h[0]>t);
+  if(best){const[ht,c,clip,start]=best,k=Math.floor((t-start)*fps/1000);
+   if(k<clip.frames)return clip.at+k;
+   if(c==='D'&&nxt&&nxt[1]==='D'){const gap=nxt[0]-ht,ret=st.up,rs=nxt[0]-st.down.hit*1000/fps-ret.frames*1000/fps;if(t>=rs){const r=Math.floor((t-rs)*fps/1000);if(r<ret.frames)return ret.at+r}}
+   return c==='D'?st.bottom:st.top}
+  return st.top}
+ const G=m.idle.gestures,gb=document.getElementById('gb');let cur=null,gt=0;
+ [...G,{...m.joy.gestures[0]}].forEach(g=>{const bt=document.createElement('button');bt.textContent=g.name+' · '+g.src;bt.onclick=()=>{cur=g;gt=performance.now()};gb.appendChild(bt)});
+ function tick(now){draw(cs,st,strumFrame(now));
+  const e=60000/bpm/2,n=Math.floor((now-t0)/e)%8;pat.innerHTML=[...PAT[ps]].map((c,i)=>`<span class="${i===n?'on':''}">${c==='.'?'·':c==='D'?'↓':'↑'}</span>`).join('');
+  if(cur){const k=Math.floor((now-gt)*fps/1000);if(k<cur.frames)draw(ci,m[cur.sheet],cur.at+k);else cur=null}
+  if(!cur){ci.clearRect(0,0,412,476);ci.drawImage(imgs[m.home],0,0)}
+  requestAnimationFrame(tick)}
+ Promise.all(Object.values(imgs).map(i=>i.decode())).then(()=>{requestAnimationFrame(tick);
+  const rows=[['down',st,st.down.at,st.down.frames],['up',st,st.up.at,st.up.frames],['in',st,st.in.at,st.in.frames],['loop (old)',st,st.at,st.frames],...G.map(g=>[g.name+' ('+g.src+')',m[g.sheet],g.at,g.frames]),['joy',m.joy,0,m.joy.frames]];
+  for(const[n,sh,at,fr]of rows){const d=document.createElement('div');d.innerHTML='<div>'+n+' — '+fr+'</div>';const s=document.createElement('div');s.className='strip';
+   for(let k=0;k<fr;k++){const c=document.createElement('canvas');c.width=412;c.height=476;draw(c.getContext('2d'),sh,at+k);s.appendChild(c)}d.appendChild(s);strips.appendChild(d)}})
+});
+</script></html>
