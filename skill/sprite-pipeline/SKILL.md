@@ -87,6 +87,10 @@ lock.py OUT --home <clean cut-out>.png --at X,Y --keep <prop mask>.png --pose-s 
 - **`--keep` is a mask of the PROP only** (throne, stand — from the cutout's parts map or painted once): there, pixels
   the clip erases come back from the picture. Applied to the whole outline, it pasted the home crown back where the
   head had just moved away — the King wore two crowns. Elsewhere, the space a moving part leaves is empty.
+- **A character with blue in it** (a parrot's wing tips): blue keys the tips away and green keys the body. Use a
+  flat RED ground (#D23B2B; held ±3 levels for 4 s, 2026-10-31) and widen the key for it: `--dom 100,35 --spill 100,55`.
+  The defaults (60,40 and 25,0) are tuned on blue and turn a yellow chest pale on red (R−G ≈ 40 crosses both);
+  red's own ground sits ~155 above the other channels. Worked example: Papuga Konfetka, `refs/ukuziom/`.
 
 **Check, then show** — `scripts/score.py` on the atlas (throne shimmer, colour drift, seams, motion), then
 LOOK at each gesture's peak frame at full size, zoomed on the head, next to the raw clip's frame: the score did not see
