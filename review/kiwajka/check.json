@@ -1,0 +1,28 @@
+{
+ "blink_fit": 11.828428268432617,
+ "home_fit": 2.8543314933776855,
+ "wave": {
+  "ends_vs_home": 0.0,
+  "peak_frame": 9,
+  "peak_changed_px": 4573,
+  "feet_rows_changed": 0
+ },
+ "blink": {
+  "ends_vs_home": 0.0,
+  "peak_frame": 1,
+  "peak_changed_px": 763,
+  "feet_rows_changed": 0
+ },
+ "tail": {
+  "ends_vs_home": 0.0,
+  "peak_frame": 4,
+  "peak_changed_px": 1359,
+  "feet_rows_changed": 0
+ },
+ "happy": {
+  "ends_vs_home": 0.0,
+  "peak_frame": 6,
+  "peak_changed_px": 5457,
+  "feet_rows_changed": 0
+ }
+}
