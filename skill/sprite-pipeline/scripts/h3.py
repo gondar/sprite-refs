@@ -31,7 +31,7 @@ def H(): return {"Authorization": "Bearer " + os.environ.get("APIYI_API_KEY", ""
 
 def check_url(u, kind):
     if os.environ.get("H3_SKIP_CHECK") and "myqcloud.com" in u: return  # H3's own output host; blocked from the sandbox, public to H3
-    req = urllib.request.Request(u, headers={"Range": "bytes=0-1023"})
+    req = urllib.request.Request(u, headers={"Range": "bytes=0-1023", "User-Agent": "sprite-pipeline-h3/1"})  # jsDelivr 403s Python-urllib's own UA (2026-11-04)
     with urllib.request.urlopen(req, timeout=60) as r:
         ct = r.headers.get("Content-Type", "")
         if r.status not in (200, 206) or not ct.startswith(kind):

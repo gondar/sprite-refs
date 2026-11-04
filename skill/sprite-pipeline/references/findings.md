@@ -259,3 +259,19 @@ The review page played two full-cell atlases fine on a desktop; the game's own t
   count of clearly changed pixels (> 40 levels) separates them: ends ≤ 310, the dart's peak 437, the beard's 13,888.
 - **The shuffle gave in** at the end of a bag when only signature moves were left right after one (the 3-minute test
   found it): slip in a small gesture from outside the bag instead.
+
+## Małpka Kiwajka's signature moves (UkuZiom „Proste bicia”, 2026-11-04, 4 clips, $0.48)
+
+- **The SOUND line can repaint the backdrop.** "Sound: a soft, quiet warm savanna evening ambience only" on a hop +
+  two-arm wave clip: from ~0.3 s the flat blue became a painted savanna (sky, acacias, dirt floor) and the monkey grew;
+  it faded back to blue only at the pinned last frame. Rejected. The same clip with "Sound: soft, quiet room tone
+  only" plus "Nothing appears behind her" and "the framing never changes" held the blue for all 4 s (and so did a
+  scratch + clap clip with the savanna line — it is a risk, not a certainty). Keep the sound neutral.
+- **A hop or a cheer needs its own, larger cell.** Out of the cutout's cell (16/12 px margins) the hop's head left the
+  top by 18 px and the cheer's hand the left side by 7 px: a second atlas with its own cell (28/44 px margins round the
+  same 230×256 box) and the player switching the `<i>`'s geometry with the atlas; cell 0 of both is the home.
+- **`--reach` 24 cut the fingers off** a hand raised higher than the outline (a hop lifts the whole hand ~40 px):
+  130 kept them. **`--ease 3` ghosted** the start of a move that leaves home within 0.17 s (two waving hands): use
+  `--ease 1` where the cut is a true rest (the clip's own first frame) and ease only an interior cut.
+- **jsDelivr answered 403 to Python-urllib's default User-Agent** (and now and then to curl): `h3.py` sends its own;
+  on a 403 just submit again — a refused check is not billed (it runs before the `submitting` line).
