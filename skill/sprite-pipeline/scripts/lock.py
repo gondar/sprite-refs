@@ -18,7 +18,9 @@ offset X,Y (the same pixels the clip starts from). Per frame:
   3. spill of the ground colour clamped at the outline and outside it; alpha outside the home silhouette (a head tilting past its outline) keyed against this frame's border colour.
   4. out = home where the mask is 0, the clip where it is 1, blended in between (premultiplied).
 Cuts: the dip of the moving area nearest every k * --pose-s (+-0.5 s), printed. H3 in first+last mode does not
-return to rest between gestures on the clock, so a cut that is not a full rest eases into home over --ease frames.
+return to rest between gestures on the clock, so a cut that is not a full rest eases into home over --ease SOURCE frames
+(24 fps frames of the clip, whatever --step is: counted in output frames, --step 3 --ease 3 dissolved home into a pose
+that had already moved for 0.375 s and Lucek's dance showed two sloths at every start and end, 2026-11-04).
 Packs like gestures.py: atlas.png/.webp + atlas.json + review.png + mix.gif, the figure scaled to --fig px tall and
 its bottom centre on --pivot in a --cell cell (so it sits where the game's other King strips sit)."""
 import argparse, glob, json, os, random, subprocess
@@ -35,7 +37,7 @@ def main():
     ap.add_argument("--pose-s", type=float, default=1.0); ap.add_argument("--thresh", type=float, default=30)
     ap.add_argument("--grow", type=int, default=6); ap.add_argument("--feather", type=float, default=3)
     ap.add_argument("--cell", default="479,444"); ap.add_argument("--pivot", default="245.6,442.8"); ap.add_argument("--fig", type=float, default=327)
-    ap.add_argument("--step", type=int, default=2); ap.add_argument("--reach", type=int, default=24, help="px past the home outline a gesture may reach (a donkey's buck: 160)"); ap.add_argument("--ease", type=int, default=3)
+    ap.add_argument("--step", type=int, default=2); ap.add_argument("--reach", type=int, default=24, help="px past the home outline a gesture may reach (a donkey's buck: 160)"); ap.add_argument("--ease", type=int, default=6, help="source (24 fps) frames over which a cut that is not a full rest eases into home; the old default, 3 output frames at --step 2, is 6")
     ap.add_argument("--open-end", action="store_true", help="half of a chained gesture: ease into home at the START only; the end is a drawn peak pose that the next half starts from"); ap.add_argument("--webp", type=int, default=70)
     ap.add_argument("--dom", default="60,40", help="outside the outline, alpha falls from 1 to 0 as the ground's channel dominates the other two by HI-WIDTH .. HI (default 60,40, tuned on blue). A red ground under a yellow character needs room: 140,50")
     ap.add_argument("--spill", default="25,0", help="EXCESS,KEEP: inside the outline the ground's channel is clamped where it exceeds the other two by more than EXCESS; at and outside the outline it is clamped to the others + KEEP (default 25,0). Red under yellow: 100,70")
@@ -115,9 +117,9 @@ def main():
             print(f"  {nm}: {i0 / FPS:.2f}-{i1 / FPS:.2f} s, moving area at the cuts {masks[i0] / 1000:.1f}k / {masks[i1] / 1000:.1f}k px")
             seq = frames[i0:i1 + 1:a.step]; n = len(seq)
             if a.open_end: seq[0] = home
-            # the ends ARE home; a cut that is not a full rest eases into it over --ease frames
+            # the ends ARE home; a cut that is not a full rest eases into it over --ease SOURCE frames (j * step of them)
             for j in range(n):
-                w = min(1.0, j / a.ease, (n - 1 - j) / a.ease if not a.open_end else 1.0)
+                w = min(1.0, j * a.step / max(1, a.ease), (n - 1 - j) * a.step / max(1, a.ease) if not a.open_end else 1.0)
                 if w < 1:
                     f = seq[j]; pa = f[..., 3:4] / 255 * w + ha[..., None] * (1 - w)
                     rgb = (f[..., :3] * f[..., 3:4] / 255 * w + home[..., :3] * ha[..., None] * (1 - w)) / np.maximum(pa, 1e-3)
