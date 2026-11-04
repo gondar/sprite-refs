@@ -1,0 +1,16 @@
+monkey-front
+monkey-left
+monkey-right
+monkey-baby
+snail
+snail-stretch
+spider
+spider-tucked
+leaves-a
+leaves-b
+parrot-left
+parrot-right
+butterfly-open
+butterfly-side
+monstera
+frog

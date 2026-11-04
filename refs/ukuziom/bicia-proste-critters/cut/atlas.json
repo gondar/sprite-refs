@@ -1,0 +1,104 @@
+{
+ "image": "atlas.png",
+ "frames": {
+  "monkey-front": {
+   "x": 0,
+   "y": 0,
+   "w": 235,
+   "h": 195
+  },
+  "monkey-left": {
+   "x": 237,
+   "y": 0,
+   "w": 229,
+   "h": 192
+  },
+  "monkey-right": {
+   "x": 468,
+   "y": 0,
+   "w": 238,
+   "h": 208
+  },
+  "monkey-baby": {
+   "x": 708,
+   "y": 0,
+   "w": 209,
+   "h": 186
+  },
+  "snail": {
+   "x": 0,
+   "y": 210,
+   "w": 216,
+   "h": 160
+  },
+  "snail-stretch": {
+   "x": 218,
+   "y": 210,
+   "w": 253,
+   "h": 173
+  },
+  "spider": {
+   "x": 473,
+   "y": 210,
+   "w": 243,
+   "h": 196
+  },
+  "spider-tucked": {
+   "x": 718,
+   "y": 210,
+   "w": 199,
+   "h": 153
+  },
+  "leaves-a": {
+   "x": 0,
+   "y": 408,
+   "w": 256,
+   "h": 213
+  },
+  "leaves-b": {
+   "x": 258,
+   "y": 408,
+   "w": 256,
+   "h": 229
+  },
+  "parrot-left": {
+   "x": 516,
+   "y": 408,
+   "w": 213,
+   "h": 228
+  },
+  "parrot-right": {
+   "x": 731,
+   "y": 408,
+   "w": 212,
+   "h": 228
+  },
+  "butterfly-open": {
+   "x": 0,
+   "y": 639,
+   "w": 241,
+   "h": 181
+  },
+  "butterfly-side": {
+   "x": 243,
+   "y": 639,
+   "w": 140,
+   "h": 194
+  },
+  "monstera": {
+   "x": 385,
+   "y": 639,
+   "w": 208,
+   "h": 217
+  },
+  "frog": {
+   "x": 595,
+   "y": 639,
+   "w": 181,
+   "h": 158
+  }
+ },
+ "source": "refs/ukuziom/bicia-proste-critters/sheet-critters-16.png",
+ "grid": "4x4",
+ "key": "magenta"
+}

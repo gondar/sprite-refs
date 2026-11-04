@@ -1,0 +1,20 @@
+Game asset sheet: small background critters that will live inside the jungle painting of the first reference image, for a children's ukulele game. Paint them in EXACTLY the style of that painting (soft painterly storybook illustration, warm golden-green light, gentle brush texture, soft shading, no hard black outlines), lit from the top-left, all in the same style and scale family. The monkeys are the same kind of monkey as the cartoon monkey in the second reference (brown fur, light tan face and muzzle, round ears), but softer and painted like the jungle.
+Draw EXACTLY 16 separate objects, one per cell of an invisible 4 x 4 grid (4 rows of 4), placed in the order of this list in reading order (row 1 left to right, then row 2 left to right, and so on), each object centred in its own cell, filling about 65% of the cell, never touching or overlapping a neighbour, empty space between them:
+- the head of a small brown monkey peeking up, seen from the front, only the head and the tops of two small hands gripping below the chin, curious wide eyes, the bottom edge cut straight across under the hands
+- the head of a small brown monkey peeking up, head tilted to the left, looking to the left, two small hands below the chin, the bottom edge cut straight across under the hands
+- the head of a small brown monkey peeking up, looking to the right with a cheeky grin, one small hand below the chin, the bottom edge cut straight across under the hand
+- the head of a baby monkey with lighter golden-brown fur peeking up, seen from the front, big round eyes, two tiny hands below the chin, the bottom edge cut straight across under the hands
+- a small garden snail seen exactly from the side, crawling to the right, shell with an orange-brown spiral, soft olive-tan body, two eye stalks up
+- the same small snail seen exactly from the side, crawling to the right, eye stalks stretched longer and tilted forward
+- a small round friendly spider seen from the front, dark plum-brown body with a yellow-ochre pattern, eight thin legs spread out evenly around it, two small white eyes, hanging, no thread
+- the same small spider seen from the front, legs pulled in close to its body, no thread
+- a dense clump of broad jungle leaves, wider than tall, deep jade and olive green with lighter golden edges, the bottom edge cut straight across
+- a second clump of fern and broad jungle leaves, wider than tall, olive and moss green, the bottom edge cut straight across
+- a green parrot with a red head and yellow wing band, sitting, side view facing left, no branch
+- the same green parrot sitting, side view facing right, no branch
+- an orange butterfly with dark wing edges, wings fully open, seen from above
+- the same orange butterfly with its wings half closed, seen from the side
+- a single big monstera leaf, deep jade green, stem pointing down
+- a small green tree frog sitting, seen from the front
+Each object stands alone: no ground, no shadow, no scenery, no glow, no mist, no smoke, no branch, no thread. Draw NO text anywhere: no numbers, no letters, no labels, no captions, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. No object may contain magenta or pink; the monkeys' faces and ears are light tan and peach-beige, never pink; use red, orange, tan or purple-brown instead.
