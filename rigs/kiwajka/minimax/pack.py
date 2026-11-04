@@ -35,6 +35,7 @@ for spec in sys.argv[2:]:
     d, _, sel = spec.partition(':')
     m = json.load(open(d + '/atlas.json')); A = Image.open(d + '/atlas.png'); W, H = m['cell']
     for g in m['gestures']:
+        raw_ends = sel.endswith('!'); sel = sel.rstrip('!')   # '!': keep the clip's own ends (a chained half that ends on a drawn peak)
         sel0, _, ez = sel.partition('~'); es = int(ez.split(',')[0]) if ez else 0; ee = int(ez.split(',')[1]) if ez else 0
         name, rng = (sel0.partition('@')[0], sel0.partition('@')[2]) if sel0 else (g['name'], '')
         if sel and g['name'] != name: continue
@@ -44,7 +45,7 @@ for spec in sys.argv[2:]:
         for j, k in enumerate(idx):
             i = g['at'] + k
             f = A.crop(((i % m['cols']) * W, (i // m['cols']) * H, (i % m['cols'] + 1) * W, (i // m['cols'] + 1) * H))
-            c = HOME.copy() if j in (0, len(idx) - 1) else rebase(place(f, S, TX, TY, 3, CW, CH))
+            c = HOME.copy() if j in (0, len(idx) - 1) and not raw_ends else rebase(place(f, S, TX, TY, 3, CW, CH))
             # ~S,E: ease out of / into home over S frames at the start and E at the end (a cut that is not a full rest)
             w = min(1.0, j / es if es else 1.0, (len(idx) - 1 - j) / ee if ee else 1.0)
             if 0 < w < 1:

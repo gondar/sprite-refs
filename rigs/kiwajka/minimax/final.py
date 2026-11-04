@@ -19,7 +19,7 @@ for g in m['gestures']:
 cols = 8; rows = (len(uniq) + cols - 1) // cols
 at = Image.new('RGBA', (cols * W, rows * H))
 for i, f in enumerate(uniq): at.paste(Image.fromarray(f), ((i % cols) * W, (i // cols) * H))
-at.save(out, 'WEBP', quality=q, method=6, alpha_quality=90)
+at.save(out, 'WEBP', quality=q, method=6, alpha_quality=int(os.environ.get('AQ', 90)))
 at.save(os.path.splitext(out)[0] + '.png')
 man = {'cell': [W, H], 'box': m['box'], 'cols': cols, 'count': len(uniq), 'gestures': gs}
 json.dump(man, open(os.path.splitext(out)[0] + '.json', 'w'), indent=1)

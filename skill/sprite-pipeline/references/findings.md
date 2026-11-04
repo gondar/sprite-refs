@@ -260,7 +260,7 @@ The review page played two full-cell atlases fine on a desktop; the game's own t
 - **The shuffle gave in** at the end of a bag when only signature moves were left right after one (the 3-minute test
   found it): slip in a small gesture from outside the bag instead.
 
-## Małpka Kiwajka's signature moves (UkuZiom „Proste bicia”, 2026-11-04, 4 clips, $0.48)
+## Małpka Kiwajka's signature moves (UkuZiom „Proste bicia”, 2026-11-04, 9 clips + 2 edits, $1.25)
 
 - **The SOUND line can repaint the backdrop.** "Sound: a soft, quiet warm savanna evening ambience only" on a hop +
   two-arm wave clip: from ~0.3 s the flat blue became a painted savanna (sky, acacias, dirt floor) and the monkey grew;
@@ -275,3 +275,15 @@ The review page played two full-cell atlases fine on a desktop; the game's own t
   `--ease 1` where the cut is a true rest (the clip's own first frame) and ease only an interior cut.
 - **jsDelivr answered 403 to Python-urllib's default User-Agent** (and now and then to curl): `h3.py` sends its own;
   on a 403 just submit again — a refused check is not billed (it runs before the `submitting` line).
+- **H3 refuses jsDelivr URLs with `@ref`** ("must be a public HTTPS URL", 400, not billed — every `sprite-refs@<sha>`
+  submit in the log failed this way). A picture that is not on `main` can be served as
+  `github.com/<owner>/<repo>/raw/<sha>/<path>`: H3 followed the redirect and fetched it (5 clips, 2026-11-04).
+- **Room for a move that travels** (a somersault, a reach for a prop): frame the home picture on a WIDER canvas,
+  the character where she stood and the space beside her (1344 × 768, `--ratio adaptive` returned 1344 × 768), and give
+  lock.py a `--reach` as big as the travel (700 for a somersault). The forward roll travelled ~250 cell px right and
+  came home by itself in 4 s of a 6 s clip. A cartwheel prompt came back MIRRORED (tail on the other side) — rejected.
+- **A prop that appears from nowhere fades in over two frames**, and the blue key turns the half-transparent prop
+  purple: skip those frames so it appears at once. Chain a prop move through a DRAWN peak (the character holding it,
+  a Nano Banana edit registered on the legs): home → peak (reach), peak → peak (strum), and the reach played
+  BACKWARDS to put it down. A dedicated put-down clip (peak → home) left the prop lying on the ground until the
+  pinned last frame and then popped it away — rejected.
