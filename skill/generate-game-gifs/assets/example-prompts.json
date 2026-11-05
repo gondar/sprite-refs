@@ -1,0 +1,77 @@
+{
+  "note": "Prompts behind the four GIFs tested on 2026-11-05 (APIYI, 512x512, quality low, complexity low). Results are measured; see references/gif-api.md.",
+  "examples": [
+    {
+      "name": "sleeping-cat",
+      "model": "gpt-image-2.6-flare",
+      "frames": 6,
+      "frame_duration_ms": 180,
+      "prompt": "A cute orange-and-cream tabby cat sleeps curled up on a soft cushion. Polished 2D storybook game illustration, warm and expressive but visually simple. The cat gently breathes: its torso expands and contracts slightly, the head rises almost imperceptibly, and the tail tip makes a small sleepy twitch. The cat remains in the same position, with consistent markings, proportions, lighting, and cushion placement. The camera remains completely stationary. Create a seamless short looping animation returning naturally to the initial sleeping pose. No captions, borders, text, multiple views, duplicated characters, or spritesheet layout.",
+      "result": {
+        "latency_s": 17.3,
+        "output_tokens": 555,
+        "seam_ratio": 1.14,
+        "verdict": "real breathing loop; painted room background, so no cut-out"
+      }
+    },
+    {
+      "name": "black-cat-sit-idle",
+      "model": "gpt-image-2.6-flare",
+      "frames": 8,
+      "frame_duration_ms": 160,
+      "prompt": "A small cute black cat sits upright, seen from the front at a slight three-quarter angle, on a perfectly flat solid medium-blue background (#2F6BD8) with no floor, no shadow and no scenery. Spooky-cute 2D game sticker style: soft painterly shading, the black fur has a faint violet rim light along the edges, big round glowing lime-green eyes, small pointed ears, a long thin tail curled around the right side of its body. Idle animation, the cat stays in exactly the same place and size: it blinks once slowly (eyes close and reopen), its left ear gives one quick twitch, and the tip of its tail curls and uncurls gently. The camera is completely stationary. Seamless loop that ends on the same pose it starts with. No text, borders, multiple cats, multiple views, or spritesheet layout.",
+      "result": {
+        "latency_s": 7.9,
+        "output_tokens": 555,
+        "seam_ratio": 1.39,
+        "verdict": "blink, ear twitch, tail curl; one stray motion line removed in post; shipped"
+      }
+    },
+    {
+      "name": "black-cat-walk",
+      "model": "gpt-image-2.6-flare",
+      "frames": 8,
+      "frame_duration_ms": 110,
+      "prompt": "A small cute black cat walks in place, seen exactly from the side, facing LEFT, on a perfectly flat solid medium-blue background (#2F6BD8) with no floor, no shadow and no scenery. Spooky-cute 2D game sticker style: soft painterly shading, black fur with a faint violet rim light along the edges, a big round glowing lime-green eye, small pointed ears, a long thin tail held up in a gentle curve. A classic side-scrolling game walk cycle: the four legs step in a natural cat gait, the body bobs very slightly, the tail sways a little. The cat walks on the spot: its body stays centred at the same height and size in every frame, it never moves across the picture. The camera is completely stationary. Seamless loop: the last step leads straight back into the first. No text, borders, motion lines, multiple cats, multiple views, or spritesheet layout.",
+      "result": {
+        "latency_s": 7.2,
+        "output_tokens": 555,
+        "seam_ratio": 1.06,
+        "verdict": "plausible in-place walk; eye hue drifted from the idle's, fixed in post; shipped"
+      }
+    },
+    {
+      "name": "black-cat-walk",
+      "model": "gpt-image-2.6-sunburst",
+      "frames": 8,
+      "frame_duration_ms": 110,
+      "prompt": "A small cute black cat walks in place, seen exactly from the side, facing LEFT, on a perfectly flat solid medium-blue background (#2F6BD8) with no floor, no shadow and no scenery. Spooky-cute 2D game sticker style: soft painterly shading, black fur with a faint violet rim light along the edges, a big round glowing lime-green eye, small pointed ears, a long thin tail held up in a gentle curve. A classic side-scrolling game walk cycle: the four legs step in a natural cat gait, the body bobs very slightly, the tail sways a little. The cat walks on the spot: its body stays centred at the same height and size in every frame, it never moves across the picture. The camera is completely stationary. Seamless loop: the last step leads straight back into the first. No text, borders, motion lines, multiple cats, multiple views, or spritesheet layout.",
+      "result": {
+        "latency_s": 12.9,
+        "output_tokens": 555,
+        "seam_ratio": 0.94,
+        "verdict": "longer stride, glossy 3D look, more body drift; not used"
+      }
+    }
+  ],
+  "untested_templates": [
+    {
+      "name": "purring-cat",
+      "frames": 8,
+      "frame_duration_ms": 160,
+      "prompt": "A cute {character} sits upright on a perfectly flat solid {key colour} background with no floor, no shadow and no scenery. {style sentence}. Idle animation, the character stays in exactly the same place and size: it purrs contentedly, its eyes slowly close halfway, its body gives a very subtle vibration, and its tail sways softly. The camera is completely stationary. Seamless loop that ends on the same pose it starts with. No text, borders, motion lines, multiple characters, multiple views, or spritesheet layout."
+    },
+    {
+      "name": "happy-reaction",
+      "frames": 8,
+      "frame_duration_ms": 130,
+      "prompt": "A cute {character} on a perfectly flat solid {key colour} background with no floor, no shadow and no scenery. {style sentence}. It starts calm and attentive, perks up its ears, raises one front paw in encouragement, gives one small happy bounce, and settles back into the exact starting pose. It stays centred at the same size. The camera is completely stationary. No text, borders, motion lines, multiple characters, multiple views, or spritesheet layout."
+    },
+    {
+      "name": "dog-tail-wag",
+      "frames": 6,
+      "frame_duration_ms": 120,
+      "prompt": "A cute {character} dog stands seen from the side on a perfectly flat solid {key colour} background with no floor, no shadow and no scenery. {style sentence}. Only its tail moves: it wags left and right twice, the body and head stay still. The camera is completely stationary. Seamless loop. No text, borders, motion lines, multiple dogs, multiple views, or spritesheet layout."
+    }
+  ]
+}
