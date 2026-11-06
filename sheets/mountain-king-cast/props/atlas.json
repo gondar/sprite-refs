@@ -1,0 +1,44 @@
+{
+ "image": "atlas.png",
+ "frames": {
+  "hat-red": {
+   "x": 0,
+   "y": 0,
+   "w": 318,
+   "h": 320
+  },
+  "heart": {
+   "x": 320,
+   "y": 0,
+   "w": 244,
+   "h": 219
+  },
+  "pebble": {
+   "x": 0,
+   "y": 322,
+   "w": 237,
+   "h": 213
+  },
+  "dust-puff": {
+   "x": 239,
+   "y": 322,
+   "w": 294,
+   "h": 260
+  },
+  "dizzy-stars": {
+   "x": 0,
+   "y": 584,
+   "w": 339,
+   "h": 222
+  },
+  "sparkle": {
+   "x": 341,
+   "y": 584,
+   "w": 239,
+   "h": 241
+  }
+ },
+ "source": "refs/mountain-king/cast/props.png",
+ "grid": "2x3",
+ "key": "magenta"
+}

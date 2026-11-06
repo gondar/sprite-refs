@@ -1,0 +1,12 @@
+Character pose sheet for a children's music game set in a cosy purple cave, painted in the SAME soft cartoon storybook style as the reference image (gentle painterly shading, clean dark-brown outlines, warm rim light from torches, big expressive eyes), lit from the top-left.
+The character: Round dark-brown velvet mole with a pink-free tan nose, tiny squinting eyes, big digging paws, a yellow miner's helmet with a lamp, round brass glasses pushed up on the helmet, a small red neckerchief.
+Draw this SAME character EXACTLY 6 times, one pose per cell of an invisible 2 x 3 grid (2 rows of 3), in the order of this list in reading order (row 1 left to right, then row 2), every drawing at the SAME scale (same head size), each centred in its own cell, filling about 75% of the cell height, never touching or overlapping a neighbour, empty space between them:
+- Upright, both paws stretched forward feeling the air, eyes squeezed to slits, nose twitching up, glasses up on the helmet.
+- Deep polite bow from the waist, one paw on his tummy, the other sweeping out, eyes shut, glasses still up on the helmet.
+- Standing, one paw waving high, big warm buck-toothed smile, eyes squinting, glasses up on the helmet.
+- Glasses pulled down over his eyes, which are now drawn HUGE and magnified, mouth a wobbly embarrassed 'oh!', paws frozen.
+- Same deep bow as 'bow' but with the glasses on his nose and an embarrassed little smile.
+- Standing upright facing the viewer, paws together on his tummy, eyes squinting, glasses up on the helmet.
+Always the whole character from head to feet (even in peeking poses — draw the full body; the game hides the lower part behind rocks). Identical design, colours and proportions in every pose; only the pose and the facial expression change.
+Each drawing stands alone: no ground, no rock, no ledge, no shadow, no scenery, no glow, no smoke, no motion lines. Draw NO text anywhere: no numbers, no letters, no labels, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. The character may not contain magenta or pink anywhere; use red, orange, purple-blue instead.

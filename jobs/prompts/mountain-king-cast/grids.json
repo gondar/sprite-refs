@@ -1,0 +1,42 @@
+{
+ "florek": {
+  "n": 8,
+  "grid": "4x2",
+  "aspect": "16:9"
+ },
+ "panna": {
+  "n": 6,
+  "grid": "3x2",
+  "aspect": "3:2"
+ },
+ "drzemek": {
+  "n": 6,
+  "grid": "3x2",
+  "aspect": "3:2"
+ },
+ "psotek": {
+  "n": 8,
+  "grid": "4x2",
+  "aspect": "16:9"
+ },
+ "nietoperek": {
+  "n": 6,
+  "grid": "3x2",
+  "aspect": "3:2"
+ },
+ "iskierka": {
+  "n": 4,
+  "grid": "2x2",
+  "aspect": "1:1"
+ },
+ "kopus": {
+  "n": 6,
+  "grid": "3x2",
+  "aspect": "3:2"
+ },
+ "glazik": {
+  "n": 4,
+  "grid": "2x2",
+  "aspect": "1:1"
+ }
+}

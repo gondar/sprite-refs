@@ -1,0 +1,44 @@
+{
+ "image": "atlas.png",
+ "frames": {
+  "asleep": {
+   "x": 0,
+   "y": 0,
+   "w": 776,
+   "h": 534
+  },
+  "wake-startle": {
+   "x": 778,
+   "y": 0,
+   "w": 737,
+   "h": 874
+  },
+  "grumpy": {
+   "x": 0,
+   "y": 876,
+   "w": 601,
+   "h": 663
+  },
+  "yawn": {
+   "x": 603,
+   "y": 876,
+   "w": 712,
+   "h": 712
+  },
+  "nod-off": {
+   "x": 0,
+   "y": 1590,
+   "w": 679,
+   "h": 658
+  },
+  "cheer-sleepy": {
+   "x": 681,
+   "y": 1590,
+   "w": 703,
+   "h": 670
+  }
+ },
+ "source": "refs/mountain-king/cast/drzemek.png",
+ "grid": "2x3",
+ "key": "magenta"
+}
