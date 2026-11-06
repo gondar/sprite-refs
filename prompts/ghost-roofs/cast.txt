@@ -1,0 +1,20 @@
+Game asset sheet: separate small characters for a cosy, spooky-cute night-rooftops music game, painted in the style of the reference image (soft cartoon storybook painting, gentle shading, clean silhouettes, thin dark outlines, big friendly eyes), all lit from the top-left, all in the same style and scale family.
+Draw EXACTLY 16 separate objects, one per cell of an invisible 4 x 4 grid (4 rows of 4), placed in the order of this list in reading order (row 1 left to right, then row 2 …), each object centred in its own cell, filling about 70% of the cell, never touching or overlapping a neighbour, empty space between them:
+- orange ginger cat with a red scarf, sitting, side view facing right, tail curled
+- the same orange ginger cat with red scarf, crouching low ready to jump, facing right
+- the same orange ginger cat with red scarf, leaping through the air, body stretched long and horizontal, front paws reaching forward, scarf flying behind, facing right
+- the same orange ginger cat with red scarf, landing, front paws touching down, back legs still up, facing right
+- black-and-white tuxedo cat, sitting, side view facing right
+- the same tuxedo cat crouching low ready to jump, facing right
+- the same tuxedo cat leaping through the air, body stretched long and horizontal, facing right
+- the same tuxedo cat landing, front paws touching down, facing right
+- grey striped tabby cat, only its head and two front paws, peeking over an edge, front view, cut off flat below the paws
+- black cat with big yellow eyes, only its head and two front paws, peeking over an edge, front view, cut off flat below the paws
+- cream and brown calico cat sitting, front view, one front paw raised waving
+- grey striped tabby cat curled up asleep, side view
+- small cute white ghost, floating, smiling, little arms out
+- small cute white ghost, floating, waving one arm, happy open mouth
+- small cute white ghost, floating, surprised round mouth
+- small cute white ghost, floating, sleepy closed eyes, wavy tail
+All cats have dark brown noses and dark inner ears. Each object stands alone: no ground, no shadow, no scenery, no glow, no smoke, no sparkles. Draw NO text anywhere: no numbers, no letters, no labels, no captions, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. No object may contain magenta or pink; use red, orange, brown, grey instead.

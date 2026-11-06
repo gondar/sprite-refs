@@ -1,0 +1,16 @@
+ginger-sit
+ginger-crouch
+ginger-leap
+ginger-land
+tux-sit
+tux-crouch
+tux-leap
+tux-land
+tabby-peek
+black-peek
+calico-wave
+tabby-sleep
+ghost-smile
+ghost-wave
+ghost-oh
+ghost-sleepy
