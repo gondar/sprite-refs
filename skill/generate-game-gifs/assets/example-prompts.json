@@ -1,6 +1,63 @@
 {
-  "note": "Prompts behind the four GIFs tested on 2026-11-05 (APIYI, 512x512, quality low, complexity low). Results are measured; see references/gif-api.md. All four outputs were REJECTED on review: every frame repaints the character (features change shape, legs fuse and split). Kept as a record of what was tried, not as recipes that work.",
-  "examples": [
+  "note": "Round 1 (2026-11-05, 512 px, low, complexity low, no reference): all REJECTED — every frame repainted. Round 2 (2026-11-06): the 'working' list, made with the edits route + a reference, no complexity, transparent background.",
+  "working": [
+    {
+      "name": "jump-from-reference",
+      "route": "edits",
+      "ref": "the character sheet",
+      "frames": 8,
+      "frame_duration_ms": 100,
+      "size": "960x960",
+      "quality": "medium",
+      "prompt": "Create a transparent-background animated GIF of a cute grey tabby cat with green eyes and a flowing red scarf, in a polished 2D cartoon game-art style.\n\nThe subject is the same rooftop-adventure cat from the reference assets. Preserve the cat's identity, proportions, face, fur markings, and red scarf consistently across all frames.\n\nAnimate a jump action:\n- the cat starts in a crouched anticipation pose\n- then pushes off with the back legs\n- rises into the air\n- reaches the highest point in a stretched flying pose\n- then begins descending\n- and finishes in a soft landing pose\n\nMake the motion smooth, lively, and readable for a game. Keep the cat fully visible in every frame. Keep the character facing to the right. The scarf should trail and flutter naturally during the jump. Use a clean transparent background only, with no scene, no shadow plate, no text, no extra objects.\n\nAnimation requirements:\n- 8 frames\n- smooth loop suitable for game use\n- equal-size frames\n- no borders or captions\n- polished sprite-like consistency",
+      "result": "coherent, matches the reference, ~2,230 output tokens"
+    },
+    {
+      "name": "idle",
+      "route": "edits",
+      "ref": "the character sheet",
+      "frames": 8,
+      "frame_duration_ms": 150,
+      "size": "960x960",
+      "quality": "medium",
+      "prompt": "Create a transparent-background animated GIF of the cute grey tabby cat with green eyes and a red scarf from the reference sheet (the grey cat, \"KOT 1 – SZARY\"), in exactly the same polished 2D cartoon game-art style: thick dark outline, soft shading, the same face, fur markings and red scarf.\n\nIdle animation for a game: the cat sits facing right, relaxed and happy. It breathes gently, blinks once, its ears give one small twitch, the tip of its tail curls, and the ends of the red scarf flutter softly in a light breeze. The cat stays in exactly the same place and size in every frame; nothing else moves.\n\nSeamless loop: the last frame leads straight back into the first. 8 equal-size frames, the cat fully visible in every frame, clean transparent background only — no scene, no shadow, no text, no borders, no extra objects.",
+      "result": "blink, ear twitch, scarf flutter; usable"
+    },
+    {
+      "name": "run-cycle",
+      "route": "edits",
+      "ref": "the character sheet",
+      "frames": 8,
+      "frame_duration_ms": 90,
+      "size": "960x960",
+      "quality": "medium",
+      "prompt": "Create a transparent-background animated GIF of the cute grey tabby cat with green eyes and a red scarf from the reference sheet (the grey cat, \"KOT 1 – SZARY\"), in exactly the same polished 2D cartoon game-art style: thick dark outline, soft shading, the same face, fur markings and red scarf.\n\nRun cycle for a side-scrolling game: the cat runs to the right in a lively, bounding gallop — front legs reach forward, back legs push, the body stretches and gathers, the scarf streams behind. The cat runs on the spot: its body stays centred at the same height and size in every frame and never travels across the picture. Exactly four legs, clearly separated, in every frame.\n\nSeamless loop: the last frame leads straight back into the first. 8 equal-size frames, the cat fully visible in every frame, clean transparent background only — no scene, no ground, no shadow, no dust, no speed lines, no text, no borders.",
+      "result": "a bouncy run; body bobs, anchor it in the game"
+    },
+    {
+      "name": "walk-cycle",
+      "route": "edits",
+      "ref": "the game's own still pictures, upscaled 4x",
+      "frames": 8,
+      "frame_duration_ms": 110,
+      "size": "960x960",
+      "quality": "medium",
+      "prompt": "Create a transparent-background animated GIF of the small black cat from the reference picture, in exactly its style: a soft painterly black silhouette with a faint violet rim light, big round glowing lime-green eyes, small pointed ears and a long thin tail.\n\nWalk cycle for a side-scrolling game: the cat walks to the LEFT, seen from the side, in a calm natural cat gait — legs step in turn, the body bobs very slightly, the tail sways. The cat walks on the spot: its body stays centred at the same height and size in every frame and never travels across the picture. Exactly four legs, clearly separated, in every frame.\n\nSeamless loop: the last frame leads straight back into the first. 8 equal-size frames, the cat fully visible in every frame, clean transparent background only — no scene, no ground, no shadow, no text, no borders.",
+      "result": "matches the game's cat, four legs that step"
+    },
+    {
+      "name": "sitting-idle",
+      "route": "edits",
+      "ref": "the game's own still pictures, upscaled 4x",
+      "frames": 8,
+      "frame_duration_ms": 160,
+      "size": "960x960",
+      "quality": "medium",
+      "prompt": "Create a transparent-background animated GIF of the small black cat from the reference picture, sitting exactly like the sitting cat in the reference and in exactly its style: a soft painterly black silhouette with a faint violet rim light, big round glowing lime-green eyes, small pointed ears and a long thin tail curled at its side.\n\nIdle animation for a game: the cat sits still and calm. It blinks slowly once, one ear gives a quick twitch, and the tip of its tail curls and uncurls. The body, head and eyes keep exactly the same shape, size and position in every frame; only the eyelids, that ear and the tail tip move.\n\nSeamless loop: the last frame leads straight back into the first. 8 equal-size frames, clean transparent background only — no scene, no shadow, no text, no borders, no motion lines.",
+      "result": "slow blink, ear twitch, tail curl; body keeps its shape"
+    }
+  ],
+  "rejected_round_1": [
     {
       "name": "sleeping-cat",
       "model": "gpt-image-2.6-flare",
@@ -52,26 +109,6 @@
         "seam_ratio": 0.94,
         "verdict": "same leg merging as C, glossy 3D look, more drift; not usable"
       }
-    }
-  ],
-  "untested_templates": [
-    {
-      "name": "purring-cat",
-      "frames": 8,
-      "frame_duration_ms": 160,
-      "prompt": "A cute {character} sits upright on a perfectly flat solid {key colour} background with no floor, no shadow and no scenery. {style sentence}. Idle animation, the character stays in exactly the same place and size: it purrs contentedly, its eyes slowly close halfway, its body gives a very subtle vibration, and its tail sways softly. The camera is completely stationary. Seamless loop that ends on the same pose it starts with. No text, borders, motion lines, multiple characters, multiple views, or spritesheet layout."
-    },
-    {
-      "name": "happy-reaction",
-      "frames": 8,
-      "frame_duration_ms": 130,
-      "prompt": "A cute {character} on a perfectly flat solid {key colour} background with no floor, no shadow and no scenery. {style sentence}. It starts calm and attentive, perks up its ears, raises one front paw in encouragement, gives one small happy bounce, and settles back into the exact starting pose. It stays centred at the same size. The camera is completely stationary. No text, borders, motion lines, multiple characters, multiple views, or spritesheet layout."
-    },
-    {
-      "name": "dog-tail-wag",
-      "frames": 6,
-      "frame_duration_ms": 120,
-      "prompt": "A cute {character} dog stands seen from the side on a perfectly flat solid {key colour} background with no floor, no shadow and no scenery. {style sentence}. Only its tail moves: it wags left and right twice, the body and head stay still. The camera is completely stationary. Seamless loop. No text, borders, motion lines, multiple dogs, multiple views, or spritesheet layout."
     }
   ]
 }

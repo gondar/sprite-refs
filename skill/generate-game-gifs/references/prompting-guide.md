@@ -1,5 +1,14 @@
 # Prompting a game animation GIF
 
+**Round 2 (2026-11-06) is what works**: the edits route with the character's art as `--ref`, no
+`complexity` field, `background: transparent`. With those, the prompts in `assets/example-prompts.json`
+("working") gave coherent GIFs: the same face, markings and costume in every frame. The structure below
+still applies; the "rejected" notes further down are from round 1 (complexity low, no reference).
+
+Extra lines that helped in round 2: name the character as it appears in the reference sheet; "exactly four
+legs, clearly separated"; "runs on the spot … never travels across the picture"; "the body, head and eyes keep
+exactly the same shape, size and position in every frame; only the eyelids, that ear and the tail tip move".
+
 Learned from four calls (2026-11-05). Few, so treat these as a starting recipe, not law.
 
 ## The structure that worked

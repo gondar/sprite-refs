@@ -145,7 +145,7 @@ def main():
         m = np.zeros((H, W), bool)
         for f in frames:
             m |= f[..., 3] > 24
-        if a.key == "none":   # opaque GIF: crop to what changes across frames instead
+        if a.key == "none" and m.all():   # fully opaque GIF: crop to what changes across frames instead
             st = np.stack([f[..., :3] for f in frames]); m = (st.max(0) - st.min(0)).max(2) > 24
         ys, xs = np.nonzero(m)
         if len(xs):

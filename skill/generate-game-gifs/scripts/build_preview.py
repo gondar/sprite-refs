@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build ONE self-contained HTML review page for generated animations (offline, no cost).
 
-usage: build_preview.py SPEC.json OUT.html [--embed]
+usage: build_preview.py SPEC.json OUT.html [--embed | --no-skeleton]
 
 SPEC.json:
 {
@@ -20,6 +20,8 @@ SPEC.json:
 }
 Paths are relative to SPEC.json. With --embed every file becomes a data: URI (one file you can send
 anywhere); without it the page links the files relative to OUT.html (keep them side by side).
+--no-skeleton links the files but leaves out <!doctype>/<html>/<body>, for a host that adds its own
+(a claude.ai artifact published with its files beside it). An item {"heading": "…", "text": "…"} starts a section.
 Each card shows: the GIF playing on a light / dark / checker ground, frames, size, per-frame timing, loop
 flag, file size, a frame scrubber (play/pause, step, slider) drawn from the spritesheet, and the notes.
 """
@@ -115,12 +117,16 @@ def kb(n):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("spec"); ap.add_argument("out"); ap.add_argument("--embed", action="store_true")
+    ap.add_argument("--no-skeleton", action="store_true")
     a = ap.parse_args()
     spec = json.load(open(a.spec)); base = os.path.dirname(os.path.abspath(a.spec)); out_dir = os.path.dirname(os.path.abspath(a.out))
     P = lambda p: os.path.join(base, p)
     e = html.escape
     cards = []
     for it in spec["items"]:
+        if "heading" in it:
+            cards.append('<section><h2>%s</h2>%s</section>' % (e(it["heading"]), '<p class="intro">%s</p>' % e(it["text"]) if it.get("text") else ""))
+            continue
         m = measure(P(it["gif"]))
         durs = sorted(set(m["durs"]))
         sheets = []
@@ -162,13 +168,13 @@ def main():
             '<style>%s</style>\n<div class="wrap"><header><h1>%s</h1><p class="intro">%s</p></header>'
             '<div class="grounds" role="group" aria-label="Background"><span>Background:</span><button type="button" data-g="light">Light</button><button type="button" data-g="dark">Dark</button><button type="button" data-g="checker">Checker</button></div>'
             '%s%s</div>\n<script>%s</script>\n') % (e(spec["title"]), CSS, e(spec["title"]), e(spec.get("intro", "")), "".join(cards), gal, JS)
-    if not a.embed:   # a stand-alone file opened from disk needs the document skeleton the artifact host adds
+    if not a.embed and not a.no_skeleton:   # a stand-alone file opened from disk needs the document skeleton the artifact host adds
         page = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">' + page.replace("<div class=\"wrap\">", "</head><body><div class=\"wrap\">", 1) + "</body></html>"
     else:
         page = '<meta charset="utf-8">\n' + page
     os.makedirs(out_dir, exist_ok=True)
     open(a.out, "w", encoding="utf-8").write(page)
-    print("%s  %s  (%d cards)" % (a.out, kb(os.path.getsize(a.out)), len(cards)))
+    print("%s  %s  (%d cards)" % (a.out, kb(os.path.getsize(a.out)), sum(1 for c in cards if c.startswith('<section class="card"'))))
 
 
 if __name__ == "__main__":
