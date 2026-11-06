@@ -19,8 +19,9 @@ Four separate questions. Answer each; a "yes" to one says nothing about the next
 | `moving_centroids` | centre of the pixels that move, per frame | shows a wandering body (Sunburst walk ±50 px vs Flare ±30) |
 | `export_frames.py` `bottomSpreadPx` | feet row spread after the cut | 1 px |
 
-These flag problems; none of them can say the motion looks right. A morphing face, a wrong gait or a stray
-mark pass every number. Always look.
+These flag problems; none of them can say the motion looks right. All four 2026-11-05 GIFs passed every
+threshold here and were still rejected: the character was repainted every frame (boiling eyes, ears, paws;
+legs fusing). Always look at full size, frame by frame.
 
 ## The eye checklist
 
@@ -38,7 +39,7 @@ mark pass every number. Always look.
 |---|---|---|---|---|
 | GIF | 1-bit at best (none returned) | play only | 368–693 KB | review, chat, a quick look |
 | PNG strip | full | exact (steps / canvas) | 650 KB–1.2 MB at 512² | lossless source |
-| **WebP strip** | full | exact | 46–53 KB keyed at game size | **what ships** |
+| **WebP strip** | full | exact | 46–53 KB keyed at game size | what would ship, for frames that pass review |
 | animated WebP | full | play only | 52–115 KB at 512² | decoration |
 | animated AVIF | full | play only | 14–48 KB at 512² | decoration, newest browsers |
 

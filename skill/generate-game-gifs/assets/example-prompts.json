@@ -1,5 +1,5 @@
 {
-  "note": "Prompts behind the four GIFs tested on 2026-11-05 (APIYI, 512x512, quality low, complexity low). Results are measured; see references/gif-api.md.",
+  "note": "Prompts behind the four GIFs tested on 2026-11-05 (APIYI, 512x512, quality low, complexity low). Results are measured; see references/gif-api.md. All four outputs were REJECTED on review: every frame repaints the character (features change shape, legs fuse and split). Kept as a record of what was tried, not as recipes that work.",
   "examples": [
     {
       "name": "sleeping-cat",
@@ -11,7 +11,7 @@
         "latency_s": 17.3,
         "output_tokens": 555,
         "seam_ratio": 1.14,
-        "verdict": "real breathing loop; painted room background, so no cut-out"
+        "verdict": "breathing present, but stripes and outline repainted each frame; not usable"
       }
     },
     {
@@ -24,7 +24,7 @@
         "latency_s": 7.9,
         "output_tokens": 555,
         "seam_ratio": 1.39,
-        "verdict": "blink, ear twitch, tail curl; one stray motion line removed in post; shipped"
+        "verdict": "intended blink/ear/tail present, but eyes, ears, paws redrawn every frame; stray motion line; not usable"
       }
     },
     {
@@ -37,7 +37,7 @@
         "latency_s": 7.2,
         "output_tokens": 555,
         "seam_ratio": 1.06,
-        "verdict": "plausible in-place walk; eye hue drifted from the idle's, fixed in post; shipped"
+        "verdict": "legs fuse and split, fur shimmers, eye hue drifted from B; not usable"
       }
     },
     {
@@ -50,7 +50,7 @@
         "latency_s": 12.9,
         "output_tokens": 555,
         "seam_ratio": 0.94,
-        "verdict": "longer stride, glossy 3D look, more body drift; not used"
+        "verdict": "same leg merging as C, glossy 3D look, more drift; not usable"
       }
     }
   ],

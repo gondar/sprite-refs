@@ -1,14 +1,16 @@
 ---
 name: generate-game-gifs
-description: Generate short animated GIFs for 2D games with an image model's NATIVE GIF output (gpt-image-2.6-flare / -sunburst through APIYI's OpenAI-compatible images endpoint), then validate them and turn them into game-ready frames, keyed RGBA spritesheets, manifests and a review page. Also works offline on any existing GIF — inspect it, extract frames, key a flat background, build a sheet — with no network and no cost. Use when someone asks for an animated GIF, a looping idle (sleeping, purring, blinking, tail swish), a small walk cycle, "make this character move" with a budget of cents, a spritesheet from a GIF, or "is this GIF good enough for my game". For a character that needs real limb motion with a fixed design across many clips, prefer a reference-driven pipeline (first/last-frame video, cutout rig); this skill's text-to-GIF cannot keep one character identical between separate generations.
+description: Inspect, validate and convert animated GIFs for 2D games — and, as an EXPERIMENTAL source, generate them with an image model's native GIF output (gpt-image-2.6-flare / -sunburst through APIYI). Tested 2026-11-05 the API works, but all four outputs were rejected as game assets because every frame repaints the character (boiling features, legs merging). Offline it turns any GIF into frames, keyed RGBA spritesheets, manifests and a review page. Works offline on any existing GIF — inspect it, extract frames, key a flat background, build a sheet — with no network and no cost. Use when someone asks for an animated GIF, a looping idle (sleeping, purring, blinking, tail swish), a small walk cycle, "make this character move" with a budget of cents, a spritesheet from a GIF, or "is this GIF good enough for my game". For a character that needs real limb motion with a fixed design across many clips, prefer a reference-driven pipeline (first/last-frame video, cutout rig); this skill's text-to-GIF cannot keep one character identical between separate generations.
 ---
 
 # Generate game GIFs
 
 Native GIF generation turns one text prompt into a real multi-frame GIF in **7–17 s for about $0.018**
-(512×512, quality low, 6–8 frames, measured 2026-11-05). It is good at small, in-place, looping motion of a
-character that does not have to match an existing one exactly. Everything after generation is offline:
-validating, keying, cropping, packing, previewing.
+(512×512, quality low, 6–8 frames, measured 2026-11-05). **But none of the four tested outputs was usable**:
+at full size the model repaints the character every frame — eyes change size and shape, ears, whiskers and
+paws are redrawn, fur shimmers, walking legs fuse and split. In a loop that reads as boiling and glitching.
+Treat generation as an experiment, not an asset source; the offline half (validating, keying, cropping,
+packing, previewing) is the part that holds up.
 
 All scripts are in `scripts/`, Python 3 + Pillow + NumPy, no other dependencies:
 
@@ -26,9 +28,10 @@ Looping: the API returns a looping GIF (`loop=0`); a one-shot reaction is a mani
 
 ## 1 · Decide whether this is the right tool
 
-- **Yes**: an idle loop (breathing, blink, ear twitch, tail), a reaction (perk up, paw wave, small bounce),
-  a simple in-place walk, ambient props (flame, flag) — at sprite sizes up to ~256 px.
-- **No**: the character must be the SAME one already in the game, pixel for pixel, or across many
+- **Maybe, as a test**: a mood sketch of an idle or a reaction, to show the person before real animation work.
+  Not a shipping asset unless it passes the full-size review in §5.
+- **No**: any character animation that will ship (use an approved picture plus a cutout rig or a
+  first/last-frame video, where the still parts stay pixel-identical); the character must be the SAME one already in the game, pixel for pixel, or across many
   animations; precise timing on a beat inside the animation; large travel across the frame; text.
   Separate generations of the same prompt give a different cat (eye hue 82° vs 134°, fur tone, fluff).
   Use a reference-based route for that, and use this skill only for its offline half.
@@ -71,9 +74,9 @@ Defaults are the tested ones: Flare, 6 frames, 180 ms, 512×512, low, low, `n=1`
 The response is decoded only after a 2xx with `data[0].b64_json`; a non-GIF payload is kept as
 `OUT.notgif.<ext>` and never renamed to `.gif`. Exit codes: 0 ok · 2 usage/credentials · 3 HTTP/transport · 4 no GIF.
 
-**Flare vs Sunburst** (same walk prompt): Flare kept the flat painted sticker look and a centred body;
-Sunburst gave a longer stride but a glossy 3D look, more body drift and a stray pink paw pad, 1.8× slower,
-same price. Start with Flare; try Sunburst when the motion itself is the problem.
+**Flare vs Sunburst** (same walk prompt, one call each): both merged and split the legs and repainted the fur.
+Flare kept the flat sticker look better; Sunburst was glossier, drifted more and was 1.8× slower at the same
+price. One call each is too few to rank them on coherence.
 
 Prompt patterns that worked are in `references/prompting-guide.md` and `assets/example-prompts.json`. The
 short version: one character, "stays in exactly the same place and size", "camera completely stationary",
@@ -91,7 +94,9 @@ It answers four different questions: is the **file** a GIF Pillow decodes; is it
 frames, adjacent frames differ); the **numbers** (frames, size, per-frame ms, loop flag, disposal,
 transparency); and **metrics**: adjacent-frame difference, the last→first **seam ratio** (≈1 smooth,
 >2.5 a visible jump), **border drift** (background/camera moving), share of pixels changing per step
-(>50 % = a redraw, not motion). Then LOOK at the contact sheet and the GIF: metrics cannot see a morphing
+(>50 % = a redraw, not motion). Then LOOK at every frame **at full size, side by side** — not at a small contact sheet and not only at
+game size, where the 2026-11-05 outputs looked fine and were not. Low adjacent-frame difference does NOT mean
+coherent: a character repainted a little each frame stays under every threshold here. Metrics cannot see a morphing
 face, a stray mark, or a gait that reads wrong. Details and thresholds: `references/game-animation-quality.md`.
 
 ## 6 · Make it game-ready

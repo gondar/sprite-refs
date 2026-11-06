@@ -21,6 +21,9 @@ Learned from four calls (2026-11-05). Few, so treat these as a starting recipe, 
 
 ## What the model did with it
 
+**Overall: rejected.** All four GIFs repaint the character every frame (features change size and shape,
+legs fuse and split). The points below are what the prompt did control; they did not make the result usable.
+
 - Loops closed well every time (seam ratio 0.94–1.39).
 - In-place framing held: the background border moved < 1.3/255 on keyed grounds, feet stayed on one row.
 - It sometimes adds a cartoon **motion line** anyway (frame 4 of the idle) → remove in post
@@ -29,8 +32,7 @@ Learned from four calls (2026-11-05). Few, so treat these as a starting recipe, 
   soft contact shadow despite "no shadow" → `--despill`, and accept a faint dark edge under the feet.
 - Named colours drift between calls: "lime-green eyes" gave hue 82° once and 134° the next → fix in post
   (`--shift-hue`) or accept that each animation is a slightly different character.
-- Walk cycles come out plausible but simplified (a short shuffling gait). Fine at 30–60 px on screen;
-  check a larger use frame by frame.
+- Walk cycles: legs fuse into one shape and split again; the visible leg count changes. Not usable.
 - Timing words ("slowly", "quick") map loosely onto frames; set the real pace in the game, from the
   manifest, not from the prompt.
 
