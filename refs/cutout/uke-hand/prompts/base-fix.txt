@@ -1,0 +1,4 @@
+Edit this image. Keep the same painted style, the same ukulele neck, nut, frets, strings, colours, lighting and the same hand, sleeve and skin, in the same place and size on the canvas. Make only these changes:
+1. Remove the brown arm and sleeve BELOW the neck completely: under the neck there is only flat magenta #FF00FF background.
+2. The hand spreads its fingers a little wider along the neck and lifts them a little: the index fingertip is centred between the nut and the first fret, the middle fingertip centred between the first and second fret, the ring fingertip centred between the second and third fret, the little fingertip between the third and fourth fret. Every fingertip sits just above the TOP string, touching only the top wooden edge of the fretboard. The second, third and fourth strings are completely uncovered along the whole neck.
+The background stays perfectly flat magenta #FF00FF. No text, no marks.
