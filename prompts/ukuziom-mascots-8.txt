@@ -1,0 +1,12 @@
+Game asset sheet: separate character mascots for a children's ukulele game, painted in EXACTLY the style of the reference image (soft glossy storybook cartoon, gentle shading, warm colours, clean silhouettes, big friendly eyes, no hard black outlines), all lit from the top-left, all in the same style and scale family as the fox, the crab, the pig and the lion in the reference. Each character is shown full body, standing, facing the viewer at a three-quarter angle, friendly and cheerful.
+Draw EXACTLY 8 separate characters, one per cell of an invisible 2 x 4 grid (2 rows of 4), placed in the order of this list in reading order (row 1 left to right, then row 2 left to right), each character centred in its own cell, filling about 75% of the cell height, never touching or overlapping a neighbour, empty space between them:
+- a small friendly green alien with two antennae with yellow balls on top, a round head and big black eyes, wearing a small silver space suit
+- a little brown pony with a cream mane and a small red cowboy bandana around its neck, standing on four legs
+- a small brown monkey with a cream face and a long curly tail, waving one hand
+- a sleepy smiling sloth (light brown fur, dark eye patches) holding a small yellow ukulele, wearing a green, yellow and red striped knitted beanie
+- a cheerful orange octopus with eight curly tentacles, wearing a small navy sailor cap
+- a small playful lion CUB (a baby lion, golden fur, only a tiny fluffy tuft of a mane, round cub face, big paws), standing and holding a tiny wooden ukulele; no clothes, no bow tie
+- a cheerful party parrot with bright green body, yellow chest and blue wing tips, wearing a small yellow and blue striped cone party hat, one wing raised as if dancing
+- the same small lion cub as before, sitting on its haunches and smiling, with the tiny wooden ukulele resting on its lap
+Each character stands alone: no ground, no shadow, no scenery, no glow, no smoke, no confetti. Draw NO text anywhere: no numbers, no letters, no labels, no captions, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. No character may contain magenta or pink; use red, orange, purple-blue instead (the parrot's hat too).

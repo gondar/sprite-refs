@@ -4,7 +4,7 @@ and every other pixel is the home picture itself — the throne, legs and body c
 
 usage: lock.py OUT --home HOME.png --at X,Y [--keep PROP_MASK.png] CLIP.mp4=name,name,name,name [CLIP2.mp4=…]
                [--pose-s 1.0] [--thresh 30] [--grow 6] [--feather 3] [--cell 479,444 --pivot 245.6,442.8 --fig 327]
-               [--step 2] [--webp 70] [--reach 24]
+               [--step 2] [--webp 70] [--reach 24] [--dom 60,40] [--spill 25,0]
 
 --keep is a mask (frame-sized, white = prop) of what is NOT the character — a throne, a stand: there, pixels the
 clip erases come back from home. Nowhere else: a head that moves leaves real empty space behind it.
@@ -18,7 +18,9 @@ offset X,Y (the same pixels the clip starts from). Per frame:
   3. spill of the ground colour clamped at the outline and outside it; alpha outside the home silhouette (a head tilting past its outline) keyed against this frame's border colour.
   4. out = home where the mask is 0, the clip where it is 1, blended in between (premultiplied).
 Cuts: the dip of the moving area nearest every k * --pose-s (+-0.5 s), printed. H3 in first+last mode does not
-return to rest between gestures on the clock, so a cut that is not a full rest eases into home over --ease frames.
+return to rest between gestures on the clock, so a cut that is not a full rest eases into home over --ease SOURCE frames
+(24 fps frames of the clip, whatever --step is: counted in output frames, --step 3 --ease 3 dissolved home into a pose
+that had already moved for 0.375 s and Lucek's dance showed two sloths at every start and end, 2026-11-04).
 Packs like gestures.py: atlas.png/.webp + atlas.json + review.png + mix.gif, the figure scaled to --fig px tall and
 its bottom centre on --pivot in a --cell cell (so it sits where the game's other King strips sit)."""
 import argparse, glob, json, os, random, subprocess
@@ -35,9 +37,12 @@ def main():
     ap.add_argument("--pose-s", type=float, default=1.0); ap.add_argument("--thresh", type=float, default=30)
     ap.add_argument("--grow", type=int, default=6); ap.add_argument("--feather", type=float, default=3)
     ap.add_argument("--cell", default="479,444"); ap.add_argument("--pivot", default="245.6,442.8"); ap.add_argument("--fig", type=float, default=327)
-    ap.add_argument("--step", type=int, default=2); ap.add_argument("--reach", type=int, default=24, help="px past the home outline a gesture may reach (a donkey's buck: 160)"); ap.add_argument("--ease", type=int, default=3)
+    ap.add_argument("--step", type=int, default=2); ap.add_argument("--reach", type=int, default=24, help="px past the home outline a gesture may reach (a donkey's buck: 160)"); ap.add_argument("--ease", type=int, default=6, help="source (24 fps) frames over which a cut that is not a full rest eases into home; the old default, 3 output frames at --step 2, is 6")
     ap.add_argument("--open-end", action="store_true", help="half of a chained gesture: ease into home at the START only; the end is a drawn peak pose that the next half starts from"); ap.add_argument("--webp", type=int, default=70)
+    ap.add_argument("--dom", default="60,40", help="outside the outline, alpha falls from 1 to 0 as the ground's channel dominates the other two by HI-WIDTH .. HI (default 60,40, tuned on blue). A red ground under a yellow character needs room: 140,50")
+    ap.add_argument("--spill", default="25,0", help="EXCESS,KEEP: inside the outline the ground's channel is clamped where it exceeds the other two by more than EXCESS; at and outside the outline it is clamped to the others + KEEP (default 25,0). Red under yellow: 100,70")
     a = ap.parse_args(); os.makedirs(a.out, exist_ok=True)
+    dom_hi, dom_w = map(float, a.dom.split(",")); sp_ex, sp_keep = map(float, a.spill.split(","))
     cut = np.asarray(Image.open(a.home).convert("RGBA"), dtype=float); ox, oy = map(int, a.at.split(","))
     rows = []
     for spec in a.clips:
@@ -92,13 +97,13 @@ def main():
             kc0 = int(np.argmax(bg)); o0 = [c for c in range(3) if c != kc0]
             dom = rgb[..., kc0] - rgb[..., o0].max(2)
             # inside the home outline the figure is opaque — except where the character moved away and left bare ground
-            fa = np.where(fig & ~(gone & ~keep), 1.0, np.clip((60 - dom) / 40, 0, 1))
+            fa = np.where(fig & ~(gone & ~keep), 1.0, np.clip((dom_hi - dom) / dom_w, 0, 1))
             # spill: the ground's dominant channel bleeds into glows and edges (a blue rim round the crown) — clamp
             # it to the other two channels wherever the pixel is at the outline or outside it
             kc = int(np.argmax(bg)); oth = [c for c in range(3) if c != kc]
             mx = rgb[..., oth].max(2)
-            sp = (~fig) | edge | (rgb[..., kc] - mx > 25)      # outline, outside, or a clear excess (crown glow)
-            rgb[..., kc] = np.where(sp, np.minimum(rgb[..., kc], mx), rgb[..., kc])
+            sp = (~fig) | edge | (rgb[..., kc] - mx > sp_ex)   # outline, outside, or a clear excess (crown glow)
+            rgb[..., kc] = np.where(sp, np.minimum(rgb[..., kc], mx + sp_keep), rgb[..., kc])
             pa = ha * (1 - mf) + fa * mf
             col = (home[..., :3] * ha[..., None] * (1 - mf[..., None]) + rgb * fa[..., None] * mf[..., None]) / np.maximum(pa, 1e-3)[..., None]
             frames.append(np.dstack([col, pa * 255])); masks.append(mf.sum())
@@ -112,9 +117,9 @@ def main():
             print(f"  {nm}: {i0 / FPS:.2f}-{i1 / FPS:.2f} s, moving area at the cuts {masks[i0] / 1000:.1f}k / {masks[i1] / 1000:.1f}k px")
             seq = frames[i0:i1 + 1:a.step]; n = len(seq)
             if a.open_end: seq[0] = home
-            # the ends ARE home; a cut that is not a full rest eases into it over --ease frames
+            # the ends ARE home; a cut that is not a full rest eases into it over --ease SOURCE frames (j * step of them)
             for j in range(n):
-                w = min(1.0, j / a.ease, (n - 1 - j) / a.ease if not a.open_end else 1.0)
+                w = min(1.0, j * a.step / max(1, a.ease), (n - 1 - j) * a.step / max(1, a.ease) if not a.open_end else 1.0)
                 if w < 1:
                     f = seq[j]; pa = f[..., 3:4] / 255 * w + ha[..., None] * (1 - w)
                     rgb = (f[..., :3] * f[..., 3:4] / 255 * w + home[..., :3] * ha[..., None] * (1 - w)) / np.maximum(pa, 1e-3)

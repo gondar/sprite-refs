@@ -87,6 +87,10 @@ lock.py OUT --home <clean cut-out>.png --at X,Y --keep <prop mask>.png --pose-s 
 - **`--keep` is a mask of the PROP only** (throne, stand — from the cutout's parts map or painted once): there, pixels
   the clip erases come back from the picture. Applied to the whole outline, it pasted the home crown back where the
   head had just moved away — the King wore two crowns. Elsewhere, the space a moving part leaves is empty.
+- **A character with blue in it** (a parrot's wing tips): blue keys the tips away and green keys the body. Use a
+  flat RED ground (#D23B2B; held ±3 levels for 4 s, 2026-10-31) and widen the key for it: `--dom 100,35 --spill 100,55`.
+  The defaults (60,40 and 25,0) are tuned on blue and turn a yellow chest pale on red (R−G ≈ 40 crosses both);
+  red's own ground sits ~155 above the other channels. Worked example: Papuga Konfetka, `refs/ukuziom/`.
 
 **Check, then show** — `scripts/score.py` on the atlas (throne shimmer, colour drift, seams, motion), then
 LOOK at each gesture's peak frame at full size, zoomed on the head, next to the raw clip's frame: the score did not see
@@ -117,8 +121,12 @@ every gesture's ends against the home frame with the middles as the positive con
 
 ## Other routes and scripts
 
-- **Design** once on Nano Banana Pro (`gemini-3-pro-image`, $0.09) with a style reference cut from the target game;
-  every later image on Nano Banana (`gemini-3.1-flash-image`, ≈ $0.025) with that design as identity reference
+- **Design** once on GPT by default: `gpt-image-2 --quality medium --stream 2` (≈ $0.06, ~35 s; never without
+  `--stream` — a non-streamed call over 30 s 502s and is still billed), with a style reference cut from the target
+  game. **Fall back to Nano Banana Pro** (`gemini-3-pro-image`, $0.09) when GPT does not get it right: two GPT tries
+  with a fixed prompt still miss, or it must match a painted reference (Gemini matched one better; GPT drew shaggy
+  fur), or the design needs a size GPT lacks (it only does 1024² / 1536 × 1024 / 1024 × 1536). Say when you switch.
+  Every later image on Nano Banana (`gemini-3.1-flash-image`, ≈ $0.025) with that design as identity reference
   (`scripts/gen_image.py`). Show the design to the person before animating it.
 - **Drawn cycle**: "the SAME character drawn 8 times on a clean 4 × 2 grid, same size, feet on one baseline … no
   text, no numbers, no grid lines", frames numbered with what each does, "frame 8 flows back into frame 1".
@@ -126,8 +134,8 @@ every gesture's ends against the home frame with the middles as the positive con
 - `key.py` (magenta/green/`--key border`), `video_frames.py` (extract + best loop), `pack.py` (align: `feet` for
   idles/walks, `head` for turns, `fixed` for anything that leaves the ground; ONE `--src-scale` for all strips of a
   character), `onion.py` (idle IoU > 0.9), `compare_gif.py`, `build_viewer.py` (review page). Judge at game size.
-- GPT image models: only if the style needs them — a non-streamed `gpt-image-2` over 30 s dies with 502 and is
-  billed (`--stream 2`).
+- GPT image models: the default for the design (above), always with `--stream 2` — a non-streamed `gpt-image-2`
+  over 30 s dies with 502 and is billed. `gpt-image-2` refuses `--background transparent` (`gpt-image-1.5` takes it).
 
 ## Prices and timings (2026-10)
 

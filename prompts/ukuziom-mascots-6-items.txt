@@ -1,0 +1,6 @@
+alien
+pony
+monkey
+sloth
+octopus
+flame

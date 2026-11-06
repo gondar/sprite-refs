@@ -1,6 +1,6 @@
 ---
 name: image-generation
-description: Generates professional AI images using Google Gemini. ALWAYS invoke this skill when building websites, landing pages, slide decks, presentations, or any task needing visual content. Invoke IMMEDIATELY when you detect image needs - don't wait for the user to ask. This skill handles prompt optimization and aspect ratio selection.
+description: Generates professional AI images — GPT image (gpt-image-2) by default, Google Gemini (Nano Banana) when GPT does not get it right. ALWAYS invoke this skill when building websites, landing pages, slide decks, presentations, or any task needing visual content. Invoke IMMEDIATELY when you detect image needs - don't wait for the user to ask. This skill handles prompt optimization and aspect ratio selection.
 ---
 
 <!-- Copied into sprite-refs on 2026-10-12 from the text the owner pasted into a session. The bundled CLI
@@ -9,7 +9,7 @@ description: Generates professional AI images using Google Gemini. ALWAYS invoke
 
 # Image Generation Skill
 
-Generate professional AI images using Google Gemini via the bundled CLI script.
+Generate professional AI images via the bundled CLI script — GPT image by default, Gemini (Nano Banana) as the fallback (see Model Selection).
 
 ## When to Invoke This Skill
 
@@ -160,8 +160,10 @@ soft pastel colors, isometric perspective, clean lines, friendly approachable st
 
 The CLI is dual-provider: the `--model` value routes the request — model names starting with `gpt-image` or `dall-e` go to OpenAI, everything else goes to Gemini. When `--model` is omitted, `IMAGE_PROVIDER` picks which provider's default model is used.
 
-- **Gemini** (`GEMINI_DEFAULT_MODEL`, e.g. `gemini-3-pro-image`) — models are fetched dynamically from the Gemini API; the CLI falls back to the first discovered image-capable model if no default is set. Prefer Gemini for iterative creative work and when relying on the dynamically discovered model catalog.
-- **OpenAI** (`OPENAI_DEFAULT_MODEL`, default `gpt-image-2`) — use when you specifically need OpenAI's `gpt-image-2` model, or when only an OpenAI API key is configured. Note OpenAI's image sizes are limited to `1024x1024`/`1536x1024`/`1024x1536`; non-matching aspect ratios are mapped to the nearest supported size with a warning.
+**House rule (owner's direction, 2026-10): GPT first, Nano Banana as the fallback.**
+
+- **Default — OpenAI `gpt-image-2`** for design work: mockups, moodboards, style frames, character designs, hero and scene illustrations. Use quality `medium`. Through APIYI always stream it (`stream: true`, `partial_images: 2`; `--stream 2` in `skill/sprite-pipeline/scripts/gen_image.py`): a non-streamed call longer than ~30 s dies with HTTP 502 "upstream request failed" and is still billed, with no way to recover the image. OpenAI sizes are limited to `1024x1024`/`1536x1024`/`1024x1536`; other aspect ratios are mapped to the nearest one. `gpt-image-2` refuses `background: transparent` — use `gpt-image-1.5` for that, or a flat key colour.
+- **Fallback — Gemini "Nano Banana"** (`gemini-3-pro-image` for a design, `gemini-3.1-flash-image` for later edits and sheets) when GPT is not getting it right: two GPT tries with an improved prompt still miss; the image must match a painted style reference (measured: Gemini held the reference style, GPT drew its own shaggy fur); or the job needs an aspect ratio or resolution GPT lacks (`16:9`, `21:9`, 2K/4K). Dense asset sheets and identity-locked edits stay on Nano Banana — that is where the asset-sheet and cutout skills were measured. Tell the person when and why you switched.
 
 ## Best Practices
 
