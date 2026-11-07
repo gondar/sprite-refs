@@ -1,0 +1,213 @@
+<!doctype html><html><body style="margin:0;background:#f0f">
+<script type="importmap">{"imports":{"three":"/npm3d/node_modules/three/build/three.module.js","three/addons/":"/npm3d/node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+/* A left hand (WebXR generic-hand, MIT) fretting a ukulele neck, seen orthographically from the player's side.
+   World: metres. x along the neck (0 = the nut's face, + toward the body), y across (+ = the A edge, shown on top),
+   z out of the fretboard face. Picture px = the 1100×528 hand picture; the render canvas is 1100×619 (16:9) with the
+   picture at its bottom (PADTOP px of extra room on top), times SS. */
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+
+const P = window.P = Object.assign({
+  k: 8400,            // picture px per metre along x (a tenor-size neck: the frets of hand.json fit a 43 cm scale)
+  // an oblique parallel projection that keeps the strings horizontal and the frets vertical:
+  // picture px = nut + (x + a z) k ; py = PY0 - (y sy + b z) k   (a > 0: raised parts drift right, i.e. seen from the
+  // headstock side; b < 0: raised parts drift down, i.e. seen from the A edge's side)
+  a: -0.15, b: -0.2, sy: 0.98,
+  hs: 0.88,           // hand scale (a teenager's hand)
+  W: 1100, H: 619, PADTOP: 91, SS: 2,
+  nut: 171.9, frets: [375.7, 578.0, 763.4, 932.1, 1084.0],
+  str: {A: 304.6, E: 359.7, C: 415.7, G: 471.7},
+  strZ: 0.0028, strR: 0.00045, boardT: 0.006, neckD: 0.016, margin: 0.0036,
+}, window.P0 || {});
+const sp = ((P.str.G - P.str.A) / 3) / (P.k * P.sy);          // string spacing (m)
+const yS = {A: 1.5 * sp, E: .5 * sp, C: -.5 * sp, G: -1.5 * sp};
+const halfW = 1.5 * sp + P.margin;
+const X = px => (px - P.nut) / P.k;   // world x of a picture column at board level (frets, nut)
+// PY0 fixed by the A string; the nut's x by its face at string height
+const PY0 = P.str.A + (yS.A * P.sy + P.strZ * P.b) * P.k, PX0 = P.nut - P.a * P.strZ * P.k;
+window.proj = v => [PX0 + (v.x + P.a * v.z) * P.k, PY0 - (v.y * P.sy + P.b * v.z) * P.k];
+
+const renderer = new THREE.WebGLRenderer({antialias: true, preserveDrawingBuffer: true, alpha: true});
+renderer.setPixelRatio(1); renderer.setSize(P.W * P.SS, P.H * P.SS);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+// the camera: identity view, a hand-made projection matrix (world -> clip) for the oblique projection
+const cam = new THREE.OrthographicCamera(-1, 1, 1, -1, -1, 1);
+{ const W = P.W, H = P.H, k = P.k, ZR = .25;
+  // canvas px: cx = PX0 + (x + a z) k ; cy = PY0 - (y sy + b z) k + PADTOP ; clip x = 2 cx / W - 1, clip y = 1 - 2 cy / H
+  const m = new THREE.Matrix4().set(
+    2 * k / W, 0, 2 * k * P.a / W, 2 * PX0 / W - 1,
+    0, 2 * k * P.sy / H, 2 * k * P.b / H, 1 - 2 * (PY0 + P.PADTOP) / H,
+    0, 0, -1 / ZR, 0,
+    0, 0, 0, 1);
+  cam.updateProjectionMatrix = () => {};
+  cam.projectionMatrix.copy(m); cam.projectionMatrixInverse.copy(m).invert();
+  cam.position.set(0, 0, 0);
+}
+scene.add(new THREE.HemisphereLight(0xfff4e8, 0x40304a, 1.1));
+const key = new THREE.DirectionalLight(0xfff0dd, 2.2); key.position.set(-.25, .15, .45); key.castShadow = true;
+key.shadow.mapSize.set(2048, 2048); Object.assign(key.shadow.camera, {left: -.15, right: .2, top: .15, bottom: -.15, near: .01, far: 2});
+key.shadow.bias = -0.0004; key.shadow.normalBias = 0.0015; key.shadow.radius = 4;
+scene.add(key);
+const fill = new THREE.DirectionalLight(0xc8d8ff, .5); fill.position.set(.3, -.3, .3); scene.add(fill);
+
+// ---------- the neck ----------
+const M = window.MATS = {
+  board: new THREE.MeshStandardMaterial({color: 0x3a2418, roughness: .8}),
+  neck: new THREE.MeshStandardMaterial({color: 0xa8662c, roughness: .6}),
+  nut: new THREE.MeshStandardMaterial({color: 0xf1e6c8, roughness: .5}),
+  fret: new THREE.MeshStandardMaterial({color: 0xc8ccd2, metalness: .8, roughness: .3}),
+  str: new THREE.MeshStandardMaterial({color: 0xf3ead6, roughness: .5}),
+  skin: new THREE.MeshStandardMaterial({color: 0xf1b394, roughness: .62}),
+};
+const neck = new THREE.Group(); scene.add(neck);
+const xEnd = X(P.W + 160), xHead = X(-40);
+function box(w, h, d, m, x, y, z) { const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), m); b.position.set(x, y, z); b.castShadow = b.receiveShadow = true; neck.add(b); return b; }
+box(xEnd, 2 * halfW, P.boardT, M.board, xEnd / 2, 0, -P.boardT / 2);                       // fretboard
+// neck body: a half-round-ish back (a squashed cylinder) under the board
+{ const g = new THREE.CylinderGeometry(halfW, halfW, xEnd, 40, 1, false, Math.PI / 2, Math.PI); g.rotateZ(Math.PI / 2);
+  const c = new THREE.Mesh(g, M.neck); c.scale.set(1, 1, P.neckD / halfW); c.position.set(xEnd / 2, 0, -P.boardT);
+  c.castShadow = c.receiveShadow = true; neck.add(c); }
+box(X(P.nut) - xHead, 2 * halfW + .004, .012, M.neck, (xHead - .003) / 2, 0, -.006);        // headstock
+box(.003, 2 * halfW, .0045, M.nut, -.0015, 0, .0045 / 2 - .0005);                              // nut
+P.frets.forEach(f => { const g = new THREE.CylinderGeometry(.0009, .0009, 2 * halfW, 12); const m = new THREE.Mesh(g, M.fret);
+  m.position.set(X(f), 0, .0002); m.castShadow = m.receiveShadow = true; neck.add(m); });
+for (const s in yS) { const g = new THREE.CylinderGeometry(P.strR, P.strR, xEnd - xHead, 10); g.rotateZ(Math.PI / 2);
+  const m = new THREE.Mesh(g, M.str); m.position.set((xEnd + xHead) / 2, yS[s], P.strZ); m.castShadow = true; m.receiveShadow = true; m.name = 'str' + s; neck.add(m); }
+
+// ---------- the hand ----------
+const FINGERS = ['thumb', 'index', 'middle', 'ring', 'pinky'];
+const CHAIN = f => f === 'thumb' ? ['thumb-metacarpal', 'thumb-phalanx-proximal', 'thumb-phalanx-distal', 'thumb-tip']
+  : [f + '-finger-metacarpal', f + '-finger-phalanx-proximal', f + '-finger-phalanx-intermediate', f + '-finger-phalanx-distal', f + '-finger-tip'];
+let root, mesh, B = {}, rest = {}, axes = {};
+window.ready = new Promise(res => new GLTFLoader().load('/h3d/hand-left.glb', g => {
+  root = new THREE.Group(); scene.add(root);
+  const arm = g.scene.getObjectByName('Armature'); root.add(arm);
+  mesh = g.scene.getObjectByName('l_handMeshNode') || arm.getObjectByProperty('isSkinnedMesh', true);
+  arm.traverse(o => { if (o.isBone) B[o.name] = o; if (o.isMesh) { o.material = M.skin; o.castShadow = o.receiveShadow = true; o.frustumCulled = false; } });
+  arm.updateMatrixWorld(true);
+  slimFingers(P.slim || .86);
+  mesh.geometry.computeVertexNormals();
+  // reparent into chains (attach keeps world transforms; skin bind matrices stay valid)
+  for (const f of FINGERS) { const c = CHAIN(f); B[c[0]].parent !== B.wrist && B.wrist.attach(B[c[0]]); for (let i = 1; i < c.length; i++) B[c[i - 1]].attach(B[c[i]]); }
+  arm.updateMatrixWorld(true);
+  // rest frame (in wrist space): palm normal (dorsal), flexion axes
+  const wp = n => B.wrist.worldToLocal(B[n].getWorldPosition(new THREE.Vector3()));
+  const across = wp('index-finger-phalanx-proximal').sub(wp('pinky-finger-phalanx-proximal')).normalize();
+  const fwd = wp('middle-finger-phalanx-proximal').normalize();
+  let nrm = new THREE.Vector3().crossVectors(across, fwd).normalize();
+  window.HINFO = {across: across.toArray(), fwd: fwd.toArray(), nrm: nrm.toArray()};
+  for (const n in B) rest[n] = B[n].quaternion.clone();
+  // flexion axis per joint, in that bone's local frame: world axis = d x nrm (sign fixed below so + curls toward palm)
+  for (const f of FINGERS) { const c = CHAIN(f);
+    for (let i = 0; i < c.length - 1; i++) {
+      const d = wp(c[i + 1]).sub(wp(c[i])).normalize();
+      const aW = new THREE.Vector3().crossVectors(d, nrm).normalize();              // in wrist space
+      const aAb = nrm.clone();
+      const q = new THREE.Quaternion(); B[c[i]].getWorldQuaternion(q);
+      const qw = new THREE.Quaternion(); B.wrist.getWorldQuaternion(qw);
+      const toLocal = q.clone().invert().multiply(qw);                                    // wrist space -> bone local
+      axes[c[i]] = {flex: aW.applyQuaternion(toLocal).normalize(), abd: aAb.applyQuaternion(toLocal).normalize(), d: d};
+    } }
+  { const r = n => B[n].getWorldPosition(new THREE.Vector3());
+    const f = r('middle-finger-phalanx-proximal').sub(r('wrist')).normalize();
+    const ac = r('index-finger-phalanx-proximal').sub(r('pinky-finger-phalanx-proximal'));
+    let n = new THREE.Vector3().crossVectors(ac, f).normalize();
+    // which way is dorsal: curl the index and see where its tip goes
+    setPose({wrist: {p: r('wrist').toArray(), r: [0, 0, 0]}}); const t0 = r('index-finger-tip'); setPose({wrist: {p: r('wrist').toArray(), r: [0, 0, 0]}, index: [.6, 0, .9, .5]}); const t1 = r('index-finger-tip');
+    if (t1.sub(t0).dot(n) > 0) n.negate();
+    window.MF = {f, n}; window.HINFO.flexDelta = t1.toArray(); }
+  setPose({wrist: {p: [0, 0, 0], r: [0, 0, 0]}});
+  res(true);
+}));
+// angles: {wrist:{p:[x,y,z], r:[rx,ry,rz]}, index:[mcpFlex, mcpAbd, pip, dip], ... thumb:[cmcFlex, cmcAbd, mcp, ip]} radians
+// slim the fingers in the bind pose: move each vertex of a phalanx toward its bone axis (the WebXR hand is chunky)
+function slimFingers(f) {
+  const g = mesh.geometry, pos = g.attributes.position, si = g.attributes.skinIndex, sw = g.attributes.skinWeight, bones = mesh.skeleton.bones;
+  const wp = b => b.getWorldPosition(new THREE.Vector3());
+  const inv = new THREE.Matrix4().copy(mesh.matrixWorld).invert();
+  const seg = {}; bones.forEach((b, i) => { const ch = b.children.find(c => c.isBone); if (/phalanx/.test(b.name) && ch) seg[i] = [wp(b).applyMatrix4(inv), wp(ch).applyMatrix4(inv)]; });
+  const v = new THREE.Vector3(), c = new THREE.Vector3();
+  for (let i = 0; i < pos.count; i++) {
+    v.fromBufferAttribute(pos, i); let acc = new THREE.Vector3(), wsum = 0;
+    for (let k = 0; k < 4; k++) { const bi = si.getComponent(i, k), w = sw.getComponent(i, k); if (!w) continue;
+      if (seg[bi]) { const [a, b] = seg[bi], ab = b.clone().sub(a); const t = THREE.MathUtils.clamp(v.clone().sub(a).dot(ab) / ab.lengthSq(), 0, 1.15);
+        c.copy(a).addScaledVector(ab, t); acc.addScaledVector(c.clone().add(v.clone().sub(c).multiplyScalar(f)), w); }
+      else acc.addScaledVector(v, w);
+      wsum += w; }
+    if (wsum > 0) pos.setXYZ(i, ...acc.multiplyScalar(1 / wsum).toArray());
+  }
+  pos.needsUpdate = true;
+}
+window.FLEXSIGN = -1;   // the model's +x is palmar: + flex curls toward the palm with -1 (checked by the thumb side and the rest curl)
+window.setPose = function (A) {
+  root.scale.setScalar(P.hs);
+  if (A.wrist.F) { // fingers-forward F and dorsal D directions (world), then extra Euler r
+    const F = new THREE.Vector3(...A.wrist.F).normalize(), D0 = new THREE.Vector3(...A.wrist.D);
+    const Dn = D0.sub(F.clone().multiplyScalar(D0.dot(F))).normalize(), L = new THREE.Vector3().crossVectors(F, Dn);
+    const mW = new THREE.Matrix4().makeBasis(F, Dn, L), mM = new THREE.Matrix4().makeBasis(MF.f, MF.n, new THREE.Vector3().crossVectors(MF.f, MF.n));
+    const q = new THREE.Quaternion().setFromRotationMatrix(mW.multiply(mM.transpose()));
+    if (A.wrist.r) q.premultiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(...A.wrist.r)));
+    root.quaternion.copy(q);
+  } else root.rotation.set(...(A.wrist.r || [0, 0, 0]), 'XYZ');
+  // place so the wrist joint lands at p (world)
+  root.position.set(0, 0, 0); root.updateMatrixWorld(true);
+  const w0 = B.wrist.getWorldPosition(new THREE.Vector3()); root.position.fromArray(A.wrist.p).sub(w0);
+  for (const n in B) B[n].quaternion.copy(rest[n]);
+  for (const f of FINGERS) { const a = A[f]; if (!a) continue; const c = CHAIN(f);
+    const j = c.slice(0, -1);   // rotate metacarpal? no: fingers rotate proximal(MCP), intermediate(PIP), distal(DIP); thumb rotates metacarpal(CMC), proximal(MCP), distal(IP)
+    const S = window.FLEXSIGN;
+    const set = (bn, flex, abd) => { const ax = axes[bn]; const q = new THREE.Quaternion().setFromAxisAngle(ax.flex, S * flex);
+      if (abd) q.premultiply(new THREE.Quaternion().setFromAxisAngle(ax.abd, abd)); B[bn].quaternion.copy(rest[bn]).multiply(q); };
+    if (f === 'thumb') { set(c[0], a[0], a[1]); set(c[1], a[2]); set(c[2], a[3]); }
+    else { set(c[1], a[0], a[1]); set(c[2], a[2]); set(c[3], a[3]); if (a[4]) set(c[0], a[4]); }
+  }
+  scene.updateMatrixWorld(true);
+};
+window.joints = function () { const o = {}; for (const f of FINGERS) o[f] = CHAIN(f).map(n => B[n].getWorldPosition(new THREE.Vector3()).toArray());
+  o.wrist = B.wrist.getWorldPosition(new THREE.Vector3()).toArray(); return o; };
+window.geo = {sp, yS, halfW, X, PY0, PX0, strZ: P.strZ, boardT: P.boardT, neckD: P.neckD};
+
+// ---------- render modes ----------
+const idMats = {};
+const ID = {thumb: 0x00ffff, index: 0xff0000, middle: 0x00ff00, ring: 0x0000ff, pinky: 0xffff00, palm: 0xffffff};
+let idMesh = null;
+function buildIdMesh() {   // vertex colours by the dominant bone's finger
+  if (idMesh) return idMesh;
+  const g = mesh.geometry, si = g.attributes.skinIndex, sw = g.attributes.skinWeight, n = si.count, col = new Float32Array(n * 3);
+  const bones = mesh.skeleton.bones;
+  for (let i = 0; i < n; i++) { let best = 0, bw = -1; for (let k = 0; k < 4; k++) { const w = sw.getComponent(i, k); if (w > bw) { bw = w; best = si.getComponent(i, k); } }
+    const nm = bones[best].name; let fid = 'palm';
+    for (const f of FINGERS) if (nm.startsWith(f) && !nm.includes('metacarpal')) fid = f;
+    if (nm === 'thumb-metacarpal') fid = 'thumb';
+    const c = new THREE.Color(ID[fid]); col.set([c.r, c.g, c.b], i * 3); }
+  g.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  idMesh = new THREE.MeshBasicMaterial({vertexColors: true}); return idMesh;
+}
+window.renderMode = function (mode) {
+  const saved = new Map();
+  scene.traverse(o => { if (o.isMesh) saved.set(o, o.material); });
+  let bg = 0xff00ff, lights = true;
+  if (mode === 'id') { scene.traverse(o => { if (o.isMesh) o.material = o === mesh ? buildIdMesh() : new THREE.MeshBasicMaterial({color: o.name.startsWith('str') ? 0x404040 : 0x202020}); }); bg = 0x000000; }
+  if (mode === 'handonly') { scene.traverse(o => { if (o.isMesh) o.material = o === mesh ? new THREE.MeshBasicMaterial({color: 0xffffff}) : new THREE.MeshBasicMaterial({color: 0x000000}); }); bg = 0x000000; }
+  if (mode === 'depth') { const dm = new THREE.MeshDepthMaterial(); scene.traverse(o => { if (o.isMesh) o.material = dm; }); bg = 0x000000; }
+  if (mode === 'normal') { const nm = new THREE.MeshNormalMaterial(); scene.traverse(o => { if (o.isMesh) o.material = nm; }); bg = 0x000000; }
+  if (mode === 'clay') { const cm = new THREE.MeshStandardMaterial({color: 0xdddddd, roughness: .9}); scene.traverse(o => { if (o.isMesh) o.material = o === mesh ? cm : o.material; }); }
+  renderer.setClearColor(bg, 1);
+  const pm = cam.projectionMatrix.clone();
+  if (mode === 'depth') { const c = -.018, h = .066; cam.projectionMatrix.elements[10] = -1 / h; cam.projectionMatrix.elements[14] = c / h; }
+  renderer.render(scene, cam);
+  cam.projectionMatrix.copy(pm);
+  const url = renderer.domElement.toDataURL('image/png');
+  for (const [o, m] of saved) o.material = m;
+  return url;
+};
+window.renderDebug = function (dir, up, c, half) {   // a free ortho view: direction TO camera, up, centre, half-height (m)
+  const a = P.W / P.H, dc = new THREE.OrthographicCamera(-half * a, half * a, half, -half, -1, 2);
+  dc.position.set(...c).add(new THREE.Vector3(...dir).normalize().multiplyScalar(.5)); dc.up.set(...up); dc.lookAt(...c); dc.updateProjectionMatrix();
+  renderer.setClearColor(0x8090a0, 1); renderer.render(scene, dc); return renderer.domElement.toDataURL('image/png'); };
+window.showHand = v => { if (mesh) mesh.visible = v; };
+</script></body></html>

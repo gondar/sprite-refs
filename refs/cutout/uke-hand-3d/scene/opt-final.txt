@@ -1,0 +1,1 @@
+{modes:["shaded","id","depth","normal","clay"],hy:.004,hyf:[.006,.004,-.003,-.006],pdy:.0045}
