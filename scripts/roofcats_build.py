@@ -26,6 +26,10 @@ CLIPS = {
 # the crouch frame (24 fps source) closest to the takeoff's first frame after one wiggle: mean |alpha| difference
 # 0.0097 (ginger) and 0.0082 (tux) against 0.004 at the clip's own end, measured 2026-11-07
 CROUCH_END = {"ginger": 40, "tux": 42}
+# the near-still frames before the spring (animation review round 6): from HOLD on the crouch only the tail moves,
+# and the takeoff's gathering moves the body only from GATH on; the game plays those stretches faster
+HOLD = {"ginger": 11, "tux": 13}
+GATH = {"ginger": 5, "tux": 8}
 TRANS = {"crouch", "takeoff", "landing"}
 STEP = {"look": 2, "groom": 2, "crouch": 2, "takeoff": 2, "landing": 2}   # 24 fps source -> 12 fps (idle thinned below)
 SCALE = 0.32          # atlas px per canvas px (the shipped stills are 0.5 of the sheet = 0.5 canvas px)
@@ -124,7 +128,7 @@ def main(outdir):
         touch = next(i for i, f in enumerate(cl["landing"]) if f[5] + f[3] >= -3)
         # the takeoff's push-off: the first frame whose feet have left the ridge
         push = next(i for i, f in enumerate(cl["takeoff"]) if f[5] + f[3] < -3)
-        ALL[cat] = {"img": f"cat-{cat}.webp", "size": list(atlas.size), "clips": cl, "touch": touch, "push": push,
+        ALL[cat] = {"img": f"cat-{cat}.webp", "size": list(atlas.size), "clips": cl, "touch": touch, "push": push, "hold": HOLD[cat], "gath": GATH[cat],
                     "out": bc(cl["takeoff"][-1]), "in": bc(cl["landing"][0])}
         print(cat, "atlas", atlas.size, os.path.getsize(f"{outdir}/cat-{cat}.webp") // 1024, "KB", "touch", touch, "push", push, "out", ALL[cat]["out"], "in", ALL[cat]["in"])
     ALL["plate"] = round(0.3 / SCALE, 4)   # plate px per atlas px: the game's stills were 0.5 canvas px at 0.6 plate px each
