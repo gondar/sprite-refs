@@ -1,11 +1,9 @@
 ---
 name: sprite-pipeline
-description: Second choice after generate-game-gifs. Animate a 2D game character — idle, idle gestures, walk, run, jump, sit, turn, wave, nod, cheer — through APIYI. Starts by choosing the method (MiniMax-H3 video, a drawn cycle sheet, a cutout puppet, or no animation at all via asset-sheet), then gives the MiniMax-H3 recipe that works (first frame = last frame on a flat blue ground, a short motion-only prompt, two movements per 4 s clip, the static lock in lock.py) and the scripts that cut, align, score and pack the frames. For an idle, the idle-animation skill picks between MiniMax, cutout and both. Use this whenever a character, mascot or unit has to MOVE, an animation "feels repetitive", or a generated video has to become game frames — and before spending money on video. For many STATIC assets (props, icons, items) use the `asset-sheet` skill instead.
+description: Animate a 2D game character — idle, idle gestures, walk, run, jump, sit, turn, wave, nod, cheer — through APIYI. Starts by choosing the method (MiniMax-H3 video, a drawn cycle sheet, a cutout puppet, or no animation at all via asset-sheet), then gives the MiniMax-H3 recipe that works (first frame = last frame on a flat blue ground, a short motion-only prompt, two movements per 4 s clip, the static lock in lock.py) and the scripts that cut, align, score and pack the frames. For an idle, the idle-animation skill picks between MiniMax, cutout and both. Use this whenever a character, mascot or unit has to MOVE, an animation "feels repetitive", or a generated video has to become game frames — and before spending money on video. For many STATIC assets (props, icons, items) use the `asset-sheet` skill instead.
 ---
 
 # Sprite pipeline — animation
-
-> **Animation default (2026-11-07): start with `generate-game-gifs`** — native GIF from your art as the reference, ~$0.10 and ~20 s for 8 frames (its SKILL.md §0 says when to come here instead). Use this pipeline (MiniMax-H3 video) only when the move is long or complex for 8–12 frames, or the GIF failed the full-size review twice.
 
 Media, the job log, the mannequin library and the source of truth for this skill live in **`gondar/sprite-refs`**
 (`skill/sprite-pipeline/`; also the public hosting H3 needs). Clone it and run every script from its root. Only the
