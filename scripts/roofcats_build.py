@@ -12,7 +12,7 @@ Keying: the ground is flat blue; alpha falls with blue's dominance over red and 
 ~110 on the ground, <= 10 on fur, white and black). Edge pixels are despilled (B clamped to max(R, G) + 6).
 Trimming (transitions): the frames before the first and after the last real movement are dropped (mean abs
 difference to the previous frame on the alpha, > MOVE).
-Writes OUTDIR/cat-<cat>.webp (atlas) and OUTDIR/cats.js: window.ROOFCATS = {plate, <cat>: {img, size, clips: {name: [[x,y,w,h,dx,dy], ...]}, touch, out, in}}
+Writes OUTDIR/cat-<cat>.webp (atlas) and OUTDIR/cats.js: window.ROOFCATS = {plate, <cat>: {img, size, clips: {name: [[x,y,w,h,dx,dy,cx,cy], ...]}, touch, out, in}}
 — dx, dy: the frame's top-left relative to the anchor, atlas px."""
 import json, os, subprocess, sys, numpy as np
 from PIL import Image
@@ -44,6 +44,13 @@ def key(rgb):
     f = rgb.astype(np.float32); r, g, b = f[..., 0], f[..., 1], f[..., 2]
     dom = b - np.maximum(r, g)
     a = np.clip((75 - dom) / 45, 0, 1)
+    # stray specks (keyed noise, a shadow fleck) widen the box and throw the paw pin: keep the cat's own blobs only
+    # (animation review round 3: ginger landing frames 11, 13, 20)
+    from scipy import ndimage as ndi
+    lab, n = ndi.label(a > 0.1)
+    if n > 1:
+        sz = ndi.sum(np.ones_like(a), lab, range(1, n + 1)); keep = np.zeros(n + 1, bool); keep[1:] = sz >= max(400, sz.max() * 0.02)
+        a = np.where(keep[lab], a, 0)
     b2 = np.where(a < 1, np.minimum(b, np.maximum(r, g) + 6), b)
     out = np.dstack([r, g, b2, a * 255])
     out[a == 0] = 0
@@ -107,7 +114,9 @@ def main(outdir):
         out = {"scale": SCALE, "anchor": [AX * SCALE, AY * SCALE], "fps": 12, "clips": {}}
         for n, i, (c, dx, dy) in allc:
             px, py = pos[(n, i)]; atlas.paste(c, (px, py))
-            out["clips"].setdefault(n, []).append([px, py, c.width, c.height, round(dx, 1), round(dy, 1)])
+            al = np.array(c.split()[-1], np.float32); ys, xs = np.nonzero(al > 128)
+            # [x, y, w, h, dx, dy, cx, cy]: cx, cy the body's centroid from the feet (the flight pins frames by it)
+            out["clips"].setdefault(n, []).append([px, py, c.width, c.height, round(dx, 1), round(dy, 1), round(dx + xs.mean(), 1), round(dy + ys.mean(), 1)])
         atlas.save(f"{outdir}/cat-{cat}.webp", "WEBP", quality=72, alpha_quality=80, method=6)
         cl = out["clips"]
         bc = lambda f: [round(f[4] + f[2] / 2, 1), round(f[5] + f[3], 1)]   # bottom centre from the feet
