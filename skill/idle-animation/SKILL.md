@@ -1,9 +1,11 @@
 ---
 name: idle-animation
-description: Make a game character's IDLE feel alive instead of looping — a shuffled bag of short gestures that all start and end on one shared home frame, made with a cutout rig, MiniMax-H3 video, or a hybrid of both, chosen by context. Use whenever a character waits on screen (a conductor, a king on a throne, a mascot, a shopkeeper), when an idle "is irritating", "feels like the same animation", "is constant", or when someone asks for more idle variations. Covers the choice, the shared-home-frame contract, the bag player, the checks and the review before shipping. The making itself is in `sprite-pipeline` (MiniMax) and `skill/cutout` (cutout).
+description: Second choice after generate-game-gifs for most idles. Make a game character's IDLE feel alive instead of looping — a shuffled bag of short gestures that all start and end on one shared home frame, made with a cutout rig, MiniMax-H3 video, or a hybrid of both, chosen by context. Use whenever a character waits on screen (a conductor, a king on a throne, a mascot, a shopkeeper), when an idle "is irritating", "feels like the same animation", "is constant", or when someone asks for more idle variations. Covers the choice, the shared-home-frame contract, the bag player, the checks and the review before shipping. The making itself is in `sprite-pipeline` (MiniMax) and `skill/cutout` (cutout).
 ---
 
 # Idle animation — variety on one home frame
+
+> **Animation default (2026-11-07): start with `generate-game-gifs`** — native GIF from your art as the reference, ~$0.10 and ~20 s for 8 frames (its SKILL.md §0 says when to come here instead). Use the mixes below only when an idle must run for minutes without feeling like a loop, or props must stay pixel-identical.
 
 An idle that loops one clip is noticed within seconds ("feels like it is the same one and constant"). What fixes it
 is **variety**, not a better loop: several short gestures (0.8–2 s), every one starting and ending on **one shared
