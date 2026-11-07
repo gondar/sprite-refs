@@ -1,6 +1,6 @@
 ---
 name: generate-game-gifs
-description: Generate short animated GIFs for 2D games with gpt-image-2.6's native GIF output through APIYI — idle loops, jumps, runs, walks, reactions — from YOUR character art as a reference, with a transparent background, then validate them at full size and turn them into game frames, spritesheets, manifests and a review page. Works offline on any existing GIF too (inspect, extract frames, key a flat ground, build a sheet) with no network and no cost. Use when someone wants a character animated as a GIF or sprite strip, "make this cat jump / run / blink", an animation that matches their existing art, a spritesheet from a GIF, or "is this GIF good enough for my game". About $0.10 per 8-frame GIF at the default high quality.
+description: THE DEFAULT WAY TO ANIMATE anything in gondar's games and films (MusicGames, MathGames, Movies) — reach for it first, before sprite-pipeline, MiniMax video or a cutout rig. Generate short animated GIFs for 2D games with gpt-image-2.6's native GIF output through APIYI — idle loops, jumps, runs, walks, reactions — from YOUR character art as a reference, with a transparent background, then validate them at full size and turn them into game frames, spritesheets, manifests and a review page. Works offline on any existing GIF too (inspect, extract frames, key a flat ground, build a sheet) with no network and no cost. Use when someone wants a character animated as a GIF or sprite strip, "make this cat jump / run / blink", an animation that matches their existing art, a spritesheet from a GIF, or "is this GIF good enough for my game". About $0.10 per 8-frame GIF at the default high quality.
 ---
 
 # Generate game GIFs
@@ -13,6 +13,20 @@ gondar/MusicGames): round 1 was rejected, round 2 found why and matched a ChatGP
 **Round 2 rules, in one breath:** reference image through `--route edits`; never send `complexity`;
 `background: transparent`; `quality: high`; frames × size within a 3840 px sheet; Flare (Sunburst times out
 on APIYI); one call, no retries; judge every frame at full size before anything ships.
+
+## 0 · The default route — and when to take another
+
+This is **the first choice for any character or object that has to move** (idle, blink, walk, run, jump,
+cheer, a waving flag): one call, ~$0.10, ~20 s, from the art you already have. Make the GIF, look at every
+frame at full size, show it moving, then ship a WebP strip.
+
+Take another route only when one of these is true — and say which:
+- **Props or legs must stay pixel-identical** while something small changes (a king on a throne blinking
+  for minutes, many tiny idle variations on one body) → `cutout` (+ `idle-animation` to mix).
+- **A long or complex move** that does not fit 8–12 frames (a 4 s gesture, a turn with camera feel), or the
+  GIF failed the full-size review twice → MiniMax-H3 video through `sprite-pipeline`.
+- **Nothing moves** → `asset-sheet`.
+- **Camera moves over still paintings** (a motion comic) → `comic-motion`.
 
 ## 1 · The recipe (defaults of `generate_gif.py`)
 
