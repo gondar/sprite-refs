@@ -83,6 +83,17 @@ def main(outdir):
                 if not bb: continue
                 c = im.crop(bb)
                 seq.append((c, bb[0] - AX * SCALE, bb[1] - AY * SCALE))
+            if name == "landing":
+                # the settle after the touch-down: H3 shifts the paws back about 10 px in one frame. Spread that
+                # drift evenly from the touch to the last frame, so the paws ease back instead of popping
+                def paw(c, dx):   # front-paw x: the rightmost opaque pixel in the bottom 12 % of the frame
+                    a = np.array(c.split()[-1]) > 128; r0 = int(a.shape[0] * 0.88)
+                    cols = np.nonzero(a[r0:].any(0))[0]; return dx + (cols.max() if len(cols) else 0)
+                t = next(i for i, (c, dx, dy) in enumerate(seq) if dy + c.height >= -3)
+                px = [paw(c, dx) for c, dx, dy in seq]; n = len(seq) - 1
+                for i in range(t + 1, n):
+                    want = px[t] + (px[n] - px[t]) * (i - t) / (n - t)
+                    c, dx, dy = seq[i]; seq[i] = (c, dx + (want - px[i]), dy)
             meta[name] = seq
             print(cat, name, f"frames {lo}-{hi} -> {len(seq)}")
         # pack: shelves, max width 2048
@@ -102,9 +113,11 @@ def main(outdir):
         bc = lambda f: [round(f[4] + f[2] / 2, 1), round(f[5] + f[3], 1)]   # bottom centre from the feet
         # the landing touches down at the first frame whose bottom is back on the ridge (within 3 atlas px)
         touch = next(i for i, f in enumerate(cl["landing"]) if f[5] + f[3] >= -3)
-        ALL[cat] = {"img": f"cat-{cat}.webp", "size": list(atlas.size), "clips": cl, "touch": touch,
+        # the takeoff's push-off: the first frame whose feet have left the ridge
+        push = next(i for i, f in enumerate(cl["takeoff"]) if f[5] + f[3] < -3)
+        ALL[cat] = {"img": f"cat-{cat}.webp", "size": list(atlas.size), "clips": cl, "touch": touch, "push": push,
                     "out": bc(cl["takeoff"][-1]), "in": bc(cl["landing"][0])}
-        print(cat, "atlas", atlas.size, os.path.getsize(f"{outdir}/cat-{cat}.webp") // 1024, "KB", "touch", touch, "out", ALL[cat]["out"], "in", ALL[cat]["in"])
+        print(cat, "atlas", atlas.size, os.path.getsize(f"{outdir}/cat-{cat}.webp") // 1024, "KB", "touch", touch, "push", push, "out", ALL[cat]["out"], "in", ALL[cat]["in"])
     ALL["plate"] = round(0.3 / SCALE, 4)   # plate px per atlas px: the game's stills were 0.5 canvas px at 0.6 plate px each
     with open(f"{outdir}/cats.js", "w") as f:
         f.write("/* written by gondar/sprite-refs scripts/roofcats_build.py — the rooftop cats' clips (ukulele-warmup/roofs.js) */\n")
