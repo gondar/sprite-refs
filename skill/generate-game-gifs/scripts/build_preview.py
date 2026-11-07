@@ -70,6 +70,14 @@ ul.notes{margin:10px 0 0;padding-left:20px;display:grid;gap:4px;max-width:72ch}
 """
 
 JS = r"""
+/* Images are loaded through fetch() and shown from a blob: URL. An artifact host's CSP blocks <img src> on
+   its own published files but allows fetch() of them; data: URIs and a page opened from disk (where fetch of
+   file:// fails) fall back to the plain URL. */
+function asset(u){
+  if(!u||/^(data|blob):/.test(u))return Promise.resolve(u);
+  return fetch(u).then(function(r){if(!r.ok)throw new Error(r.status);return r.blob()}).then(function(b){return URL.createObjectURL(b)}).catch(function(){return u});
+}
+[].slice.call(document.querySelectorAll('img[data-src]')).forEach(function(im){asset(im.dataset.src).then(function(u){im.src=u})});
 (function(){
   var b=document.body,btns=[].slice.call(document.querySelectorAll('.grounds button'));
   function ground(g){b.dataset.ground=g;btns.forEach(function(x){x.setAttribute('aria-pressed',String(x.dataset.g===g))});try{localStorage.setItem('gifpreview.ground',g)}catch(e){}}
@@ -82,7 +90,7 @@ JS = r"""
         play=s.querySelector('.play'),tabs=[].slice.call(s.querySelectorAll('.tabs button')),cur=0,i=0,t=null,img=new Image();
     function draw(){var m=sheets[cur],q=m.rects[i];cx.clearRect(0,0,cv.width,cv.height);if(img.complete&&img.naturalWidth)cx.drawImage(img,q[0],q[1],q[2],q[3],0,0,cv.width,cv.height);
       r.value=i;lab.textContent='frame '+i+' / '+(m.frames-1)+' · '+(m.durationsMs[i]||'?')+' ms';}
-    function load(k){cur=k;var m=sheets[k];cv.width=m.frameWidth;cv.height=m.frameHeight;r.max=m.frames-1;i=Math.min(i,m.frames-1);img=new Image();img.onload=draw;img.src=m.src;
+    function load(k){cur=k;var m=sheets[k];cv.width=m.frameWidth;cv.height=m.frameHeight;r.max=m.frames-1;i=Math.min(i,m.frames-1);img=new Image();img.onload=draw;asset(m.src).then(function(u){if(cur===k)img.src=u});
       tabs.forEach(function(x,j){x.setAttribute('aria-pressed',String(j===k))});}
     function stop(){clearTimeout(t);t=null;play.textContent='Play'}
     function tick(){i=(i+1)%sheets[cur].frames;draw();t=setTimeout(tick,sheets[cur].durationsMs[i]||100)}
@@ -154,13 +162,13 @@ def main():
                      '<button type="button" class="next" aria-label="Next frame">▶</button><input type="range" min="0" max="1" value="0" aria-label="Frame" id="r-%s"><span class="fr"></span></div>'
                      '<div class="tabs">%s</div></div>') % (e(json.dumps(sheets)), e(it["name"]), tabs)
         notes = "".join("<li>%s</li>" % e(n) for n in it.get("notes", []))
-        cards.append('<section class="card" id="%s"><div class="stage"><img data-anim src="%s" alt="%s, animated"></div><div style="min-width:0">'
+        cards.append('<section class="card" id="%s"><div class="stage"><img data-anim data-src="%s" alt="%s, animated"></div><div style="min-width:0">'
                      '<div class="head"><h2>%s</h2>%s</div><p class="purpose">%s</p><dl>%s</dl>%s<ul class="notes">%s</ul></div></section>'
                      % (e(it["name"]), src_of(P(it["gif"]), out_dir, a.embed), e(it.get("title", it["name"])), e(it.get("title", it["name"])),
                         '<span class="pill %s">%s</span>' % (vc, e(v)) if v else "", e(it.get("purpose", "")), dl, scrub, notes))
     gal = ""
     if spec.get("compare"):
-        figs = "".join('<figure><div class="stage"><img src="%s" alt="%s"></div><figcaption><b>%s</b> %s</figcaption></figure>'
+        figs = "".join('<figure><div class="stage"><img data-src="%s" alt="%s"></div><figcaption><b>%s</b> %s</figcaption></figure>'
                        % (src_of(P(c["src"]), out_dir, a.embed), e(c["label"]), e(c["label"]), e(c.get("caption", ""))) for c in spec["compare"])
         gal = '<section><h2>%s</h2><div class="gallery" style="margin-top:12px">%s</div></section>' % (e(spec.get("compare_title", "Compare")), figs)
     page = ('<title>%s</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n'
