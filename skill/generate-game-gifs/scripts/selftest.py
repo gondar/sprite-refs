@@ -128,8 +128,8 @@ def main():
                            env=env, capture_output=True, text=True)
         body = json.loads(p.stdout)["body"] if p.returncode == 0 else {}
         check(body.get("output_format") == "gif" and body.get("frame_count") == 8 and "Authorization" not in p.stdout, "generate: --dry-run prints the body, no key, no call")
-        check("complexity" not in body and body.get("background") == "transparent" and body.get("quality") == "medium",
-              "generate: defaults are the tested recipe (no complexity, transparent, medium)", {k: body.get(k) for k in ("quality", "background", "size")})
+        check("complexity" not in body and body.get("background") == "transparent" and body.get("quality") == "high",
+              "generate: defaults are the tested recipe (no complexity, transparent, high)", {k: body.get(k) for k in ("quality", "background", "size")})
         refimg = os.path.join(tmp, "ref.png"); Image.new("RGBA", (16, 16)).save(refimg)
         p = subprocess.run([sys.executable, os.path.join(HERE, "generate_gif.py"), "--prompt", "x", "--out", os.path.join(tmp, "x.gif"), "--dry-run",
                             "--route", "edits", "--ref", refimg], env=env, capture_output=True, text=True)

@@ -1,6 +1,6 @@
 ---
 name: generate-game-gifs
-description: Generate short animated GIFs for 2D games with gpt-image-2.6's native GIF output through APIYI — idle loops, jumps, runs, walks, reactions — from YOUR character art as a reference, with a transparent background, then validate them at full size and turn them into game frames, spritesheets, manifests and a review page. Works offline on any existing GIF too (inspect, extract frames, key a flat ground, build a sheet) with no network and no cost. Use when someone wants a character animated as a GIF or sprite strip, "make this cat jump / run / blink", an animation that matches their existing art, a spritesheet from a GIF, or "is this GIF good enough for my game". About $0.04–0.11 per 8-frame GIF.
+description: Generate short animated GIFs for 2D games with gpt-image-2.6's native GIF output through APIYI — idle loops, jumps, runs, walks, reactions — from YOUR character art as a reference, with a transparent background, then validate them at full size and turn them into game frames, spritesheets, manifests and a review page. Works offline on any existing GIF too (inspect, extract frames, key a flat ground, build a sheet) with no network and no cost. Use when someone wants a character animated as a GIF or sprite strip, "make this cat jump / run / blink", an animation that matches their existing art, a spritesheet from a GIF, or "is this GIF good enough for my game". About $0.10 per 8-frame GIF at the default high quality.
 ---
 
 # Generate game GIFs
@@ -10,12 +10,16 @@ gpt-image-2.6 draws an animated GIF as **one sheet of frames** that the service 
 transparent looping GIF in ~20–25 s. Tested 2026-11-05/06 (`experiments/gif-generation/REPORT.md` in
 gondar/MusicGames): round 1 was rejected, round 2 found why and matched a ChatGPT-made GIF.
 
+**Round 2 rules, in one breath:** reference image through `--route edits`; never send `complexity`;
+`background: transparent`; `quality: high`; frames × size within a 3840 px sheet; Flare (Sunburst times out
+on APIYI); one call, no retries; judge every frame at full size before anything ships.
+
 ## 1 · The recipe (defaults of `generate_gif.py`)
 
 ```bash
 APIYI_KEY_FROM_PROXY=1 python3 scripts/generate_gif.py \
   --route edits --ref art/my-character.png --prompt-file prompts/jump.txt --out out/jump.gif \
-  --log out/jobs.jsonl          # defaults: flare, 8 frames, 100 ms, 960x960, medium, transparent, no complexity
+  --log out/jobs.jsonl          # defaults: flare, 8 frames, 100 ms, 960x960, high, transparent, no complexity
 ```
 
 | setting | use | why (measured) |
@@ -23,13 +27,13 @@ APIYI_KEY_FROM_PROXY=1 python3 scripts/generate_gif.py \
 | `--route edits --ref ART` | yes, whenever the character exists | identity and style of your art; text only draws a different character |
 | `complexity` | **never send it** | `complexity: low` ignored "green eyes" (amber), flattened the jump, smeared the drawing. It was in every rejected GIF of round 1; the same request without it was clean |
 | `background` | `transparent` | palette transparency on every frame; no keying needed |
-| `quality` | `medium` | as clean as `high` at full size, ~18 % fewer tokens; `low` still coherent, softer |
+| `quality` | `high` | the owner's pick: finer line and detail for ~$0.015 more than medium; `medium`/`low` stay coherent but softer — use them only for quick drafts |
 | frames × `size` | must fit a 3840 px sheet | 8 frames → ≤ 960×960 · 12 → ≤ 768×768 · too big = instant HTTP 400 "No supported sheet fits" |
 | `model` | `gpt-image-2.6-flare` | Sunburst at high took > 30 s and APIYI cut it with a 502 at 30.6 s, twice (on api. and b.apiyi.com) |
 | `--route responses` | no | the gateway rejects GIF parameters on the Responses image tool (`Unknown parameter: tools[0].frame_count`) |
 
-Prices (APIYI list: $5/M text in, $8/M image in, $30/M image out): 8 frames 960 px medium ≈ 2,230 output
-tokens ≈ **$0.08** with a reference; high ≈ 2,700 (≈ $0.095); low ≈ 1,260 (≈ $0.05); 12 frames at 768 medium
+Prices (APIYI list: $5/M text in, $8/M image in, $30/M image out): 8 frames 960 px **high ≈ 2,700 output
+tokens ≈ $0.095** with a reference; medium ≈ 2,230 (≈ $0.08); low ≈ 1,260 (≈ $0.05); 12 frames at 768 medium
 ≈ 3,240 (≈ $0.11). A reference sheet of 1536×1024 added 1,536 image-input tokens (≈ $0.012).
 
 ## 2 · Prompt

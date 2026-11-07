@@ -4,7 +4,7 @@
 usage:
   generate_gif.py --prompt-file P.txt --out OUT.gif [--route images|edits|responses] [--ref IMG ...]
                   [--provider apiyi|openai] [--model M] [--frames 8] [--duration-ms 100] [--size 960x960]
-                  [--quality medium] [--background transparent] [--complexity none|low|…]
+                  [--quality high] [--background transparent] [--complexity none|low|…]
                   [--base URL] [--timeout 600] [--log jobs.jsonl] [--dry-run]
 
 Defaults are the recipe that worked on 2026-11-06 (experiments/gif-generation/REPORT.md, round 2):
@@ -16,6 +16,7 @@ Defaults are the recipe that worked on 2026-11-06 (experiments/gif-generation/RE
 - The model draws ONE sheet holding every frame; frames × size must fit a 3840 px longest edge
   (8 frames → 960×960 max, 12 → 768×768). Too big is a fast HTTP 400, "No supported sheet fits".
 - `background: transparent` gives palette transparency on every frame.
+- `quality: high` is the default: ~$0.095 for 8 × 960 px, visibly finer than medium/low for a few cents more.
 
 What it refuses to do:
 - ONE request, never a retry. A timeout or a 5xx may still have been generated and billed upstream; APIYI
@@ -123,7 +124,7 @@ def main():
     ap.add_argument("--frames", type=int, default=8)
     ap.add_argument("--duration-ms", type=int, default=100)
     ap.add_argument("--size", default="960x960", help="per frame; frames x size must fit a 3840 px sheet")
-    ap.add_argument("--quality", default="medium", choices=["low", "medium", "high", "xhigh", "max", "auto"])
+    ap.add_argument("--quality", default="high", choices=["low", "medium", "high", "xhigh", "max", "auto"])
     ap.add_argument("--complexity", default="none", help="leave unset ('none'): 'low' degraded every GIF it was used on")
     ap.add_argument("--timeout", type=float, default=600, help="seconds; image calls are slow — err high")
     ap.add_argument("--log", default=None, help="append-only JSONL job log (default: OUT's folder/jobs.jsonl)")
