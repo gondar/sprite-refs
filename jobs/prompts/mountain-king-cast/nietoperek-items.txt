@@ -1,0 +1,6 @@
+hang_sleep
+hang_open_eye
+hang_dizzy
+fly_up
+fly_down
+grin

@@ -1,0 +1,12 @@
+Character pose sheet for a children's music game set in a cosy purple cave, painted in the SAME soft cartoon storybook style as the reference image (gentle painterly shading, clean dark-brown outlines, warm rim light from torches, big expressive eyes), lit from the top-left.
+The character: Old plump dwarf with a long white beard, an olive-brown nightcap-style hat with a very long floppy tip ending in a bobble, blue-grey shirt; usually asleep with his arms folded on a rock.
+Draw this SAME character EXACTLY 6 times, one pose per cell of an invisible 2 x 3 grid (2 rows of 3), in the order of this list in reading order (row 1 left to right, then row 2), every drawing at the SAME scale (same head size), each centred in its own cell, filling about 75% of the cell height, never touching or overlapping a neighbour, empty space between them:
+- Arms folded flat on an invisible ledge at chest height, chin resting on them, eyes closed, mouth slightly open snoring, hat tip drooping over one side.
+- Jolted awake: sitting bolt upright, eyes popping wide, beard puffed out, hands splayed in the air, hat tip shot straight up.
+- Arms crossed, heavy frown, eyes narrowed and sliding sideways suspiciously, bottom lip pushed out.
+- Enormous yawn, mouth a huge oval, eyes squeezed shut, both arms stretched up over his head.
+- Eyelids half closed, head drooping forward, arms sliding back down onto that invisible ledge, soft smile.
+- One arm raised in a lazy cheer while still fast asleep: eyes closed, contented smile, head tilted.
+Always the whole character from head to feet (even in peeking poses — draw the full body; the game hides the lower part behind rocks). Identical design, colours and proportions in every pose; only the pose and the facial expression change.
+Each drawing stands alone: no ground, no rock, no ledge, no shadow, no scenery, no glow, no smoke, no motion lines. Draw NO text anywhere: no numbers, no letters, no labels, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. The character may not contain magenta or pink anywhere; use red, orange, purple-blue instead.

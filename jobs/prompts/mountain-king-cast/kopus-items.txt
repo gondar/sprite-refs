@@ -1,0 +1,6 @@
+walk_squint
+bow
+wave
+glasses_on
+bow_glasses
+stand

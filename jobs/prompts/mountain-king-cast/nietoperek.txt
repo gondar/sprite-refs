@@ -1,0 +1,12 @@
+Character pose sheet for a children's music game set in a cosy purple cave, painted in the SAME soft cartoon storybook style as the reference image (gentle painterly shading, clean dark-brown outlines, warm rim light from torches, big expressive eyes), lit from the top-left.
+The character: Chubby little slate-blue bat with big round ears and orange inner ears and wing membranes, tiny fangs, round tummy; sleepy and soft.
+Draw this SAME character EXACTLY 6 times, one pose per cell of an invisible 2 x 3 grid (2 rows of 3), in the order of this list in reading order (row 1 left to right, then row 2), every drawing at the SAME scale (same head size), each centred in its own cell, filling about 75% of the cell height, never touching or overlapping a neighbour, empty space between them:
+- Hanging upside down by its feet, wings wrapped around itself like a blanket, eyes closed, little smile.
+- Same wrapped hanging pose but ONE eye open, peeking curiously, eyebrow raised.
+- Hanging upside down, wings flopped open, eyes drawn as spirals, tongue out, dazed.
+- Upright flying, both wings raised high, eyes half open and sleepy, feet dangling.
+- Upright flying, both wings swept down, same sleepy face (alternate with fly_up for flapping).
+- Hanging upside down, wings open wide like a cheer, eyes open, big fangy grin.
+Always the whole character from head to feet (even in peeking poses — draw the full body; the game hides the lower part behind rocks). Identical design, colours and proportions in every pose; only the pose and the facial expression change.
+Each drawing stands alone: no ground, no rock, no ledge, no shadow, no scenery, no glow, no smoke, no motion lines. Draw NO text anywhere: no numbers, no letters, no labels, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. The character may not contain magenta or pink anywhere; use red, orange, purple-blue instead.

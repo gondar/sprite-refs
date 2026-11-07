@@ -1,0 +1,32 @@
+{
+ "image": "atlas.png",
+ "frames": {
+  "nod-up": {
+   "x": 0,
+   "y": 0,
+   "w": 684,
+   "h": 993
+  },
+  "nod-down": {
+   "x": 686,
+   "y": 0,
+   "w": 684,
+   "h": 906
+  },
+  "conduct": {
+   "x": 0,
+   "y": 995,
+   "w": 920,
+   "h": 970
+  },
+  "cheer": {
+   "x": 922,
+   "y": 995,
+   "w": 931,
+   "h": 988
+  }
+ },
+ "source": "refs/mountain-king/cast/glazik.png",
+ "grid": "2x2",
+ "key": "magenta"
+}

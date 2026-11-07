@@ -1,0 +1,12 @@
+Character pose sheet for a children's music game set in a cosy purple cave, painted in the SAME soft cartoon storybook style as the reference image (gentle painterly shading, clean dark-brown outlines, warm rim light from torches, big expressive eyes), lit from the top-left.
+The character: Small sturdy dwarf girl with two thick copper-orange braids, a short green pointy hood, sky-blue dress with a cream apron and brown boots, warm orange (not pink) cheeks, always holding one yellow cave flower; romantic and unstoppable.
+Draw this SAME character EXACTLY 6 times, one pose per cell of an invisible 2 x 3 grid (2 rows of 3), in the order of this list in reading order (row 1 left to right, then row 2), every drawing at the SAME scale (same head size), each centred in its own cell, filling about 75% of the cell height, never touching or overlapping a neighbour, empty space between them:
+- Standing on tiptoe, one hand shading her eyes like a sailor, the flower in the other hand, peering hard to one side, lips pursed.
+- Hands clasped together under her chin with the flower, eyes closed, head tilted, dreamy sigh smile.
+- Delighted gasp: eyes sparkling wide, mouth open, pointing straight ahead with the flower hand, braids flying up.
+- Leaning forward from the hips, eyes closed, lips puckered for a kiss, arms stretched forward, flower held up.
+- Rolling up a sleeve, jaw set, eyebrows down, a confident little grin, flower tucked behind her ear: 'right, I am coming for you'.
+- Both arms up, flower raised high in one hand, eyes closed with joy, big smile, braids bouncing.
+Always the whole character from head to feet (even in peeking poses — draw the full body; the game hides the lower part behind rocks). Identical design, colours and proportions in every pose; only the pose and the facial expression change.
+Each drawing stands alone: no ground, no rock, no ledge, no shadow, no scenery, no glow, no smoke, no motion lines. Draw NO text anywhere: no numbers, no letters, no labels, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. The character may not contain magenta or pink anywhere; use red, orange, purple-blue instead.

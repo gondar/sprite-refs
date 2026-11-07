@@ -1,0 +1,13 @@
+Animation sheet for a children's music game, in the SAME soft cartoon storybook style and the SAME character as the reference image (Panna Krasnoludka: small sturdy dwarf girl, two thick copper-orange braids, short green pointy hood, sky-blue dress with a cream apron, brown boots, holding one yellow flower).
+Draw the SAME character EXACTLY 8 times on a clean invisible 4 x 2 grid (2 rows of 4), one frame per cell in reading order, every frame at the SAME size and scale, feet on one common baseline near the bottom of each cell, each centred in its cell, never touching a neighbour. It is ONE looping cartoon RUN cycle, the character running toward the LEFT in side view, in blissful pursuit: eyes closed, lips puckered for a kiss, both arms reaching forward holding the yellow flower out in front, braids flying behind, a happy skipping bounce in the stride.
+- frame 1: contact — left leg reaching forward, heel down, right leg behind
+- frame 2: down — weight on the left leg, knee bent, body lowest
+- frame 3: passing — right leg swinging past, body rising
+- frame 4: up — a little skip off the left foot, both feet off the ground, body highest
+- frame 5: contact — right leg reaching forward, heel down, left leg behind
+- frame 6: down — weight on the right leg, knee bent, body lowest
+- frame 7: passing — left leg swinging past, body rising
+- frame 8: up — a little skip off the right foot, both feet off the ground; frame 8 flows back into frame 1
+Identical design and colours in every frame; the dress swings with the stride.
+No ground, no shadow, no dust, no motion lines, no scenery. Draw NO text anywhere: no numbers, no letters, no labels, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. The character may not contain magenta or pink anywhere; her cheeks are warm orange.
