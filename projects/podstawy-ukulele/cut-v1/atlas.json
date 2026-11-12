@@ -1,0 +1,44 @@
+{
+ "image": "atlas.png",
+ "frames": {
+  "witch-pointing": {
+   "x": 0,
+   "y": 0,
+   "w": 390,
+   "h": 423
+  },
+  "alpacas-desk": {
+   "x": 392,
+   "y": 0,
+   "w": 294,
+   "h": 338
+  },
+  "blackboard": {
+   "x": 0,
+   "y": 425,
+   "w": 365,
+   "h": 283
+  },
+  "cat-teacher": {
+   "x": 367,
+   "y": 425,
+   "w": 351,
+   "h": 367
+  },
+  "cats-desk-apples": {
+   "x": 0,
+   "y": 794,
+   "w": 334,
+   "h": 329
+  },
+  "apple": {
+   "x": 336,
+   "y": 794,
+   "w": 205,
+   "h": 228
+  }
+ },
+ "source": "s2/v1-layers-plump.png",
+ "grid": "2x3",
+ "key": "border"
+}

@@ -1,0 +1,32 @@
+{
+ "image": "atlas.png",
+ "frames": {
+  "witch-broom": {
+   "x": 0,
+   "y": 0,
+   "w": 458,
+   "h": 460
+  },
+  "alpaca-hoof": {
+   "x": 460,
+   "y": 0,
+   "w": 290,
+   "h": 430
+  },
+  "alpaca": {
+   "x": 0,
+   "y": 462,
+   "w": 284,
+   "h": 428
+  },
+  "cat-apple": {
+   "x": 286,
+   "y": 462,
+   "w": 301,
+   "h": 391
+  }
+ },
+ "source": "s2/v3-layers-plump.png",
+ "grid": "2x2",
+ "key": "border"
+}
