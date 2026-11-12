@@ -1,0 +1,106 @@
+{
+  "path": "/tmp/claude-0/-home-user/f6f6d907-97ec-519c-9432-52cb08032758/scratchpad/podstawy/art-raw/gif/kid-strum.gif",
+  "file": {
+    "bytes": 1056792,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "total_ms": 800,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      3.42,
+      2.55,
+      2.08,
+      3.22,
+      2.31,
+      1.81,
+      1.68
+    ],
+    "median_step": 2.31,
+    "max_step": 3.42,
+    "seam_mad": 3.17,
+    "seam_ratio": 1.37,
+    "changed_px_fraction": [
+      0.042,
+      0.026,
+      0.019,
+      0.039,
+      0.024,
+      0.016,
+      0.015
+    ],
+    "border_drift_max": 0.91,
+    "inner_change_max": 5.58,
+    "moving_centroids": [
+      [
+        480.7,
+        556.5
+      ],
+      [
+        489.8,
+        535.9
+      ],
+      [
+        494.4,
+        570.5
+      ],
+      [
+        477.1,
+        591.3
+      ],
+      [
+        459.4,
+        502.1
+      ],
+      [
+        483.2,
+        544.9
+      ],
+      [
+        463.3,
+        530.8
+      ],
+      [
+        490.4,
+        513.8
+      ]
+    ]
+  },
+  "warnings": [],
+  "contact_sheet": "/tmp/claude-0/-home-user/f6f6d907-97ec-519c-9432-52cb08032758/scratchpad/podstawy/art-raw/gif/kid-strum.contact.png"
+}

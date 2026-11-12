@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "out": "/tmp/claude-0/-home-user/f6f6d907-97ec-519c-9432-52cb08032758/scratchpad/podstawy/art-raw/gif/kid-strum.gif",
+  "latency_s": 27.2,
+  "bytes": 1056792,
+  "usage": {
+    "input_tokens": 1403,
+    "output_tokens": 2700,
+    "input_tokens_details": {
+      "text_tokens": 379,
+      "image_tokens": 1024
+    },
+    "output_tokens_details": {
+      "text_tokens": 0,
+      "image_tokens": 2700
+    },
+    "total_tokens": 4103
+  },
+  "est_cost_usd": 0.09109
+}

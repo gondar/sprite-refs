@@ -1,0 +1,4 @@
+witch
+alpaca
+cat
+apple

@@ -1,0 +1,200 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Podstawy art review</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--bg:#f4ead8;--ink:#3a2a1c;--card:#fffaf0}
+body{margin:0;padding:16px;background:var(--bg);color:var(--ink);font:14px/1.4 system-ui,sans-serif}
+h1{margin:0 0 8px;font-size:22px} h2{font-size:15px;margin:0 0 6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.card{background:var(--card);border-radius:10px;padding:10px;box-shadow:0 1px 3px #0002}
+.chk{background:repeating-conic-gradient(#ddd 0 25%,#fff 0 50%) 0 0/20px 20px;border-radius:6px;position:relative;overflow:hidden}
+.chk img{display:block;width:100%;height:auto}
+.wide{grid-column:span 2}
+.strip{background-repeat:no-repeat;margin:0 auto}
+.meta{font-size:12px;opacity:.8;margin-top:4px}
+.dot{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;color:#fff;font:700 15px/26px system-ui;text-align:center;box-shadow:0 0 0 2px #fff}
+.hl{position:absolute;left:0;right:0;height:0;border-top:1px dashed #0a0}
+.vl{position:absolute;top:0;bottom:0;width:0;border-left:1px dashed #c00}
+.x{position:absolute;width:14px;height:14px;margin:-7px 0 0 -7px;border:3px solid #0c0;border-radius:50%}
+.lbl{position:absolute;font:700 11px system-ui;color:#060;background:#fff8;padding:0 2px}
+@media(max-width:700px){.wide{grid-column:auto}}
+</style></head><body>
+<h1>Podstawy ukulele: art review</h1>
+<p class="meta">Every file in ukulele-warmup/art/podstawy/ on a checkerboard. Strips play at their manifest fps. Green/red dashed lines and dots are drawn from the JSON coordinates (to check them).</p>
+<div class="grid">
+<div class="card"><h2>kid-hold.webp</h2><div class="chk"><img src="../../../../../../home/user/MusicGames/ukulele-warmup/art/podstawy/kid-hold.webp" id="kh"></div><div class="meta">Neck points to the viewer's RIGHT and up; the kid faces us, left hand on the neck (picture right), right hand over the body (picture left).</div></div>
+<div class="card"><h2>kid-strum.webp (8 fr, 8 fps)</h2><div class="chk"><div class="strip" id="ks"></div></div><div class="meta" id="ksm"></div></div>
+<div class="card"><h2>hand-strum.webp (8 fr, 10 fps)</h2><div class="chk"><div class="strip" id="hs"></div></div><div class="meta" id="hsm"></div></div>
+<div class="card wide"><h2>hand-fret-tip.webp + hand-fret.json overlay</h2><div class="chk" id="ft"><img src="A/hand-fret-tip.webp"></div></div>
+<div class="card wide"><h2>hand-fret-flat.webp + overlay</h2><div class="chk" id="ff"><img src="A/hand-fret-flat.webp"></div></div>
+<div class="card wide"><h2>tip ↔ flat cross-fade (2 s)</h2><div class="chk" style="position:relative"><img src="A/hand-fret-tip.webp"><img src="A/hand-fret-flat.webp" id="xf" style="position:absolute;inset:0;opacity:0"></div></div>
+<div class="card"><h2>hand-numbers.webp + dots from JSON</h2><div class="chk" id="hn"><img src="A/hand-numbers.webp"></div></div>
+<div class="card"><h2>witch.webp</h2><div class="chk"><img src="A/witch.webp"></div></div>
+<div class="card"><h2>alpaca.webp</h2><div class="chk"><img src="A/alpaca.webp"></div></div>
+<div class="card"><h2>cat.webp</h2><div class="chk"><img src="A/cat.webp"></div></div>
+<div class="card"><h2>apple.webp</h2><div class="chk"><img src="A/apple.webp"></div></div>
+</div>
+<script>
+const KS={
+ "image": "kid-strum.webp",
+ "frameWidth": 268,
+ "frameHeight": 420,
+ "frames": 8,
+ "fps": 8,
+ "layout": "one row, left to right; background-size: 800% 100%",
+ "loop": true,
+ "sourceFrames": [
+  0,
+  1,
+  2,
+  3,
+  3,
+  2,
+  1,
+  0
+ ],
+ "downstrokeBottomFrame": 3,
+ "upstrokeTopFrame": 7,
+ "note": "GIF frames 0-3 are the down sweep; played as a ping-pong (0,1,2,3,3,2,1,0) so the up-stroke mirrors it. Frames 3 and 4 = hand at the bottom (sound of the down-strum), frames 7 and 0 = hand at the top (sound of the up-strum). One full down-up per second at 8 fps. Neck points to the viewer's RIGHT, up; the kid faces the viewer, right hand on the viewer's left.",
+ "lowestPointPerFrame": [
+  [
+   53.1,
+   99.0
+  ],
+  [
+   53.9,
+   98.3
+  ],
+  [
+   54.2,
+   98.6
+  ],
+  [
+   54.5,
+   98.6
+  ],
+  [
+   54.5,
+   98.6
+  ],
+  [
+   54.2,
+   98.6
+  ],
+  [
+   53.9,
+   98.3
+  ],
+  [
+   53.1,
+   99.0
+  ]
+ ]
+};
+const HS={
+ "image": "hand-strum.webp",
+ "frameWidth": 339,
+ "frameHeight": 360,
+ "frames": 8,
+ "fps": 10,
+ "layout": "one row, left to right; background-size: 800% 100%",
+ "loop": true,
+ "sourceFrames": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "downstrokeBottomFrame": 3,
+ "upstrokeTopFrame": 0,
+ "note": "Raw GIF order is already a smooth down-up loop (index-tip y: down 0->3, back up 4->7->0). The sleeve enters from the top-left and is faded out there (alpha ramp) so the strip can sit over the SVG body without a hard cut edge. Code may add a vertical translate (about 1/4 of the frame height) in sync with the frames to make the sweep across the strings bigger.",
+ "pivot": {
+  "x": 24,
+  "y": 30,
+  "what": "wrist, % of the frame; rotate/translate the whole frame around this point"
+ },
+ "strikePoint": "the index fingertip (lowestPointPerFrame) is the point that touches the strings",
+ "lowestPointPerFrame": [
+  [
+   84.8,
+   84.7
+  ],
+  [
+   86.0,
+   91.1
+  ],
+  [
+   86.6,
+   95.6
+  ],
+  [
+   85.3,
+   99.2
+  ],
+  [
+   86.0,
+   96.7
+  ],
+  [
+   87.4,
+   92.5
+  ],
+  [
+   86.9,
+   90.0
+  ],
+  [
+   86.6,
+   88.6
+  ]
+ ]
+};
+const HN={
+ "image": "hand-numbers.webp",
+ "size": [505, 768],
+ "hand": "LEFT hand, palm toward the viewer, fingers up; so the thumb is on the picture's RIGHT and the little finger on the LEFT",
+ "units": "% of the image width (x) and height (y); 'tip' is the topmost point of the fingertip outline, 'dot' is a suggested centre for a numbered dot just above it",
+ "fingers": {
+  "1": {"name": "index",  "colour": "#2f7ff0", "tip": [67.5, 19.8], "dot": [67.5, 12.5]},
+  "2": {"name": "middle", "colour": "#f5a300", "tip": [45.1, 14.3], "dot": [45.1, 7.0]},
+  "3": {"name": "ring",   "colour": "#e8438f", "tip": [25.5, 19.3], "dot": [25.5, 12.0]},
+  "4": {"name": "little", "colour": "#7b5cff", "tip": [6.3, 33.6],  "dot": [7.5, 26.3]},
+  "thumb": {"name": "thumb (no number)", "tip": [96.0, 47.0]}
+ },
+ "note": "the little-finger dot sits near the left edge; give it a few px of margin or shift it right"
+}
+;
+const HF={
+ "images": ["hand-fret-tip.webp", "hand-fret-flat.webp"],
+ "size": [1024, 687],
+ "aligned": "both files share the same canvas, neck, strings, frets, sleeve and thumb; only the index finger differs, so they can be cross-faded",
+ "units": "% of the image width (x) and height (y)",
+ "orientation": "neck horizontal, headstock and nut on the RIGHT edge (the kid's left hand, seen from the front); the hand comes from below, sleeve at the lower left; the thumb is behind the neck, only its tip shows over the top edge",
+ "neck": {"top": 21.5, "bottom": 53.3, "nut": 83.0},
+ "strings": {"G": 24.6, "C": 32.2, "E": 39.6, "A": 46.9},
+ "frets": {"1": 66.1, "2": 47.9, "3": 30.3, "4": 12.8},
+ "thumbTip": [63.0, 15.5],
+ "tip":  {"finger": "index", "string": "C", "fret": 1, "press": [67.8, 32.2], "note": "fingertip stands on the C string right next to fret wire 1 (headstock side), finger arched"},
+ "flat": {"finger": "index", "strings": ["G", "C", "E"], "fret": 2, "tip": [50.5, 26.5], "note": "straight finger laid across G-C-E in the 2nd fret space, its pad squashing the strings"}
+}
+;
+const A='file:///home/user/MusicGames/ukulele-warmup/art/podstawy/';
+document.querySelectorAll('img').forEach(i=>{const s=i.getAttribute('src');i.src=A+s.replace(/^.*\//,'')});
+const M={"kid-strum":KS,"hand-strum":HS,"hand-numbers":HN,"hand-fret":HF};
+function strip(id,m,scale){const el=document.getElementById(id);const w=m.frameWidth*scale,h=m.frameHeight*scale;
+ Object.assign(el.style,{width:w+'px',height:h+'px',backgroundImage:`url(${A+m.image})`,backgroundSize:`${m.frames*100}% 100%`});
+ let f=0;setInterval(()=>{el.style.backgroundPositionX=(f*100/(m.frames-1))+'%';f=(f+1)%m.frames},1000/m.fps);
+ document.getElementById(id+'m').textContent=`${m.frameWidth}×${m.frameHeight} ×${m.frames}, bottom of down = frame ${m.downstrokeBottomFrame}, top of up = frame ${m.upstrokeTopFrame}`}
+strip('ks',M['kid-strum'],.75);strip('hs',M['hand-strum'],.75);
+function add(box,cls,css,txt){const d=document.createElement('div');d.className=cls;Object.assign(d.style,css);if(txt)d.textContent=txt;document.getElementById(box).appendChild(d);return d}
+const hf=M['hand-fret'];
+for(const id of['ft','ff']){for(const[k,y]of Object.entries(hf.strings)){add(id,'hl',{top:y+'%'});add(id,'lbl',{top:(y-3)+'%',left:'1%'},k)}
+ for(const[k,x]of Object.entries(hf.frets))add(id,'vl',{left:x+'%'});add(id,'vl',{left:hf.neck.nut+'%',borderColor:'#00c'});
+ add(id,'x',{left:hf.thumbTip[0]+'%',top:hf.thumbTip[1]+'%',borderColor:'#f80'})}
+add('ft','x',{left:hf.tip.press[0]+'%',top:hf.tip.press[1]+'%'});add('ff','x',{left:hf.flat.tip[0]+'%',top:hf.flat.tip[1]+'%',borderColor:'#c00'});
+for(const[k,f]of Object.entries(HN.fingers)){if(!f.dot)continue;add('hn','dot',{left:f.dot[0]+'%',top:f.dot[1]+'%',background:f.colour},k)}
+let on=0;setInterval(()=>{on^=1;const x=document.getElementById('xf');x.style.transition='opacity .4s';x.style.opacity=on},2000);
+</script></body></html>

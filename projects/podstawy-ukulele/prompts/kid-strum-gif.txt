@@ -1,0 +1,10 @@
+Animate the paper-cut child from the reference image strumming the ukulele DOWN and UP, as a seamless looping animation.
+Keep EXACTLY the same character and style in every frame: the red knitted beanie with pom-pom, the round face with two dot eyes and a small smile, the cream paper coat and boots, the honey-wood ukulele with its neck pointing to the picture's RIGHT and up, the left hand on the neck near the headstock, Nordic kirigami papercut look with paper fibres and soft layer shadows.
+The child stays sitting in exactly the same place and size; the body, head, legs, ukulele and the LEFT hand on the neck do not move (only a tiny happy head bob).
+ONLY the RIGHT forearm and hand move, brushing across the strings where the neck meets the body:
+frame 1: right hand raised above the strings, ready;
+frames 2-3: the hand sweeps DOWN across the strings, index finger leading;
+frame 4: the hand at the bottom, below the strings;
+frames 5-6: the hand sweeps back UP across the strings;
+frames 7-8: the hand back at the top, ready again (same as frame 1).
+The movement must be clearly visible. Exactly the same small paper hands, no extra fingers or arms. 8 equal-size frames. Clean transparent background only - no scene, no shadow, no text, no borders.

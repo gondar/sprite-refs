@@ -1,0 +1,9 @@
+Animate the child's RIGHT hand from the reference image strumming a ukulele DOWN and UP (the ukulele is not shown), as a seamless looping animation.
+Keep EXACTLY the same hand and style in every frame: the same painted-paper children's illustration look, soft peach skin with gentle gouache shading, the cream knitted sleeve cuff, the index finger extended and leading, the thumb beside it, the middle, ring and little fingers loosely curled. EXACTLY five digits in every frame - one thumb and four fingers, never extra or fused fingers.
+The hand moves straight DOWN and back UP on the spot, about one third of the picture height, from a loose wrist:
+frame 1: hand at the top, index finger pointing down;
+frames 2-3: the hand brushes DOWN, the index fingernail leading, wrist relaxed;
+frame 4: the hand at the bottom, the wrist slightly flexed;
+frames 5-6: the hand brushes back UP, turning slightly so the soft pad of the index finger leads;
+frames 7-8: back at the top, the same as frame 1.
+The sleeve enters from the upper left in every frame and follows the hand. Same size in every frame. 8 equal-size frames. Clean transparent background only - no ukulele, no strings, no scene, no shadow, no text, no motion lines, no borders.

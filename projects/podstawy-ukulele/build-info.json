@@ -1,0 +1,50 @@
+{
+ "kid-hold": {
+  "file": "kid-hold.webp",
+  "w": 646,
+  "h": 1024,
+  "kb": 66.8
+ },
+ "hand-fret-tip.webp": {
+  "file": "hand-fret-tip.webp",
+  "w": 1024,
+  "h": 687,
+  "kb": 57.5
+ },
+ "hand-fret-flat.webp": {
+  "file": "hand-fret-flat.webp",
+  "w": 1024,
+  "h": 687,
+  "kb": 52.8
+ },
+ "hand-numbers": {
+  "file": "hand-numbers.webp",
+  "w": 505,
+  "h": 768,
+  "kb": 36.7
+ },
+ "witch": {
+  "file": "witch.webp",
+  "w": 437,
+  "h": 512,
+  "kb": 32.0
+ },
+ "alpaca": {
+  "file": "alpaca.webp",
+  "w": 498,
+  "h": 512,
+  "kb": 36.7
+ },
+ "cat": {
+  "file": "cat.webp",
+  "w": 414,
+  "h": 512,
+  "kb": 34.4
+ },
+ "apple": {
+  "file": "apple.webp",
+  "w": 442,
+  "h": 512,
+  "kb": 32.4
+ }
+}
