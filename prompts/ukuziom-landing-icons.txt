@@ -1,0 +1,8 @@
+Game asset sheet: separate small objects for a cosy scout campfire ukulele game at dusk, painted in the same soft cartoon storybook style as the reference image (gentle painterly shading, warm campfire light, clean silhouettes, no hard black outlines), all lit from the top-left, all in the same style and scale family.
+Draw EXACTLY 4 separate objects, one per cell of an invisible 2 x 2 grid (2 rows of 2), placed in the order of this list in reading order (row 1 left to right, then row 2), each object centred in its own cell, filling about 70% of the cell, never touching or overlapping a neighbour, empty space between them:
+- a small soprano ukulele in warm honey-coloured wood with four strings and a dark green scout neckerchief tied around its neck
+- three wooden log steps going up from left to right like a tiny staircase, each step a cut log with visible tree rings, a small green sprout on the lowest step
+- an open camp songbook with a worn brown leather cover, its pages showing only simple black music notes and wavy staff lines, a red ribbon bookmark
+- a toasted marshmallow on a long thin wooden stick, golden brown
+Each object stands alone: no ground, no shadow, no scenery, no glow, no smoke, no animals, no characters. Draw NO text anywhere: no numbers, no letters, no labels, no captions, no grid lines, no borders.
+Background: perfectly flat solid magenta #FF00FF everywhere. No object may contain magenta or pink; use red, orange, purple-blue instead.

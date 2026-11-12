@@ -1,0 +1,32 @@
+{
+ "image": "atlas.png",
+ "frames": {
+  "ukulele": {
+   "x": 0,
+   "y": 0,
+   "w": 248,
+   "h": 256
+  },
+  "log-steps": {
+   "x": 250,
+   "y": 0,
+   "w": 256,
+   "h": 214
+  },
+  "songbook": {
+   "x": 0,
+   "y": 258,
+   "w": 256,
+   "h": 193
+  },
+  "marshmallow": {
+   "x": 258,
+   "y": 258,
+   "w": 237,
+   "h": 256
+  }
+ },
+ "source": "refs/assets/ukuziom-landing/icons-4.png",
+ "grid": "2x2",
+ "key": "magenta"
+}
