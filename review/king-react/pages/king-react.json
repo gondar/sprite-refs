@@ -1,0 +1,43 @@
+{
+ "cell": [
+  479,
+  444
+ ],
+ "pivot": [
+  239.5,
+  441.5
+ ],
+ "fps": 12.0,
+ "base": "king-react-base.webp",
+ "crop": [
+  76,
+  90,
+  326,
+  354
+ ],
+ "gutter": 4,
+ "cols": 12,
+ "rows": 11,
+ "per_page": 132,
+ "pages": [
+  "king-react-p0.webp",
+  "king-react-p1.webp"
+ ],
+ "gestures": [
+  {
+   "name": "calm",
+   "at": 0,
+   "frames": 90
+  },
+  {
+   "name": "faster",
+   "at": 90,
+   "frames": 83
+  },
+  {
+   "name": "fastest",
+   "at": 173,
+   "frames": 75
+  }
+ ]
+}
