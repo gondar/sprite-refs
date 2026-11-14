@@ -15,7 +15,7 @@ border is ground (the dark eyes never key away); the edge gets a soft alpha and 
 max(R, G). All clips share one crop box (the union of the figure over every frame, padded) and one scale, so Zenek is the
 same size in every animation and his feet stand on the same line.
 
-Run:  python3 scripts/zenek_film.py OUTDIR [--height 400]
+Run:  python3 scripts/zenek_film.py OUTDIR [--height 400] [--set uke]   (--set uke: the Short's clips with the ukulele)
 Out:  OUTDIR/zenek-<name>.webp (a grid of cells) + OUTDIR/zenek-film.json (cell, cols, frames, fps, loop, contacts)
 """
 import json, subprocess, sys, os, tempfile, glob
@@ -24,6 +24,13 @@ from PIL import Image
 from scipy import ndimage   # pip install scipy
 
 RAW = os.path.join(os.path.dirname(__file__), "..", "raw")
+SETS = {"uke": {   # the a ↔ F Short: Zenek holding a ukulele (first/last frame refs/ukuziom/zenek-uke-home-blue.png)
+    "ukestrum": "20261114-222357-79581a",
+    "ukejoy": "20261114-222408-87643e",
+    "ukeup": "20261114-222410-6a4d8c",
+    "ukesurp": "20261114-222412-5c48d5",
+    "ukedown": "20261114-222413-671d5b",
+}}
 CLIPS = {
     "run": "20261113-072509-bafd5c",
     "wave": "20261031-161921-1a2f72",
@@ -78,12 +85,14 @@ def main():
     out = sys.argv[1]; H = 400
     if "--height" in sys.argv: H = int(sys.argv[sys.argv.index("--height") + 1])
     os.makedirs(out, exist_ok=True)
-    keyed = {n: [key(f) for f in frames(j)] for n, j in CLIPS.items() if os.path.exists(os.path.join(RAW, j + ".mp4"))}
+    SET = sys.argv[sys.argv.index("--set") + 1] if "--set" in sys.argv else None
+    clips = SETS[SET] if SET else CLIPS
+    keyed = {n: [key(f) for f in frames(j)] for n, j in clips.items() if os.path.exists(os.path.join(RAW, j + ".mp4"))}
     # one crop box for all: the union of every frame's figure, padded
     bx = [bbox(f) for fr in keyed.values() for f in fr]
     x0, y0 = min(b[0] for b in bx) - 8, min(b[1] for b in bx) - 8
     x1, y1 = max(b[2] for b in bx) + 8, max(b[3] for b in bx) + 8
-    home = keyed["run"][0]; hb = bbox(home)
+    home = keyed["run" if "run" in keyed else next(iter(keyed))][0]; hb = bbox(home)
     fig = hb[3] - hb[1]                                       # the standing figure, antenna ball to sole
     sc = H / fig
     cw, ch = int(round((x1 - x0) * sc)), int(round((y1 - y0) * sc))
@@ -102,7 +111,7 @@ def main():
         sheet.save(os.path.join(out, "zenek-" + n + ".webp"), quality=78, method=6)
         meta["clips"][n] = {"src": "zenek-" + n + ".webp", "n": len(sel), "cols": cols, **info}
         print(n, len(sel), info)
-    json.dump(meta, open(os.path.join(out, "zenek-film.json"), "w"), indent=1)
+    json.dump(meta, open(os.path.join(out, "zenek-" + (SET + "-" if SET else "") + "film.json"), "w"), indent=1)
     print(json.dumps({k: v for k, v in meta.items() if k != "clips"}))
 
 if __name__ == "__main__":
