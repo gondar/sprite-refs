@@ -4,7 +4,7 @@ and every other pixel is the home picture itself — the throne, legs and body c
 
 usage: lock.py OUT --home HOME.png --at X,Y [--keep PROP_MASK.png] CLIP.mp4=name,name,name,name [CLIP2.mp4=…]
                [--pose-s 1.0] [--thresh 30] [--grow 6] [--feather 3] [--cell 479,444 --pivot 245.6,442.8 --fig 327]
-               [--step 2] [--webp 70] [--reach 24] [--dom 60,40] [--spill 25,0]
+               [--step 2] [--webp 70] [--reach 24] [--dom 60,40] [--spill 25,0] [--frames]
 
 --keep is a mask (frame-sized, white = prop) of what is NOT the character — a throne, a stand: there, pixels the
 clip erases come back from home. Nowhere else: a head that moves leaves real empty space behind it.
@@ -38,6 +38,7 @@ def main():
     ap.add_argument("--grow", type=int, default=6); ap.add_argument("--feather", type=float, default=3)
     ap.add_argument("--cell", default="479,444"); ap.add_argument("--pivot", default="245.6,442.8"); ap.add_argument("--fig", type=float, default=327)
     ap.add_argument("--step", type=int, default=2); ap.add_argument("--reach", type=int, default=24, help="px past the home outline a gesture may reach (a donkey's buck: 160)"); ap.add_argument("--ease", type=int, default=6, help="source (24 fps) frames over which a cut that is not a full rest eases into home; the old default, 3 output frames at --step 2, is 6")
+    ap.add_argument("--frames", action="store_true", help="for a film: save every locked frame as a full-size RGBA PNG (OUT/<name>/NNNN.png) and skip the atlas")
     ap.add_argument("--open-end", action="store_true", help="half of a chained gesture: ease into home at the START only; the end is a drawn peak pose that the next half starts from"); ap.add_argument("--webp", type=int, default=70)
     ap.add_argument("--dom", default="60,40", help="outside the outline, alpha falls from 1 to 0 as the ground's channel dominates the other two by HI-WIDTH .. HI (default 60,40, tuned on blue). A red ground under a yellow character needs room: 140,50")
     ap.add_argument("--spill", default="25,0", help="EXCESS,KEEP: inside the outline the ground's channel is clamped where it exceeds the other two by more than EXCESS; at and outside the outline it is clamped to the others + KEEP (default 25,0). Red under yellow: 100,70")
@@ -125,6 +126,12 @@ def main():
                     rgb = (f[..., :3] * f[..., 3:4] / 255 * w + home[..., :3] * ha[..., None] * (1 - w)) / np.maximum(pa, 1e-3)
                     seq[j] = np.dstack([rgb, pa * 255])
             rows.append((nm, seq, f"{name} {i0 / FPS:.2f}-{i1 / FPS:.2f}s"))
+    if a.frames:   # a film lays the frames in itself, at the clip's own size and 24 fps (use --step 1)
+        for nm, sq, srcs in rows:
+            d = os.path.join(a.out, nm); os.makedirs(d, exist_ok=True)
+            for j, f in enumerate(sq): Image.fromarray(np.clip(np.round(f), 0, 255).astype(np.uint8), "RGBA").save(os.path.join(d, f"{j:04d}.png"))
+            print(f"{nm}: {len(sq)} frames -> {d} ({srcs})")
+        return
     # place: scale the figure to --fig px, bottom centre on the pivot
     CW, CH = map(int, a.cell.split(",")); PX, PY = map(float, a.pivot.split(","))
     ys, xs = np.nonzero(fig); s = a.fig / (ys.max() - ys.min() + 1); bx, by = (xs.min() + xs.max()) / 2, ys.max()
