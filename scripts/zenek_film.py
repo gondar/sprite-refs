@@ -31,6 +31,7 @@ SETS = {"uke": {   # the a ↔ F Short: Zenek holding a ukulele (first/last fram
     "ukesurp": "20261114-222412-5c48d5",
     "ukedown": "20261114-222413-671d5b",
     "ukeone": "20261115-064630-5a72b8",    # one quick downstroke and back (the strum the Short times to each sound)
+    "ukehey": "20261115-202659-9f63ae",    # the hook: a hop, the ukulele up, a wink and a finger at the viewer ("your turn!")
 }}
 CLIPS = {
     "run": "20261113-072509-bafd5c",
