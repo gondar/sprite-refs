@@ -4,18 +4,26 @@ every swing's extreme lands on a beat, packed as an 8-column WebP atlas + meta f
 
   python3 skill/sprite-pipeline/scripts/lock.py LOCK --home refs/ukuziom/jas/jas-home-cut-768.png --at 247,216 \
       raw/20261117-195106-949a77.mp4=wave --pose-s 4.45 --cell 766,766 --pivot 382.5,706 --fig 491 --step 1 --webp 0 --reach 200
-  python3 scripts/jas_beat_build.py LOCK OUT_DIR [--plate plate-town.webp] [--raw raw/<clip>.mp4]
+  python3 scripts/jas_beat_build.py LOCK OUT_DIR [--plate plate-town.webp] [--raw raw/<clip>.mp4] [--per-beat 0 --cols 12]
+  (the Short's atlas since 2026-11-17: --per-beat 0 --cols 12, every source frame once)
 
 Retime: the six staff extremes (star's x on the locked frames, parabola-refined) are anchors; out frame 4 + 9k is extreme k
 (9 cells a beat = 16.5 fps at 110 bpm), out 0 = src 0 (home), out 54 = src 106 (home again, = out 0). Between anchors the
-source frame is linear in time and taken whole (nearest frame, never blended: a blend ghosts the staff)."""
+source frame is linear in time and taken whole (nearest frame, never blended: a blend ghosts the staff).
+
+--per-beat 0 (2026-11-17, the animation review: 9 cells a beat played at 30 fps held cells 1 and 2 frames alternately, and
+the nearest-frame retime doubled one cell and skipped two at another): every source frame once, in order, nothing
+retimed — cell k = source frame k, the last frame (= the first, home) dropped, so the atlas is the clip's own 24 fps
+motion (~17.7 cells a beat) and film.js maps film frames to cells. accents: each extreme's nearest whole frame. The meta
+also carries each cell's drawn box (vis) and its star's centre (star, cell px), for the film's even stepping."""
 import argparse, glob, json, os, subprocess, sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 BPM = 110.0; SPB = 60.0 / BPM; PER_BEAT = 9; FPS = PER_BEAT / SPB   # 16.5
 ap = argparse.ArgumentParser(); ap.add_argument("lock"); ap.add_argument("out")
-ap.add_argument("--plate"); ap.add_argument("--raw"); a = ap.parse_args(); os.makedirs(a.out, exist_ok=True)
+ap.add_argument("--plate"); ap.add_argument("--raw"); ap.add_argument("--per-beat", type=int, default=9); ap.add_argument("--cols", type=int, default=8)
+a = ap.parse_args(); os.makedirs(a.out, exist_ok=True)
 
 # --- frames from lock.py's atlas
 M = json.load(open(os.path.join(a.lock, "atlas.json"))); CW, CH = M["cell"]; PX, PY = M["pivot"]; cols = M["cols"]
@@ -33,9 +41,15 @@ for i in range(1, N - 1):
         ext.append((i + (0.5 * (y0 - y2) / den if den else 0), "R" if y1 > sx[0] else "L", y1 - sx[0]))
 ext = [e for e in ext if abs(e[2]) > 20]
 assert len(ext) == 6, ext
-B = len(ext); n = B * PER_BEAT; acc = [4 + PER_BEAT * k for k in range(B)]
-anc_o = [0] + acc + [n]; anc_s = [0] + [e[0] for e in ext] + [N - 1]
-pick = [int(round(np.interp(o, anc_o, anc_s))) for o in range(n)]
+B = len(ext); PER_BEAT = a.per_beat
+if PER_BEAT:
+    FPS = PER_BEAT / SPB; n = B * PER_BEAT; acc = [4 + PER_BEAT * k for k in range(B)]
+    anc_o = [0] + acc + [n]; anc_s = [0] + [e[0] for e in ext] + [N - 1]
+    pick = [int(round(np.interp(o, anc_o, anc_s))) for o in range(n)]
+else:   # every source frame once; the last one is the first (home) again
+    n = N - 1; FPS = 24.0; pick = list(range(n))
+    # each extreme's whole frame: of the two around the refined vertex, the one further out (the staff's turn)
+    acc = [max((int(np.floor(e[0])), int(np.ceil(e[0]))), key=lambda i: (sx[i] - sx[0]) * (1 if e[1] == "R" else -1)) for e in ext]
 print("extremes (src):", [(round(e[0], 2), e[1], round(e[2], 1)) for e in ext])
 print("gaps:", np.round(np.diff([e[0] for e in ext]), 2), "wrap", round(N - 1 - ext[-1][0] + ext[0][0], 2))
 print("picked src frames:", pick)
@@ -62,18 +76,27 @@ def despeck(im):   # the key leaves faint specks (alpha <= ~32) in the reach zon
         p[~band] = 0
     return Image.fromarray(p, "RGBA")
 cells = [despeck(despill(c.crop((x0, y0, x1, y1)))) for c in cells]
-COLS = 8; rows = (n + COLS - 1) // COLS
+COLS = a.cols; rows = (n + COLS - 1) // COLS
 sheet = Image.new("RGBA", (COLS * cw, rows * ch), (0, 0, 0, 0))
 for j, c in enumerate(cells): sheet.paste(c, ((j % COLS) * cw, (j // COLS) * ch))
 sheet.save(os.path.join(a.out, "jas-beat.webp"), "WEBP", quality=82, method=6, alpha_quality=90)
 sheet.save(os.path.join(a.out, "_atlas-lossless.png"))
 piv = [round(PX - x0, 1), round(PY - y0, 1)]
+def star_xy(cs):   # the star's centre in each cell (its yellow core over the top 330 px), cell px
+    out = []
+    for c in cs:
+        p = np.asarray(c); m = (p[..., 3] > 128) & (p[..., 0] > 235) & (p[..., 1] > 200) & (p[..., 2] < 170); m[330:] = False
+        ys, xs = np.nonzero(m); out.append([round(float(xs.mean()), 1), round(float(ys.mean()), 1)])
+    return out
 meta = {"n": n, "fps": round(FPS, 3), "cols": COLS, "cell": [cw, ch], "pivot": piv, "fig": M.get("fig", 491),
         "beats": acc, "accents": acc, "period": B, "bpm": BPM,
         "sides": [e[1] for e in ext],
-        "src": "gondar/sprite-refs raw/20261117-195106-949a77.mp4 (MiniMax-H3, first = last frame = jas-home-green.png, lock.py, retimed by scripts/jas_beat_build.py)",
+        "src": "gondar/sprite-refs raw/20261117-195106-949a77.mp4 (MiniMax-H3, first = last frame = jas-home-green.png, lock.py, " + ("retimed" if PER_BEAT else "every frame, not retimed") + " by scripts/jas_beat_build.py)",
+        "vis": [list(map(int, c.getchannel("A").point(lambda v: 255 if v > 8 else 0).getbbox())) for c in cells],
+        "star": star_xy(cells), "per_beat": PER_BEAT or round(n / B, 2),
         "note": "frame 0 is the home frame; beats[k] (= accents[k]) is the staff at its k-th extreme (sides[k]: L/R as seen), to be "
-                "played on beat k of every period; between two accents the cells run evenly (film.js beatCell). 9 cells a beat = fps at 110 bpm."}
+                "played on beat k of every period; " + ("between two accents the cells run evenly (film.js beatCell). %d cells a beat = fps at 110 bpm." % PER_BEAT if PER_BEAT else
+                "every cell is one whole source frame (24 fps), in order: film.js steps a cell a film frame, its skips and holds on the slowest cells (star: each cell's star centre)")}
 json.dump(meta, open(os.path.join(a.out, "jas-beat.json"), "w"), indent=1)
 
 # --- checks: body height (hat to sole, columns the staff and star never reach), seams, edge spill
