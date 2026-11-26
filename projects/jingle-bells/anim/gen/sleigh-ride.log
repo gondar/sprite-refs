@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "out": "/home/user/MusicGames/fingerpick-warmup/art/jingle/anim/sleigh-ride.gif",
+  "latency_s": 28.4,
+  "bytes": 2000883,
+  "usage": {
+    "total_tokens": 4085,
+    "input_tokens": 1385,
+    "output_tokens": 2700,
+    "input_tokens_details": {
+      "text_tokens": 521,
+      "image_tokens": 864
+    },
+    "output_tokens_details": {
+      "text_tokens": 0,
+      "image_tokens": 2700
+    }
+  },
+  "est_cost_usd": 0.09052
+}

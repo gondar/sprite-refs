@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "out": "/home/user/MusicGames/fingerpick-warmup/art/jingle/anim/bust-cheer.gif",
+  "latency_s": 31.4,
+  "bytes": 3022180,
+  "usage": {
+    "output_tokens": 2700,
+    "input_tokens_details": {
+      "text_tokens": 471,
+      "image_tokens": 800
+    },
+    "output_tokens_details": {
+      "image_tokens": 2700,
+      "text_tokens": 0
+    },
+    "total_tokens": 3971,
+    "input_tokens": 1271
+  },
+  "est_cost_usd": 0.08976
+}
