@@ -1,0 +1,98 @@
+{
+ "image": "atlas.png",
+ "frames": {
+  "spruce-tall": {
+   "x": 0,
+   "y": 0,
+   "w": 262,
+   "h": 302
+  },
+  "spruce-mid": {
+   "x": 264,
+   "y": 0,
+   "w": 205,
+   "h": 252
+  },
+  "spruce-slim": {
+   "x": 471,
+   "y": 0,
+   "w": 138,
+   "h": 250
+  },
+  "spruce-small": {
+   "x": 611,
+   "y": 0,
+   "w": 156,
+   "h": 175
+  },
+  "spruce-pair": {
+   "x": 0,
+   "y": 304,
+   "w": 280,
+   "h": 250
+  },
+  "spruce-trio": {
+   "x": 282,
+   "y": 304,
+   "w": 292,
+   "h": 187
+  },
+  "mountain-wide": {
+   "x": 576,
+   "y": 304,
+   "w": 387,
+   "h": 145
+  },
+  "mountain-peak": {
+   "x": 0,
+   "y": 556,
+   "w": 295,
+   "h": 228
+  },
+  "cottage": {
+   "x": 297,
+   "y": 556,
+   "w": 238,
+   "h": 181
+  },
+  "church": {
+   "x": 537,
+   "y": 556,
+   "w": 210,
+   "h": 222
+  },
+  "cottage-wide": {
+   "x": 0,
+   "y": 786,
+   "w": 289,
+   "h": 166
+  },
+  "drift-long": {
+   "x": 291,
+   "y": 786,
+   "w": 386,
+   "h": 84
+  },
+  "drift-round": {
+   "x": 0,
+   "y": 954,
+   "w": 363,
+   "h": 143
+  },
+  "bush": {
+   "x": 365,
+   "y": 954,
+   "w": 251,
+   "h": 176
+  },
+  "snowflake": {
+   "x": 618,
+   "y": 954,
+   "w": 206,
+   "h": 225
+  }
+ },
+ "source": "/home/user/sprite-refs/projects/jingle-bells/anim/parallax/kit-a.raw.png",
+ "grid": "4x4",
+ "key": "magenta"
+}
