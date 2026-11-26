@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "out": "/home/user/sprite-refs/projects/jingle-bells/anim/r3/jet-flicker.gif",
+  "latency_s": 21.2,
+  "bytes": 1097022,
+  "usage": {
+    "total_tokens": 4037,
+    "input_tokens": 1337,
+    "output_tokens": 2700,
+    "input_tokens_details": {
+      "text_tokens": 313,
+      "image_tokens": 1024
+    },
+    "output_tokens_details": {
+      "image_tokens": 2700,
+      "text_tokens": 0
+    }
+  },
+  "est_cost_usd": 0.09076
+}

@@ -1,0 +1,106 @@
+{
+  "path": "/home/user/sprite-refs/projects/jingle-bells/anim/r3/reindeer-leap.gif",
+  "file": {
+    "bytes": 1256167,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "total_ms": 800,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      22.5,
+      19.41,
+      24.68,
+      23.18,
+      23.53,
+      20.76,
+      21.87
+    ],
+    "median_step": 22.5,
+    "max_step": 24.68,
+    "seam_mad": 10.86,
+    "seam_ratio": 0.48,
+    "changed_px_fraction": [
+      0.201,
+      0.184,
+      0.218,
+      0.205,
+      0.205,
+      0.187,
+      0.2
+    ],
+    "border_drift_max": 1.43,
+    "inner_change_max": 32.87,
+    "moving_centroids": [
+      [
+        573.8,
+        409.1
+      ],
+      [
+        556.6,
+        395.2
+      ],
+      [
+        536.3,
+        379.4
+      ],
+      [
+        573.1,
+        422.5
+      ],
+      [
+        588.0,
+        421.0
+      ],
+      [
+        570.3,
+        418.0
+      ],
+      [
+        559.2,
+        397.7
+      ],
+      [
+        581.2,
+        403.3
+      ]
+    ]
+  },
+  "warnings": [],
+  "contact_sheet": "/tmp/claude-0/-home-user/e5f61a55-6602-5028-abed-09b1b9430bfc/scratchpad/c.png"
+}

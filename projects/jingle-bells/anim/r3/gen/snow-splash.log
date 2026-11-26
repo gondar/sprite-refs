@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "out": "/home/user/sprite-refs/projects/jingle-bells/anim/r3/snow-splash.gif",
+  "latency_s": 22.3,
+  "bytes": 720884,
+  "usage": {
+    "output_tokens": 2700,
+    "input_tokens_details": {
+      "text_tokens": 347,
+      "image_tokens": 1024
+    },
+    "output_tokens_details": {
+      "text_tokens": 0,
+      "image_tokens": 2700
+    },
+    "total_tokens": 4071,
+    "input_tokens": 1371
+  },
+  "est_cost_usd": 0.09093
+}

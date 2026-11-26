@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "out": "/home/user/sprite-refs/projects/jingle-bells/anim/r3/reindeer-prance.gif",
+  "latency_s": 22.7,
+  "bytes": 1079815,
+  "usage": {
+    "input_tokens": 1537,
+    "output_tokens": 2700,
+    "input_tokens_details": {
+      "text_tokens": 513,
+      "image_tokens": 1024
+    },
+    "output_tokens_details": {
+      "text_tokens": 0,
+      "image_tokens": 2700
+    },
+    "total_tokens": 4237
+  },
+  "est_cost_usd": 0.09176
+}
