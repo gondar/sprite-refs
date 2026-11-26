@@ -1,0 +1,106 @@
+{
+  "path": "/home/user/sprite-refs/projects/jingle-bells/anim/r3/bells-swing.gif",
+  "file": {
+    "bytes": 1224407,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "total_ms": 800,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      12.21,
+      12.89,
+      11.32,
+      14.91,
+      11.06,
+      14.74,
+      8.58
+    ],
+    "median_step": 12.21,
+    "max_step": 14.91,
+    "seam_mad": 12.93,
+    "seam_ratio": 1.06,
+    "changed_px_fraction": [
+      0.157,
+      0.174,
+      0.155,
+      0.191,
+      0.148,
+      0.19,
+      0.132
+    ],
+    "border_drift_max": 0.0,
+    "inner_change_max": 22.61,
+    "moving_centroids": [
+      [
+        442.7,
+        439.9
+      ],
+      [
+        441.2,
+        427.0
+      ],
+      [
+        467.8,
+        444.2
+      ],
+      [
+        459.9,
+        431.2
+      ],
+      [
+        506.1,
+        411.2
+      ],
+      [
+        504.7,
+        433.0
+      ],
+      [
+        484.4,
+        410.6
+      ],
+      [
+        488.0,
+        410.0
+      ]
+    ]
+  },
+  "warnings": [],
+  "contact_sheet": "/tmp/claude-0/-home-user/e5f61a55-6602-5028-abed-09b1b9430bfc/scratchpad/c.png"
+}

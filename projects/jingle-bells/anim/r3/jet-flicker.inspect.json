@@ -1,0 +1,106 @@
+{
+  "path": "/home/user/sprite-refs/projects/jingle-bells/anim/r3/jet-flicker.gif",
+  "file": {
+    "bytes": 1097022,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "total_ms": 800,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      7.34,
+      6.29,
+      6.07,
+      6.83,
+      5.21,
+      5.44,
+      2.98
+    ],
+    "median_step": 6.07,
+    "max_step": 7.34,
+    "seam_mad": 2.6,
+    "seam_ratio": 0.43,
+    "changed_px_fraction": [
+      0.114,
+      0.104,
+      0.104,
+      0.113,
+      0.093,
+      0.096,
+      0.067
+    ],
+    "border_drift_max": 0.43,
+    "inner_change_max": 13.11,
+    "moving_centroids": [
+      [
+        465.3,
+        445.5
+      ],
+      [
+        422.7,
+        427.8
+      ],
+      [
+        412.3,
+        456.8
+      ],
+      [
+        401.2,
+        441.8
+      ],
+      [
+        423.1,
+        435.8
+      ],
+      [
+        437.8,
+        430.0
+      ],
+      [
+        457.5,
+        447.1
+      ],
+      [
+        463.2,
+        444.7
+      ]
+    ]
+  },
+  "warnings": [],
+  "contact_sheet": "/tmp/claude-0/-home-user/e5f61a55-6602-5028-abed-09b1b9430bfc/scratchpad/c.png"
+}

@@ -1,0 +1,92 @@
+{
+ "night": {
+  "844x390": {
+   "layerPxPerScreenPx": 0.339,
+   "sharpness": 5644.9,
+   "plateSharpness": 3768.4,
+   "v1LayerPxPerScreenPx": 0.508,
+   "v1Sharpness": 5370.6
+  },
+  "1280x800": {
+   "layerPxPerScreenPx": 0.694,
+   "sharpness": 2994.9,
+   "plateSharpness": 1249.4,
+   "v1LayerPxPerScreenPx": 1.042,
+   "v1Sharpness": 2629.4
+  },
+  "844x200": {
+   "layerPxPerScreenPx": 0.275,
+   "sharpness": 7818.7,
+   "plateSharpness": 4189.7,
+   "v1LayerPxPerScreenPx": 0.412,
+   "v1Sharpness": 8169.0
+  },
+  "1250x500": {
+   "layerPxPerScreenPx": 0.434,
+   "sharpness": 4460.4,
+   "plateSharpness": 2991.7,
+   "v1LayerPxPerScreenPx": 0.651,
+   "v1Sharpness": 4187.1
+  }
+ },
+ "chorus": {
+  "844x390": {
+   "layerPxPerScreenPx": 0.339,
+   "sharpness": 5567.7,
+   "plateSharpness": 6379.0,
+   "v1LayerPxPerScreenPx": 0.508,
+   "v1Sharpness": 5784.4
+  },
+  "1280x800": {
+   "layerPxPerScreenPx": 0.694,
+   "sharpness": 3270.0,
+   "plateSharpness": 2027.9,
+   "v1LayerPxPerScreenPx": 1.042,
+   "v1Sharpness": 2834.7
+  },
+  "844x200": {
+   "layerPxPerScreenPx": 0.275,
+   "sharpness": 7376.7,
+   "plateSharpness": 6748.0,
+   "v1LayerPxPerScreenPx": 0.412,
+   "v1Sharpness": 8362.3
+  },
+  "1250x500": {
+   "layerPxPerScreenPx": 0.434,
+   "sharpness": 4562.2,
+   "plateSharpness": 4936.6,
+   "v1LayerPxPerScreenPx": 0.651,
+   "v1Sharpness": 4377.7
+  }
+ },
+ "village": {
+  "844x390": {
+   "layerPxPerScreenPx": 0.339,
+   "sharpness": 4122.4,
+   "plateSharpness": 5896.8,
+   "v1LayerPxPerScreenPx": 0.508,
+   "v1Sharpness": 5321.2
+  },
+  "1280x800": {
+   "layerPxPerScreenPx": 0.694,
+   "sharpness": 2488.7,
+   "plateSharpness": 1723.1,
+   "v1LayerPxPerScreenPx": 1.042,
+   "v1Sharpness": 2530.0
+  },
+  "844x200": {
+   "layerPxPerScreenPx": 0.275,
+   "sharpness": 5802.7,
+   "plateSharpness": 7257.3,
+   "v1LayerPxPerScreenPx": 0.412,
+   "v1Sharpness": 7649.0
+  },
+  "1250x500": {
+   "layerPxPerScreenPx": 0.434,
+   "sharpness": 3837.7,
+   "plateSharpness": 4629.8,
+   "v1LayerPxPerScreenPx": 0.651,
+   "v1Sharpness": 4055.9
+  }
+ }
+}

@@ -1,0 +1,108 @@
+{
+  "path": "/home/user/sprite-refs/projects/jingle-bells/anim/r3/reindeer-prance.gif",
+  "file": {
+    "bytes": 1079815,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "total_ms": 800,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      41.76,
+      36.0,
+      29.13,
+      27.1,
+      23.39,
+      35.65,
+      35.93
+    ],
+    "median_step": 35.65,
+    "max_step": 41.76,
+    "seam_mad": 36.17,
+    "seam_ratio": 1.01,
+    "changed_px_fraction": [
+      0.334,
+      0.292,
+      0.245,
+      0.226,
+      0.205,
+      0.29,
+      0.295
+    ],
+    "border_drift_max": 10.66,
+    "inner_change_max": 59.45,
+    "moving_centroids": [
+      [
+        582.6,
+        538.7
+      ],
+      [
+        590.8,
+        497.4
+      ],
+      [
+        594.0,
+        438.3
+      ],
+      [
+        569.0,
+        438.8
+      ],
+      [
+        574.4,
+        422.0
+      ],
+      [
+        573.9,
+        432.2
+      ],
+      [
+        583.4,
+        477.0
+      ],
+      [
+        559.0,
+        533.1
+      ]
+    ]
+  },
+  "warnings": [
+    "frame border changes by up to 10.7: background/camera not static"
+  ],
+  "contact_sheet": "/tmp/claude-0/-home-user/e5f61a55-6602-5028-abed-09b1b9430bfc/scratchpad/c.png"
+}

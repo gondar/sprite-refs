@@ -1,0 +1,106 @@
+{
+  "path": "/home/user/sprite-refs/projects/jingle-bells/anim/r3/snow-splash.gif",
+  "file": {
+    "bytes": 720884,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "total_ms": 800,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      16.16,
+      26.38,
+      34.93,
+      26.11,
+      39.97,
+      31.03,
+      19.86
+    ],
+    "median_step": 26.38,
+    "max_step": 39.97,
+    "seam_mad": 6.69,
+    "seam_ratio": 0.25,
+    "changed_px_fraction": [
+      0.138,
+      0.217,
+      0.293,
+      0.241,
+      0.332,
+      0.245,
+      0.167
+    ],
+    "border_drift_max": 0.25,
+    "inner_change_max": 57.43,
+    "moving_centroids": [
+      [
+        467.3,
+        605.9
+      ],
+      [
+        461.8,
+        608.1
+      ],
+      [
+        451.0,
+        556.9
+      ],
+      [
+        480.1,
+        485.3
+      ],
+      [
+        472.4,
+        464.7
+      ],
+      [
+        463.5,
+        542.1
+      ],
+      [
+        461.4,
+        595.6
+      ],
+      [
+        469.5,
+        612.2
+      ]
+    ]
+  },
+  "warnings": [],
+  "contact_sheet": "/tmp/claude-0/-home-user/e5f61a55-6602-5028-abed-09b1b9430bfc/scratchpad/c.png"
+}

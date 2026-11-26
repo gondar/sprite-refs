@@ -1,0 +1,109 @@
+{
+  "path": "/home/user/sprite-refs/projects/jingle-bells/anim/r3/bust-launch.gif",
+  "file": {
+    "bytes": 2965126,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "total_ms": 800,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      31.61,
+      25.24,
+      20.91,
+      57.24,
+      28.99,
+      15.94,
+      15.89
+    ],
+    "median_step": 25.24,
+    "max_step": 57.24,
+    "seam_mad": 61.63,
+    "seam_ratio": 2.44,
+    "changed_px_fraction": [
+      0.397,
+      0.354,
+      0.331,
+      0.631,
+      0.39,
+      0.309,
+      0.306
+    ],
+    "border_drift_max": 23.17,
+    "inner_change_max": 73.08,
+    "moving_centroids": [
+      [
+        448.5,
+        474.7
+      ],
+      [
+        448.1,
+        476.3
+      ],
+      [
+        450.2,
+        484.6
+      ],
+      [
+        444.8,
+        485.5
+      ],
+      [
+        444.4,
+        477.6
+      ],
+      [
+        445.0,
+        487.1
+      ],
+      [
+        442.1,
+        487.5
+      ],
+      [
+        445.3,
+        486.7
+      ]
+    ]
+  },
+  "warnings": [
+    "frame border changes by up to 23.2: background/camera not static",
+    "over half the pixels change between two frames: a redraw, not motion"
+  ],
+  "contact_sheet": "/tmp/claude-0/-home-user/e5f61a55-6602-5028-abed-09b1b9430bfc/scratchpad/c.png"
+}
