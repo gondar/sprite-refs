@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "out": "/home/user/MusicGames/fingerpick-warmup/art/jingle/anim/reindeer-gallop.gif",
+  "latency_s": 23.8,
+  "bytes": 1225037,
+  "usage": {
+    "total_tokens": 4229,
+    "input_tokens": 1529,
+    "output_tokens": 2700,
+    "input_tokens_details": {
+      "text_tokens": 505,
+      "image_tokens": 1024
+    },
+    "output_tokens_details": {
+      "text_tokens": 0,
+      "image_tokens": 2700
+    }
+  },
+  "est_cost_usd": 0.09172
+}

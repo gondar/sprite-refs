@@ -1,0 +1,109 @@
+{
+  "path": "/home/user/MusicGames/fingerpick-warmup/art/jingle/anim/bust-cheer.gif",
+  "file": {
+    "bytes": 3022180,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "total_ms": 800,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      55.06,
+      56.78,
+      53.66,
+      51.94,
+      48.29,
+      50.94,
+      35.14
+    ],
+    "median_step": 51.94,
+    "max_step": 56.78,
+    "seam_mad": 27.58,
+    "seam_ratio": 0.53,
+    "changed_px_fraction": [
+      0.565,
+      0.568,
+      0.565,
+      0.565,
+      0.528,
+      0.524,
+      0.438
+    ],
+    "border_drift_max": 32.0,
+    "inner_change_max": 84.4,
+    "moving_centroids": [
+      [
+        501.9,
+        516.1
+      ],
+      [
+        479.6,
+        500.6
+      ],
+      [
+        468.2,
+        486.7
+      ],
+      [
+        461.1,
+        474.2
+      ],
+      [
+        480.5,
+        492.1
+      ],
+      [
+        482.5,
+        485.6
+      ],
+      [
+        476.9,
+        493.4
+      ],
+      [
+        478.3,
+        504.4
+      ]
+    ]
+  },
+  "warnings": [
+    "frame border changes by up to 32.0: background/camera not static",
+    "over half the pixels change between two frames: a redraw, not motion"
+  ],
+  "contact_sheet": "/tmp/claude-0/-home-user/e5f61a55-6602-5028-abed-09b1b9430bfc/scratchpad/bust-cheer.contact.png"
+}
