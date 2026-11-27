@@ -1,0 +1,106 @@
+{
+  "path": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/gifs/rabbit-idle.gif",
+  "file": {
+    "bytes": 845628,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      160,
+      160,
+      160,
+      160,
+      160,
+      160,
+      160,
+      160
+    ],
+    "total_ms": 1280,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      5.01,
+      5.6,
+      6.68,
+      5.05,
+      9.21,
+      2.66,
+      2.85
+    ],
+    "median_step": 5.05,
+    "max_step": 9.21,
+    "seam_mad": 4.58,
+    "seam_ratio": 0.91,
+    "changed_px_fraction": [
+      0.037,
+      0.039,
+      0.046,
+      0.039,
+      0.059,
+      0.023,
+      0.025
+    ],
+    "border_drift_max": 0.95,
+    "inner_change_max": 13.73,
+    "moving_centroids": [
+      [
+        466.9,
+        493.3
+      ],
+      [
+        466.1,
+        486.5
+      ],
+      [
+        442.9,
+        449.3
+      ],
+      [
+        451.8,
+        418.6
+      ],
+      [
+        444.5,
+        442.1
+      ],
+      [
+        481.8,
+        453.9
+      ],
+      [
+        478.6,
+        444.2
+      ],
+      [
+        477.0,
+        497.7
+      ]
+    ]
+  },
+  "warnings": [],
+  "contact_sheet": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/inspect/rabbit-idle.contact.png"
+}

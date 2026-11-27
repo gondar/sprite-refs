@@ -1,0 +1,106 @@
+{
+  "path": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/gifs/hen-idle.gif",
+  "file": {
+    "bytes": 929337,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      160,
+      160,
+      160,
+      160,
+      160,
+      160,
+      160,
+      160
+    ],
+    "total_ms": 1280,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      5.34,
+      6.94,
+      3.63,
+      4.55,
+      4.97,
+      7.66,
+      4.16
+    ],
+    "median_step": 4.97,
+    "max_step": 7.66,
+    "seam_mad": 4.21,
+    "seam_ratio": 0.85,
+    "changed_px_fraction": [
+      0.043,
+      0.055,
+      0.03,
+      0.036,
+      0.041,
+      0.06,
+      0.034
+    ],
+    "border_drift_max": 4.87,
+    "inner_change_max": 10.81,
+    "moving_centroids": [
+      [
+        376.2,
+        286.1
+      ],
+      [
+        379.8,
+        290.4
+      ],
+      [
+        385.1,
+        261.5
+      ],
+      [
+        390.9,
+        279.8
+      ],
+      [
+        394.8,
+        298.2
+      ],
+      [
+        376.8,
+        280.9
+      ],
+      [
+        370.8,
+        279.5
+      ],
+      [
+        371.0,
+        271.7
+      ]
+    ]
+  },
+  "warnings": [],
+  "contact_sheet": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/inspect/hen-idle.contact.png"
+}

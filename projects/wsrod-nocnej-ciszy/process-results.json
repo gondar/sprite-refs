@@ -1,0 +1,850 @@
+{
+ "fox-sit": {
+  "static": "fox",
+  "scale": 0.9950000000000002,
+  "registration": "iou 0.872",
+  "offset": [
+   -138.58421405808076,
+   34.258230511160036
+  ],
+  "cellOrigin": [
+   -19.0,
+   26.0
+  ],
+  "staticCell": [
+   675,
+   1024
+  ],
+  "outScale": 0.5,
+  "anchors": {
+   "seat": [
+    174.5,
+    332.0
+   ],
+   "feet": [
+    126.5,
+    476.0
+   ]
+  },
+  "featureArea": {
+   "mustard": 14405.25
+  },
+  "frameSize": [
+   344,
+   480
+  ],
+  "check": {
+   "heightPx": [
+    466,
+    465,
+    466,
+    466,
+    466,
+    466,
+    466,
+    466
+   ],
+   "widthPx": [
+    315,
+    318,
+    330,
+    316,
+    317,
+    323,
+    319,
+    313
+   ],
+   "areaPx": [
+    83988,
+    84381,
+    85268,
+    84287,
+    84202,
+    84785,
+    84093,
+    83564
+   ],
+   "sizeDrift": {
+    "heightSpreadPct": 0.21,
+    "areaSpreadPct": 2.02
+   },
+   "feetSpreadPx": 1,
+   "seam": {
+    "medianStep": 12.097,
+    "seamStep": 9.836,
+    "ratio": 0.813
+   },
+   "edgeFringe": {
+    "blueShareMax": 0.0005,
+    "creamShareMin": 0.875,
+    "darkShareMax": 0.006
+   },
+   "staticFigureHeightAtOutPx": 480.5,
+   "rim": {
+    "staticMedianPx": 8.5,
+    "gifBeforeMedianPx": 3.2,
+    "rebuiltAtGifPx": 8.53
+   }
+  }
+ },
+ "fox-sing": {
+  "static": "fox-sing",
+  "scale": 1.0249999999999997,
+  "registration": "iou 0.882",
+  "offset": [
+   -168.42701318361839,
+   9.925232100682706
+  ],
+  "cellOrigin": [
+   -18.0,
+   12.0
+  ],
+  "staticCell": [
+   675,
+   1024
+  ],
+  "outScale": 0.5,
+  "anchors": {
+   "seat": [
+    174.0,
+    339.0
+   ],
+   "feet": [
+    126.0,
+    483.0
+   ]
+  },
+  "featureArea": {
+   "mustard": 14990.625
+  },
+  "frameSize": [
+   340,
+   488
+  ],
+  "check": {
+   "heightPx": [
+    473,
+    473,
+    473,
+    473,
+    474,
+    472,
+    472,
+    472
+   ],
+   "widthPx": [
+    323,
+    323,
+    322,
+    319,
+    324,
+    326,
+    327,
+    325
+   ],
+   "areaPx": [
+    84407,
+    84795,
+    85579,
+    85304,
+    84580,
+    84383,
+    84515,
+    84248
+   ],
+   "sizeDrift": {
+    "heightSpreadPct": 0.42,
+    "areaSpreadPct": 1.57
+   },
+   "feetSpreadPx": 1,
+   "seam": {
+    "medianStep": 10.079,
+    "seamStep": 10.804,
+    "ratio": 1.072
+   },
+   "edgeFringe": {
+    "blueShareMax": 0.0005,
+    "creamShareMin": 0.845,
+    "darkShareMax": 0.006
+   },
+   "staticFigureHeightAtOutPx": 480.5,
+   "rim": {
+    "staticMedianPx": 8.5,
+    "gifBeforeMedianPx": 7.8,
+    "rebuiltAtGifPx": 8.28
+   }
+  }
+ },
+ "fox-tiptoe": {
+  "static": "fox",
+  "scale": 1.0476147514101197,
+  "registration": "feature mustard: 12995 vs fox-sit's 14405 px\u00b2",
+  "offset": [
+   -309.13332742984437,
+   18.908695084035344
+  ],
+  "cellOrigin": [
+   -203.0,
+   25.0
+  ],
+  "staticCell": [
+   675,
+   1024
+  ],
+  "outScale": 0.5,
+  "anchors": {
+   "feet": [
+    218.5,
+    476.5
+   ]
+  },
+  "featureArea": {
+   "mustard": 12994.625
+  },
+  "frameSize": [
+   382,
+   484
+  ],
+  "check": {
+   "heightPx": [
+    470,
+    467,
+    459,
+    465,
+    466,
+    459,
+    465,
+    466
+   ],
+   "widthPx": [
+    351,
+    359,
+    350,
+    353,
+    358,
+    354,
+    346,
+    338
+   ],
+   "areaPx": [
+    83785,
+    81485,
+    86709,
+    83710,
+    85439,
+    85992,
+    82244,
+    82068
+   ],
+   "sizeDrift": {
+    "heightSpreadPct": 2.36,
+    "areaSpreadPct": 6.24
+   },
+   "feetSpreadPx": 9,
+   "seam": {
+    "medianStep": 24.797,
+    "seamStep": 30.317,
+    "ratio": 1.223
+   },
+   "edgeFringe": {
+    "blueShareMax": 0.0002,
+    "creamShareMin": 0.857,
+    "darkShareMax": 0.006
+   },
+   "staticFigureHeightAtOutPx": 480.5,
+   "rim": {
+    "staticMedianPx": 8.5,
+    "gifBeforeMedianPx": 3.6,
+    "rebuiltAtGifPx": 8.1
+   }
+  }
+ },
+ "fox-stand": {
+  "static": "fox",
+  "scale": 0.9619532814566906,
+  "registration": "feature mustard: 15412 vs fox-sit's 14405 px\u00b2",
+  "offset": [
+   -262.8737739653636,
+   75.20684535289593
+  ],
+  "cellOrigin": [
+   -172.0,
+   64.0
+  ],
+  "staticCell": [
+   675,
+   1024
+  ],
+  "outScale": 0.5,
+  "anchors": {
+   "feet": [
+    203.0,
+    457.0
+   ]
+  },
+  "featureArea": {
+   "mustard": 15412.0
+  },
+  "frameSize": [
+   360,
+   464
+  ],
+  "check": {
+   "heightPx": [
+    448,
+    448,
+    448,
+    448,
+    450,
+    448,
+    449,
+    449
+   ],
+   "widthPx": [
+    343,
+    345,
+    342,
+    342,
+    344,
+    339,
+    343,
+    340
+   ],
+   "areaPx": [
+    81484,
+    81889,
+    81871,
+    81221,
+    81868,
+    82285,
+    81635,
+    81685
+   ],
+   "sizeDrift": {
+    "heightSpreadPct": 0.45,
+    "areaSpreadPct": 1.3
+   },
+   "feetSpreadPx": 1,
+   "seam": {
+    "medianStep": 9.788,
+    "seamStep": 15.13,
+    "ratio": 1.546
+   },
+   "edgeFringe": {
+    "blueShareMax": 0.0006,
+    "creamShareMin": 0.863,
+    "darkShareMax": 0.006
+   },
+   "staticFigureHeightAtOutPx": 480.5,
+   "rim": {
+    "staticMedianPx": 8.5,
+    "gifBeforeMedianPx": 5.0,
+    "rebuiltAtGifPx": 8.82
+   }
+  }
+ },
+ "dog-sit": {
+  "static": "dog",
+  "scale": 1.0199999999999998,
+  "registration": "iou 0.943",
+  "offset": [
+   -133.786536627025,
+   26.62197984283216
+  ],
+  "cellOrigin": [
+   12.0,
+   23.0
+  ],
+  "staticCell": [
+   804,
+   1024
+  ],
+  "outScale": 0.5,
+  "anchors": {
+   "feet": [
+    142.0,
+    477.5
+   ]
+  },
+  "featureArea": {
+   "mustard": 0.0
+  },
+  "frameSize": [
+   401,
+   492
+  ],
+  "check": {
+   "heightPx": [
+    474,
+    473,
+    474,
+    474,
+    474,
+    474,
+    478,
+    474
+   ],
+   "widthPx": [
+    379,
+    385,
+    386,
+    379,
+    381,
+    379,
+    377,
+    378
+   ],
+   "areaPx": [
+    109900,
+    111230,
+    110112,
+    111155,
+    110647,
+    109279,
+    108938,
+    108750
+   ],
+   "sizeDrift": {
+    "heightSpreadPct": 1.05,
+    "areaSpreadPct": 2.25
+   },
+   "feetSpreadPx": 1,
+   "seam": {
+    "medianStep": 12.429,
+    "seamStep": 11.617,
+    "ratio": 0.935
+   },
+   "edgeFringe": {
+    "blueShareMax": 0.0006,
+    "creamShareMin": 0.842,
+    "darkShareMax": 0.009
+   },
+   "staticFigureHeightAtOutPx": 480.0,
+   "rim": {
+    "staticMedianPx": 10.3,
+    "gifBeforeMedianPx": 6.3,
+    "rebuiltAtGifPx": 10.09
+   }
+  }
+ },
+ "dog-bark": {
+  "static": "dog",
+  "scale": 1.055,
+  "registration": "iou 0.940",
+  "offset": [
+   -152.95398139104242,
+   23.54849174998924
+  ],
+  "cellOrigin": [
+   26.0,
+   28.0
+  ],
+  "staticCell": [
+   804,
+   1024
+  ],
+  "outScale": 0.5,
+  "anchors": {
+   "feet": [
+    135.0,
+    475.0
+   ]
+  },
+  "featureArea": {
+   "mustard": 4.0
+  },
+  "frameSize": [
+   380,
+   492
+  ],
+  "check": {
+   "heightPx": [
+    478,
+    468,
+    470,
+    470,
+    476,
+    466,
+    470,
+    476
+   ],
+   "widthPx": [
+    365,
+    360,
+    351,
+    354,
+    358,
+    358,
+    349,
+    354
+   ],
+   "areaPx": [
+    106735,
+    102752,
+    103205,
+    103870,
+    105126,
+    102548,
+    102435,
+    104898
+   ],
+   "sizeDrift": {
+    "heightSpreadPct": 2.55,
+    "areaSpreadPct": 4.15
+   },
+   "feetSpreadPx": 11,
+   "seam": {
+    "medianStep": 25.335,
+    "seamStep": 17.062,
+    "ratio": 0.673
+   },
+   "edgeFringe": {
+    "blueShareMax": 0.0012,
+    "creamShareMin": 0.856,
+    "darkShareMax": 0.006
+   },
+   "staticFigureHeightAtOutPx": 480.0,
+   "rim": {
+    "staticMedianPx": 10.3,
+    "gifBeforeMedianPx": 9.0,
+    "rebuiltAtGifPx": 9.76
+   }
+  }
+ },
+ "dog-sleep": {
+  "static": "dog",
+  "scale": 1.1016,
+  "registration": "scale of dog-sit \u00d7 1.080 (checked by eye: head widths)",
+  "offset": [
+   60.808400000000006,
+   150.1476
+  ],
+  "cellOrigin": [
+   72.0,
+   451.0
+  ],
+  "staticCell": [
+   804,
+   1024
+  ],
+  "outScale": 0.5,
+  "anchors": {
+   "feet": [
+    112.0,
+    263.5
+   ]
+  },
+  "featureArea": {
+   "mustard": 0.0
+  },
+  "frameSize": [
+   521,
+   271
+  ],
+  "check": {
+   "heightPx": [
+    255,
+    255,
+    255,
+    255,
+    257,
+    256,
+    256,
+    256
+   ],
+   "widthPx": [
+    504,
+    503,
+    503,
+    503,
+    504,
+    504,
+    505,
+    504
+   ],
+   "areaPx": [
+    94023,
+    93915,
+    93975,
+    93857,
+    94099,
+    94015,
+    94513,
+    94011
+   ],
+   "sizeDrift": {
+    "heightSpreadPct": 0.78,
+    "areaSpreadPct": 0.7
+   },
+   "feetSpreadPx": 1,
+   "seam": {
+    "medianStep": 6.049,
+    "seamStep": 5.652,
+    "ratio": 0.934
+   },
+   "edgeFringe": {
+    "blueShareMax": 0.0008,
+    "creamShareMin": 0.829,
+    "darkShareMax": 0.013
+   },
+   "staticFigureHeightAtOutPx": 480.0,
+   "rim": {
+    "staticMedianPx": 10.3,
+    "gifBeforeMedianPx": 10.0,
+    "rebuiltAtGifPx": 9.35
+   }
+  }
+ },
+ "hen-idle": {
+  "static": "hen",
+  "scale": 1.01,
+  "registration": "iou 0.934",
+  "offset": [
+   -131.41432943778278,
+   40.20382859099908
+  ],
+  "cellOrigin": [
+   16.0,
+   16.0
+  ],
+  "staticCell": [
+   755,
+   1024
+  ],
+  "outScale": 0.25,
+  "anchors": {
+   "feet": [
+    93.5,
+    239.5
+   ]
+  },
+  "featureArea": {
+   "mustard": 8784.625
+  },
+  "frameSize": [
+   186,
+   252
+  ],
+  "check": {
+   "heightPx": [
+    235,
+    236,
+    239,
+    239,
+    239,
+    239,
+    236,
+    235
+   ],
+   "widthPx": [
+    171,
+    172,
+    172,
+    172,
+    172,
+    172,
+    170,
+    170
+   ],
+   "areaPx": [
+    24063,
+    24167,
+    24408,
+    24318,
+    24380,
+    24375,
+    24070,
+    24001
+   ],
+   "sizeDrift": {
+    "heightSpreadPct": 1.68,
+    "areaSpreadPct": 1.68
+   },
+   "feetSpreadPx": 0,
+   "seam": {
+    "medianStep": 6.838,
+    "seamStep": 6.205,
+    "ratio": 0.907
+   },
+   "edgeFringe": {
+    "blueShareMax": 0.0007,
+    "creamShareMin": 0.951,
+    "darkShareMax": 0.0
+   },
+   "staticFigureHeightAtOutPx": 240.2,
+   "rim": {
+    "staticMedianPx": 16.6,
+    "gifBeforeMedianPx": 15.7,
+    "rebuiltAtGifPx": 16.39
+   }
+  }
+ },
+ "duck-idle": {
+  "static": "duck",
+  "scale": 1.0050000000000003,
+  "registration": "iou 0.920",
+  "offset": [
+   -162.37281227958505,
+   35.316638240104
+  ],
+  "cellOrigin": [
+   -2.0,
+   15.0
+  ],
+  "staticCell": [
+   726,
+   1024
+  ],
+  "outScale": 0.25,
+  "anchors": {
+   "feet": [
+    103.8,
+    239.0
+   ]
+  },
+  "featureArea": {
+   "mustard": 20917.25
+  },
+  "frameSize": [
+   183,
+   250
+  ],
+  "check": {
+   "heightPx": [
+    233,
+    236,
+    235,
+    236,
+    234,
+    235,
+    234,
+    236
+   ],
+   "widthPx": [
+    168,
+    169,
+    169,
+    169,
+    169,
+    168,
+    168,
+    168
+   ],
+   "areaPx": [
+    23711,
+    23651,
+    23781,
+    23678,
+    23525,
+    23460,
+    23569,
+    23709
+   ],
+   "sizeDrift": {
+    "heightSpreadPct": 1.28,
+    "areaSpreadPct": 1.36
+   },
+   "feetSpreadPx": 1,
+   "seam": {
+    "medianStep": 10.108,
+    "seamStep": 13.402,
+    "ratio": 1.326
+   },
+   "edgeFringe": {
+    "blueShareMax": 0.0007,
+    "creamShareMin": 0.94,
+    "darkShareMax": 0.001
+   },
+   "staticFigureHeightAtOutPx": 241.0,
+   "rim": {
+    "staticMedianPx": 16.2,
+    "gifBeforeMedianPx": 19.9,
+    "rebuiltAtGifPx": 16.08
+   }
+  }
+ },
+ "rabbit-idle": {
+  "static": "rabbit",
+  "scale": 1.055,
+  "registration": "iou 0.926",
+  "offset": [
+   -177.6477690910121,
+   26.22278714730612
+  ],
+  "cellOrigin": [
+   16.0,
+   16.0
+  ],
+  "staticCell": [
+   619,
+   1024
+  ],
+  "outScale": 0.25,
+  "anchors": {
+   "feet": [
+    71.5,
+    239.5
+   ]
+  },
+  "featureArea": {
+   "mustard": 23.625
+  },
+  "frameSize": [
+   155,
+   251
+  ],
+  "check": {
+   "heightPx": [
+    237,
+    236,
+    236,
+    236,
+    237,
+    236,
+    235,
+    236
+   ],
+   "widthPx": [
+    141,
+    141,
+    141,
+    140,
+    140,
+    141,
+    141,
+    141
+   ],
+   "areaPx": [
+    21761,
+    21726,
+    21725,
+    21733,
+    21764,
+    21614,
+    21588,
+    21638
+   ],
+   "sizeDrift": {
+    "heightSpreadPct": 0.85,
+    "areaSpreadPct": 0.81
+   },
+   "feetSpreadPx": 1,
+   "seam": {
+    "medianStep": 10.942,
+    "seamStep": 10.53,
+    "ratio": 0.962
+   },
+   "edgeFringe": {
+    "blueShareMax": 0.0,
+    "creamShareMin": 0.957,
+    "darkShareMax": 0.0
+   },
+   "staticFigureHeightAtOutPx": 242.0,
+   "rim": {
+    "staticMedianPx": 16.6,
+    "gifBeforeMedianPx": 13.9,
+    "rebuiltAtGifPx": 15.69
+   }
+  }
+ }
+}

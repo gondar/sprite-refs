@@ -1,0 +1,106 @@
+{
+  "path": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/gifs/fox-sing.gif",
+  "file": {
+    "bytes": 1017303,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      150,
+      150,
+      150,
+      150,
+      150,
+      150,
+      150,
+      150
+    ],
+    "total_ms": 1200,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      6.25,
+      4.09,
+      3.97,
+      5.38,
+      5.66,
+      4.98,
+      5.08
+    ],
+    "median_step": 5.08,
+    "max_step": 6.25,
+    "seam_mad": 5.14,
+    "seam_ratio": 1.01,
+    "changed_px_fraction": [
+      0.066,
+      0.048,
+      0.049,
+      0.063,
+      0.061,
+      0.058,
+      0.059
+    ],
+    "border_drift_max": 0.47,
+    "inner_change_max": 9.21,
+    "moving_centroids": [
+      [
+        486.5,
+        361.4
+      ],
+      [
+        498.5,
+        342.6
+      ],
+      [
+        492.1,
+        334.4
+      ],
+      [
+        464.9,
+        329.2
+      ],
+      [
+        485.7,
+        356.8
+      ],
+      [
+        499.7,
+        350.0
+      ],
+      [
+        478.3,
+        336.1
+      ],
+      [
+        472.5,
+        351.7
+      ]
+    ]
+  },
+  "warnings": [],
+  "contact_sheet": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/inspect/fox-sing.contact.png"
+}

@@ -1,0 +1,317 @@
+<title>Wśród nocnej ciszy · animacje</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;0,7..72,700;1,7..72,400&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>
+/* Layout: a dark linocut "print room" — the phone stage first, then one card per clip (still beside animation on the
+   same piece of the village), then what is missing. Single committed dark look: the game's own five inks on night. */
+:root {
+  color-scheme: dark;
+  --night: #1b2036;       /* page ground: the scene's sky, darker */
+  --night-2: #252c4a;     /* card ground */
+  --ink: #1e1c1a;         /* the print's black */
+  --paper: #efe4c8;       /* aged cream: text */
+  --paper-dim: #b9b29e;   /* secondary text */
+  --red: #d2452c;         /* vermilion: the one accent */
+  --olive: #8d9a4c;       /* good */
+  --mustard: #d9a23a;     /* attention */
+  --line: rgba(239, 228, 200, .14);
+  --display: "Literata", Georgia, "Times New Roman", serif;
+  --body: "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+body { background: var(--night); color: var(--paper); font-family: var(--body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-block: 28px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 36px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; font-weight: 700; }
+h1 { font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.1; }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1.1rem; }
+p { margin: 0; max-width: 68ch; }
+.lede { display: grid; gap: 10px; }
+.lede p { color: var(--paper-dim); }
+.lede b { color: var(--paper); }
+.status { display: inline-flex; gap: 8px; align-items: center; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--mustard); font-weight: 700; }
+.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--mustard); }
+button, select { font: inherit; color: var(--paper); background: var(--night-2); border: 1px solid var(--line); border-radius: 6px; padding: 6px 12px; cursor: pointer; }
+button:hover { border-color: var(--paper-dim); }
+button:focus-visible, select:focus-visible { outline: 2px solid var(--mustard); outline-offset: 2px; }
+button[aria-pressed="true"] { background: var(--red); border-color: var(--red); color: #fff; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.label { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--paper-dim); font-weight: 700; }
+/* phone stage */
+.stage-sec { display: grid; gap: 14px; }
+.phone { position: relative; width: 100%; max-width: 900px; padding: 14px; border-radius: 34px; background: #0d0f19; box-shadow: 0 0 0 2px #3a4166 inset; box-sizing: border-box; }
+.phone canvas { display: block; width: 100%; height: auto; border-radius: 18px; background: #263052; }
+.phone-note { font-size: .85rem; color: var(--paper-dim); }
+/* clip cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 520px), 1fr)); gap: 20px; }
+.card { background: var(--night-2); border-radius: 10px; padding: 16px; display: grid; gap: 12px; min-width: 0; }
+.card header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; align-items: baseline; }
+.keys { font-family: var(--mono); font-size: .78rem; color: var(--mustard); }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pair figure { margin: 0; display: grid; gap: 4px; min-width: 0; }
+.pair canvas { width: 100%; height: auto; display: block; border-radius: 4px; background: #263052; }
+.pair figcaption { font-size: .75rem; color: var(--paper-dim); letter-spacing: .04em; }
+.pair figure:last-child figcaption { color: var(--paper); font-weight: 700; }
+.motion { font-size: .92rem; }
+.nums { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 6px 14px; font-size: .8rem; margin: 0; }
+.nums div { display: grid; }
+.nums dt { color: var(--paper-dim); }
+.nums dd { margin: 0; font-variant-numeric: tabular-nums; font-family: var(--mono); font-size: .78rem; }
+.ok { color: var(--olive); }
+.warn { color: var(--mustard); }
+.strip { overflow-x: auto; background: repeating-conic-gradient(#2d3557 0% 25%, #252c4a 0% 50%) 0 0 / 16px 16px; border-radius: 4px; }
+.strip img { display: block; height: 96px; width: auto; max-width: none; }
+.ctl { display: flex; gap: 6px; align-items: center; font-size: .8rem; color: var(--paper-dim); flex-wrap: wrap; }
+.ctl output { font-family: var(--mono); min-width: 5ch; }
+.notes { margin: 0; padding-left: 18px; font-size: .88rem; color: var(--paper-dim); display: grid; gap: 4px; }
+.missing { display: grid; gap: 10px; }
+.missing li b { color: var(--paper); }
+.foot { font-size: .82rem; color: var(--paper-dim); display: grid; gap: 6px; border-top: 1px solid var(--line); padding-top: 16px; }
+code { font-family: var(--mono); font-size: .85em; }
+@media (max-width: 560px) { .pair { grid-template-columns: 1fr; } }
+</style>
+
+<div class="wrap">
+  <section class="lede">
+    <span class="status">Do obejrzenia · jeszcze nie w grze</span>
+    <h1>Wśród nocnej ciszy: animacje postaci</h1>
+    <p>Lis i pies ruszają się z <b>zatwierdzonych rysunków</b>: każda animacja powstała z obrazka postaci jako wzoru, a potem została ustawiona na <b>dokładnie tę samą wielkość i ten sam punkt</b> co obecny stillek, więc przy podmianie nic nie skacze. Ruchy są proste i zapętlone: pierwsza klatka = ostatnia.</p>
+    <p>Na górze cała scena tak, jak zobaczy ją telefon (844 × 390). Niżej każda animacja osobno, na kawałku wioski, obok stillka, który zastępuje. Przełącznik „Obecne stillki” pokazuje grę dzisiaj.</p>
+  </section>
+
+  <section class="stage-sec" aria-labelledby="h-stage">
+    <h2 id="h-stage">Na telefonie</h2>
+    <div class="row" id="scenes" role="group" aria-label="Scena"></div>
+    <div class="row">
+      <span class="label">Postacie</span>
+      <button type="button" id="mode-anim" aria-pressed="true">Animacja</button>
+      <button type="button" id="mode-still" aria-pressed="false">Obecne stillki</button>
+      <button type="button" id="pause" aria-pressed="false">Pauza</button>
+    </div>
+    <div class="phone"><canvas id="stage" width="844" height="390" aria-label="Scena gry w rozmiarze telefonu"></canvas></div>
+    <p class="phone-note" id="stage-note"></p>
+  </section>
+
+  <section aria-labelledby="h-clips" style="display:grid;gap:14px">
+    <h2 id="h-clips">Każda animacja obok stillka</h2>
+    <div class="row">
+      <span class="label">Wielkość</span>
+      <button type="button" class="zoom" data-z="1" aria-pressed="true">Telefon 1×</button>
+      <button type="button" class="zoom" data-z="1.62">Laptop 1,6×</button>
+      <button type="button" class="zoom" data-z="3">Zbliżenie 3×</button>
+    </div>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <section class="missing" aria-labelledby="h-missing">
+    <h2 id="h-missing">Czego jeszcze nie ma</h2>
+    <ul class="notes" id="missing"></ul>
+  </section>
+
+  <footer class="foot" id="foot"></footer>
+</div>
+
+<script>
+const ART = "__ART__";
+const DATA = __DATA__;
+const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* the page's own numbers (wsrod-nocnej-ciszy.html: CELL, FOX_FEET, PLACE, LOOK) */
+const CELL = { fox: [675, 330, 690, 120], "fox-sing": [675, 330, 690, 120], dog: [804, 296, 978, 100], hen: [755, 390, 974, 60],
+  duck: [726, 413, 971, 60], rabbit: [619, 302, 974, 55], "coop-closed": [1120, 560, 979, 96], "coop-open": [1120, 560, 979, 96], lantern: [615, 317, 966, 44] };
+const FOX_FEET = [234, 978];
+const PLACE = { stump: [355, 1228], lantern: [600, 1295], dog: [800, 1299], coop: [1791, 1180],
+  foxPath: [[321, 1302], [960, 1302], [1150, 1212], [1250, 1206]], henDoor: [1585, 1188], duckDoor: [1500, 1200], rabbitByFoxCoop: [1130, 1215], rabbitByFoxStump: [470, 1299] };
+const LOOK = { "fox.sit": { img: "fox" }, "fox.sing": { img: "fox-sing" }, "fox.tiptoe": { img: "fox" }, "fox.stand": { img: "fox" },
+  "dog.home": { img: "dog" }, "dog.sleep": { img: "dog", sx: 1.12, sy: .66, rot: .1, prop: "zzz" }, "dog.bark": { img: "dog", lift: 8, prop: "bang" },
+  "hen.door": { img: "hen" }, "duck.door": { img: "duck" }, "rabbit.byfox": { img: "rabbit" } };
+
+const U = 844 / 2400, PLATE_TOP = 390 - 1350 * U;   // plate px -> layout units (phone: the plate anchored to the stage bottom)
+const PX = p => [p[0] * U, p[1] * U + PLATE_TOP];
+
+const IM = {};
+function img(src) { if (!IM[src]) { const i = new Image(); i.src = src; IM[src] = i; } return IM[src]; }
+const ready = i => i && i.complete && i.naturalWidth > 0;
+["scene-night", "fox", "fox-sing", "dog", "hen", "duck", "rabbit", "coop-closed", "coop-open", "lantern"].forEach(n => img(ART + n + ".webp"));
+Object.values(DATA.clips).forEach(c => img(ART + c.img));
+
+function clipOf(state) { const c = DATA.states[state]; return c ? DATA.clips[c] : null; }
+
+/* draw one figure, anchor point (x, y) in units, scale k (css px per unit) — `still` draws the page's current look */
+function drawFig(g, state, x, y, t, still, o = {}) {
+  const flip = !!o.flip;
+  if (!still) {
+    const c = clipOf(state);
+    if (c && ready(IM[ART + c.img])) {
+      const n = c.frames, f = (REDUCED && !playing.forced) || paused ? (paused ? pausedFrame(c) : c.rest) : Math.floor(t * c.fps) % n;
+      const w = c.frameWidth / c.pxPerU, h = c.frameHeight / c.pxPerU, ax = c.anchor[0] / c.pxPerU, ay = c.anchor[1] / c.pxPerU;
+      const anchorKind = o.feet && c.anchors.feet ? "feet" : c.anchorKind;
+      const A = c.anchors[anchorKind];
+      g.save(); g.translate(x, y); if (flip) g.scale(-1, 1);
+      g.drawImage(IM[ART + c.img], f * c.frameWidth, 0, c.frameWidth, c.frameHeight, -A[0] / c.pxPerU, -A[1] / c.pxPerU, w, h);
+      g.restore();
+      return;
+    }
+  }
+  const lk = LOOK[state] || { img: state.split(".")[0] }, name = lk.img, im = IM[ART + name + ".webp"], cl = CELL[name];
+  if (!ready(im) || !cl) return;
+  const ch = cl[3] / .944, k = ch / 1024, cw = cl[0] * k;
+  const anc = o.feet ? FOX_FEET : [cl[1], cl[2]];
+  const lift = REDUCED ? 0 : (lk.lift || 0);
+  g.save(); g.translate(x, y - lift); if (lk.rot) g.rotate(lk.rot); g.scale((flip ? -1 : 1) * (lk.sx || 1), lk.sy || 1);
+  g.drawImage(im, -anc[0] * k, -anc[1] * k, cw, ch); g.restore();
+  if (lk.prop) drawProp(g, lk.prop, x - (flip ? -1 : 1) * cw * .15 + cw * .3, y - anc[1] * k * (lk.sy || 1) - 6, t);
+}
+function drawProp(g, kind, x, y, t) {
+  g.save(); g.translate(x, y); g.lineJoin = "round";
+  if (kind === "zzz") {
+    const b = REDUCED ? .5 : (t / 1.2) % 1; g.font = "italic 700 13px Literata, Georgia, serif";
+    ["z", "z", "z"].forEach((z, i) => { const yy = -i * 9 - b * 6, xx = i * 7; g.lineWidth = 3; g.strokeStyle = "#1E1C1A"; g.strokeText(z, xx, yy); g.fillStyle = "#EFE4C8"; g.fillText(z, xx, yy); });
+  } else if (kind === "bang") {
+    g.font = "700 22px Literata, Georgia, serif"; g.textAlign = "center"; g.lineWidth = 3.5; g.strokeStyle = "#1E1C1A"; g.strokeText("!", 0, 0); g.fillStyle = "#D2452C"; g.fillText("!", 0, 0);
+  }
+  g.restore();
+}
+function drawPlate(g) { const p = IM[ART + "scene-night.webp"]; if (ready(p)) g.drawImage(p, 0, PLATE_TOP, 844, 1350 * U); }
+function drawProp2(g, name, place) {   // a static prop (coop, lantern) at its art.json place
+  const im = IM[ART + name + ".webp"], cl = CELL[name]; if (!ready(im)) return;
+  const ch = cl[3] / .944, k = ch / 1024, [x, y] = PX(place); g.drawImage(im, x - cl[1] * k, y - cl[2] * k, cl[0] * k, ch);
+}
+function pathAt(pts, f) {
+  const seg = []; let tot = 0;
+  for (let i = 0; i < pts.length - 1; i++) { const d = Math.hypot(pts[i + 1][0] - pts[i][0], pts[i + 1][1] - pts[i][1]); seg.push(d); tot += d; }
+  let want = f * tot;
+  for (let i = 0; i < seg.length; i++) { if (want <= seg[i] || i === seg.length - 1) { const q = Math.min(1, want / seg[i]); return [pts[i][0] + (pts[i + 1][0] - pts[i][0]) * q, pts[i][1] + (pts[i + 1][1] - pts[i][1]) * q]; } want -= seg[i]; }
+}
+
+/* ---- the phone stage ---- */
+const SCENES = [
+  { id: "l1", name: "Lis gra, pies słucha", fox: "fox.sit", dog: "dog.home", note: "Poziom 1: lis na pniu brzdąka, pies siedzi i macha ogonem." },
+  { id: "sing", name: "Lis śpiewa", fox: "fox.sing", dog: "dog.home", note: "Melodia zespołu: lis śpiewa (otwiera pyszczek), dalej gra." },
+  { id: "sleep", name: "Pies śpi", fox: "fox.sit", dog: "dog.sleep", note: "Poziom 7–8: pies leży i oddycha. Dzisiaj to spłaszczony siedzący pies z „zzz” rysowanym w kodzie." },
+  { id: "tiptoe", name: "Lis skrada się do kurnika", fox: "fox.tiptoe", walk: true, dog: "dog.sleep", note: "Poziom 8: lis idzie na palcach po ścieżce strony (16 taktów skrócone tu do 8 s), potem staje przy kurniku. Dzisiaj sunie siedzący lis." },
+  { id: "coop", name: "Lis przy kurniku", fox: "fox.stand", foxAt: 1, dog: "dog.sleep", coop: "coop-open", hen: true, duck: true, note: "Poziom 9: lis stoi przy kurniku, kura i kaczka w drzwiach." },
+  { id: "bark", name: "Pies szczeka", fox: "fox.stand", foxAt: 1, dog: "dog.bark", coop: "coop-open", hen: true, duck: true, note: "Poziom 13, takt 15: pies szczeka dwa razy. (Wstawanie z leżenia jeszcze nie powstało — patrz niżej.)" },
+  { id: "all", name: "Wszyscy razem", fox: "fox.stand", foxAt: 1, dog: "dog.home", coop: "coop-open", hen: true, duck: true, rabbit: true, note: "Finał: wszyscy przy kurniku. Kura, kaczka i królik mają tylko malutki ruch (mrugnięcie, kiwnięcie głową)." },
+];
+let scene = SCENES[0], still = false, paused = false, t0 = performance.now(), pauseT = 0;
+const playing = { forced: false };
+function pausedFrame(c) { return Math.floor(pauseT * c.fps) % c.frames; }
+const stage = document.getElementById("stage"), sg = stage.getContext("2d");
+function sizeStage() { const dpr = Math.min(3, devicePixelRatio || 1); stage.width = 844 * dpr; stage.height = 390 * dpr; }
+sizeStage();
+function drawStage(t) {
+  const dpr = stage.width / 844; sg.setTransform(dpr, 0, 0, dpr, 0, 0); sg.clearRect(0, 0, 844, 390);
+  drawPlate(sg);
+  const s = scene;
+  if (s.hen) { const p = PX(PLACE.henDoor); drawFig(sg, "hen.door", p[0], p[1], t, still); }
+  if (s.duck) { const p = PX(PLACE.duckDoor); drawFig(sg, "duck.door", p[0], p[1], t, still); }
+  drawProp2(sg, s.coop || "coop-closed", PLACE.coop);
+  if (s.rabbit) { const p = PX(PLACE.rabbitByFoxCoop); drawFig(sg, "rabbit.byfox", p[0], p[1], t, still, { flip: true }); }
+  drawProp2(sg, "lantern", PLACE.lantern);
+  const d = PX(PLACE.dog); drawFig(sg, s.dog, d[0], d[1], t, still);
+  if (s.walk) {
+    const f = ((t % 9) / 8);   // 8 s along the path, 1 s standing
+    if (f < 1) { const p = PX(pathAt(PLACE.foxPath, f)); drawFig(sg, "fox.tiptoe", p[0], p[1], t, still, { feet: true }); }
+    else { const p = PX(PLACE.foxPath[3]); drawFig(sg, "fox.stand", p[0], p[1], t, still, { feet: true }); }
+  } else if (s.foxAt) { const p = PX(PLACE.foxPath[3]); drawFig(sg, s.fox, p[0], p[1], t, still, { feet: true }); }
+  else { const p = PX(PLACE.stump); drawFig(sg, s.fox, p[0], p[1], t, still); }
+  /* in the game the notation panel covers the sky down to plate y≈747 (art.json phoneVisibleFromY) */
+  const top = PX([0, 747])[1];
+  sg.fillStyle = "rgba(14,16,28,.62)"; sg.fillRect(0, 0, 844, top);
+  sg.fillStyle = "rgba(239,228,200,.75)"; sg.font = "600 13px 'Nunito Sans', system-ui, sans-serif"; sg.fillText("w grze tu jest panel z nutami (TAB), widać tylko pas poniżej", 16, top - 12);
+}
+const scenesEl = document.getElementById("scenes");
+SCENES.forEach(s => {
+  const b = document.createElement("button"); b.type = "button"; b.textContent = s.name; b.setAttribute("aria-pressed", s === scene);
+  b.onclick = () => { scene = s; t0 = performance.now(); scenesEl.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); document.getElementById("stage-note").textContent = s.note; };
+  scenesEl.appendChild(b);
+});
+document.getElementById("stage-note").textContent = scene.note;
+const mA = document.getElementById("mode-anim"), mS = document.getElementById("mode-still"), pz = document.getElementById("pause");
+mA.onclick = () => { still = false; mA.setAttribute("aria-pressed", true); mS.setAttribute("aria-pressed", false); };
+mS.onclick = () => { still = true; mS.setAttribute("aria-pressed", true); mA.setAttribute("aria-pressed", false); };
+pz.onclick = () => { paused = !paused; if (paused) pauseT = (performance.now() - t0) / 1000; pz.setAttribute("aria-pressed", paused); pz.textContent = paused ? "Graj" : "Pauza"; };
+if (REDUCED) { playing.forced = false; }
+
+/* ---- the clip cards ---- */
+const CARDS = [
+  { clip: "fox-sit", state: "fox.sit", place: PLACE.stump, crop: [-80, -125, 175, 145], plate: true },
+  { clip: "fox-sing", state: "fox.sing", place: PLACE.stump, crop: [-80, -125, 175, 145], plate: true },
+  { clip: "fox-tiptoe", state: "fox.tiptoe", place: [960, 1302], feet: true, crop: [-90, -140, 180, 150], plate: true, stillNote: "dziś: siedzący lis przesuwany po ścieżce" },
+  { clip: "fox-stand", state: "fox.stand", place: PLACE.foxPath[3], feet: true, crop: [-90, -140, 180, 150], plate: true, stillNote: "dziś: siedzący lis na stopach" },
+  { clip: "dog-sit", state: "dog.home", place: PLACE.dog, crop: [-70, -115, 165, 125], plate: true },
+  { clip: "dog-sleep", state: "dog.sleep", place: PLACE.dog, crop: [-70, -115, 165, 125], plate: true, stillNote: "dziś: spłaszczony pies + „zzz” z kodu" },
+  { clip: "dog-bark", state: "dog.bark", place: PLACE.dog, crop: [-70, -115, 165, 125], plate: true, stillNote: "dziś: podskok + „!” z kodu" },
+  { clip: "hen-idle", state: "hen.door", place: PLACE.henDoor, crop: [-55, -80, 110, 92], plate: true },
+  { clip: "duck-idle", state: "duck.door", place: PLACE.duckDoor, crop: [-55, -80, 110, 92], plate: true },
+  { clip: "rabbit-idle", state: "rabbit.byfox", place: PLACE.rabbitByFoxStump, crop: [-55, -80, 110, 92], plate: true },
+];
+let zoom = 1;
+const cardsEl = document.getElementById("cards"), cardViews = [];
+const fmtPct = v => v.toFixed(2).replace(".", ",") + " %";
+CARDS.forEach(cd => {
+  const c = DATA.clips[cd.clip], keys = Object.entries(DATA.states).filter(([k, v]) => v === cd.clip).map(([k]) => k);
+  const ck = c.check, seamOk = ck.seam.ratio < 2.5, driftOk = ck.sizeDrift.heightSpreadPct < 3;
+  const el = document.createElement("article"); el.className = "card";
+  el.innerHTML = `
+    <header><h3>${cd.clip}</h3><span class="keys">${keys.join(" · ")}</span></header>
+    <div class="pair">
+      <figure><canvas aria-label="stillek"></canvas><figcaption>teraz: ${cd.stillNote || "stillek"}</figcaption></figure>
+      <figure><canvas aria-label="animacja"></canvas><figcaption>animacja · ${c.frames} klatek · ${c.fps.toFixed(1).replace(".", ",")} kl./s</figcaption></figure>
+    </div>
+    <p class="motion">${c.motion}. <span style="color:var(--paper-dim)">${c.pose}.</span></p>
+    <dl class="nums">
+      <div><dt>komórka</dt><dd>${c.frameWidth}×${c.frameHeight} px · ${c.cellHeightU} u</dd></div>
+      <div><dt>skala do stillka</dt><dd>${c.scaleToStatic} (${c.registration.split(":")[0]})</dd></div>
+      <div><dt>rozrzut wysokości</dt><dd class="${driftOk ? "ok" : "warn"}">${fmtPct(ck.sizeDrift.heightSpreadPct)}</dd></div>
+      <div><dt>stopy (rozrzut)</dt><dd>${ck.feetSpreadPx} px</dd></div>
+      <div><dt>szew pętli</dt><dd class="${seamOk ? "ok" : "warn"}">${ck.seam.ratio.toFixed(2).replace(".", ",")} × krok</dd></div>
+      <div><dt>niebieska obwódka</dt><dd class="ok">${(ck.edgeFringe.blueShareMax * 100).toFixed(2).replace(".", ",")} % krawędzi</dd></div>
+    </dl>
+    <div class="ctl"><button type="button" class="play" aria-pressed="false">Pauza</button><button type="button" class="step">Klatka ›</button>klatka <output>–</output></div>
+    <div class="strip"><img alt="wszystkie klatki ${cd.clip}" src="${ART + c.img}" loading="lazy"></div>`;
+  cardsEl.appendChild(el);
+  const [cv1, cv2] = el.querySelectorAll("canvas");
+  const v = { cd, c, cv1, cv2, out: el.querySelector("output"), paused: false, frame: 0 };
+  el.querySelector(".play").onclick = e => { v.paused = !v.paused; e.target.textContent = v.paused ? "Graj" : "Pauza"; e.target.setAttribute("aria-pressed", v.paused); };
+  el.querySelector(".step").onclick = () => { v.paused = true; v.frame = (v.frame + 1) % c.frames; const b = el.querySelector(".play"); b.textContent = "Graj"; b.setAttribute("aria-pressed", true); };
+  cardViews.push(v);
+});
+function sizeCards() {
+  const dpr = Math.min(3, devicePixelRatio || 1);
+  cardViews.forEach(v => { const [, , w, h] = v.cd.crop; [v.cv1, v.cv2].forEach(cv => { cv.width = Math.round(w * zoom * dpr); cv.height = Math.round(h * zoom * dpr); cv.style.maxWidth = (w * zoom) + "px"; }); });
+}
+document.querySelectorAll(".zoom").forEach(b => b.onclick = () => { zoom = +b.dataset.z; document.querySelectorAll(".zoom").forEach(x => x.setAttribute("aria-pressed", x === b)); sizeCards(); });
+sizeCards();
+function drawCard(v, t) {
+  const [dx, dy, w, h] = v.cd.crop, p = PX(v.cd.place);
+  const f = v.paused ? v.frame : (REDUCED ? v.c.rest : Math.floor(t * v.c.fps) % v.c.frames);
+  if (!v.paused) v.frame = f;
+  v.out.textContent = (f + 1) + " / " + v.c.frames;
+  [[v.cv1, true], [v.cv2, false]].forEach(([cv, isStill]) => {
+    const g = cv.getContext("2d"), s = cv.width / w;
+    g.setTransform(s, 0, 0, s, 0, 0); g.clearRect(0, 0, w, h);
+    g.translate(-(p[0] + dx), -(p[1] + dy)); drawPlate(g);
+    if (isStill) drawFig(g, v.cd.state, p[0], p[1], t, true, { feet: v.cd.feet });
+    else {
+      const A = v.c.anchors[v.cd.feet ? "feet" : v.c.anchorKind], im = IM[ART + v.c.img];
+      if (ready(im)) g.drawImage(im, f * v.c.frameWidth, 0, v.c.frameWidth, v.c.frameHeight, p[0] - A[0] / v.c.pxPerU, p[1] - A[1] / v.c.pxPerU, v.c.frameWidth / v.c.pxPerU, v.c.frameHeight / v.c.pxPerU);
+    }
+  });
+}
+
+/* ---- missing + footer ---- */
+const ml = document.getElementById("missing");
+Object.entries(DATA.missing).forEach(([k, v]) => { const li = document.createElement("li"); li.innerHTML = `<b>${k}</b>: ${v}`; ml.appendChild(li); });
+document.getElementById("foot").innerHTML = "<p>" + DATA.foot + "</p>";
+
+function frame(now) {
+  const t = (now - t0) / 1000;
+  drawStage(paused ? pauseT : t);
+  cardViews.forEach(v => drawCard(v, t));
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>

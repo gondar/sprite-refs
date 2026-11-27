@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "out": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/gifs/duck-idle.gif",
+  "latency_s": 20.7,
+  "bytes": 982763,
+  "usage": {
+    "total_tokens": 3767,
+    "input_tokens": 1067,
+    "output_tokens": 2700,
+    "input_tokens_details": {
+      "image_tokens": 736,
+      "text_tokens": 331
+    },
+    "output_tokens_details": {
+      "text_tokens": 0,
+      "image_tokens": 2700
+    }
+  },
+  "est_cost_usd": 0.08854
+}

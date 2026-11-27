@@ -1,0 +1,106 @@
+{
+  "path": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/gifs/fox-stand.gif",
+  "file": {
+    "bytes": 1199778,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      160,
+      160,
+      160,
+      160,
+      160,
+      160,
+      160,
+      160
+    ],
+    "total_ms": 1280,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      6.76,
+      4.47,
+      3.15,
+      4.78,
+      5.51,
+      6.2,
+      3.72
+    ],
+    "median_step": 4.78,
+    "max_step": 6.76,
+    "seam_mad": 7.71,
+    "seam_ratio": 1.61,
+    "changed_px_fraction": [
+      0.084,
+      0.058,
+      0.042,
+      0.065,
+      0.068,
+      0.077,
+      0.047
+    ],
+    "border_drift_max": 0.7,
+    "inner_change_max": 10.39,
+    "moving_centroids": [
+      [
+        417.6,
+        389.7
+      ],
+      [
+        420.8,
+        389.7
+      ],
+      [
+        436.0,
+        391.1
+      ],
+      [
+        453.6,
+        406.8
+      ],
+      [
+        449.7,
+        393.3
+      ],
+      [
+        386.6,
+        426.3
+      ],
+      [
+        437.1,
+        399.6
+      ],
+      [
+        416.9,
+        378.8
+      ]
+    ]
+  },
+  "warnings": [],
+  "contact_sheet": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/inspect/fox-stand.contact.png"
+}

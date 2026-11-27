@@ -1,0 +1,106 @@
+{
+  "path": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/gifs/duck-idle.gif",
+  "file": {
+    "bytes": 982763,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      160,
+      160,
+      160,
+      160,
+      160,
+      160,
+      160,
+      160
+    ],
+    "total_ms": 1280,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      12.32,
+      7.14,
+      3.84,
+      9.57,
+      6.65,
+      5.38,
+      3.89
+    ],
+    "median_step": 6.65,
+    "max_step": 12.32,
+    "seam_mad": 9.22,
+    "seam_ratio": 1.39,
+    "changed_px_fraction": [
+      0.087,
+      0.054,
+      0.03,
+      0.071,
+      0.05,
+      0.039,
+      0.029
+    ],
+    "border_drift_max": 3.74,
+    "inner_change_max": 16.29,
+    "moving_centroids": [
+      [
+        445.8,
+        302.8
+      ],
+      [
+        400.9,
+        312.8
+      ],
+      [
+        389.9,
+        291.1
+      ],
+      [
+        405.3,
+        303.7
+      ],
+      [
+        416.9,
+        307.9
+      ],
+      [
+        430.5,
+        344.0
+      ],
+      [
+        440.1,
+        351.8
+      ],
+      [
+        437.6,
+        361.9
+      ]
+    ]
+  },
+  "warnings": [],
+  "contact_sheet": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/inspect/duck-idle.contact.png"
+}

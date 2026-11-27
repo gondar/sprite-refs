@@ -1,0 +1,6 @@
+Create a transparent-background animated GIF of the cream rabbit from the reference picture: long upright ears with red insides, a small smiling face, whiskers.
+Draw it in exactly the same style as the reference picture: a vintage Eastern European folk-storybook linocut print, bold irregular black ink outline, a thin cream paper rim around the whole silhouette, flat fills of vermilion red, aged cream, charcoal black, mustard yellow and olive green, short carved hatching lines in the fur. Flat colours, no gradients, no glossy shading, no 3D.
+
+Small idle animation for a game: the animal stands exactly as in the reference picture, facing left. It blinks once and bobs its head gently once, and one long ear gives a small twitch. Its body, legs and feet keep exactly the same shape, size and position in every frame. It stays in exactly the same place and size; the camera is completely still.
+
+Seamless loop: the last frame leads straight back into the first, which is the pose of the reference picture. 8 equal-size frames, the whole animal fully visible in every frame. Clean transparent background only — no scene, no shadow, no text, no motion lines, no borders, no extra objects.

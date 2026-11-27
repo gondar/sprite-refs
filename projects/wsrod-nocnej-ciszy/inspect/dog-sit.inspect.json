@@ -1,0 +1,106 @@
+{
+  "path": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/gifs/dog-sit.gif",
+  "file": {
+    "bytes": 1351261,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      160,
+      160,
+      160,
+      160,
+      160,
+      160,
+      160,
+      160
+    ],
+    "total_ms": 1280,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      8.11,
+      5.01,
+      6.58,
+      8.98,
+      9.75,
+      8.32,
+      5.93
+    ],
+    "median_step": 8.11,
+    "max_step": 9.75,
+    "seam_mad": 7.18,
+    "seam_ratio": 0.89,
+    "changed_px_fraction": [
+      0.065,
+      0.043,
+      0.055,
+      0.074,
+      0.077,
+      0.067,
+      0.05
+    ],
+    "border_drift_max": 2.72,
+    "inner_change_max": 10.97,
+    "moving_centroids": [
+      [
+        522.7,
+        539.9
+      ],
+      [
+        601.5,
+        578.0
+      ],
+      [
+        620.2,
+        594.4
+      ],
+      [
+        635.8,
+        603.2
+      ],
+      [
+        556.2,
+        548.2
+      ],
+      [
+        534.9,
+        561.9
+      ],
+      [
+        572.2,
+        499.2
+      ],
+      [
+        571.5,
+        591.8
+      ]
+    ]
+  },
+  "warnings": [],
+  "contact_sheet": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/inspect/dog-sit.contact.png"
+}

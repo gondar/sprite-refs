@@ -1,0 +1,106 @@
+{
+  "path": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/gifs/dog-bark.gif",
+  "file": {
+    "bytes": 1155256,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120,
+      120
+    ],
+    "total_ms": 960,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      21.02,
+      16.79,
+      11.59,
+      11.56,
+      18.63,
+      17.92,
+      16.12
+    ],
+    "median_step": 16.79,
+    "max_step": 21.02,
+    "seam_mad": 10.73,
+    "seam_ratio": 0.64,
+    "changed_px_fraction": [
+      0.155,
+      0.125,
+      0.088,
+      0.09,
+      0.139,
+      0.134,
+      0.119
+    ],
+    "border_drift_max": 3.81,
+    "inner_change_max": 26.51,
+    "moving_centroids": [
+      [
+        408.6,
+        412.2
+      ],
+      [
+        400.3,
+        510.5
+      ],
+      [
+        417.2,
+        470.8
+      ],
+      [
+        426.6,
+        438.8
+      ],
+      [
+        421.3,
+        435.8
+      ],
+      [
+        404.5,
+        525.3
+      ],
+      [
+        412.7,
+        479.7
+      ],
+      [
+        439.3,
+        451.6
+      ]
+    ]
+  },
+  "warnings": [],
+  "contact_sheet": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/inspect/dog-bark.contact.png"
+}

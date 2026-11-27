@@ -1,0 +1,106 @@
+{
+  "path": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/gifs/fox-sit.gif",
+  "file": {
+    "bytes": 917925,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      150,
+      150,
+      150,
+      150,
+      150,
+      150,
+      150,
+      150
+    ],
+    "total_ms": 1200,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      5.31,
+      3.6,
+      4.73,
+      3.04,
+      5.09,
+      3.59,
+      4.77
+    ],
+    "median_step": 4.73,
+    "max_step": 5.31,
+    "seam_mad": 4.11,
+    "seam_ratio": 0.87,
+    "changed_px_fraction": [
+      0.066,
+      0.046,
+      0.061,
+      0.04,
+      0.065,
+      0.046,
+      0.06
+    ],
+    "border_drift_max": 0.59,
+    "inner_change_max": 7.97,
+    "moving_centroids": [
+      [
+        481.1,
+        430.0
+      ],
+      [
+        485.8,
+        393.8
+      ],
+      [
+        438.1,
+        457.0
+      ],
+      [
+        484.4,
+        442.6
+      ],
+      [
+        480.4,
+        452.5
+      ],
+      [
+        481.6,
+        395.2
+      ],
+      [
+        460.3,
+        430.2
+      ],
+      [
+        463.5,
+        497.5
+      ]
+    ]
+  },
+  "warnings": [],
+  "contact_sheet": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/inspect/fox-sit.contact.png"
+}

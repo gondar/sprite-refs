@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "out": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/gifs/fox-tiptoe.gif",
+  "latency_s": 20.4,
+  "bytes": 906450,
+  "usage": {
+    "input_tokens_details": {
+      "text_tokens": 475,
+      "image_tokens": 704
+    },
+    "output_tokens_details": {
+      "text_tokens": 0,
+      "image_tokens": 2700
+    },
+    "total_tokens": 3879,
+    "input_tokens": 1179,
+    "output_tokens": 2700
+  },
+  "est_cost_usd": 0.08901
+}

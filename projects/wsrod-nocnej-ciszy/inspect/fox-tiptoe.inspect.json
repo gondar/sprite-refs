@@ -1,0 +1,106 @@
+{
+  "path": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/gifs/fox-tiptoe.gif",
+  "file": {
+    "bytes": 906450,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      110,
+      110,
+      110,
+      110,
+      110,
+      110,
+      110,
+      110
+    ],
+    "total_ms": 880,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      10.98,
+      15.26,
+      13.71,
+      8.74,
+      12.29,
+      7.58,
+      9.33
+    ],
+    "median_step": 10.98,
+    "max_step": 15.26,
+    "seam_mad": 13.98,
+    "seam_ratio": 1.27,
+    "changed_px_fraction": [
+      0.127,
+      0.168,
+      0.159,
+      0.107,
+      0.142,
+      0.09,
+      0.113
+    ],
+    "border_drift_max": 1.98,
+    "inner_change_max": 25.63,
+    "moving_centroids": [
+      [
+        488.3,
+        405.6
+      ],
+      [
+        458.5,
+        396.3
+      ],
+      [
+        484.7,
+        454.3
+      ],
+      [
+        468.9,
+        384.9
+      ],
+      [
+        439.1,
+        365.1
+      ],
+      [
+        493.6,
+        442.9
+      ],
+      [
+        465.8,
+        392.4
+      ],
+      [
+        472.5,
+        414.2
+      ]
+    ]
+  },
+  "warnings": [],
+  "contact_sheet": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/inspect/fox-tiptoe.contact.png"
+}
