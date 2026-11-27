@@ -1,0 +1,106 @@
+{
+  "path": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/gifs/fox-stand-sing.gif",
+  "file": {
+    "bytes": 1288436,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      150,
+      150,
+      150,
+      150,
+      150,
+      150,
+      150,
+      150
+    ],
+    "total_ms": 1200,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      14.11,
+      9.54,
+      10.3,
+      9.33,
+      10.1,
+      8.81,
+      6.04
+    ],
+    "median_step": 9.54,
+    "max_step": 14.11,
+    "seam_mad": 8.62,
+    "seam_ratio": 0.9,
+    "changed_px_fraction": [
+      0.144,
+      0.1,
+      0.107,
+      0.096,
+      0.105,
+      0.093,
+      0.063
+    ],
+    "border_drift_max": 1.22,
+    "inner_change_max": 20.62,
+    "moving_centroids": [
+      [
+        503.4,
+        353.4
+      ],
+      [
+        521.9,
+        350.0
+      ],
+      [
+        527.2,
+        341.8
+      ],
+      [
+        519.4,
+        285.9
+      ],
+      [
+        507.1,
+        302.5
+      ],
+      [
+        510.6,
+        300.4
+      ],
+      [
+        508.2,
+        316.7
+      ],
+      [
+        506.3,
+        337.3
+      ]
+    ]
+  },
+  "warnings": [],
+  "contact_sheet": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/inspect/fox-stand-sing.contact.png"
+}

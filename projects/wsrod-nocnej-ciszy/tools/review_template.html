@@ -74,9 +74,9 @@ code { font-family: var(--mono); font-size: .85em; }
 
 <div class="wrap">
   <section class="lede">
-    <span class="status">Do obejrzenia · jeszcze nie w grze</span>
+    <span class="status">W grze · 27 listopada doszły dwie: pies się budzi, lis śpiewa na stojąco</span>
     <h1>Wśród nocnej ciszy: animacje postaci</h1>
-    <p>Lis i pies ruszają się z <b>zatwierdzonych rysunków</b>: każda animacja powstała z obrazka postaci jako wzoru, a potem została ustawiona na <b>dokładnie tę samą wielkość i ten sam punkt</b> co obecny stillek, więc przy podmianie nic nie skacze. Ruchy są proste i zapętlone: pierwsza klatka = ostatnia.</p>
+    <p>Lis i pies ruszają się z <b>zatwierdzonych rysunków</b>: każda animacja powstała z obrazka postaci jako wzoru, a potem została ustawiona na <b>dokładnie tę samą wielkość i ten sam punkt</b> co obecny stillek, więc przy podmianie nic nie skacze. Ruchy są proste i zapętlone: pierwsza klatka = ostatnia. Wyjątek to budzenie psa: gra raz, od pierwszej klatki śpiącego psa do pierwszej klatki siedzącego, więc nic nie przeskakuje ani na wejściu, ani na wyjściu.</p>
     <p>Na górze cała scena tak, jak zobaczy ją telefon (844 × 390). Niżej każda animacja osobno, na kawałku wioski, obok stillka, który zastępuje. Przełącznik „Obecne stillki” pokazuje grę dzisiaj.</p>
   </section>
 
@@ -136,6 +136,8 @@ const ready = i => i && i.complete && i.naturalWidth > 0;
 ["scene-night", "fox", "fox-sing", "dog", "hen", "duck", "rabbit", "coop-closed", "coop-open", "lantern"].forEach(n => img(ART + n + ".webp"));
 Object.values(DATA.clips).forEach(c => img(ART + c.img));
 
+/* a loop plays round; a one-shot (loop false: the dog waking) plays through, holds its last frame, then starts again */
+function frameAt(c, t) { const k = Math.floor(t * c.fps); if (c.loop !== false) return k % c.frames; const r = k % (c.frames + 10); return Math.max(0, Math.min(c.frames - 1, r - 3)); }
 function clipOf(state) { const c = DATA.states[state]; return c ? DATA.clips[c] : null; }
 
 /* draw one figure, anchor point (x, y) in units, scale k (css px per unit) — `still` draws the page's current look */
@@ -144,7 +146,7 @@ function drawFig(g, state, x, y, t, still, o = {}) {
   if (!still) {
     const c = clipOf(state);
     if (c && ready(IM[ART + c.img])) {
-      const n = c.frames, f = (REDUCED && !playing.forced) || paused ? (paused ? pausedFrame(c) : c.rest) : Math.floor(t * c.fps) % n;
+      const n = c.frames, f = (REDUCED && !playing.forced) || paused ? (paused ? pausedFrame(c) : c.rest) : frameAt(c, t);
       const w = c.frameWidth / c.pxPerU, h = c.frameHeight / c.pxPerU, ax = c.anchor[0] / c.pxPerU, ay = c.anchor[1] / c.pxPerU;
       const anchorKind = o.feet && c.anchors.feet ? "feet" : c.anchorKind;
       const A = c.anchors[anchorKind];
@@ -192,8 +194,9 @@ const SCENES = [
   { id: "sleep", name: "Pies śpi", fox: "fox.sit", dog: "dog.sleep", note: "Poziom 7–8: pies leży i oddycha. Dzisiaj to spłaszczony siedzący pies z „zzz” rysowanym w kodzie." },
   { id: "tiptoe", name: "Lis skrada się do kurnika", fox: "fox.tiptoe", walk: true, dog: "dog.sleep", note: "Poziom 8: lis idzie na palcach po ścieżce strony (16 taktów skrócone tu do 8 s), potem staje przy kurniku. Dzisiaj sunie siedzący lis." },
   { id: "coop", name: "Lis przy kurniku", fox: "fox.stand", foxAt: 1, dog: "dog.sleep", coop: "coop-open", hen: true, duck: true, note: "Poziom 9: lis stoi przy kurniku, kura i kaczka w drzwiach." },
-  { id: "bark", name: "Pies szczeka", fox: "fox.stand", foxAt: 1, dog: "dog.bark", coop: "coop-open", hen: true, duck: true, note: "Poziom 13, takt 15: pies szczeka dwa razy. (Wstawanie z leżenia jeszcze nie powstało — patrz niżej.)" },
-  { id: "all", name: "Wszyscy razem", fox: "fox.stand", foxAt: 1, dog: "dog.home", coop: "coop-open", hen: true, duck: true, rabbit: true, note: "Finał: wszyscy przy kurniku. Kura, kaczka i królik mają tylko malutki ruch (mrugnięcie, kiwnięcie głową)." },
+  { id: "bark", name: "Pies szczeka", fox: "fox.stand", foxAt: 1, dog: "dog.bark", coop: "coop-open", hen: true, duck: true, note: "Poziom 13, takt 15: pies szczeka dwa razy." },
+  { id: "wake", name: "Pies się budzi", fox: "fox.stand-sing", foxAt: 1, dog: "dog.wake", coop: "coop-open", hen: true, duck: true, note: "Poziom 13, takt 15, pierwsza ćwierćnuta: pies otwiera oczy, podnosi łeb i siada (w grze to jedno uderzenie, tu z przerwą na końcu). Lis przy kurniku śpiewa na stojąco." },
+  { id: "all", name: "Wszyscy razem", fox: "fox.stand-sing", foxAt: 1, dog: "dog.home", coop: "coop-open", hen: true, duck: true, rabbit: true, note: "Finał: wszyscy przy kurniku. Kura, kaczka i królik mają tylko malutki ruch (mrugnięcie, kiwnięcie głową)." },
 ];
 let scene = SCENES[0], still = false, paused = false, t0 = performance.now(), pauseT = 0;
 const playing = { forced: false };
@@ -241,9 +244,11 @@ const CARDS = [
   { clip: "fox-sing", state: "fox.sing", place: PLACE.stump, crop: [-80, -125, 175, 145], plate: true },
   { clip: "fox-tiptoe", state: "fox.tiptoe", place: [960, 1302], feet: true, crop: [-90, -140, 180, 150], plate: true, stillNote: "dziś: siedzący lis przesuwany po ścieżce" },
   { clip: "fox-stand", state: "fox.stand", place: PLACE.foxPath[3], feet: true, crop: [-90, -140, 180, 150], plate: true, stillNote: "dziś: siedzący lis na stopach" },
+  { clip: "fox-stand-sing", state: "fox.stand", place: PLACE.foxPath[3], feet: true, crop: [-90, -140, 180, 150], plate: true, before: true, stillNote: "stojący lis z nutką z kodu" },
   { clip: "dog-sit", state: "dog.home", place: PLACE.dog, crop: [-70, -115, 165, 125], plate: true },
   { clip: "dog-sleep", state: "dog.sleep", place: PLACE.dog, crop: [-70, -115, 165, 125], plate: true, stillNote: "dziś: spłaszczony pies + „zzz” z kodu" },
   { clip: "dog-bark", state: "dog.bark", place: PLACE.dog, crop: [-70, -115, 165, 125], plate: true, stillNote: "dziś: podskok + „!” z kodu" },
+  { clip: "dog-wake", state: "dog.home", place: PLACE.dog, crop: [-70, -115, 165, 125], plate: true, oneShot: true, before: true, stillNote: "śpiący pies przenikał w siedzącego (kod)" },
   { clip: "hen-idle", state: "hen.door", place: PLACE.henDoor, crop: [-55, -80, 110, 92], plate: true },
   { clip: "duck-idle", state: "duck.door", place: PLACE.duckDoor, crop: [-55, -80, 110, 92], plate: true },
   { clip: "rabbit-idle", state: "rabbit.byfox", place: PLACE.rabbitByFoxStump, crop: [-55, -80, 110, 92], plate: true },
@@ -253,12 +258,12 @@ const cardsEl = document.getElementById("cards"), cardViews = [];
 const fmtPct = v => v.toFixed(2).replace(".", ",") + " %";
 CARDS.forEach(cd => {
   const c = DATA.clips[cd.clip], keys = Object.entries(DATA.states).filter(([k, v]) => v === cd.clip).map(([k]) => k);
-  const ck = c.check, seamOk = ck.seam.ratio < 2.5, driftOk = ck.sizeDrift.heightSpreadPct < 3;
+  const ck = c.check, seamOk = cd.oneShot || ck.seam.ratio < 2.5, driftOk = cd.oneShot || ck.sizeDrift.heightSpreadPct < 3;
   const el = document.createElement("article"); el.className = "card";
   el.innerHTML = `
     <header><h3>${cd.clip}</h3><span class="keys">${keys.join(" · ")}</span></header>
     <div class="pair">
-      <figure><canvas aria-label="stillek"></canvas><figcaption>teraz: ${cd.stillNote || "stillek"}</figcaption></figure>
+      <figure><canvas aria-label="stillek"></canvas><figcaption>${cd.before ? "wcześniej" : "teraz"}: ${cd.stillNote || "stillek"}</figcaption></figure>
       <figure><canvas aria-label="animacja"></canvas><figcaption>animacja · ${c.frames} klatek · ${c.fps.toFixed(1).replace(".", ",")} kl./s</figcaption></figure>
     </div>
     <p class="motion">${c.motion}. <span style="color:var(--paper-dim)">${c.pose}.</span></p>
@@ -287,7 +292,7 @@ document.querySelectorAll(".zoom").forEach(b => b.onclick = () => { zoom = +b.da
 sizeCards();
 function drawCard(v, t) {
   const [dx, dy, w, h] = v.cd.crop, p = PX(v.cd.place);
-  const f = v.paused ? v.frame : (REDUCED ? v.c.rest : Math.floor(t * v.c.fps) % v.c.frames);
+  const f = v.paused ? v.frame : (REDUCED ? v.c.rest : frameAt(v.c, t));
   if (!v.paused) v.frame = f;
   v.out.textContent = (f + 1) + " / " + v.c.frames;
   [[v.cv1, true], [v.cv2, false]].forEach(([cv, isStill]) => {

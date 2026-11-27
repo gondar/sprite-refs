@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "out": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/gifs/fox-stand-sing.c1.gif",
+  "latency_s": 21.1,
+  "bytes": 1288436,
+  "usage": {
+    "total_tokens": 4744,
+    "input_tokens": 2044,
+    "output_tokens": 2700,
+    "input_tokens_details": {
+      "image_tokens": 1504,
+      "text_tokens": 540
+    },
+    "output_tokens_details": {
+      "text_tokens": 0,
+      "image_tokens": 2700
+    }
+  },
+  "est_cost_usd": 0.09573
+}

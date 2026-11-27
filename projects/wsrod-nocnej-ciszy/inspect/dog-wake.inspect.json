@@ -1,0 +1,106 @@
+{
+  "path": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/gifs/dog-wake.gif",
+  "file": {
+    "bytes": 1348640,
+    "signature": "GIF89a",
+    "ok": true
+  },
+  "animation": {
+    "ok": true,
+    "identical_adjacent_pairs": 0
+  },
+  "numbers": {
+    "frames": 8,
+    "width": 960,
+    "height": 960,
+    "durations_ms": [
+      110,
+      110,
+      110,
+      110,
+      110,
+      110,
+      110,
+      110
+    ],
+    "total_ms": 880,
+    "loop": 0,
+    "loop_meaning": "forever",
+    "disposal": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "has_transparency": true,
+    "transparent_frames": 8,
+    "palette_transparency_index": null,
+    "consistent_size": true
+  },
+  "metrics": {
+    "adjacent_mad": [
+      18.02,
+      31.49,
+      39.58,
+      27.44,
+      6.02,
+      3.6,
+      4.7
+    ],
+    "median_step": 18.02,
+    "max_step": 39.58,
+    "seam_mad": 43.78,
+    "seam_ratio": 2.43,
+    "changed_px_fraction": [
+      0.134,
+      0.241,
+      0.308,
+      0.201,
+      0.054,
+      0.034,
+      0.044
+    ],
+    "border_drift_max": 4.12,
+    "inner_change_max": 56.14,
+    "moving_centroids": [
+      [
+        446.3,
+        527.3
+      ],
+      [
+        452.3,
+        526.1
+      ],
+      [
+        449.9,
+        520.4
+      ],
+      [
+        406.3,
+        508.7
+      ],
+      [
+        416.1,
+        463.0
+      ],
+      [
+        428.4,
+        470.8
+      ],
+      [
+        426.2,
+        471.1
+      ],
+      [
+        426.8,
+        476.0
+      ]
+    ]
+  },
+  "warnings": [],
+  "contact_sheet": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/inspect/dog-wake.contact.png"
+}

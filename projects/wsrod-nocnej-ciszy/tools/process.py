@@ -32,6 +32,14 @@ CLIPS = {
     "dog-sit":     dict(static="dog", reg="iou", anchor="static", ms=160, loop=True),
     "dog-bark":    dict(static="dog", reg="iou", anchor="static", ms=120, loop=True),
     "dog-sleep":   dict(static="dog", reg=("same", "dog-sit"), anchor="feet-front", ms=180, loop=True),
+    # 2026-11-27: the two clips the 401 held back. Registered to the sibling strip they cross-fade with (its frame 0
+    # in static-cell space), so the hand-over lands on the same silhouette: the wake's LAST frame on dog-sit's frame 0,
+    # the standing song's frame 0 on fox-stand's frame 0.
+    # dog-wake is a one-shot between two strips: gif frame 0 is registered on dog-sleep's frame 0, the last on dog-sit's,
+    # the frames between get a transform interpolated by how far he has sat up (figure height), and the two end cells
+    # ARE those strips' frames (ends="exact"), so the page's hand-over in and out is pixel-identical.
+    "dog-wake":    dict(static="dog", reg=("ends", "dog-sleep", "dog-sit"), anchor="static", ms=110, loop=False, outer_ink=6, ends="exact"),
+    "fox-stand-sing": dict(static="fox", reg=("clip", "fox-stand", 0), anchor="feet", ms=150, loop=True, feet_on=True),
     "hen-idle":    dict(static="hen", reg="iou", anchor="static", ms=160, loop=True, out=.25),
     "duck-idle":   dict(static="duck", reg="iou", anchor="static", ms=160, loop=True, out=.25),
     "rabbit-idle": dict(static="rabbit", reg="iou", anchor="static", ms=160, loop=True, out=.25),
@@ -61,11 +69,18 @@ def rim_width(a):
     return float(np.median(d[edge])), float(np.percentile(d[edge], 80))
 
 
+OUTER_INK = 0   # px: a frame drawn as a sticker with a thin dark line OUTSIDE its cream rim (dog-wake) — eat that first
+
+
 def core_mask(a, depth):
-    """alpha minus its outer paper rim: grow from outside into the figure through non-ink pixels, `depth` px."""
+    """alpha minus its outer paper rim: grow from outside into the figure through non-ink pixels, `depth` px
+    (after OUTER_INK px of growth through ink only: a no-op where the rim touches the outside, as it should)."""
     A = a[..., 3] > 127; ink = (lum(a) < 80) & A
     out = ~A; passable = ~ink
     grown = out.copy()
+    for _ in range(OUTER_INK):
+        grown = nd.binary_dilation(grown) & (ink | out)
+    out = grown
     for _ in range(int(math.ceil(depth))):
         grown = nd.binary_dilation(grown) & (passable | out)
     core = A & ~grown
@@ -183,10 +198,24 @@ def edge_fringe(a):
     return dict(edgePx=int(n), blueShare=round(blue / max(1, n), 4), creamShare=round(cream / max(1, n), 3), darkShare=round(dark / max(1, n), 3))
 
 
+def register_clip(results, sibn, frame, sim, s_rim, noise, depth):
+    """register one GIF frame (with a provisional rim) on a processed sibling strip's frame 0, in static-cell space."""
+    sib = results[sibn]; so = sib["outScale"]; offx, offy = 400, 200
+    f0 = np.array(Image.open(os.path.join(HERE, "frames", sibn, "frame_000.png")).convert("RGBA"))
+    big = resize_rgba(f0, (round(f0.shape[1] / so), round(f0.shape[0] / so)))
+    T = np.zeros((sim.shape[0] + 400, sim.shape[1] + 800), bool)
+    ox, oy = int(sib["cellOrigin"][0]) + offx, int(sib["cellOrigin"][1]) + offy
+    T[oy:oy + big.shape[0], ox:ox + big.shape[1]] = big[..., 3] > 127
+    prov, _ = rebuild_rim(frame, s_rim, noise, depth)
+    iou, s, dx, dy = register_iou(mask_from(prov), T)
+    return iou, s, dx - offx, dy - offy
+
+
 def main(names):
     results = json.load(open(os.path.join(HERE, "process-results.json"))) if os.path.exists(os.path.join(HERE, "process-results.json")) else {}
     for name in names:
         cfg = CLIPS[name]
+        global OUTER_INK; OUTER_INK = cfg.get("outer_ink", 0)
         frames = load_gif(os.path.join(HERE, "gifs", name + ".gif"))
         aj, sim = static_info(cfg["static"])
         s_rim, _ = rim_width(sim)
@@ -204,11 +233,32 @@ def main(names):
             fa = np.mean([feature_area(f, reg[2]) for f in frames]); fs = sib["featureArea"][reg[2]]
             s = sib["scale"] * math.sqrt(fs / fa) * SCALE_FIX.get(name, 1.0); iou = None; dx = dy = None
             how = "feature %s: %.0f vs %s's %.0f px²" % (reg[2], fa, reg[1], fs)
+        elif reg[0] == "clip":
+            iou, s, dx, dy = register_clip(results, reg[1], frames[reg[2]], sim, s_rim, noise, depth)
+            how = "iou %.3f on %s frame 0 (gif frame %d)" % (iou, reg[1], reg[2] % len(frames))
+        elif reg[0] == "ends":
+            ia, sa, xa, ya = register_clip(results, reg[1], frames[0], sim, s_rim, noise, depth)
+            ib, sb, xb, yb = register_clip(results, reg[2], frames[-1], sim, s_rim, noise, depth)
+            hs = [float(np.ptp(np.nonzero(mask_from(f).any(1))[0])) for f in frames]
+            u = [min(1, max(0, (h - hs[0]) / (hs[-1] - hs[0]))) for h in hs]
+            s = [sa + (sb - sa) * k for k in u]; dx = [xa + (xb - xa) * k for k in u]; dy = [ya + (yb - ya) * k for k in u]
+            how = "ends: frame 0 iou %.3f on %s (scale %.3f), last iou %.3f on %s (scale %.3f), between by height" % (ia, reg[1], sa, ib, reg[2], sb)
         elif reg[0] == "same":
             s = results[reg[1]]["scale"] * SCALE_FIX.get(name, 1.0); iou = None; dx = dy = None
             how = "scale of %s × %.3f (checked by eye: head widths)" % (reg[1], SCALE_FIX.get(name, 1.0))
-        rim_gif = s_rim / s
-        built = [rebuild_rim(f, rim_gif, noise, depth)[0] for f in frames]
+        S = s if isinstance(s, list) else [s] * len(frames)
+        DX = dx if isinstance(dx, list) else [dx] * len(frames)
+        DY = dy if isinstance(dy, list) else [dy] * len(frames)
+        rim_gif = s_rim / float(np.median(S))
+        built = [rebuild_rim(f, s_rim / si, noise, depth)[0] for f, si in zip(frames, S)]
+        if cfg.get("feet_on") and reg[0] == "clip":
+            # the silhouette fit leaves the feet where the whole outline fits best; a standing pose must keep its feet on
+            # the sibling's ground line (a cross-fade otherwise lifts him): move it down/up to the sibling's lowest row
+            sib = results[reg[1]]; f0 = np.array(Image.open(os.path.join(HERE, "frames", reg[1], "frame_000.png")))[..., 3] > 127
+            sib_bottom = sib["cellOrigin"][1] + (np.nonzero(f0.any(1))[0].max() + .5) / sib["outScale"]
+            my_bottom = dy + s * (np.nonzero(mask_from(built[0]).any(1))[0].max() + .5)
+            dy += sib_bottom - my_bottom; DY = [dy] * len(frames)
+            how += ", feet put on %s's ground line (%+.1f static px)" % (reg[1], sib_bottom - my_bottom)
         # place into static-cell space
         if dx is None:
             # pose not in the static art: put the feet on the static's feet anchor
@@ -227,7 +277,15 @@ def main(names):
             dx = feet[0] - s * ax_g; dy = feet[1] - s * (bottom + .5)
         # union box in static space
         H = sim.shape[0] + 400; W = sim.shape[1] + 800; offx, offy = 400, 200   # roomy canvas around the static cell
-        placed = [warp_rgba(b, s, dx + offx, dy + offy, (H, W)) for b in built]
+        placed = [warp_rgba(b, si, xi + offx, yi + offy, (H, W)) for b, si, xi, yi in zip(built, S, DX, DY)]
+        if cfg.get("ends") == "exact":   # the end cells are the neighbouring strips' own frames, placed by their cellOrigin
+            for k, sibn in ((0, reg[1]), (len(placed) - 1, reg[2])):
+                sib = results[sibn]; so = sib["outScale"]
+                f0 = np.array(Image.open(os.path.join(HERE, "frames", sibn, "frame_000.png")).convert("RGBA"))
+                big = resize_rgba(f0, (round(f0.shape[1] / so), round(f0.shape[0] / so)))
+                cv = np.zeros((H, W, 4), np.uint8); ox, oy = int(sib["cellOrigin"][0]) + offx, int(sib["cellOrigin"][1]) + offy
+                cv[oy:oy + big.shape[0], ox:ox + big.shape[1]] = big
+                placed[k] = cv
         al = np.max([p[..., 3] for p in placed], 0) > 0
         ys, xs = np.nonzero(al)
         x0, x1, y0, y1 = xs.min(), xs.max() + 1, ys.min(), ys.max() + 1
@@ -236,9 +294,21 @@ def main(names):
         padS = int(PAD / OUT)
         x0 -= padS; y0 -= padS; x1 += padS; y1 += padS
         x0 = max(0, x0); y0 = max(0, y0)
+        if cfg.get("ends") == "exact":   # the end cells are pasted 1:1 below: keep their origins on whole output px
+            step = round(1 / OUT); o = results[reg[1]]["cellOrigin"]
+            x0 -= (x0 - offx - int(o[0])) % step; y0 -= (y0 - offy - int(o[1])) % step
         crop = [p[y0:y1, x0:x1] for p in placed]
         ow, oh = round((x1 - x0) * OUT), round((y1 - y0) * OUT)
         outs = [resize_rgba(c, (ow, oh)) for c in crop]
+        if cfg.get("ends") == "exact":
+            for k, sibn in ((0, reg[1]), (len(outs) - 1, reg[2])):
+                o = results[sibn]["cellOrigin"]; f0 = np.array(Image.open(os.path.join(HERE, "frames", sibn, "frame_000.png")).convert("RGBA"))
+                px, py = round((o[0] - (x0 - offx)) * OUT), round((o[1] - (y0 - offy)) * OUT)
+                cell = np.zeros((oh, ow, 4), np.uint8)
+                ys0, xs0 = max(0, py), max(0, px); ys1, xs1 = min(oh, py + f0.shape[0]), min(ow, px + f0.shape[1])
+                cell[ys0:ys1, xs0:xs1] = f0[ys0 - py:ys1 - py, xs0 - px:xs1 - px]
+                assert (f0[..., 3] > 0).sum() == (cell[..., 3] > 0).sum(), "end cell cut off"
+                outs[k] = cell
         # anchors (static-cell px → output px)
         anchors = {}
         for k, (axs, ays) in aj["anchor"].items():
@@ -279,10 +349,10 @@ def main(names):
                 "crop": "union", "alignment": {"bottomRow": bottoms, "bottomSpreadPx": check["feetSpreadPx"]}}
         json.dump(meta, open(os.path.join(od, "frames.json"), "w"), indent=1)
         fa = {"mustard": float(np.mean([feature_area(f, "mustard") for f in frames]))}
-        results[name] = dict(static=cfg["static"], scale=s, registration=how, offset=[dx, dy], cellOrigin=[x0 - offx, y0 - offy],
+        results[name] = dict(static=cfg["static"], scale=s, registration=how, offset=[DX, DY] if isinstance(dx, list) else [dx, dy], cellOrigin=[x0 - offx, y0 - offy],
                              staticCell=[sim.shape[1], sim.shape[0]], outScale=OUT, anchors=anchors, featureArea=fa,
                              frameSize=[ow, oh], check=check)
-        print(name, "scale %.4f" % s, how, "out", (ow, oh), "anchors", anchors)
+        print(name, "scale %.4f" % float(np.median(S)), how, "out", (ow, oh), "anchors", anchors)
         print("   ", json.dumps({k: check[k] for k in ("sizeDrift", "feetSpreadPx", "seam", "edgeFringe", "rim")}))
         json.dump(results, open(os.path.join(HERE, "process-results.json"), "w"), indent=1, default=float)
 

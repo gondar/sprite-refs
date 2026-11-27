@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "out": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/gifs/dog-wake.c3.gif",
+  "latency_s": 21.9,
+  "bytes": 1348640,
+  "usage": {
+    "input_tokens_details": {
+      "image_tokens": 2048,
+      "text_tokens": 563
+    },
+    "output_tokens_details": {
+      "text_tokens": 0,
+      "image_tokens": 2700
+    },
+    "total_tokens": 5311,
+    "input_tokens": 2611,
+    "output_tokens": 2700
+  },
+  "est_cost_usd": 0.1002
+}

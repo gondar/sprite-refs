@@ -16,16 +16,16 @@ PL = {
  "hen-idle": ("mruga, kiwa głową", "ta sama poza co hen.webp"),
  "duck-idle": ("mruga, kiwa głową", "ta sama poza co duck.webp"),
  "rabbit-idle": ("mruga, ucho lekko drga", "ta sama poza co rabbit.webp"),
+ "dog-wake": ("budzi się: otwiera oczy, podnosi łeb, odpycha się przednimi łapami i siada (raz, nie w pętli; rozrzut wysokości i szew to tu sam ruch, nie błąd)", "jednorazowa: pierwsza klatka to klatka 1 śpiącego psa, ostatnia to klatka 1 siedzącego"),
+ "fox-stand-sing": ("śpiewa na stojąco: zamyka oczy, szeroko otwiera pyszczek, zamyka go w uśmiech, łeb lekko się kołysze, koniec szalika fruwa", "poza stojącego lisa (fox-stand), stopy na tej samej linii"),
 }
 for k, (m, p) in PL.items():
     man["clips"][k]["motion"], man["clips"][k]["pose"] = m, p
 missing = {
- "Pies wstaje z leżenia (poziom 13, takt 15)": "zamówienie wysłane, ale bramka APIYI odrzuciła klucz (401 „Invalid token”, dwa razy, nic nie zostało policzone). Prompt czeka gotowy. Do tego czasu pies przeskakuje z leżenia od razu do szczekania na siedząco.",
- "Lis śpiewa na stojąco": "przy kurniku (takty 15–16, drugie przejście) lis śpiewa stojąc; teraz gra pokazałaby siedzący śpiew. To następna animacja do zrobienia.",
  "Pozostałe stany": "pies: przechyla głowę, uszy, merdanie, opada, kładzie się, ziewa, śpiewa; lis: stroi, zachwyt, przestrach; kura wygląda z kurnika, kaczka idzie, królik uszy i serce, śpiew całej trójki. Na razie zostają stillki z ruchem z kodu (do „merdania” pasuje animacja siedzącego psa).",
 }
 foot = (f"Zrobione narzędziem generate-game-gifs (gpt-image-2.6-flare, GIF przez APIYI, wysoka jakość, zatwierdzony rysunek jako wzór): "
-        f"10 animacji z 10 udanych zamówień, koszt szacunkowy ${cost:.2f}. Obwódka z papieru odtworzona w tej samej szerokości co na stillkach. "
+        f"12 animacji z {sum(1 for j in jobs if j.get('state') == 'ok')} udanych zamówień (27 listopada doszły dwie: budzenie psa z trzeciej próby, śpiew lisa z pierwszej), koszt szacunkowy ${cost:.2f}. Obwódka z papieru odtworzona w tej samej szerokości co na stillkach. "
         f"Paski WebP, manifest i wyniki kontroli: <code>fingerpick-warmup/art/wsrod-nocnej-ciszy/anim/</code>. Surowe GIF-y, prompty i dziennik zamówień: "
         f"<code>gondar/sprite-refs</code> → <code>projects/wsrod-nocnej-ciszy/</code>.")
 data = {"clips": man["clips"], "states": man["states"], "missing": missing, "foot": foot}

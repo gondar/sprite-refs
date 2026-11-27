@@ -846,5 +846,200 @@
     "rebuiltAtGifPx": 15.69
    }
   }
+ },
+ "dog-wake": {
+  "static": "dog",
+  "scale": [
+   1.1249999999999998,
+   1.1171536523929468,
+   1.1037531486146095,
+   1.0920277078085643,
+   1.09,
+   1.09,
+   1.09,
+   1.09
+  ],
+  "registration": "ends: frame 0 iou 0.960 on dog-sleep (scale 1.125), last iou 0.916 on dog-sit (scale 1.090), between by height",
+  "offset": [
+   [
+    11.092007843727515,
+    -19.781467363815565,
+    -72.50920030254083,
+    -118.64596662392543,
+    -126.62450516070624,
+    -126.62450516070624,
+    -126.62450516070624,
+    -126.62450516070624
+   ],
+   [
+    5.708141321902303,
+    2.6766620869813753,
+    -2.5006957074903227,
+    -7.030883777653058,
+    -7.814299759711275,
+    -7.814299759711275,
+    -7.814299759711275,
+    -7.814299759711275
+   ]
+  ],
+  "cellOrigin": [
+   -24.0,
+   23.0
+  ],
+  "staticCell": [
+   804,
+   1024
+  ],
+  "outScale": 0.5,
+  "anchors": {
+   "feet": [
+    160.0,
+    477.5
+   ]
+  },
+  "featureArea": {
+   "mustard": 2.875
+  },
+  "frameSize": [
+   568,
+   494
+  ],
+  "check": {
+   "heightPx": [
+    255,
+    313,
+    394,
+    463,
+    478,
+    476,
+    477,
+    474
+   ],
+   "widthPx": [
+    504,
+    483,
+    456,
+    394,
+    390,
+    389,
+    388,
+    379
+   ],
+   "areaPx": [
+    94023,
+    99795,
+    108562,
+    109899,
+    110105,
+    108935,
+    108795,
+    109900
+   ],
+   "sizeDrift": {
+    "heightSpreadPct": 47.6,
+    "areaSpreadPct": 14.77
+   },
+   "feetSpreadPx": 8,
+   "seam": {
+    "medianStep": 26.413,
+    "seamStep": 55.203,
+    "ratio": 2.09
+   },
+   "edgeFringe": {
+    "blueShareMax": 0.0004,
+    "creamShareMin": 0.848,
+    "darkShareMax": 0.01
+   },
+   "staticFigureHeightAtOutPx": 480.0,
+   "rim": {
+    "staticMedianPx": 10.3,
+    "gifBeforeMedianPx": 9.1,
+    "rebuiltAtGifPx": 9.44
+   }
+  }
+ },
+ "fox-stand-sing": {
+  "static": "fox",
+  "scale": 0.9550000000000002,
+  "registration": "iou 0.903 on fox-stand frame 0 (gif frame 0), feet put on fox-stand's ground line (+21.6 static px)",
+  "offset": [
+   -276.3474621130847,
+   95.92249999999973
+  ],
+  "cellOrigin": [
+   -182.0,
+   92.0
+  ],
+  "staticCell": [
+   675,
+   1024
+  ],
+  "outScale": 0.5,
+  "anchors": {
+   "feet": [
+    208.0,
+    443.0
+   ]
+  },
+  "featureArea": {
+   "mustard": 16505.625
+  },
+  "frameSize": [
+   370,
+   449
+  ],
+  "check": {
+   "heightPx": [
+    435,
+    435,
+    435,
+    435,
+    433,
+    433,
+    433,
+    433
+   ],
+   "widthPx": [
+    354,
+    354,
+    354,
+    354,
+    353,
+    353,
+    352,
+    352
+   ],
+   "areaPx": [
+    83988,
+    84005,
+    84604,
+    84960,
+    84381,
+    83591,
+    83564,
+    83170
+   ],
+   "sizeDrift": {
+    "heightSpreadPct": 0.46,
+    "areaSpreadPct": 2.13
+   },
+   "feetSpreadPx": 0,
+   "seam": {
+    "medianStep": 16.277,
+    "seamStep": 13.714,
+    "ratio": 0.843
+   },
+   "edgeFringe": {
+    "blueShareMax": 0.0011,
+    "creamShareMin": 0.87,
+    "darkShareMax": 0.005
+   },
+   "staticFigureHeightAtOutPx": 480.5,
+   "rim": {
+    "staticMedianPx": 8.5,
+    "gifBeforeMedianPx": 5.8,
+    "rebuiltAtGifPx": 8.89
+   }
+  }
  }
 }
