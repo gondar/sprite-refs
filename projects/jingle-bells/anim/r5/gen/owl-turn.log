@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "out": "/home/user/sprite-refs/projects/jingle-bells/anim/r5/owl-turn.gif",
+  "latency_s": 22.5,
+  "bytes": 2132053,
+  "usage": {
+    "input_tokens": 1368,
+    "output_tokens": 2700,
+    "input_tokens_details": {
+      "text_tokens": 344,
+      "image_tokens": 1024
+    },
+    "output_tokens_details": {
+      "image_tokens": 2700,
+      "text_tokens": 0
+    },
+    "total_tokens": 4068
+  },
+  "est_cost_usd": 0.09091
+}
