@@ -3,6 +3,18 @@ Draw it in exactly the same style as the reference pictures: a vintage Eastern E
 
 The two reference pictures are drawn on the same square canvas as the animation frames, at the exact size and position the dog must have: keep that size and that ground line.
 
-Wake-up animation for a game, played once (not a loop): frame 1 is the dog lying asleep exactly as in the FIRST reference picture, same size and same place in the frame (on his belly, facing left, chin on his paws, eyes closed, tail curled round). He wakes with a start: frame 2 his eyes pop open, frame 3 his head lifts and his ears prick up, frames 4–5 he pushes himself up on his straight front legs, frames 6–8 he sits upright facing left exactly as in the SECOND reference picture, same size and same place in the frame (same pose, same ears, same bandana, the bushy tail raised in an upward curl behind him with its cream tip, exactly as in the reference), alert, mouth closed. His paws and belly stay on the same ground line the whole time; he never floats, never shrinks or grows — he only gets taller by sitting up. The same dog, same size, same bandana in every frame. Exactly four legs, clearly separated.
+Wake-up animation for a game, played once (not a loop), 12 frames, the rise spread out evenly — no big jump between any two frames:
+frame 1: the dog lying asleep exactly as in the FIRST reference picture, same size and same place in the frame (on his belly, facing left, chin on his paws, eyes closed, tail curled round);
+frame 2: the same, his eyes pop open;
+frame 3: his head lifts a little off his paws, ears prick up;
+frame 4: head up, looking left, chest still on the ground;
+frame 5: his chest lifts, front legs start to straighten;
+frame 6: front legs half straight, chest a quarter up;
+frame 7: front legs straight, chest half way up, back end still on the ground;
+frame 8: chest three-quarters up, body tilting upright;
+frame 9: almost sitting upright;
+frame 10: sitting upright facing left exactly as in the SECOND reference picture, same size and same place in the frame (same pose, same ears, same bandana, the bushy tail raised in an upward curl behind him with its cream tip, exactly as in the reference), alert, mouth closed;
+frames 11–12: the same sitting pose, settling, a tiny tail flick.
+His paws and belly stay on the same ground line the whole time; he never floats, never shrinks or grows — he only gets taller by sitting up. Each frame is only a small step from the one before. The same dog, same size, same bandana in every frame. Exactly four legs, clearly separated.
 
-8 equal-size frames, the whole dog fully visible in every frame, never cut off. Clean transparent background only — no ground, no scene, no shadow, no letters, no text, no motion lines, no borders, no extra objects.
+12 equal-size frames, the whole dog fully visible in every frame, never cut off. Clean transparent background only — no ground, no scene, no shadow, no letters, no text, no motion lines, no borders, no extra objects.

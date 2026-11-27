@@ -1,7 +1,7 @@
 {
   "path": "/home/user/sprite-refs/projects/wsrod-nocnej-ciszy/gifs/dog-wake.gif",
   "file": {
-    "bytes": 1348640,
+    "bytes": 1333713,
     "signature": "GIF89a",
     "ok": true
   },
@@ -10,20 +10,24 @@
     "identical_adjacent_pairs": 0
   },
   "numbers": {
-    "frames": 8,
-    "width": 960,
-    "height": 960,
+    "frames": 12,
+    "width": 768,
+    "height": 768,
     "durations_ms": [
-      110,
-      110,
-      110,
-      110,
-      110,
-      110,
-      110,
-      110
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80,
+      80
     ],
-    "total_ms": 880,
+    "total_ms": 960,
     "loop": 0,
     "loop_meaning": "forever",
     "disposal": [
@@ -34,70 +38,98 @@
       2,
       2,
       2,
+      2,
+      2,
+      2,
+      2,
       2
     ],
     "has_transparency": true,
-    "transparent_frames": 8,
+    "transparent_frames": 12,
     "palette_transparency_index": null,
     "consistent_size": true
   },
   "metrics": {
     "adjacent_mad": [
-      18.02,
-      31.49,
-      39.58,
-      27.44,
-      6.02,
-      3.6,
-      4.7
+      5.56,
+      13.41,
+      17.49,
+      17.66,
+      21.08,
+      20.66,
+      24.43,
+      25.74,
+      13.92,
+      7.19,
+      7.74
     ],
-    "median_step": 18.02,
-    "max_step": 39.58,
-    "seam_mad": 43.78,
-    "seam_ratio": 2.43,
+    "median_step": 17.49,
+    "max_step": 25.74,
+    "seam_mad": 34.86,
+    "seam_ratio": 1.99,
     "changed_px_fraction": [
-      0.134,
-      0.241,
-      0.308,
-      0.201,
-      0.054,
-      0.034,
-      0.044
+      0.045,
+      0.106,
+      0.155,
+      0.138,
+      0.169,
+      0.159,
+      0.195,
+      0.209,
+      0.108,
+      0.059,
+      0.062
     ],
-    "border_drift_max": 4.12,
-    "inner_change_max": 56.14,
+    "border_drift_max": 4.48,
+    "inner_change_max": 43.91,
     "moving_centroids": [
       [
-        446.3,
-        527.3
+        284.6,
+        400.3
       ],
       [
-        452.3,
-        526.1
+        284.1,
+        400.4
       ],
       [
-        449.9,
-        520.4
+        289.5,
+        397.7
       ],
       [
-        406.3,
-        508.7
+        304.7,
+        398.0
       ],
       [
-        416.1,
-        463.0
+        298.8,
+        401.7
       ],
       [
-        428.4,
-        470.8
+        313.1,
+        387.8
       ],
       [
-        426.2,
-        471.1
+        331.4,
+        381.5
       ],
       [
-        426.8,
-        476.0
+        351.7,
+        364.1
+      ],
+      [
+        374.9,
+        349.3
+      ],
+      [
+        378.0,
+        356.2
+      ],
+      [
+        377.3,
+        356.8
+      ],
+      [
+        377.9,
+        359.0
       ]
     ]
   },

@@ -16,17 +16,17 @@ STATES = {   # state key (WNC_STAGE: "<who>.<state>") -> clip; the page draws do
 POSE = {"fox-sit": "static pose (fox.webp)", "fox-sing": "static pose (fox-sing.webp)", "fox-tiptoe": "new pose: upright, tiptoe walk on the spot",
         "fox-stand": "new pose: upright, feet together", "dog-sit": "static pose (dog.webp)", "dog-bark": "static pose (dog.webp), both ears up",
         "dog-sleep": "new pose: lying, chin on paws",
-        "dog-wake": "one-shot: frame 0 = dog-sleep's frame 0, frame 7 = dog-sit's frame 0 (pasted 1:1), 1–6 generated between",
+        "dog-wake": "one-shot, 14 cells: cell 0 = dog-sleep's frame 0, 1–10 generated (two squashed in-betweens), 11–13 dog-sit's frame 0 (0.94 and 1.01 tall, then 1:1)",
         "fox-stand-sing": "fox-stand's pose (frame 0 registered on fox-stand's frame 0)", "hen-idle": "static pose", "duck-idle": "static pose", "rabbit-idle": "static pose"}
 MOVE = {"fox-sit": "strums twice, small head nod, scarf end and tail tip sway", "fox-sing": "sings (mouth open/half-open), head sway, strums",
         "fox-tiptoe": "high-knee tiptoe cycle on the spot (2 steps per loop); the page moves him along the path",
         "fox-stand": "breathes, one blink (frame 5), one gentle strum", "dog-sit": "tail wags twice, one blink (frame 5)",
         "dog-bark": "two barks (open mouth frames 1-2 and 5-6), small front-paw bounce", "dog-sleep": "slow breathing, tail-tip twitch",
-        "dog-wake": "wakes: eyes open (1), head up (2), pushes up on his front legs (3), sits up (4–6), settles into dog-sit (7)",
+        "dog-wake": "wakes: eyes open (1), head up (2–4), pushes up on his front legs (5–8), sits up (9–11), a small settle into dog-sit (12–13)",
         "fox-stand-sing": "sings standing: eyes close, mouth opens wide (1–5), closes to the smile (6–7), head sways up, scarf end flies",
         "hen-idle": "blink, head bob", "duck-idle": "blink, head bob", "rabbit-idle": "blink, small ear twitch"}
 ONLY = sys.argv[1:]
-REST = {"dog-wake": 7}   # reduced motion holds the end of the wake: the dog awake and sitting
+REST = {"dog-wake": -1}   # reduced motion holds the end of the wake (its last cell, dog-sit f0): the dog awake and sitting
 LOOP = {"dog-wake": False}
 clips = {}
 for c, r in R.items():
@@ -38,7 +38,7 @@ for c, r in R.items():
     main = "seat" if "seat" in r["anchors"] else "feet"
     clips[c] = {
         "img": "anim/" + c + ".webp", "frames": sh["frames"], "cols": sh["cols"], "frameWidth": sh["frameWidth"], "frameHeight": sh["frameHeight"],
-        "fps": round(1000 / sh["durationsMs"][0], 3), "durationsMs": sh["durationsMs"], "loop": LOOP.get(c, True), "rest": REST.get(c, 0),
+        "fps": round(1000 / sh["durationsMs"][0], 3), "durationsMs": sh["durationsMs"], "loop": LOOP.get(c, True), "rest": REST.get(c, 0) % sh["frames"],
         "anchor": r["anchors"][main], "anchorKind": main, "anchors": r["anchors"],
         "pxPerU": round(ppu, 4), "cellWidthU": round(sh["frameWidth"] / ppu, 2), "cellHeightU": round(sh["frameHeight"] / ppu, 2),
         "static": st["file"], "scaleToStatic": r["outScale"],

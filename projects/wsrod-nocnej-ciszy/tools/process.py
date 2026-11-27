@@ -23,6 +23,9 @@ OUT_SCALE = 0.5
 PAD = 6   # px at output scale
 CREAM = (239, 228, 200)
 
+# the dog-wake cells (see CLIPS); SEQ_WAKE in the environment overrides it for trying sequences
+SEQ_WAKE = json.loads(os.environ['SEQ_WAKE']) if os.environ.get('SEQ_WAKE') else [(0, 1), (1, 1), (2, 1), (3, .93), (3, 1), (4, 1), (5, 1), (6, 1), (7, .93), (7, 1), (8, .94), (11, .94), (11, 1.01), (11, 1)]
+
 # clip: gif, static picture it is registered to / sized against, how its scale is found, anchor rule, timing
 CLIPS = {
     "fox-sit":     dict(static="fox", reg="iou", anchor="static", ms=150, loop=True),
@@ -38,7 +41,13 @@ CLIPS = {
     # dog-wake is a one-shot between two strips: gif frame 0 is registered on dog-sleep's frame 0, the last on dog-sit's,
     # the frames between get a transform interpolated by how far he has sat up (figure height), and the two end cells
     # ARE those strips' frames (ends="exact"), so the page's hand-over in and out is pixel-identical.
-    "dog-wake":    dict(static="dog", reg=("ends", "dog-sleep", "dog-sit"), anchor="static", ms=110, loop=False, outer_ink=6, ends="exact"),
+    # 12-frame GIF (c4), 14 cells (SEQ_WAKE). The review asked for no step over ~23 (mean |Δ| at 844×390) and no height
+    # step over 8 px, and the end painted from dog-sit's own pixels: cell 0 = dog-sleep f0, GIF 1–2, GIF 3 at 0.93 tall
+    # then GIF 3 (an in-between the GIF lacks), GIF 4–6, GIF 7 at 0.93 then GIF 7, GIF 8 at 0.94, then dog-sit f0 at 0.94
+    # and 1.01 tall (the last of the rise and a small settle) and dog-sit f0 itself. Chosen with the reviewer's metric
+    # offline over the candidates (scratch proxy), then measured in the page.
+    "dog-wake":    dict(static="dog", reg=("ends", "dog-sleep", "dog-sit"), anchor="static", ms=80, loop=False, outer_ink=6, ends="exact",
+                        sequence=SEQ_WAKE),
     "fox-stand-sing": dict(static="fox", reg=("clip", "fox-stand", 0), anchor="feet", ms=150, loop=True, feet_on=True),
     "hen-idle":    dict(static="hen", reg="iou", anchor="static", ms=160, loop=True, out=.25),
     "duck-idle":   dict(static="duck", reg="iou", anchor="static", ms=160, loop=True, out=.25),
@@ -129,12 +138,12 @@ def place(mask_src, s, dx, dy, shape):
     return out
 
 
-def register_iou(gmask, smask):
+def register_iou(gmask, smask, k0=1.0):
     """scale s (static px per GIF px) and offset (dx,dy) maximising IoU, coarse on /4 masks then refined on /2."""
     def down(m, k):
         return np.array(Image.fromarray(m.astype(np.uint8) * 255).resize((m.shape[1] // k, m.shape[0] // k), Image.BILINEAR)) > 127
     best = None
-    for k, s_range, t_rad, t_step in ((4, np.arange(.80, 1.30, .02), 0, 0), (2, None, 6, 1)):
+    for k, s_range, t_rad, t_step in ((4, np.arange(.80 * k0, 1.30 * k0, .02 * k0), 0, 0), (2, None, 6, 1)):
         g, st = down(gmask, k), down(smask, k)
         if s_range is None:
             s0 = best[1]; s_range = np.arange(s0 - .02, s0 + .021, .005)
@@ -198,6 +207,18 @@ def edge_fringe(a):
     return dict(edgePx=int(n), blueShare=round(blue / max(1, n), 4), creamShare=round(cream / max(1, n), 3), darkShare=round(dark / max(1, n), 3))
 
 
+def squash(cell, sy):
+    """the cell's figure scaled vertically by sy about its lowest opaque row (x untouched): an in-between for a rise,
+    or the sitting dog's own pixels a touch short / a touch tall for the settle."""
+    h, w = cell.shape[:2]; bottom = np.nonzero((cell[..., 3] > 127).any(1))[0].max() + 1
+    nh = max(1, round(bottom * sy)); top = resize_rgba(cell[:bottom], (w, nh))
+    out = np.zeros_like(cell); y0 = bottom - nh
+    if y0 >= 0: out[y0:bottom] = top
+    else: out[0:bottom] = top[-y0:]
+    out[bottom:] = cell[bottom:]
+    return out
+
+
 def register_clip(results, sibn, frame, sim, s_rim, noise, depth):
     """register one GIF frame (with a provisional rim) on a processed sibling strip's frame 0, in static-cell space."""
     sib = results[sibn]; so = sib["outScale"]; offx, offy = 400, 200
@@ -207,7 +228,7 @@ def register_clip(results, sibn, frame, sim, s_rim, noise, depth):
     ox, oy = int(sib["cellOrigin"][0]) + offx, int(sib["cellOrigin"][1]) + offy
     T[oy:oy + big.shape[0], ox:ox + big.shape[1]] = big[..., 3] > 127
     prov, _ = rebuild_rim(frame, s_rim, noise, depth)
-    iou, s, dx, dy = register_iou(mask_from(prov), T)
+    iou, s, dx, dy = register_iou(mask_from(prov), T, 960 / frame.shape[1])   # a 768 px GIF draws the figure smaller
     return iou, s, dx - offx, dy - offy
 
 
@@ -251,6 +272,16 @@ def main(names):
         DY = dy if isinstance(dy, list) else [dy] * len(frames)
         rim_gif = s_rim / float(np.median(S))
         built = [rebuild_rim(f, s_rim / si, noise, depth)[0] for f, si in zip(frames, S)]
+        if reg[0] == "ends":
+            # on the ground the whole way: each frame's lowest row on the line between the two strips' own lowest rows
+            # (the blended transform alone left the middle of the rise floating up to 4 px at 844×390)
+            def sib_bottom(n):
+                sb = results[n]; m = np.array(Image.open(os.path.join(HERE, "frames", n, "frame_000.png")))[..., 3] > 127
+                return sb["cellOrigin"][1] + (np.nonzero(m.any(1))[0].max() + .5) / sb["outScale"]
+            b0, b1 = sib_bottom(reg[1]), sib_bottom(reg[2])
+            for i, b in enumerate(built):
+                mine = DY[i] + S[i] * (np.nonzero(mask_from(b).any(1))[0].max() + .5)
+                DY[i] += b0 + (b1 - b0) * u[i] - mine
         if cfg.get("feet_on") and reg[0] == "clip":
             # the silhouette fit leaves the feet where the whole outline fits best; a standing pose must keep its feet on
             # the sibling's ground line (a cross-fade otherwise lifts him): move it down/up to the sibling's lowest row
@@ -309,6 +340,8 @@ def main(names):
                 cell[ys0:ys1, xs0:xs1] = f0[ys0 - py:ys1 - py, xs0 - px:xs1 - px]
                 assert (f0[..., 3] > 0).sum() == (cell[..., 3] > 0).sum(), "end cell cut off"
                 outs[k] = cell
+        if cfg.get("sequence"):   # the shipped cells, in order: (cell index, vertical scale about its own feet row)
+            outs = [outs[i] if sy == 1 else squash(outs[i], sy) for i, sy in cfg["sequence"]]
         # anchors (static-cell px → output px)
         anchors = {}
         for k, (axs, ays) in aj["anchor"].items():
