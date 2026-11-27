@@ -1,0 +1,1 @@
+{"reindeer-toss": {"fit": {"s": 0.4355, "tx": -6, "ty": -40, "torsoIoU": 0.957}, "cell": [380, 386], "anchor": [209, 376], "figH": 373}, "reindeer-prance": {"fit": {"s": 0.4209, "tx": -21, "ty": -48, "torsoIoU": 0.972}, "cell": [380, 408], "anchor": [209, 398], "figH": 373}}
